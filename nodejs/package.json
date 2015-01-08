@@ -1,0 +1,37 @@
+{
+    "author": "gtfs-realtime@googlegroups.com",
+    "name": "gtfs-realtime-bindings",
+    "description": "Javascript classes generated from the GTFS-realtime protocol buffer specification.",
+    "tags": [
+        "gtfs-realtime"
+    ],
+    "version": "0.0.1",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/google/gtfs-realtime-bindings.git"
+    },
+    "bugs": {
+        "url": "https://github.com/google/gtfs-realtime-bindings/issues"
+    },
+    "main": "gtfs-realtime.js",
+    "scripts": {
+        "test": "mocha test/*.js",
+        "buildProto": "node_modules/protobufjs/bin/proto2js ../gtfs-realtime.proto -commonjs > gtfs-realtime.js"
+    },
+    "engines": [
+        "node >= 0.10.0"
+    ],
+    "dependencies": {
+        "protobufjs": "2.0.5"
+    },
+    "devDependencies": {
+        "mocha": "1.19.0",
+        "should": "3.3.1"
+    },
+    "licenses": [
+        {
+            "type": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0"
+        }
+    ]
+}
