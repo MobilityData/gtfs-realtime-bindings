@@ -28,8 +28,6 @@ except ImportError:
     "ez_setup installed.\n")
   raise
 
-maintainer_email = "protobuf@googlegroups.com"
-
 if __name__ == '__main__':
   ext_module_list = []
 
