@@ -1,11 +1,13 @@
-Provides Python classes generated from the [GTFS-realtime](https://developers.google.com/transit/gtfs-realtime/)
-Protocol Buffer specification.  These classes will allow you to parse a binary Protocol Buffer
-GTFS-realtime data feed into Python objects.
+Provides Python classes generated from the
+[GTFS-realtime](https://developers.google.com/transit/gtfs-realtime/) Protocol
+Buffer specification.  These classes will allow you to parse a binary Protocol
+Buffer GTFS-realtime data feed into Python objects.
 
-## Add the Dependency 
+## Add the Dependency
 
-To use the `gtfs-realtime-bindings` classes in your own project, you need to first
-install the module from the [PyPI repository](https://pypi.python.org/pypi/transitfeed).
+To use the `gtfs-realtime-bindings` classes in your own project, you need to
+first install the module from the
+[PyPI repository](https://pypi.python.org/pypi/transitfeed).
 
 ```
 # Using easy_install
@@ -33,7 +35,9 @@ for entity in feed.entity:
     print entity.trip_update
 ```
 
-For more details on the naming conventions for the Python classes generated from
-the [gtfs-realtime.proto](https://developers.google.com/transit/gtfs-realtime/gtfs-realtime-proto),
-check out the [Python Generated Code](https://developers.google.com/protocol-buffers/docs/reference/python-generated)
+For more details on the naming conventions for the Python classes generated
+from the
+[gtfs-realtime.proto](https://developers.google.com/transit/gtfs-realtime/gtfs-realtime-proto),
+check out the
+[Python Generated Code](https://developers.google.com/protocol-buffers/docs/reference/python-generated)
 section of the Protocol Buffers developer site.
