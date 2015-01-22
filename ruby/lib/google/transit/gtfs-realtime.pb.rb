@@ -63,6 +63,16 @@ module Transit_realtime
       define :SEVERE_CONGESTION, 4
     end
 
+    class OccupancyStatus < ::Protobuf::Enum
+      define :EMPTY, 0
+      define :MANY_SEATS_AVAILABLE, 1
+      define :FEW_SEATS_AVAILABLE, 2
+      define :STANDING_ROOM_ONLY, 3
+      define :CRUSHED_STANDING_ROOM_ONLY, 4
+      define :FULL, 5
+      define :NOT_ACCEPTING_PASSENGERS, 6
+    end
+
   end
 
   class Alert < ::Protobuf::Message
@@ -176,6 +186,7 @@ module Transit_realtime
     optional ::Transit_realtime::VehiclePosition::VehicleStopStatus, :current_status, 4, :default => ::Transit_realtime::VehiclePosition::VehicleStopStatus::IN_TRANSIT_TO
     optional :uint64, :timestamp, 5
     optional ::Transit_realtime::VehiclePosition::CongestionLevel, :congestion_level, 6
+    optional ::Transit_realtime::VehiclePosition::OccupancyStatus, :occupancy_status, 9
     # Extension Fields
     extensions 1000...2000
   end

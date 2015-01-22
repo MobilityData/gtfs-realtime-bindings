@@ -189,7 +189,7 @@ message TripUpdate {
       // stops, although not necessarily according to the times of the schedule.
       // At least one of arrival and departure must be provided. If the schedule
       // for this stop contains both arrival and departure times then so must
-      // this update. 
+      // this update.
       SCHEDULED = 0;
 
       // The stop is skipped, i.e., the vehicle will not stop at this stop.
@@ -295,6 +295,43 @@ message VehiclePosition {
     SEVERE_CONGESTION = 4;  // People leaving their cars.
   }
   optional CongestionLevel congestion_level = 6;
+
+  // The degree of passenger occupancy of the vehicle. This field is still
+  // experimental, and subject to change. It may be formally adopted in the
+  // future.
+  enum OccupancyStatus {
+    // The vehicle is considered empty by most measures, and has few or no
+    // passengers onboard, but is still accepting passengers.
+    EMPTY = 0;
+
+    // The vehicle has a relatively large percentage of seats available.
+    // What percentage of free seats out of the total seats available is to be
+    // considered large enough to fall into this category is determined at the
+    // discretion of the producer.
+    MANY_SEATS_AVAILABLE = 1;
+
+    // The vehicle has a relatively small percentage of seats available.
+    // What percentage of free seats out of the total seats available is to be
+    // considered small enough to fall into this category is determined at the
+    // discretion of the feed producer.
+    FEW_SEATS_AVAILABLE = 2;
+
+    // The vehicle can currently accommodate only standing passengers.
+    STANDING_ROOM_ONLY = 3;
+
+    // The vehicle can currently accommodate only standing passengers
+    // and has limited space for them.
+    CRUSHED_STANDING_ROOM_ONLY = 4;
+
+    // The vehicle is considered full by most measures, but may still be
+    // allowing passengers to board.
+    FULL = 5;
+
+    // The vehicle is not accepting additional passengers.
+    NOT_ACCEPTING_PASSENGERS = 6;
+
+  }
+  optional OccupancyStatus occupancy_status = 9;
 
   // The extensions namespace allows 3rd-party developers to extend the
   // GTFS-realtime specification in order to add and evaluate new features and
@@ -420,20 +457,29 @@ message Position {
 //   addition, absolute arrival/departure times must be provided.
 message TripDescriptor {
   // The trip_id from the GTFS feed that this selector refers to.
-  // For non frequency expanded trips, this field is enough to uniquely identify
-  // the trip. For frequency expanded, start_time and start_date might also be
+  // For non frequency-based trips, this field is enough to uniquely identify
+  // the trip. For frequency-based trip, start_time and start_date might also be
   // necessary.
   optional string trip_id = 1;
 
   // The route_id from the GTFS that this selector refers to.
   optional string route_id = 5;
 
-  // The scheduled start time of this trip instance.
-  // This field should be given only if the trip is frequency-expanded in the
-  // GTFS feed. The value must precisely correspond to start_time specified for
-  // the route in the GTFS feed plus some multiple of headway_secs.
-  // Format of the field is same as that of GTFS/frequencies.txt/start_time,
-  // e.g., 11:15:35 or 25:15:35.
+  // The initially scheduled start time of this trip instance.
+  // When the trip_id corresponds to a non-frequency-based trip, this field
+  // should either be omitted or be equal to the value in the GTFS feed. When
+  // the trip_id correponds to a frequency-based trip, the start_time must be
+  // specified for trip updates and vehicle positions. If the trip corresponds
+  // to exact_times=1 GTFS record, then start_time must be some multiple
+  // (including zero) of headway_secs later than frequencies.txt start_time for
+  // the corresponding time period. If the trip corresponds to exact_times=0,
+  // then its start_time may be arbitrary, and is initially expected to be the
+  // first departure of the trip. Once established, the start_time of this
+  // frequency-based trip should be considered immutable, even if the first
+  // departure time changes -- that time change may instead be reflected in a
+  // StopTimeUpdate.
+  // Format and semantics of the field is same as that of
+  // GTFS/frequencies.txt/start_time, e.g., 11:15:35 or 25:15:35.
   optional string start_time = 2;
   // The scheduled start date of this trip instance.
   // Must be provided to disambiguate trips that are so late as to collide with
@@ -539,4 +585,3 @@ message TranslatedString {
   // At least one translation must be provided.
   repeated Translation translation = 1;
 }
-

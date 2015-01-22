@@ -335,6 +335,13 @@ module.exports = require("protobufjs").newBuilder().import({
                     "name": "congestion_level",
                     "id": 6,
                     "options": {}
+                },
+                {
+                    "rule": "optional",
+                    "type": "OccupancyStatus",
+                    "name": "occupancy_status",
+                    "id": 9,
+                    "options": {}
                 }
             ],
             "enums": [
@@ -378,6 +385,40 @@ module.exports = require("protobufjs").newBuilder().import({
                         {
                             "name": "SEVERE_CONGESTION",
                             "id": 4
+                        }
+                    ],
+                    "options": {}
+                },
+                {
+                    "name": "OccupancyStatus",
+                    "values": [
+                        {
+                            "name": "EMPTY",
+                            "id": 0
+                        },
+                        {
+                            "name": "MANY_SEATS_AVAILABLE",
+                            "id": 1
+                        },
+                        {
+                            "name": "FEW_SEATS_AVAILABLE",
+                            "id": 2
+                        },
+                        {
+                            "name": "STANDING_ROOM_ONLY",
+                            "id": 3
+                        },
+                        {
+                            "name": "CRUSHED_STANDING_ROOM_ONLY",
+                            "id": 4
+                        },
+                        {
+                            "name": "FULL",
+                            "id": 5
+                        },
+                        {
+                            "name": "NOT_ACCEPTING_PASSENGERS",
+                            "id": 6
                         }
                     ],
                     "options": {}
