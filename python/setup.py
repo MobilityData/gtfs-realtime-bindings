@@ -37,8 +37,15 @@ if __name__ == '__main__':
         namespace_packages = ['google'],
         install_requires = ['setuptools', 'protobuf'],
         url = 'https://github.com/google/gtfs-realtime-bindings',
-        maintainer = 'gtfs-realtime@googlegroups.com',
+        maintainer = 'Google Inc.',
         maintainer_email = 'gtfs-realtime@googlegroups.com',
         license = 'Apache License, Version 2.0',
-        description = 'Python classes generated from the GTFS-realtime protocol buffer specification.'
-        )
+        description = 'Python classes generated from the GTFS-realtime protocol buffer specification.',
+        classifiers=[
+          'Intended Audience :: Developers',
+          'License :: OSI Approved :: Apache Software License',
+          'Operating System :: OS Independent',
+          'Programming Language :: Python',
+          'Topic :: Software Development :: Libraries :: Python Modules'
+        ],
+  )
