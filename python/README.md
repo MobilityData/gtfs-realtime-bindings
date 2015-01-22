@@ -1,5 +1,7 @@
 # Python GTFS-realtime Language Bindings
 
+[![PyPI version](https://badge.fury.io/py/gtfs-realtime-bindings.svg)](http://badge.fury.io/py/gtfs-realtime-bindings)
+
 Provides Python classes generated from the
 [GTFS-realtime](https://developers.google.com/transit/gtfs-realtime/) Protocol
 Buffer specification.  These classes will allow you to parse a binary Protocol
