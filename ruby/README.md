@@ -1,3 +1,5 @@
+# Ruby GTFS-realtime Language Bindings
+
 Provides Ruby classes generated from the
 [GTFS-realtime](https://developers.google.com/transit/gtfs-realtime/) Protocol
 Buffer specification.  These classes will allow you to parse a binary Protocol
