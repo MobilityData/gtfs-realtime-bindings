@@ -34,7 +34,7 @@
 
   <scm>
     <connection>scm:git:http://github.com/google/gtfs-realtime-bindings.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/google/gtfs-realtime-bindings.git</developerConnection>
+    <developerConnection>scm:git:https://github.com/google/gtfs-realtime-bindings.git</developerConnection>
     <url>http://github.com/google/gtfs-realtime-bindings</url>
   </scm>
 
