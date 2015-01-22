@@ -1,5 +1,7 @@
 # JavaScript GTFS-realtime Language Bindings
 
+[![npm version](https://badge.fury.io/js/gtfs-realtime-bindings.svg)](http://badge.fury.io/js/gtfs-realtime-bindings)
+
 Provides JavaScript classes generated from the
 [GTFS-realtime](https://developers.google.com/transit/gtfs-realtime/) Protocol
 Buffer specification.  These classes will allow you to parse a binary Protocol
