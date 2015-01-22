@@ -1,5 +1,5 @@
 {
-    "author": "gtfs-realtime@googlegroups.com",
+    "author": "Google Inc.",
     "name": "gtfs-realtime-bindings",
     "description": "Javascript classes generated from the GTFS-realtime protocol buffer specification.",
     "tags": [
