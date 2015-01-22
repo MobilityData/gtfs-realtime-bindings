@@ -9,14 +9,14 @@ Buffer GTFS-realtime data feed into Python objects.
 
 To use the `gtfs-realtime-bindings` classes in your own project, you need to
 first install the module from the
-[PyPI repository](https://pypi.python.org/pypi/transitfeed).
+[PyPI repository](https://pypi.python.org/pypi/gtfs-realtime-bindings).
 
 ```
 # Using easy_install
-easy_install gtfs-realtime-bindings
+easy_install --upgrade gtfs-realtime-bindings
 
 # Using pip
-pip install gtfs-realtime-bindings
+pip install --upgrade gtfs-realtime-bindings
 ```
 
 ## Example Code
