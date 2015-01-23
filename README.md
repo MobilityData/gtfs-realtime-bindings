@@ -27,7 +27,7 @@ pre-generated GTFS-realtime language bindings for a number of the most popular
 programming languages.  Where possible, these language bindings will be
 published as packages to facilitate their use in other projects.
 
-## Support Languages
+## Supported Languages
 
 * [.NET](dotnet/README.md)
 * [Java](java/README.md)
