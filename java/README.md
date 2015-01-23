@@ -1,5 +1,7 @@
 # Java GTFS-realtime Language Bindings
 
+![Maven Central Version](https://img.shields.io/maven-central/v/com.google.transit/gtfs-realtime-bindings.svg)
+
 Provides Java classes generated from the [GTFS-realtime](https://developers.google.com/transit/gtfs-realtime/)
 Protocol Buffer specification.  These classes will allow you to parse a binary Protocol Buffer
 GTFS-realtime data feed into Java objects.
