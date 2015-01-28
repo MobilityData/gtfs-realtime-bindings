@@ -3,7 +3,7 @@
 Regenerate the language binding source from gtfs-realtime.proto.
 
 ```
-protogen.exe -i:gtfs-realtime.proto -o:dotnet\GtfsRealtimeBindings\GfsRealtime.cs
+protogen.exe -i:gtfs-realtime.proto -o:dotnet\GtfsRealtimeBindings\GtfsRealtime.cs
 ```
 protogen.exe is taken from the V1 release of protobuf-net
 
@@ -13,9 +13,11 @@ Update version number as needed.
 
 Update .nuspec with latest release notes.
 
+Rebuild the solution for Release.
+
 Build and deploy the package to NuGet.
 
 ```
-nuget pack GtfsRealtimeBindings.csproj
+nuget pack GtfsRealtimeBindings.csproj -Prop Configuration=Release
 nuget push GtfsRealtimeBindings-X.Y.Z.nupkg
 ```
