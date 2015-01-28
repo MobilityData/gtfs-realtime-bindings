@@ -163,6 +163,13 @@ module.exports = require("protobufjs").newBuilder().import({
                     "name": "timestamp",
                     "id": 4,
                     "options": {}
+                },
+                {
+                    "rule": "optional",
+                    "type": "int32",
+                    "name": "delay",
+                    "id": 5,
+                    "options": {}
                 }
             ],
             "enums": [],
