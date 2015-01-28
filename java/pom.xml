@@ -24,7 +24,7 @@
 
   <groupId>com.google.transit</groupId>
   <artifactId>gtfs-realtime-bindings</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
+  <version>0.0.2</version>
 
   <name>gtfs-realtime-bindings</name>
   <description>Java classes generated from the GTFS-realtime protocol buffer specification.</description>
@@ -34,6 +34,7 @@
     <connection>scm:git:http://github.com/google/gtfs-realtime-bindings.git</connection>
     <developerConnection>scm:git:https://github.com/google/gtfs-realtime-bindings.git</developerConnection>
     <url>http://github.com/google/gtfs-realtime-bindings</url>
+    <tag>gtfs-realtime-bindings-java-0.0.2</tag>
   </scm>
 
   <issueManagement>
