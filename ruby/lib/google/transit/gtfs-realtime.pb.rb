@@ -173,6 +173,7 @@ module Transit_realtime
     optional ::Transit_realtime::VehicleDescriptor, :vehicle, 3
     repeated ::Transit_realtime::TripUpdate::StopTimeUpdate, :stop_time_update, 2
     optional :uint64, :timestamp, 4
+    optional :int32, :delay, 5
     # Extension Fields
     extensions 1000...2000
   end
