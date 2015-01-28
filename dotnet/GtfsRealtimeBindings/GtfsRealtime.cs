@@ -184,6 +184,15 @@ namespace transit_realtime
       get { return _timestamp; }
       set { _timestamp = value; }
     }
+
+    private int _delay = default(int);
+    [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"delay", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int delay
+    {
+      get { return _delay; }
+      set { _delay = value; }
+    }
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"StopTimeEvent")]
   public partial class StopTimeEvent : global::ProtoBuf.IExtensible
   {

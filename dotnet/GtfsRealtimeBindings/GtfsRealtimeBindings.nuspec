@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/google/gtfs-realtime-bindings/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Initial release.</releaseNotes>
+    <releaseNotes>Update .NET to latest gtfs-realtime.proto - Jan 28, 2015</releaseNotes>
     <copyright>Copyright 2015</copyright>
     <tags>gtfs-realtime</tags>
     <dependencies>
