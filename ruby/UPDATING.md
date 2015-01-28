@@ -3,7 +3,7 @@
 Regenerate the language binding source from gtfs-realtime.proto.
 
 ```
-protoc --ruby_out=lib/google/transit gtfs-realtime.proto
+protoc --ruby_out=lib/google/transit --proto_path=.. ../gtfs-realtime.proto
 ```
 
 Add the license header back to the generated source file.
@@ -13,6 +13,8 @@ Test the generated code:
 ```
 rspec specs/
 ````
+
+Update the version number in `gtfs-realtime-bindings.gemspec`.
 
 Build and deploy the gem to rubygems.org
 
