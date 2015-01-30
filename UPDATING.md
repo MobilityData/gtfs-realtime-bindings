@@ -8,3 +8,9 @@ deployed.
 First step is to copy the latest version of `gtfs-realtime.proto` into project.
 Then, follow the instructions in each individual UPDATING.md file for each
 language type. 
+
+* [.NET](dotnet/UPDATING.md)
+* [Java](java/UPDATING.md)
+* [JavaScript / Node.js](nodejs/UPDATING.md)
+* [Python](python/UPDATING.md)
+* [Ruby](ruby/UPDATING.md)
