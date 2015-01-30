@@ -36,7 +36,11 @@ module.exports = require("protobufjs").newBuilder().import({
             ],
             "enums": [],
             "messages": [],
-            "options": {}
+            "options": {},
+            "extensions": [
+                1000,
+                1999
+            ]
         },
         {
             "name": "FeedHeader",
@@ -131,7 +135,11 @@ module.exports = require("protobufjs").newBuilder().import({
             ],
             "enums": [],
             "messages": [],
-            "options": {}
+            "options": {},
+            "extensions": [
+                1000,
+                1999
+            ]
         },
         {
             "name": "TripUpdate",
@@ -620,7 +628,11 @@ module.exports = require("protobufjs").newBuilder().import({
             ],
             "enums": [],
             "messages": [],
-            "options": {}
+            "options": {},
+            "extensions": [
+                1000,
+                1999
+            ]
         },
         {
             "name": "Position",
@@ -852,10 +864,18 @@ module.exports = require("protobufjs").newBuilder().import({
                     ],
                     "enums": [],
                     "messages": [],
-                    "options": {}
+                    "options": {},
+                    "extensions": [
+                        1000,
+                        1999
+                    ]
                 }
             ],
-            "options": {}
+            "options": {},
+            "extensions": [
+                1000,
+                1999
+            ]
         }
     ],
     "enums": [],
