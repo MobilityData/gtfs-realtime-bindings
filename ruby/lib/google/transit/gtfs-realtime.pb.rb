@@ -132,6 +132,8 @@ module Transit_realtime
   class FeedMessage
     required ::Transit_realtime::FeedHeader, :header, 1
     repeated ::Transit_realtime::FeedEntity, :entity, 2
+    # Extension Fields
+    extensions 1000...2000
   end
 
   class FeedHeader
@@ -148,6 +150,8 @@ module Transit_realtime
     optional ::Transit_realtime::TripUpdate, :trip_update, 3
     optional ::Transit_realtime::VehiclePosition, :vehicle, 4
     optional ::Transit_realtime::Alert, :alert, 5
+    # Extension Fields
+    extensions 1000...2000
   end
 
   class TripUpdate
@@ -207,6 +211,8 @@ module Transit_realtime
   class TimeRange
     optional :uint64, :start, 1
     optional :uint64, :end, 2
+    # Extension Fields
+    extensions 1000...2000
   end
 
   class Position
@@ -251,9 +257,13 @@ module Transit_realtime
     class Translation
       required :string, :text, 1
       optional :string, :language, 2
+      # Extension Fields
+      extensions 1000...2000
     end
 
     repeated ::Transit_realtime::TranslatedString::Translation, :translation, 1
+    # Extension Fields
+    extensions 1000...2000
   end
 
 end
