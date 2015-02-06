@@ -11,7 +11,7 @@ Buffer GTFS-realtime data feed into C# objects.
 
 To use the `gtfs-realtime-bindings` classes in your own project, you need to
 first install the module from the
-[NuGet repository](https://www.nuget.org/).
+[NuGet repository](https://www.nuget.org/packages/GtfsRealtimeBindings/).
 
 ```
 Install-Package GtfsRealtimeBindings

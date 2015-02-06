@@ -17,7 +17,7 @@ JavaScript Protocol Buffer support.
 ## Add the Dependency
 
 To use the `gtfs-realtime-bindings` classes in your own project, you need to
-first install our Node.js npm package:
+first install our [Node.js npm package](https://www.npmjs.com/package/gtfs-realtime-bindings):
 
 ```
 npm install gtfs-realtime-bindings

@@ -10,7 +10,7 @@ Buffer GTFS-realtime data feed into Ruby objects.
 ## Add the Dependency
 
 To use the `gtfs-realtime-bindings` classes in your own project, you need to
-first install the Ruby gem:
+first install the [Ruby gem](https://rubygems.org/gems/gtfs-realtime-bindings):
 
 ```
 gem install gtfs-realtime-bindings
