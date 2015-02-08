@@ -20,14 +20,3 @@ Test the generated code:
 vendor/bin/phpunit
 ````
 
-Update the version number in `gtfs-realtime-bindings.gemspec`.
-
-Build and deploy the gem to rubygems.org
-
-```
-gem build gtfs-realtime-bindings.gemspec
-gem push gtfs-realtime-bindings-0.0.1.gem
-```
-
-
-php /usr/local/bin/composer install
