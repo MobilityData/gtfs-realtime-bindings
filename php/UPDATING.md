@@ -23,6 +23,8 @@ vendor/bin/protoc-gen-php.php --include=. --out=php/src ./gtfs-realtime.proto
 
 Add the license header back to the generated source file.
 
+s/EMPTY/EMPTY0/ in OccupancyStatus enum, since EMPTY is a reserved word in PHP.
+
 Test the generated code:
 
 ```
