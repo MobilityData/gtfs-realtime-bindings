@@ -12,5 +12,6 @@ language type.
 * [.NET](dotnet/UPDATING.md)
 * [Java](java/UPDATING.md)
 * [JavaScript / Node.js](nodejs/UPDATING.md)
+* [PHP](php/UPDATING.md)
 * [Python](python/UPDATING.md)
 * [Ruby](ruby/UPDATING.md)
