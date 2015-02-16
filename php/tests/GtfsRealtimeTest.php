@@ -21,7 +21,7 @@ class GtfsRealtimeTest extends PHPUnit_Framework_TestCase
 {
   public function testParse()
   {
-    $data = file_get_contents("./tests/vehicle_position.pb");
+    $data = file_get_contents(dirname(__FILE__) . "/vehicle_position.pb");
     $feed = new FeedMessage();
     $feed->parse($data);
     $this->assertEquals(1, count($feed->getEntityList()));

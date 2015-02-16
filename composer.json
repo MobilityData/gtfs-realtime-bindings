@@ -13,6 +13,6 @@
       "phpunit/phpunit": "3.7.*"
     },
     "autoload": {
-        "classmap": ["src/"]
+        "classmap": ["php/src/"]
     }
 }
