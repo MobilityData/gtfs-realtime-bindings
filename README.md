@@ -32,7 +32,7 @@ published as packages to facilitate their use in other projects.
 * [.NET](dotnet/README.md)
 * [Java](java/README.md)
 * [JavaScript / Node.js](nodejs/README.md)
-* [PHP](php/README.md)
+* [PHP](https://github.com/google/gtfs-realtime-bindings-php)
 * [Python](python/README.md)
 * [Ruby](ruby/README.md)
 
