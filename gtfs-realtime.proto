@@ -496,6 +496,12 @@ message TripDescriptor {
   // The route_id from the GTFS that this selector refers to.
   optional string route_id = 5;
 
+  // The direction_id from the GTFS feed trips.txt file, indicating the
+  // direction of travel for trips this selector refers to. This field is
+  // still experimental, and subject to change. It may be formally adopted in
+  // the future.
+  optional uint32 direction_id = 6;
+
   // The initially scheduled start time of this trip instance.
   // When the trip_id corresponds to a non-frequency-based trip, this field
   // should either be omitted or be equal to the value in the GTFS feed. When
