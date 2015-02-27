@@ -9,7 +9,7 @@ protogen.exe is taken from the V1 release of protobuf-net
 
 Add the license header back to the generated source file.
 
-Update version number as needed.
+Update version number as needed in AssemblyInfo.cs.
 
 Update .nuspec with latest release notes.
 
