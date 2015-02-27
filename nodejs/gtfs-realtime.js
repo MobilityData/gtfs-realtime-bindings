@@ -700,6 +700,13 @@ module.exports = require("protobufjs").newBuilder().import({
                 },
                 {
                     "rule": "optional",
+                    "type": "uint32",
+                    "name": "direction_id",
+                    "id": 6,
+                    "options": {}
+                },
+                {
+                    "rule": "optional",
                     "type": "string",
                     "name": "start_time",
                     "id": 2,
