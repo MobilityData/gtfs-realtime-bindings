@@ -700,6 +700,15 @@ namespace transit_realtime
       set { _route_id = value; }
     }
 
+    private uint _direction_id = default(uint);
+    [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"direction_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(uint))]
+    public uint direction_id
+    {
+      get { return _direction_id; }
+      set { _direction_id = value; }
+    }
+
     private string _start_time = "";
     [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"start_time", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue("")]
