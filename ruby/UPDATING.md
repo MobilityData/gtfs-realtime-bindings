@@ -11,7 +11,7 @@ Add the license header back to the generated source file.
 Test the generated code:
 
 ```
-rspec specs/
+rspec
 ````
 
 Update the version number in `gtfs-realtime-bindings.gemspec`.
