@@ -32,7 +32,7 @@ if __name__ == '__main__':
   ext_module_list = []
 
   setup(name = 'gtfs-realtime-bindings',
-        version = '0.0.3',
+        version = '0.0.4',
         packages = ['google', 'google.transit'],
         namespace_packages = ['google'],
         install_requires = ['setuptools', 'protobuf'],
