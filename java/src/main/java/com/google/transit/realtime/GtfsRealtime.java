@@ -14548,6 +14548,30 @@ public final class GtfsRealtime {
     com.google.protobuf.ByteString
         getRouteIdBytes();
 
+    // optional uint32 direction_id = 6;
+    /**
+     * <code>optional uint32 direction_id = 6;</code>
+     *
+     * <pre>
+     * The direction_id from the GTFS feed trips.txt file, indicating the
+     * direction of travel for trips this selector refers to. This field is
+     * still experimental, and subject to change. It may be formally adopted in
+     * the future.
+     * </pre>
+     */
+    boolean hasDirectionId();
+    /**
+     * <code>optional uint32 direction_id = 6;</code>
+     *
+     * <pre>
+     * The direction_id from the GTFS feed trips.txt file, indicating the
+     * direction of travel for trips this selector refers to. This field is
+     * still experimental, and subject to change. It may be formally adopted in
+     * the future.
+     * </pre>
+     */
+    int getDirectionId();
+
     // optional string start_time = 2;
     /**
      * <code>optional string start_time = 2;</code>
@@ -14750,12 +14774,12 @@ public final class GtfsRealtime {
               break;
             }
             case 18: {
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000008;
               startTime_ = input.readBytes();
               break;
             }
             case 26: {
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000010;
               startDate_ = input.readBytes();
               break;
             }
@@ -14765,7 +14789,7 @@ public final class GtfsRealtime {
               if (value == null) {
                 unknownFields.mergeVarintField(4, rawValue);
               } else {
-                bitField0_ |= 0x00000010;
+                bitField0_ |= 0x00000020;
                 scheduleRelationship_ = value;
               }
               break;
@@ -14773,6 +14797,11 @@ public final class GtfsRealtime {
             case 42: {
               bitField0_ |= 0x00000002;
               routeId_ = input.readBytes();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000004;
+              directionId_ = input.readUInt32();
               break;
             }
           }
@@ -15080,6 +15109,36 @@ public final class GtfsRealtime {
       }
     }
 
+    // optional uint32 direction_id = 6;
+    public static final int DIRECTION_ID_FIELD_NUMBER = 6;
+    private int directionId_;
+    /**
+     * <code>optional uint32 direction_id = 6;</code>
+     *
+     * <pre>
+     * The direction_id from the GTFS feed trips.txt file, indicating the
+     * direction of travel for trips this selector refers to. This field is
+     * still experimental, and subject to change. It may be formally adopted in
+     * the future.
+     * </pre>
+     */
+    public boolean hasDirectionId() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional uint32 direction_id = 6;</code>
+     *
+     * <pre>
+     * The direction_id from the GTFS feed trips.txt file, indicating the
+     * direction of travel for trips this selector refers to. This field is
+     * still experimental, and subject to change. It may be formally adopted in
+     * the future.
+     * </pre>
+     */
+    public int getDirectionId() {
+      return directionId_;
+    }
+
     // optional string start_time = 2;
     public static final int START_TIME_FIELD_NUMBER = 2;
     private java.lang.Object startTime_;
@@ -15105,7 +15164,7 @@ public final class GtfsRealtime {
      * </pre>
      */
     public boolean hasStartTime() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
      * <code>optional string start_time = 2;</code>
@@ -15197,7 +15256,7 @@ public final class GtfsRealtime {
      * </pre>
      */
     public boolean hasStartDate() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
      * <code>optional string start_date = 3;</code>
@@ -15266,7 +15325,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.TripDescriptor.ScheduleRelationship schedule_relationship = 4;</code>
      */
     public boolean hasScheduleRelationship() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
      * <code>optional .transit_realtime.TripDescriptor.ScheduleRelationship schedule_relationship = 4;</code>
@@ -15278,6 +15337,7 @@ public final class GtfsRealtime {
     private void initFields() {
       tripId_ = "";
       routeId_ = "";
+      directionId_ = 0;
       startTime_ = "";
       startDate_ = "";
       scheduleRelationship_ = com.google.transit.realtime.GtfsRealtime.TripDescriptor.ScheduleRelationship.SCHEDULED;
@@ -15304,17 +15364,20 @@ public final class GtfsRealtime {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBytes(1, getTripIdBytes());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeBytes(2, getStartTimeBytes());
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeBytes(3, getStartDateBytes());
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeEnum(4, scheduleRelationship_.getNumber());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBytes(5, getRouteIdBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeUInt32(6, directionId_);
       }
       extensionWriter.writeUntil(2000, output);
       getUnknownFields().writeTo(output);
@@ -15330,21 +15393,25 @@ public final class GtfsRealtime {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, getTripIdBytes());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, getStartTimeBytes());
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, getStartDateBytes());
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, scheduleRelationship_.getNumber());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(5, getRouteIdBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(6, directionId_);
       }
       size += extensionsSerializedSize();
       size += getUnknownFields().getSerializedSize();
@@ -15479,12 +15546,14 @@ public final class GtfsRealtime {
         bitField0_ = (bitField0_ & ~0x00000001);
         routeId_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        startTime_ = "";
+        directionId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
-        startDate_ = "";
+        startTime_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
-        scheduleRelationship_ = com.google.transit.realtime.GtfsRealtime.TripDescriptor.ScheduleRelationship.SCHEDULED;
+        startDate_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
+        scheduleRelationship_ = com.google.transit.realtime.GtfsRealtime.TripDescriptor.ScheduleRelationship.SCHEDULED;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -15524,13 +15593,17 @@ public final class GtfsRealtime {
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.startTime_ = startTime_;
+        result.directionId_ = directionId_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.startDate_ = startDate_;
+        result.startTime_ = startTime_;
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
+        }
+        result.startDate_ = startDate_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
         }
         result.scheduleRelationship_ = scheduleRelationship_;
         result.bitField0_ = to_bitField0_;
@@ -15559,13 +15632,16 @@ public final class GtfsRealtime {
           routeId_ = other.routeId_;
           onChanged();
         }
+        if (other.hasDirectionId()) {
+          setDirectionId(other.getDirectionId());
+        }
         if (other.hasStartTime()) {
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
           startTime_ = other.startTime_;
           onChanged();
         }
         if (other.hasStartDate()) {
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000010;
           startDate_ = other.startDate_;
           onChanged();
         }
@@ -15818,6 +15894,67 @@ public final class GtfsRealtime {
         return this;
       }
 
+      // optional uint32 direction_id = 6;
+      private int directionId_ ;
+      /**
+       * <code>optional uint32 direction_id = 6;</code>
+       *
+       * <pre>
+       * The direction_id from the GTFS feed trips.txt file, indicating the
+       * direction of travel for trips this selector refers to. This field is
+       * still experimental, and subject to change. It may be formally adopted in
+       * the future.
+       * </pre>
+       */
+      public boolean hasDirectionId() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional uint32 direction_id = 6;</code>
+       *
+       * <pre>
+       * The direction_id from the GTFS feed trips.txt file, indicating the
+       * direction of travel for trips this selector refers to. This field is
+       * still experimental, and subject to change. It may be formally adopted in
+       * the future.
+       * </pre>
+       */
+      public int getDirectionId() {
+        return directionId_;
+      }
+      /**
+       * <code>optional uint32 direction_id = 6;</code>
+       *
+       * <pre>
+       * The direction_id from the GTFS feed trips.txt file, indicating the
+       * direction of travel for trips this selector refers to. This field is
+       * still experimental, and subject to change. It may be formally adopted in
+       * the future.
+       * </pre>
+       */
+      public Builder setDirectionId(int value) {
+        bitField0_ |= 0x00000004;
+        directionId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 direction_id = 6;</code>
+       *
+       * <pre>
+       * The direction_id from the GTFS feed trips.txt file, indicating the
+       * direction of travel for trips this selector refers to. This field is
+       * still experimental, and subject to change. It may be formally adopted in
+       * the future.
+       * </pre>
+       */
+      public Builder clearDirectionId() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        directionId_ = 0;
+        onChanged();
+        return this;
+      }
+
       // optional string start_time = 2;
       private java.lang.Object startTime_ = "";
       /**
@@ -15842,7 +15979,7 @@ public final class GtfsRealtime {
        * </pre>
        */
       public boolean hasStartTime() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
        * <code>optional string start_time = 2;</code>
@@ -15936,7 +16073,7 @@ public final class GtfsRealtime {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         startTime_ = value;
         onChanged();
         return this;
@@ -15963,7 +16100,7 @@ public final class GtfsRealtime {
        * </pre>
        */
       public Builder clearStartTime() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         startTime_ = getDefaultInstance().getStartTime();
         onChanged();
         return this;
@@ -15994,7 +16131,7 @@ public final class GtfsRealtime {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         startTime_ = value;
         onChanged();
         return this;
@@ -16019,7 +16156,7 @@ public final class GtfsRealtime {
        * </pre>
        */
       public boolean hasStartDate() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
        * <code>optional string start_date = 3;</code>
@@ -16098,7 +16235,7 @@ public final class GtfsRealtime {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000010;
         startDate_ = value;
         onChanged();
         return this;
@@ -16120,7 +16257,7 @@ public final class GtfsRealtime {
        * </pre>
        */
       public Builder clearStartDate() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         startDate_ = getDefaultInstance().getStartDate();
         onChanged();
         return this;
@@ -16146,7 +16283,7 @@ public final class GtfsRealtime {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000010;
         startDate_ = value;
         onChanged();
         return this;
@@ -16158,7 +16295,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TripDescriptor.ScheduleRelationship schedule_relationship = 4;</code>
        */
       public boolean hasScheduleRelationship() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
        * <code>optional .transit_realtime.TripDescriptor.ScheduleRelationship schedule_relationship = 4;</code>
@@ -16173,7 +16310,7 @@ public final class GtfsRealtime {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         scheduleRelationship_ = value;
         onChanged();
         return this;
@@ -16182,7 +16319,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TripDescriptor.ScheduleRelationship schedule_relationship = 4;</code>
        */
       public Builder clearScheduleRelationship() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         scheduleRelationship_ = com.google.transit.realtime.GtfsRealtime.TripDescriptor.ScheduleRelationship.SCHEDULED;
         onChanged();
         return this;
@@ -20162,24 +20299,24 @@ public final class GtfsRealtime {
       "\n\003end\030\002 \001(\004*\006\010\350\007\020\320\017\"i\n\010Position\022\020\n\010latit" +
       "ude\030\001 \002(\002\022\021\n\tlongitude\030\002 \002(\002\022\017\n\007bearing\030" +
       "\003 \001(\002\022\020\n\010odometer\030\004 \001(\001\022\r\n\005speed\030\005 \001(\002*\006" +
-      "\010\350\007\020\320\017\"\212\002\n\016TripDescriptor\022\017\n\007trip_id\030\001 \001" +
-      "(\t\022\020\n\010route_id\030\005 \001(\t\022\022\n\nstart_time\030\002 \001(\t" +
-      "\022\022\n\nstart_date\030\003 \001(\t\022T\n\025schedule_relatio",
-      "nship\030\004 \001(\01625.transit_realtime.TripDescr" +
-      "iptor.ScheduleRelationship\"O\n\024ScheduleRe" +
-      "lationship\022\r\n\tSCHEDULED\020\000\022\t\n\005ADDED\020\001\022\017\n\013" +
-      "UNSCHEDULED\020\002\022\014\n\010CANCELED\020\003*\006\010\350\007\020\320\017\"M\n\021V" +
-      "ehicleDescriptor\022\n\n\002id\030\001 \001(\t\022\r\n\005label\030\002 " +
-      "\001(\t\022\025\n\rlicense_plate\030\003 \001(\t*\006\010\350\007\020\320\017\"\222\001\n\016E" +
-      "ntitySelector\022\021\n\tagency_id\030\001 \001(\t\022\020\n\010rout" +
-      "e_id\030\002 \001(\t\022\022\n\nroute_type\030\003 \001(\005\022.\n\004trip\030\004" +
-      " \001(\0132 .transit_realtime.TripDescriptor\022\017" +
-      "\n\007stop_id\030\005 \001(\t*\006\010\350\007\020\320\017\"\226\001\n\020TranslatedSt",
-      "ring\022C\n\013translation\030\001 \003(\0132..transit_real" +
-      "time.TranslatedString.Translation\0325\n\013Tra" +
-      "nslation\022\014\n\004text\030\001 \002(\t\022\020\n\010language\030\002 \001(\t" +
-      "*\006\010\350\007\020\320\017*\006\010\350\007\020\320\017B\035\n\033com.google.transit.r" +
-      "ealtime"
+      "\010\350\007\020\320\017\"\240\002\n\016TripDescriptor\022\017\n\007trip_id\030\001 \001" +
+      "(\t\022\020\n\010route_id\030\005 \001(\t\022\024\n\014direction_id\030\006 \001" +
+      "(\r\022\022\n\nstart_time\030\002 \001(\t\022\022\n\nstart_date\030\003 \001",
+      "(\t\022T\n\025schedule_relationship\030\004 \001(\01625.tran" +
+      "sit_realtime.TripDescriptor.ScheduleRela" +
+      "tionship\"O\n\024ScheduleRelationship\022\r\n\tSCHE" +
+      "DULED\020\000\022\t\n\005ADDED\020\001\022\017\n\013UNSCHEDULED\020\002\022\014\n\010C" +
+      "ANCELED\020\003*\006\010\350\007\020\320\017\"M\n\021VehicleDescriptor\022\n" +
+      "\n\002id\030\001 \001(\t\022\r\n\005label\030\002 \001(\t\022\025\n\rlicense_pla" +
+      "te\030\003 \001(\t*\006\010\350\007\020\320\017\"\222\001\n\016EntitySelector\022\021\n\ta" +
+      "gency_id\030\001 \001(\t\022\020\n\010route_id\030\002 \001(\t\022\022\n\nrout" +
+      "e_type\030\003 \001(\005\022.\n\004trip\030\004 \001(\0132 .transit_rea" +
+      "ltime.TripDescriptor\022\017\n\007stop_id\030\005 \001(\t*\006\010",
+      "\350\007\020\320\017\"\226\001\n\020TranslatedString\022C\n\013translatio" +
+      "n\030\001 \003(\0132..transit_realtime.TranslatedStr" +
+      "ing.Translation\0325\n\013Translation\022\014\n\004text\030\001" +
+      " \002(\t\022\020\n\010language\030\002 \001(\t*\006\010\350\007\020\320\017*\006\010\350\007\020\320\017B\035" +
+      "\n\033com.google.transit.realtime"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -20251,7 +20388,7 @@ public final class GtfsRealtime {
           internal_static_transit_realtime_TripDescriptor_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_transit_realtime_TripDescriptor_descriptor,
-              new java.lang.String[] { "TripId", "RouteId", "StartTime", "StartDate", "ScheduleRelationship", });
+              new java.lang.String[] { "TripId", "RouteId", "DirectionId", "StartTime", "StartDate", "ScheduleRelationship", });
           internal_static_transit_realtime_VehicleDescriptor_descriptor =
             getDescriptor().getMessageTypes().get(9);
           internal_static_transit_realtime_VehicleDescriptor_fieldAccessorTable = new
