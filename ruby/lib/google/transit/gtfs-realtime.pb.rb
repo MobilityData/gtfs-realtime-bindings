@@ -228,6 +228,7 @@ module Transit_realtime
   class TripDescriptor
     optional :string, :trip_id, 1
     optional :string, :route_id, 5
+    optional :uint32, :direction_id, 6
     optional :string, :start_time, 2
     optional :string, :start_date, 3
     optional ::Transit_realtime::TripDescriptor::ScheduleRelationship, :schedule_relationship, 4
