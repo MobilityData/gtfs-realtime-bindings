@@ -36,5 +36,10 @@ published as packages to facilitate their use in other projects.
 * [Python](python/README.md)
 * [Ruby](ruby/README.md)
 
-Are we missing your favorite language?  Open an Issue and we'll see what we can
-do.
+## Other Languages
+
+We don't provide generated code for C++, use the official protoc compiler for that (from [here](https://developers.google.com/protocol-buffers/docs/downloads) or [here](https://github.com/google/protobuf))
+
+Are we missing your favorite language? Consider contributing:
+1. Read [CONTRIBUTIONS.md](CONTRIBUTIONS.md).
+2. Open a pull request with your language of choice. Please include update instructions (ideally, scripts). Also, provide packaging suitable for the language ecosystem.
