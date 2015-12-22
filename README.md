@@ -41,5 +41,6 @@ published as packages to facilitate their use in other projects.
 We don't provide generated code for C++, use the official protoc compiler for that (from [here](https://developers.google.com/protocol-buffers/docs/downloads) or [here](https://github.com/google/protobuf))
 
 Are we missing your favorite language? Consider contributing:
+
 1. Read [CONTRIBUTIONS.md](CONTRIBUTIONS.md).
 2. Open a pull request with your language of choice. Please include update instructions (ideally, scripts). Also, provide packaging suitable for the language ecosystem.
