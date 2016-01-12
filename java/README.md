@@ -19,7 +19,7 @@ dependencies section:
 <dependency>
   <groupId>com.google.transit</groupId>
   <artifactId>gtfs-realtime-bindings</artifactId>
-  <version>1.0.0</version>
+  <version>0.0.4</version>
 </dependency>
 ```
 
@@ -27,7 +27,7 @@ For [Gradle](https://www.gradle.org/), add the following to your `build.gradle`
 dependecies section:
 
 ```
-compile group: 'org.google.transit', name: 'gtfs-realtime-bindings', version: '1.0.0`
+compile group: 'com.google.transit', name: 'gtfs-realtime-bindings', version: '0.0.4`
 ```
 
 Make sure the Maven central repository is referenced by your project.
