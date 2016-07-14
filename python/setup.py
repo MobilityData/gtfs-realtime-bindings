@@ -35,7 +35,7 @@ if __name__ == '__main__':
         version = '0.0.4',
         packages = ['google', 'google.transit'],
         namespace_packages = ['google'],
-        install_requires = ['setuptools', 'protobuf'],
+        install_requires = ['setuptools', 'protobuf>=3.0.0b3'],
         url = 'https://github.com/google/gtfs-realtime-bindings',
         maintainer = 'Google Inc.',
         maintainer_email = 'gtfs-realtime@googlegroups.com',

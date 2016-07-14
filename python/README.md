@@ -28,12 +28,12 @@ from a particular URL, parsing it as a FeedMessage (the root type of the
 GTFS-realtime schema), and iterating over the results.
 
 ```python
-from google.transit import gtfs_realtime_pb2
-import urllib
+from google.transit import gtfs_realtime_pb3
+import requests
 
 feed = gtfs_realtime_pb2.FeedMessage()
-response = urllib.urlopen('URL OF YOUR GTFS-REALTIME SOURCE GOES HERE')
-feed.ParseFromString(response.read())
+response = requests.get('URL OF YOUR GTFS-REALTIME SOURCE GOES HERE')
+feed.ParseFromString(response.content)
 for entity in feed.entity:
   if entity.HasField('trip_update'):
     print entity.trip_update
