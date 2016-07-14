@@ -28,7 +28,7 @@ from a particular URL, parsing it as a FeedMessage (the root type of the
 GTFS-realtime schema), and iterating over the results.
 
 ```python
-from google.transit import gtfs_realtime_pb3
+from google.transit import gtfs_realtime_pb2
 import requests
 
 feed = gtfs_realtime_pb2.FeedMessage()
