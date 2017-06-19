@@ -16,13 +16,13 @@
     "main": "gtfs-realtime.js",
     "scripts": {
         "test": "mocha test/*.js",
-        "buildProto": "node_modules/protobufjs/bin/proto2js ../gtfs-realtime.proto -commonjs > gtfs-realtime.js"
+        "buildProto": "pbjs -t static-module -w commonjs -o gtfs-realtime.js ../gtfs-realtime.proto"
     },
     "engines": [
         "node >= 0.10.0"
     ],
     "dependencies": {
-        "protobufjs": "2.0.5"
+        "protobufjs": "6.7.3"
     },
     "devDependencies": {
         "mocha": "1.19.0",

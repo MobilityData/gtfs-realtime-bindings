@@ -22,7 +22,7 @@ describe('GtfsRealtimeApi', function(){
     it('should decode proto data without error', function(done){
       fs.readFile("test/vehicle_position.pb", function (err, data) {
         if (err) throw err;
-        var feed = GtfsRealtimeApi.FeedMessage.decode(data);
+        var feed = GtfsRealtimeApi.transit_realtime.FeedMessage.decode(data);
         feed.entity.should.have.length(1);
         feed.entity[0].should.have.property('id', '1');
         feed.entity[0].should.have.property('vehicle');
