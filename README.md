@@ -35,6 +35,7 @@ published as packages to facilitate their use in other projects.
 * [PHP](https://github.com/google/gtfs-realtime-bindings-php)
 * [Python](python/README.md)
 * [Ruby](ruby/README.md)
+* [Golang](golang/README.md)
 
 ## Other Languages
 
