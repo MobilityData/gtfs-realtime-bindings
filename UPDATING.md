@@ -15,3 +15,4 @@ language type.
 * [PHP](php/UPDATING.md)
 * [Python](python/UPDATING.md)
 * [Ruby](ruby/UPDATING.md)
+* [Golang](golang/UPDATING.md)
