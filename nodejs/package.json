@@ -1,11 +1,11 @@
 {
     "author": "Google Inc.",
-    "name": "gtfs-realtime-bindings",
+    "name": "gtfs-realtime-bindings-transit",
     "description": "Javascript classes generated from the GTFS-realtime protocol buffer specification.",
     "tags": [
         "gtfs-realtime"
     ],
-    "version": "0.0.4",
+    "version": "1.0.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/google/gtfs-realtime-bindings.git"
@@ -19,7 +19,7 @@
         "buildProto": "pbjs -t static-module -w es6 -o gtfs-realtime.js ../gtfs-realtime.proto"
     },
     "engines": [
-        "node >= 0.10.0"
+        "node >= 8.0.0"
     ],
     "dependencies": {
         "protobufjs": "^6.8.6"
