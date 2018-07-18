@@ -16,7 +16,7 @@
     "main": "gtfs-realtime.js",
     "scripts": {
         "test": "mocha test/*.js",
-        "buildProto": "pbjs -t static-module -w es6 -o gtfs-realtime.js ../gtfs-realtime.proto"
+        "buildProto": "pbjs -t static-module -w commonjs -o gtfs-realtime.js ../gtfs-realtime.proto"
     },
     "engines": [
         "node >= 8.0.0"

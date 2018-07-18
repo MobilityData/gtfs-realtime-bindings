@@ -1,20 +1,22 @@
 /*eslint-disable block-scoped-var, no-redeclare, no-control-regex, no-prototype-builtins*/
-import * as $protobuf from "protobufjs/minimal";
+"use strict";
+
+var $protobuf = require("protobufjs/minimal");
 
 // Common aliases
-const $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
+var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
 
 // Exported root namespace
-const $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
+var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
 
-export const transit_realtime = $root.transit_realtime = (() => {
+$root.transit_realtime = (function() {
 
     /**
      * Namespace transit_realtime.
      * @exports transit_realtime
      * @namespace
      */
-    const transit_realtime = {};
+    var transit_realtime = {};
 
     transit_realtime.FeedMessage = (function() {
 
@@ -37,7 +39,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
         function FeedMessage(properties) {
             this.entity = [];
             if (properties)
-                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
@@ -84,7 +86,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
                 writer = $Writer.create();
             $root.transit_realtime.FeedHeader.encode(message.header, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.entity != null && message.entity.length)
-                for (let i = 0; i < message.entity.length; ++i)
+                for (var i = 0; i < message.entity.length; ++i)
                     $root.transit_realtime.FeedEntity.encode(message.entity[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
             return writer;
         };
@@ -116,9 +118,9 @@ export const transit_realtime = $root.transit_realtime = (() => {
         FeedMessage.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.FeedMessage();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.FeedMessage();
             while (reader.pos < end) {
-                let tag = reader.uint32();
+                var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
                     message.header = $root.transit_realtime.FeedHeader.decode(reader, reader.uint32());
@@ -166,15 +168,15 @@ export const transit_realtime = $root.transit_realtime = (() => {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             {
-                let error = $root.transit_realtime.FeedHeader.verify(message.header);
+                var error = $root.transit_realtime.FeedHeader.verify(message.header);
                 if (error)
                     return "header." + error;
             }
             if (message.entity != null && message.hasOwnProperty("entity")) {
                 if (!Array.isArray(message.entity))
                     return "entity: array expected";
-                for (let i = 0; i < message.entity.length; ++i) {
-                    let error = $root.transit_realtime.FeedEntity.verify(message.entity[i]);
+                for (var i = 0; i < message.entity.length; ++i) {
+                    var error = $root.transit_realtime.FeedEntity.verify(message.entity[i]);
                     if (error)
                         return "entity." + error;
                 }
@@ -193,7 +195,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
         FeedMessage.fromObject = function fromObject(object) {
             if (object instanceof $root.transit_realtime.FeedMessage)
                 return object;
-            let message = new $root.transit_realtime.FeedMessage();
+            var message = new $root.transit_realtime.FeedMessage();
             if (object.header != null) {
                 if (typeof object.header !== "object")
                     throw TypeError(".transit_realtime.FeedMessage.header: object expected");
@@ -203,7 +205,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
                 if (!Array.isArray(object.entity))
                     throw TypeError(".transit_realtime.FeedMessage.entity: array expected");
                 message.entity = [];
-                for (let i = 0; i < object.entity.length; ++i) {
+                for (var i = 0; i < object.entity.length; ++i) {
                     if (typeof object.entity[i] !== "object")
                         throw TypeError(".transit_realtime.FeedMessage.entity: object expected");
                     message.entity[i] = $root.transit_realtime.FeedEntity.fromObject(object.entity[i]);
@@ -224,7 +226,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
         FeedMessage.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
-            let object = {};
+            var object = {};
             if (options.arrays || options.defaults)
                 object.entity = [];
             if (options.defaults)
@@ -233,7 +235,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
                 object.header = $root.transit_realtime.FeedHeader.toObject(message.header, options);
             if (message.entity && message.entity.length) {
                 object.entity = [];
-                for (let j = 0; j < message.entity.length; ++j)
+                for (var j = 0; j < message.entity.length; ++j)
                     object.entity[j] = $root.transit_realtime.FeedEntity.toObject(message.entity[j], options);
             }
             return object;
@@ -274,7 +276,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
          */
         function FeedHeader(properties) {
             if (properties)
-                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
@@ -362,9 +364,9 @@ export const transit_realtime = $root.transit_realtime = (() => {
         FeedHeader.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.FeedHeader();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.FeedHeader();
             while (reader.pos < end) {
-                let tag = reader.uint32();
+                var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
                     message.gtfsRealtimeVersion = reader.string();
@@ -439,7 +441,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
         FeedHeader.fromObject = function fromObject(object) {
             if (object instanceof $root.transit_realtime.FeedHeader)
                 return object;
-            let message = new $root.transit_realtime.FeedHeader();
+            var message = new $root.transit_realtime.FeedHeader();
             if (object.gtfsRealtimeVersion != null)
                 message.gtfsRealtimeVersion = String(object.gtfsRealtimeVersion);
             switch (object.incrementality) {
@@ -476,12 +478,12 @@ export const transit_realtime = $root.transit_realtime = (() => {
         FeedHeader.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
-            let object = {};
+            var object = {};
             if (options.defaults) {
                 object.gtfsRealtimeVersion = "";
                 object.incrementality = options.enums === String ? "FULL_DATASET" : 0;
                 if ($util.Long) {
-                    let long = new $util.Long(0, 0, true);
+                    var long = new $util.Long(0, 0, true);
                     object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
                     object.timestamp = options.longs === String ? "0" : 0;
@@ -517,7 +519,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
          * @property {number} DIFFERENTIAL=1 DIFFERENTIAL value
          */
         FeedHeader.Incrementality = (function() {
-            const valuesById = {}, values = Object.create(valuesById);
+            var valuesById = {}, values = Object.create(valuesById);
             values[valuesById[0] = "FULL_DATASET"] = 0;
             values[valuesById[1] = "DIFFERENTIAL"] = 1;
             return values;
@@ -549,7 +551,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
          */
         function FeedEntity(properties) {
             if (properties)
-                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
@@ -657,9 +659,9 @@ export const transit_realtime = $root.transit_realtime = (() => {
         FeedEntity.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.FeedEntity();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.FeedEntity();
             while (reader.pos < end) {
-                let tag = reader.uint32();
+                var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
                     message.id = reader.string();
@@ -719,17 +721,17 @@ export const transit_realtime = $root.transit_realtime = (() => {
                 if (typeof message.isDeleted !== "boolean")
                     return "isDeleted: boolean expected";
             if (message.tripUpdate != null && message.hasOwnProperty("tripUpdate")) {
-                let error = $root.transit_realtime.TripUpdate.verify(message.tripUpdate);
+                var error = $root.transit_realtime.TripUpdate.verify(message.tripUpdate);
                 if (error)
                     return "tripUpdate." + error;
             }
             if (message.vehicle != null && message.hasOwnProperty("vehicle")) {
-                let error = $root.transit_realtime.VehiclePosition.verify(message.vehicle);
+                var error = $root.transit_realtime.VehiclePosition.verify(message.vehicle);
                 if (error)
                     return "vehicle." + error;
             }
             if (message.alert != null && message.hasOwnProperty("alert")) {
-                let error = $root.transit_realtime.Alert.verify(message.alert);
+                var error = $root.transit_realtime.Alert.verify(message.alert);
                 if (error)
                     return "alert." + error;
             }
@@ -747,7 +749,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
         FeedEntity.fromObject = function fromObject(object) {
             if (object instanceof $root.transit_realtime.FeedEntity)
                 return object;
-            let message = new $root.transit_realtime.FeedEntity();
+            var message = new $root.transit_realtime.FeedEntity();
             if (object.id != null)
                 message.id = String(object.id);
             if (object.isDeleted != null)
@@ -782,7 +784,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
         FeedEntity.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
-            let object = {};
+            var object = {};
             if (options.defaults) {
                 object.id = "";
                 object.isDeleted = false;
@@ -841,7 +843,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
         function TripUpdate(properties) {
             this.stopTimeUpdate = [];
             if (properties)
-                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
@@ -912,7 +914,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
                 writer = $Writer.create();
             $root.transit_realtime.TripDescriptor.encode(message.trip, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.stopTimeUpdate != null && message.stopTimeUpdate.length)
-                for (let i = 0; i < message.stopTimeUpdate.length; ++i)
+                for (var i = 0; i < message.stopTimeUpdate.length; ++i)
                     $root.transit_realtime.TripUpdate.StopTimeUpdate.encode(message.stopTimeUpdate[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
             if (message.vehicle != null && message.hasOwnProperty("vehicle"))
                 $root.transit_realtime.VehicleDescriptor.encode(message.vehicle, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
@@ -950,9 +952,9 @@ export const transit_realtime = $root.transit_realtime = (() => {
         TripUpdate.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.TripUpdate();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.TripUpdate();
             while (reader.pos < end) {
-                let tag = reader.uint32();
+                var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
                     message.trip = $root.transit_realtime.TripDescriptor.decode(reader, reader.uint32());
@@ -1009,20 +1011,20 @@ export const transit_realtime = $root.transit_realtime = (() => {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             {
-                let error = $root.transit_realtime.TripDescriptor.verify(message.trip);
+                var error = $root.transit_realtime.TripDescriptor.verify(message.trip);
                 if (error)
                     return "trip." + error;
             }
             if (message.vehicle != null && message.hasOwnProperty("vehicle")) {
-                let error = $root.transit_realtime.VehicleDescriptor.verify(message.vehicle);
+                var error = $root.transit_realtime.VehicleDescriptor.verify(message.vehicle);
                 if (error)
                     return "vehicle." + error;
             }
             if (message.stopTimeUpdate != null && message.hasOwnProperty("stopTimeUpdate")) {
                 if (!Array.isArray(message.stopTimeUpdate))
                     return "stopTimeUpdate: array expected";
-                for (let i = 0; i < message.stopTimeUpdate.length; ++i) {
-                    let error = $root.transit_realtime.TripUpdate.StopTimeUpdate.verify(message.stopTimeUpdate[i]);
+                for (var i = 0; i < message.stopTimeUpdate.length; ++i) {
+                    var error = $root.transit_realtime.TripUpdate.StopTimeUpdate.verify(message.stopTimeUpdate[i]);
                     if (error)
                         return "stopTimeUpdate." + error;
                 }
@@ -1047,7 +1049,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
         TripUpdate.fromObject = function fromObject(object) {
             if (object instanceof $root.transit_realtime.TripUpdate)
                 return object;
-            let message = new $root.transit_realtime.TripUpdate();
+            var message = new $root.transit_realtime.TripUpdate();
             if (object.trip != null) {
                 if (typeof object.trip !== "object")
                     throw TypeError(".transit_realtime.TripUpdate.trip: object expected");
@@ -1062,7 +1064,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
                 if (!Array.isArray(object.stopTimeUpdate))
                     throw TypeError(".transit_realtime.TripUpdate.stopTimeUpdate: array expected");
                 message.stopTimeUpdate = [];
-                for (let i = 0; i < object.stopTimeUpdate.length; ++i) {
+                for (var i = 0; i < object.stopTimeUpdate.length; ++i) {
                     if (typeof object.stopTimeUpdate[i] !== "object")
                         throw TypeError(".transit_realtime.TripUpdate.stopTimeUpdate: object expected");
                     message.stopTimeUpdate[i] = $root.transit_realtime.TripUpdate.StopTimeUpdate.fromObject(object.stopTimeUpdate[i]);
@@ -1094,14 +1096,14 @@ export const transit_realtime = $root.transit_realtime = (() => {
         TripUpdate.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
-            let object = {};
+            var object = {};
             if (options.arrays || options.defaults)
                 object.stopTimeUpdate = [];
             if (options.defaults) {
                 object.trip = null;
                 object.vehicle = null;
                 if ($util.Long) {
-                    let long = new $util.Long(0, 0, true);
+                    var long = new $util.Long(0, 0, true);
                     object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
                     object.timestamp = options.longs === String ? "0" : 0;
@@ -1111,7 +1113,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
                 object.trip = $root.transit_realtime.TripDescriptor.toObject(message.trip, options);
             if (message.stopTimeUpdate && message.stopTimeUpdate.length) {
                 object.stopTimeUpdate = [];
-                for (let j = 0; j < message.stopTimeUpdate.length; ++j)
+                for (var j = 0; j < message.stopTimeUpdate.length; ++j)
                     object.stopTimeUpdate[j] = $root.transit_realtime.TripUpdate.StopTimeUpdate.toObject(message.stopTimeUpdate[j], options);
             }
             if (message.vehicle != null && message.hasOwnProperty("vehicle"))
@@ -1158,7 +1160,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
              */
             function StopTimeEvent(properties) {
                 if (properties)
-                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
                             this[keys[i]] = properties[keys[i]];
             }
@@ -1247,9 +1249,9 @@ export const transit_realtime = $root.transit_realtime = (() => {
             StopTimeEvent.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.TripUpdate.StopTimeEvent();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.TripUpdate.StopTimeEvent();
                 while (reader.pos < end) {
-                    let tag = reader.uint32();
+                    var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
                         message.delay = reader.int32();
@@ -1318,7 +1320,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
             StopTimeEvent.fromObject = function fromObject(object) {
                 if (object instanceof $root.transit_realtime.TripUpdate.StopTimeEvent)
                     return object;
-                let message = new $root.transit_realtime.TripUpdate.StopTimeEvent();
+                var message = new $root.transit_realtime.TripUpdate.StopTimeEvent();
                 if (object.delay != null)
                     message.delay = object.delay | 0;
                 if (object.time != null)
@@ -1347,11 +1349,11 @@ export const transit_realtime = $root.transit_realtime = (() => {
             StopTimeEvent.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
-                let object = {};
+                var object = {};
                 if (options.defaults) {
                     object.delay = 0;
                     if ($util.Long) {
-                        let long = new $util.Long(0, 0, false);
+                        var long = new $util.Long(0, 0, false);
                         object.time = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                     } else
                         object.time = options.longs === String ? "0" : 0;
@@ -1406,7 +1408,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
              */
             function StopTimeUpdate(properties) {
                 if (properties)
-                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
                             this[keys[i]] = properties[keys[i]];
             }
@@ -1515,9 +1517,9 @@ export const transit_realtime = $root.transit_realtime = (() => {
             StopTimeUpdate.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.TripUpdate.StopTimeUpdate();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.TripUpdate.StopTimeUpdate();
                 while (reader.pos < end) {
-                    let tag = reader.uint32();
+                    var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
                         message.stopSequence = reader.uint32();
@@ -1576,12 +1578,12 @@ export const transit_realtime = $root.transit_realtime = (() => {
                     if (!$util.isString(message.stopId))
                         return "stopId: string expected";
                 if (message.arrival != null && message.hasOwnProperty("arrival")) {
-                    let error = $root.transit_realtime.TripUpdate.StopTimeEvent.verify(message.arrival);
+                    var error = $root.transit_realtime.TripUpdate.StopTimeEvent.verify(message.arrival);
                     if (error)
                         return "arrival." + error;
                 }
                 if (message.departure != null && message.hasOwnProperty("departure")) {
-                    let error = $root.transit_realtime.TripUpdate.StopTimeEvent.verify(message.departure);
+                    var error = $root.transit_realtime.TripUpdate.StopTimeEvent.verify(message.departure);
                     if (error)
                         return "departure." + error;
                 }
@@ -1608,7 +1610,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
             StopTimeUpdate.fromObject = function fromObject(object) {
                 if (object instanceof $root.transit_realtime.TripUpdate.StopTimeUpdate)
                     return object;
-                let message = new $root.transit_realtime.TripUpdate.StopTimeUpdate();
+                var message = new $root.transit_realtime.TripUpdate.StopTimeUpdate();
                 if (object.stopSequence != null)
                     message.stopSequence = object.stopSequence >>> 0;
                 if (object.stopId != null)
@@ -1652,7 +1654,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
             StopTimeUpdate.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
-                let object = {};
+                var object = {};
                 if (options.defaults) {
                     object.stopSequence = 0;
                     object.arrival = null;
@@ -1693,7 +1695,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
              * @property {number} NO_DATA=2 NO_DATA value
              */
             StopTimeUpdate.ScheduleRelationship = (function() {
-                const valuesById = {}, values = Object.create(valuesById);
+                var valuesById = {}, values = Object.create(valuesById);
                 values[valuesById[0] = "SCHEDULED"] = 0;
                 values[valuesById[1] = "SKIPPED"] = 1;
                 values[valuesById[2] = "NO_DATA"] = 2;
@@ -1733,7 +1735,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
          */
         function VehiclePosition(properties) {
             if (properties)
-                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
@@ -1882,9 +1884,9 @@ export const transit_realtime = $root.transit_realtime = (() => {
         VehiclePosition.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.VehiclePosition();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.VehiclePosition();
             while (reader.pos < end) {
-                let tag = reader.uint32();
+                var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
                     message.trip = $root.transit_realtime.TripDescriptor.decode(reader, reader.uint32());
@@ -1949,17 +1951,17 @@ export const transit_realtime = $root.transit_realtime = (() => {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.trip != null && message.hasOwnProperty("trip")) {
-                let error = $root.transit_realtime.TripDescriptor.verify(message.trip);
+                var error = $root.transit_realtime.TripDescriptor.verify(message.trip);
                 if (error)
                     return "trip." + error;
             }
             if (message.vehicle != null && message.hasOwnProperty("vehicle")) {
-                let error = $root.transit_realtime.VehicleDescriptor.verify(message.vehicle);
+                var error = $root.transit_realtime.VehicleDescriptor.verify(message.vehicle);
                 if (error)
                     return "vehicle." + error;
             }
             if (message.position != null && message.hasOwnProperty("position")) {
-                let error = $root.transit_realtime.Position.verify(message.position);
+                var error = $root.transit_realtime.Position.verify(message.position);
                 if (error)
                     return "position." + error;
             }
@@ -2019,7 +2021,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
         VehiclePosition.fromObject = function fromObject(object) {
             if (object instanceof $root.transit_realtime.VehiclePosition)
                 return object;
-            let message = new $root.transit_realtime.VehiclePosition();
+            var message = new $root.transit_realtime.VehiclePosition();
             if (object.trip != null) {
                 if (typeof object.trip !== "object")
                     throw TypeError(".transit_realtime.VehiclePosition.trip: object expected");
@@ -2129,14 +2131,14 @@ export const transit_realtime = $root.transit_realtime = (() => {
         VehiclePosition.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
-            let object = {};
+            var object = {};
             if (options.defaults) {
                 object.trip = null;
                 object.position = null;
                 object.currentStopSequence = 0;
                 object.currentStatus = options.enums === String ? "IN_TRANSIT_TO" : 2;
                 if ($util.Long) {
-                    let long = new $util.Long(0, 0, true);
+                    var long = new $util.Long(0, 0, true);
                     object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
                     object.timestamp = options.longs === String ? "0" : 0;
@@ -2189,7 +2191,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
          * @property {number} IN_TRANSIT_TO=2 IN_TRANSIT_TO value
          */
         VehiclePosition.VehicleStopStatus = (function() {
-            const valuesById = {}, values = Object.create(valuesById);
+            var valuesById = {}, values = Object.create(valuesById);
             values[valuesById[0] = "INCOMING_AT"] = 0;
             values[valuesById[1] = "STOPPED_AT"] = 1;
             values[valuesById[2] = "IN_TRANSIT_TO"] = 2;
@@ -2207,7 +2209,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
          * @property {number} SEVERE_CONGESTION=4 SEVERE_CONGESTION value
          */
         VehiclePosition.CongestionLevel = (function() {
-            const valuesById = {}, values = Object.create(valuesById);
+            var valuesById = {}, values = Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN_CONGESTION_LEVEL"] = 0;
             values[valuesById[1] = "RUNNING_SMOOTHLY"] = 1;
             values[valuesById[2] = "STOP_AND_GO"] = 2;
@@ -2229,7 +2231,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
          * @property {number} NOT_ACCEPTING_PASSENGERS=6 NOT_ACCEPTING_PASSENGERS value
          */
         VehiclePosition.OccupancyStatus = (function() {
-            const valuesById = {}, values = Object.create(valuesById);
+            var valuesById = {}, values = Object.create(valuesById);
             values[valuesById[0] = "EMPTY"] = 0;
             values[valuesById[1] = "MANY_SEATS_AVAILABLE"] = 1;
             values[valuesById[2] = "FEW_SEATS_AVAILABLE"] = 2;
@@ -2270,7 +2272,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
             this.activePeriod = [];
             this.informedEntity = [];
             if (properties)
-                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
@@ -2356,10 +2358,10 @@ export const transit_realtime = $root.transit_realtime = (() => {
             if (!writer)
                 writer = $Writer.create();
             if (message.activePeriod != null && message.activePeriod.length)
-                for (let i = 0; i < message.activePeriod.length; ++i)
+                for (var i = 0; i < message.activePeriod.length; ++i)
                     $root.transit_realtime.TimeRange.encode(message.activePeriod[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.informedEntity != null && message.informedEntity.length)
-                for (let i = 0; i < message.informedEntity.length; ++i)
+                for (var i = 0; i < message.informedEntity.length; ++i)
                     $root.transit_realtime.EntitySelector.encode(message.informedEntity[i], writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
             if (message.cause != null && message.hasOwnProperty("cause"))
                 writer.uint32(/* id 6, wireType 0 =*/48).int32(message.cause);
@@ -2401,9 +2403,9 @@ export const transit_realtime = $root.transit_realtime = (() => {
         Alert.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.Alert();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.Alert();
             while (reader.pos < end) {
-                let tag = reader.uint32();
+                var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
                     if (!(message.activePeriod && message.activePeriod.length))
@@ -2468,8 +2470,8 @@ export const transit_realtime = $root.transit_realtime = (() => {
             if (message.activePeriod != null && message.hasOwnProperty("activePeriod")) {
                 if (!Array.isArray(message.activePeriod))
                     return "activePeriod: array expected";
-                for (let i = 0; i < message.activePeriod.length; ++i) {
-                    let error = $root.transit_realtime.TimeRange.verify(message.activePeriod[i]);
+                for (var i = 0; i < message.activePeriod.length; ++i) {
+                    var error = $root.transit_realtime.TimeRange.verify(message.activePeriod[i]);
                     if (error)
                         return "activePeriod." + error;
                 }
@@ -2477,8 +2479,8 @@ export const transit_realtime = $root.transit_realtime = (() => {
             if (message.informedEntity != null && message.hasOwnProperty("informedEntity")) {
                 if (!Array.isArray(message.informedEntity))
                     return "informedEntity: array expected";
-                for (let i = 0; i < message.informedEntity.length; ++i) {
-                    let error = $root.transit_realtime.EntitySelector.verify(message.informedEntity[i]);
+                for (var i = 0; i < message.informedEntity.length; ++i) {
+                    var error = $root.transit_realtime.EntitySelector.verify(message.informedEntity[i]);
                     if (error)
                         return "informedEntity." + error;
                 }
@@ -2517,17 +2519,17 @@ export const transit_realtime = $root.transit_realtime = (() => {
                     break;
                 }
             if (message.url != null && message.hasOwnProperty("url")) {
-                let error = $root.transit_realtime.TranslatedString.verify(message.url);
+                var error = $root.transit_realtime.TranslatedString.verify(message.url);
                 if (error)
                     return "url." + error;
             }
             if (message.headerText != null && message.hasOwnProperty("headerText")) {
-                let error = $root.transit_realtime.TranslatedString.verify(message.headerText);
+                var error = $root.transit_realtime.TranslatedString.verify(message.headerText);
                 if (error)
                     return "headerText." + error;
             }
             if (message.descriptionText != null && message.hasOwnProperty("descriptionText")) {
-                let error = $root.transit_realtime.TranslatedString.verify(message.descriptionText);
+                var error = $root.transit_realtime.TranslatedString.verify(message.descriptionText);
                 if (error)
                     return "descriptionText." + error;
             }
@@ -2545,12 +2547,12 @@ export const transit_realtime = $root.transit_realtime = (() => {
         Alert.fromObject = function fromObject(object) {
             if (object instanceof $root.transit_realtime.Alert)
                 return object;
-            let message = new $root.transit_realtime.Alert();
+            var message = new $root.transit_realtime.Alert();
             if (object.activePeriod) {
                 if (!Array.isArray(object.activePeriod))
                     throw TypeError(".transit_realtime.Alert.activePeriod: array expected");
                 message.activePeriod = [];
-                for (let i = 0; i < object.activePeriod.length; ++i) {
+                for (var i = 0; i < object.activePeriod.length; ++i) {
                     if (typeof object.activePeriod[i] !== "object")
                         throw TypeError(".transit_realtime.Alert.activePeriod: object expected");
                     message.activePeriod[i] = $root.transit_realtime.TimeRange.fromObject(object.activePeriod[i]);
@@ -2560,7 +2562,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
                 if (!Array.isArray(object.informedEntity))
                     throw TypeError(".transit_realtime.Alert.informedEntity: array expected");
                 message.informedEntity = [];
-                for (let i = 0; i < object.informedEntity.length; ++i) {
+                for (var i = 0; i < object.informedEntity.length; ++i) {
                     if (typeof object.informedEntity[i] !== "object")
                         throw TypeError(".transit_realtime.Alert.informedEntity: object expected");
                     message.informedEntity[i] = $root.transit_realtime.EntitySelector.fromObject(object.informedEntity[i]);
@@ -2684,7 +2686,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
         Alert.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
-            let object = {};
+            var object = {};
             if (options.arrays || options.defaults) {
                 object.activePeriod = [];
                 object.informedEntity = [];
@@ -2698,12 +2700,12 @@ export const transit_realtime = $root.transit_realtime = (() => {
             }
             if (message.activePeriod && message.activePeriod.length) {
                 object.activePeriod = [];
-                for (let j = 0; j < message.activePeriod.length; ++j)
+                for (var j = 0; j < message.activePeriod.length; ++j)
                     object.activePeriod[j] = $root.transit_realtime.TimeRange.toObject(message.activePeriod[j], options);
             }
             if (message.informedEntity && message.informedEntity.length) {
                 object.informedEntity = [];
-                for (let j = 0; j < message.informedEntity.length; ++j)
+                for (var j = 0; j < message.informedEntity.length; ++j)
                     object.informedEntity[j] = $root.transit_realtime.EntitySelector.toObject(message.informedEntity[j], options);
             }
             if (message.cause != null && message.hasOwnProperty("cause"))
@@ -2748,7 +2750,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
          * @property {number} MEDICAL_EMERGENCY=12 MEDICAL_EMERGENCY value
          */
         Alert.Cause = (function() {
-            const valuesById = {}, values = Object.create(valuesById);
+            var valuesById = {}, values = Object.create(valuesById);
             values[valuesById[1] = "UNKNOWN_CAUSE"] = 1;
             values[valuesById[2] = "OTHER_CAUSE"] = 2;
             values[valuesById[3] = "TECHNICAL_PROBLEM"] = 3;
@@ -2779,7 +2781,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
          * @property {number} STOP_MOVED=9 STOP_MOVED value
          */
         Alert.Effect = (function() {
-            const valuesById = {}, values = Object.create(valuesById);
+            var valuesById = {}, values = Object.create(valuesById);
             values[valuesById[1] = "NO_SERVICE"] = 1;
             values[valuesById[2] = "REDUCED_SERVICE"] = 2;
             values[valuesById[3] = "SIGNIFICANT_DELAYS"] = 3;
@@ -2815,7 +2817,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
          */
         function TimeRange(properties) {
             if (properties)
-                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
@@ -2894,9 +2896,9 @@ export const transit_realtime = $root.transit_realtime = (() => {
         TimeRange.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.TimeRange();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.TimeRange();
             while (reader.pos < end) {
-                let tag = reader.uint32();
+                var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
                     message.start = reader.uint64();
@@ -2959,7 +2961,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
         TimeRange.fromObject = function fromObject(object) {
             if (object instanceof $root.transit_realtime.TimeRange)
                 return object;
-            let message = new $root.transit_realtime.TimeRange();
+            var message = new $root.transit_realtime.TimeRange();
             if (object.start != null)
                 if ($util.Long)
                     (message.start = $util.Long.fromValue(object.start)).unsigned = true;
@@ -2993,15 +2995,15 @@ export const transit_realtime = $root.transit_realtime = (() => {
         TimeRange.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
-            let object = {};
+            var object = {};
             if (options.defaults) {
                 if ($util.Long) {
-                    let long = new $util.Long(0, 0, true);
+                    var long = new $util.Long(0, 0, true);
                     object.start = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
                     object.start = options.longs === String ? "0" : 0;
                 if ($util.Long) {
-                    let long = new $util.Long(0, 0, true);
+                    var long = new $util.Long(0, 0, true);
                     object.end = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
                     object.end = options.longs === String ? "0" : 0;
@@ -3056,7 +3058,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
          */
         function Position(properties) {
             if (properties)
-                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
@@ -3163,9 +3165,9 @@ export const transit_realtime = $root.transit_realtime = (() => {
         Position.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.Position();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.Position();
             while (reader.pos < end) {
-                let tag = reader.uint32();
+                var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
                     message.latitude = reader.float();
@@ -3248,7 +3250,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
         Position.fromObject = function fromObject(object) {
             if (object instanceof $root.transit_realtime.Position)
                 return object;
-            let message = new $root.transit_realtime.Position();
+            var message = new $root.transit_realtime.Position();
             if (object.latitude != null)
                 message.latitude = Number(object.latitude);
             if (object.longitude != null)
@@ -3274,7 +3276,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
         Position.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
-            let object = {};
+            var object = {};
             if (options.defaults) {
                 object.latitude = 0;
                 object.longitude = 0;
@@ -3333,7 +3335,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
          */
         function TripDescriptor(properties) {
             if (properties)
-                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
@@ -3452,9 +3454,9 @@ export const transit_realtime = $root.transit_realtime = (() => {
         TripDescriptor.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.TripDescriptor();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.TripDescriptor();
             while (reader.pos < end) {
-                let tag = reader.uint32();
+                var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
                     message.tripId = reader.string();
@@ -3548,7 +3550,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
         TripDescriptor.fromObject = function fromObject(object) {
             if (object instanceof $root.transit_realtime.TripDescriptor)
                 return object;
-            let message = new $root.transit_realtime.TripDescriptor();
+            var message = new $root.transit_realtime.TripDescriptor();
             if (object.tripId != null)
                 message.tripId = String(object.tripId);
             if (object.routeId != null)
@@ -3592,7 +3594,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
         TripDescriptor.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
-            let object = {};
+            var object = {};
             if (options.defaults) {
                 object.tripId = "";
                 object.startTime = "";
@@ -3637,7 +3639,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
          * @property {number} CANCELED=3 CANCELED value
          */
         TripDescriptor.ScheduleRelationship = (function() {
-            const valuesById = {}, values = Object.create(valuesById);
+            var valuesById = {}, values = Object.create(valuesById);
             values[valuesById[0] = "SCHEDULED"] = 0;
             values[valuesById[1] = "ADDED"] = 1;
             values[valuesById[2] = "UNSCHEDULED"] = 2;
@@ -3669,7 +3671,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
          */
         function VehicleDescriptor(properties) {
             if (properties)
-                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
@@ -3758,9 +3760,9 @@ export const transit_realtime = $root.transit_realtime = (() => {
         VehicleDescriptor.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.VehicleDescriptor();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.VehicleDescriptor();
             while (reader.pos < end) {
-                let tag = reader.uint32();
+                var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
                     message.id = reader.string();
@@ -3829,7 +3831,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
         VehicleDescriptor.fromObject = function fromObject(object) {
             if (object instanceof $root.transit_realtime.VehicleDescriptor)
                 return object;
-            let message = new $root.transit_realtime.VehicleDescriptor();
+            var message = new $root.transit_realtime.VehicleDescriptor();
             if (object.id != null)
                 message.id = String(object.id);
             if (object.label != null)
@@ -3851,7 +3853,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
         VehicleDescriptor.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
-            let object = {};
+            var object = {};
             if (options.defaults) {
                 object.id = "";
                 object.label = "";
@@ -3903,7 +3905,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
          */
         function EntitySelector(properties) {
             if (properties)
-                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
@@ -4012,9 +4014,9 @@ export const transit_realtime = $root.transit_realtime = (() => {
         EntitySelector.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.EntitySelector();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.EntitySelector();
             while (reader.pos < end) {
-                let tag = reader.uint32();
+                var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
                     message.agencyId = reader.string();
@@ -4076,7 +4078,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
                 if (!$util.isInteger(message.routeType))
                     return "routeType: integer expected";
             if (message.trip != null && message.hasOwnProperty("trip")) {
-                let error = $root.transit_realtime.TripDescriptor.verify(message.trip);
+                var error = $root.transit_realtime.TripDescriptor.verify(message.trip);
                 if (error)
                     return "trip." + error;
             }
@@ -4097,7 +4099,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
         EntitySelector.fromObject = function fromObject(object) {
             if (object instanceof $root.transit_realtime.EntitySelector)
                 return object;
-            let message = new $root.transit_realtime.EntitySelector();
+            var message = new $root.transit_realtime.EntitySelector();
             if (object.agencyId != null)
                 message.agencyId = String(object.agencyId);
             if (object.routeId != null)
@@ -4126,7 +4128,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
         EntitySelector.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
-            let object = {};
+            var object = {};
             if (options.defaults) {
                 object.agencyId = "";
                 object.routeId = "";
@@ -4181,7 +4183,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
         function TranslatedString(properties) {
             this.translation = [];
             if (properties)
-                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
@@ -4219,7 +4221,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
             if (!writer)
                 writer = $Writer.create();
             if (message.translation != null && message.translation.length)
-                for (let i = 0; i < message.translation.length; ++i)
+                for (var i = 0; i < message.translation.length; ++i)
                     $root.transit_realtime.TranslatedString.Translation.encode(message.translation[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             return writer;
         };
@@ -4251,9 +4253,9 @@ export const transit_realtime = $root.transit_realtime = (() => {
         TranslatedString.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.TranslatedString();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.TranslatedString();
             while (reader.pos < end) {
-                let tag = reader.uint32();
+                var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
                     if (!(message.translation && message.translation.length))
@@ -4298,8 +4300,8 @@ export const transit_realtime = $root.transit_realtime = (() => {
             if (message.translation != null && message.hasOwnProperty("translation")) {
                 if (!Array.isArray(message.translation))
                     return "translation: array expected";
-                for (let i = 0; i < message.translation.length; ++i) {
-                    let error = $root.transit_realtime.TranslatedString.Translation.verify(message.translation[i]);
+                for (var i = 0; i < message.translation.length; ++i) {
+                    var error = $root.transit_realtime.TranslatedString.Translation.verify(message.translation[i]);
                     if (error)
                         return "translation." + error;
                 }
@@ -4318,12 +4320,12 @@ export const transit_realtime = $root.transit_realtime = (() => {
         TranslatedString.fromObject = function fromObject(object) {
             if (object instanceof $root.transit_realtime.TranslatedString)
                 return object;
-            let message = new $root.transit_realtime.TranslatedString();
+            var message = new $root.transit_realtime.TranslatedString();
             if (object.translation) {
                 if (!Array.isArray(object.translation))
                     throw TypeError(".transit_realtime.TranslatedString.translation: array expected");
                 message.translation = [];
-                for (let i = 0; i < object.translation.length; ++i) {
+                for (var i = 0; i < object.translation.length; ++i) {
                     if (typeof object.translation[i] !== "object")
                         throw TypeError(".transit_realtime.TranslatedString.translation: object expected");
                     message.translation[i] = $root.transit_realtime.TranslatedString.Translation.fromObject(object.translation[i]);
@@ -4344,12 +4346,12 @@ export const transit_realtime = $root.transit_realtime = (() => {
         TranslatedString.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
-            let object = {};
+            var object = {};
             if (options.arrays || options.defaults)
                 object.translation = [];
             if (message.translation && message.translation.length) {
                 object.translation = [];
-                for (let j = 0; j < message.translation.length; ++j)
+                for (var j = 0; j < message.translation.length; ++j)
                     object.translation[j] = $root.transit_realtime.TranslatedString.Translation.toObject(message.translation[j], options);
             }
             return object;
@@ -4386,7 +4388,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
              */
             function Translation(properties) {
                 if (properties)
-                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
                             this[keys[i]] = properties[keys[i]];
             }
@@ -4464,9 +4466,9 @@ export const transit_realtime = $root.transit_realtime = (() => {
             Translation.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.TranslatedString.Translation();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.TranslatedString.Translation();
                 while (reader.pos < end) {
-                    let tag = reader.uint32();
+                    var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
                         message.text = reader.string();
@@ -4530,7 +4532,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
             Translation.fromObject = function fromObject(object) {
                 if (object instanceof $root.transit_realtime.TranslatedString.Translation)
                     return object;
-                let message = new $root.transit_realtime.TranslatedString.Translation();
+                var message = new $root.transit_realtime.TranslatedString.Translation();
                 if (object.text != null)
                     message.text = String(object.text);
                 if (object.language != null)
@@ -4550,7 +4552,7 @@ export const transit_realtime = $root.transit_realtime = (() => {
             Translation.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
-                let object = {};
+                var object = {};
                 if (options.defaults) {
                     object.text = "";
                     object.language = "";
@@ -4582,4 +4584,4 @@ export const transit_realtime = $root.transit_realtime = (() => {
     return transit_realtime;
 })();
 
-export { $root as default };
+module.exports = $root;
