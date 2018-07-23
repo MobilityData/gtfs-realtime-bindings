@@ -9,6 +9,207 @@ var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.ut
 // Exported root namespace
 var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
 
+$root.TransitAlertExtension = (function() {
+
+    /**
+     * Properties of a TransitAlertExtension.
+     * @exports ITransitAlertExtension
+     * @interface ITransitAlertExtension
+     * @property {number|Long} createdAt TransitAlertExtension createdAt
+     */
+
+    /**
+     * Constructs a new TransitAlertExtension.
+     * @exports TransitAlertExtension
+     * @classdesc Represents a TransitAlertExtension.
+     * @implements ITransitAlertExtension
+     * @constructor
+     * @param {ITransitAlertExtension=} [properties] Properties to set
+     */
+    function TransitAlertExtension(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * TransitAlertExtension createdAt.
+     * @member {number|Long} createdAt
+     * @memberof TransitAlertExtension
+     * @instance
+     */
+    TransitAlertExtension.prototype.createdAt = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+
+    /**
+     * Creates a new TransitAlertExtension instance using the specified properties.
+     * @function create
+     * @memberof TransitAlertExtension
+     * @static
+     * @param {ITransitAlertExtension=} [properties] Properties to set
+     * @returns {TransitAlertExtension} TransitAlertExtension instance
+     */
+    TransitAlertExtension.create = function create(properties) {
+        return new TransitAlertExtension(properties);
+    };
+
+    /**
+     * Encodes the specified TransitAlertExtension message. Does not implicitly {@link TransitAlertExtension.verify|verify} messages.
+     * @function encode
+     * @memberof TransitAlertExtension
+     * @static
+     * @param {ITransitAlertExtension} message TransitAlertExtension message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    TransitAlertExtension.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.createdAt);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified TransitAlertExtension message, length delimited. Does not implicitly {@link TransitAlertExtension.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof TransitAlertExtension
+     * @static
+     * @param {ITransitAlertExtension} message TransitAlertExtension message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    TransitAlertExtension.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a TransitAlertExtension message from the specified reader or buffer.
+     * @function decode
+     * @memberof TransitAlertExtension
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {TransitAlertExtension} TransitAlertExtension
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    TransitAlertExtension.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.TransitAlertExtension();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+            case 1:
+                message.createdAt = reader.uint64();
+                break;
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        if (!message.hasOwnProperty("createdAt"))
+            throw $util.ProtocolError("missing required 'createdAt'", { instance: message });
+        return message;
+    };
+
+    /**
+     * Decodes a TransitAlertExtension message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof TransitAlertExtension
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {TransitAlertExtension} TransitAlertExtension
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    TransitAlertExtension.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a TransitAlertExtension message.
+     * @function verify
+     * @memberof TransitAlertExtension
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    TransitAlertExtension.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (!$util.isInteger(message.createdAt) && !(message.createdAt && $util.isInteger(message.createdAt.low) && $util.isInteger(message.createdAt.high)))
+            return "createdAt: integer|Long expected";
+        return null;
+    };
+
+    /**
+     * Creates a TransitAlertExtension message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof TransitAlertExtension
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {TransitAlertExtension} TransitAlertExtension
+     */
+    TransitAlertExtension.fromObject = function fromObject(object) {
+        if (object instanceof $root.TransitAlertExtension)
+            return object;
+        var message = new $root.TransitAlertExtension();
+        if (object.createdAt != null)
+            if ($util.Long)
+                (message.createdAt = $util.Long.fromValue(object.createdAt)).unsigned = true;
+            else if (typeof object.createdAt === "string")
+                message.createdAt = parseInt(object.createdAt, 10);
+            else if (typeof object.createdAt === "number")
+                message.createdAt = object.createdAt;
+            else if (typeof object.createdAt === "object")
+                message.createdAt = new $util.LongBits(object.createdAt.low >>> 0, object.createdAt.high >>> 0).toNumber(true);
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a TransitAlertExtension message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof TransitAlertExtension
+     * @static
+     * @param {TransitAlertExtension} message TransitAlertExtension
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    TransitAlertExtension.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults)
+            if ($util.Long) {
+                var long = new $util.Long(0, 0, true);
+                object.createdAt = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else
+                object.createdAt = options.longs === String ? "0" : 0;
+        if (message.createdAt != null && message.hasOwnProperty("createdAt"))
+            if (typeof message.createdAt === "number")
+                object.createdAt = options.longs === String ? String(message.createdAt) : message.createdAt;
+            else
+                object.createdAt = options.longs === String ? $util.Long.prototype.toString.call(message.createdAt) : options.longs === Number ? new $util.LongBits(message.createdAt.low >>> 0, message.createdAt.high >>> 0).toNumber(true) : message.createdAt;
+        return object;
+    };
+
+    /**
+     * Converts this TransitAlertExtension to JSON.
+     * @function toJSON
+     * @memberof TransitAlertExtension
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    TransitAlertExtension.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    return TransitAlertExtension;
+})();
+
 $root.transit_realtime = (function() {
 
     /**
@@ -2258,6 +2459,7 @@ $root.transit_realtime = (function() {
          * @property {transit_realtime.ITranslatedString|null} [url] Alert url
          * @property {transit_realtime.ITranslatedString|null} [headerText] Alert headerText
          * @property {transit_realtime.ITranslatedString|null} [descriptionText] Alert descriptionText
+         * @property {ITransitAlertExtension|null} [".transitAlertExtension"] Alert .transitAlertExtension
          */
 
         /**
@@ -2334,6 +2536,14 @@ $root.transit_realtime = (function() {
         Alert.prototype.descriptionText = null;
 
         /**
+         * Alert .transitAlertExtension.
+         * @member {ITransitAlertExtension|null|undefined} .transitAlertExtension
+         * @memberof transit_realtime.Alert
+         * @instance
+         */
+        Alert.prototype[".transitAlertExtension"] = null;
+
+        /**
          * Creates a new Alert instance using the specified properties.
          * @function create
          * @memberof transit_realtime.Alert
@@ -2373,6 +2583,8 @@ $root.transit_realtime = (function() {
                 $root.transit_realtime.TranslatedString.encode(message.headerText, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
             if (message.descriptionText != null && message.hasOwnProperty("descriptionText"))
                 $root.transit_realtime.TranslatedString.encode(message.descriptionText, writer.uint32(/* id 11, wireType 2 =*/90).fork()).ldelim();
+            if (message[".transitAlertExtension"] != null && message.hasOwnProperty(".transitAlertExtension"))
+                $root.TransitAlertExtension.encode(message[".transitAlertExtension"], writer.uint32(/* id 1496, wireType 2 =*/11970).fork()).ldelim();
             return writer;
         };
 
@@ -2431,6 +2643,9 @@ $root.transit_realtime = (function() {
                     break;
                 case 11:
                     message.descriptionText = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
+                    break;
+                case 1496:
+                    message[".transitAlertExtension"] = $root.TransitAlertExtension.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2532,6 +2747,11 @@ $root.transit_realtime = (function() {
                 var error = $root.transit_realtime.TranslatedString.verify(message.descriptionText);
                 if (error)
                     return "descriptionText." + error;
+            }
+            if (message[".transitAlertExtension"] != null && message.hasOwnProperty(".transitAlertExtension")) {
+                var error = $root.TransitAlertExtension.verify(message[".transitAlertExtension"]);
+                if (error)
+                    return ".transitAlertExtension." + error;
             }
             return null;
         };
@@ -2671,6 +2891,11 @@ $root.transit_realtime = (function() {
                     throw TypeError(".transit_realtime.Alert.descriptionText: object expected");
                 message.descriptionText = $root.transit_realtime.TranslatedString.fromObject(object.descriptionText);
             }
+            if (object[".transitAlertExtension"] != null) {
+                if (typeof object[".transitAlertExtension"] !== "object")
+                    throw TypeError(".transit_realtime.Alert..transitAlertExtension: object expected");
+                message[".transitAlertExtension"] = $root.TransitAlertExtension.fromObject(object[".transitAlertExtension"]);
+            }
             return message;
         };
 
@@ -2697,6 +2922,7 @@ $root.transit_realtime = (function() {
                 object.url = null;
                 object.headerText = null;
                 object.descriptionText = null;
+                object[".transitAlertExtension"] = null;
             }
             if (message.activePeriod && message.activePeriod.length) {
                 object.activePeriod = [];
@@ -2718,6 +2944,8 @@ $root.transit_realtime = (function() {
                 object.headerText = $root.transit_realtime.TranslatedString.toObject(message.headerText, options);
             if (message.descriptionText != null && message.hasOwnProperty("descriptionText"))
                 object.descriptionText = $root.transit_realtime.TranslatedString.toObject(message.descriptionText, options);
+            if (message[".transitAlertExtension"] != null && message.hasOwnProperty(".transitAlertExtension"))
+                object[".transitAlertExtension"] = $root.TransitAlertExtension.toObject(message[".transitAlertExtension"], options);
             return object;
         };
 

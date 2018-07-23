@@ -1,0 +1,17 @@
+//
+// Transit Alerts for the GTFS-realtime protocol.
+//
+
+// Use 1496 as an extension number
+// Needed to be relatively big and higher than 1000
+
+import "gtfs-realtime.proto";
+
+message TransitAlertExtension {
+    // Creat time of the alerts, in POSIX time
+    required uint64 createdAt = 1;
+}
+
+extend transit_realtime.Alert {
+    optional TransitAlertExtension transit_alert_extension = 1496;
+}
