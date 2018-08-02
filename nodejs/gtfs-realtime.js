@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, no-redeclare, no-control-regex, no-prototype-builtins*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -16,6 +16,7 @@ $root.TransitAlertExtension = (function() {
      * @exports ITransitAlertExtension
      * @interface ITransitAlertExtension
      * @property {number|Long} createdAt TransitAlertExtension createdAt
+     * @property {TransitAlertExtension.Severity} severity TransitAlertExtension severity
      */
 
     /**
@@ -42,6 +43,14 @@ $root.TransitAlertExtension = (function() {
     TransitAlertExtension.prototype.createdAt = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
     /**
+     * TransitAlertExtension severity.
+     * @member {TransitAlertExtension.Severity} severity
+     * @memberof TransitAlertExtension
+     * @instance
+     */
+    TransitAlertExtension.prototype.severity = 0;
+
+    /**
      * Creates a new TransitAlertExtension instance using the specified properties.
      * @function create
      * @memberof TransitAlertExtension
@@ -66,6 +75,7 @@ $root.TransitAlertExtension = (function() {
         if (!writer)
             writer = $Writer.create();
         writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.createdAt);
+        writer.uint32(/* id 2, wireType 0 =*/16).int32(message.severity);
         return writer;
     };
 
@@ -103,6 +113,9 @@ $root.TransitAlertExtension = (function() {
             case 1:
                 message.createdAt = reader.uint64();
                 break;
+            case 2:
+                message.severity = reader.int32();
+                break;
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -110,6 +123,8 @@ $root.TransitAlertExtension = (function() {
         }
         if (!message.hasOwnProperty("createdAt"))
             throw $util.ProtocolError("missing required 'createdAt'", { instance: message });
+        if (!message.hasOwnProperty("severity"))
+            throw $util.ProtocolError("missing required 'severity'", { instance: message });
         return message;
     };
 
@@ -142,6 +157,14 @@ $root.TransitAlertExtension = (function() {
             return "object expected";
         if (!$util.isInteger(message.createdAt) && !(message.createdAt && $util.isInteger(message.createdAt.low) && $util.isInteger(message.createdAt.high)))
             return "createdAt: integer|Long expected";
+        switch (message.severity) {
+        default:
+            return "severity: enum value expected";
+        case 0:
+        case 1:
+        case 2:
+            break;
+        }
         return null;
     };
 
@@ -166,6 +189,20 @@ $root.TransitAlertExtension = (function() {
                 message.createdAt = object.createdAt;
             else if (typeof object.createdAt === "object")
                 message.createdAt = new $util.LongBits(object.createdAt.low >>> 0, object.createdAt.high >>> 0).toNumber(true);
+        switch (object.severity) {
+        case "DOWNTIME":
+        case 0:
+            message.severity = 0;
+            break;
+        case "WARNING":
+        case 1:
+            message.severity = 1;
+            break;
+        case "INFO":
+        case 2:
+            message.severity = 2;
+            break;
+        }
         return message;
     };
 
@@ -182,17 +219,21 @@ $root.TransitAlertExtension = (function() {
         if (!options)
             options = {};
         var object = {};
-        if (options.defaults)
+        if (options.defaults) {
             if ($util.Long) {
                 var long = new $util.Long(0, 0, true);
                 object.createdAt = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
             } else
                 object.createdAt = options.longs === String ? "0" : 0;
+            object.severity = options.enums === String ? "DOWNTIME" : 0;
+        }
         if (message.createdAt != null && message.hasOwnProperty("createdAt"))
             if (typeof message.createdAt === "number")
                 object.createdAt = options.longs === String ? String(message.createdAt) : message.createdAt;
             else
                 object.createdAt = options.longs === String ? $util.Long.prototype.toString.call(message.createdAt) : options.longs === Number ? new $util.LongBits(message.createdAt.low >>> 0, message.createdAt.high >>> 0).toNumber(true) : message.createdAt;
+        if (message.severity != null && message.hasOwnProperty("severity"))
+            object.severity = options.enums === String ? $root.TransitAlertExtension.Severity[message.severity] : message.severity;
         return object;
     };
 
@@ -206,6 +247,22 @@ $root.TransitAlertExtension = (function() {
     TransitAlertExtension.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
+
+    /**
+     * Severity enum.
+     * @name TransitAlertExtension.Severity
+     * @enum {string}
+     * @property {number} DOWNTIME=0 DOWNTIME value
+     * @property {number} WARNING=1 WARNING value
+     * @property {number} INFO=2 INFO value
+     */
+    TransitAlertExtension.Severity = (function() {
+        var valuesById = {}, values = Object.create(valuesById);
+        values[valuesById[0] = "DOWNTIME"] = 0;
+        values[valuesById[1] = "WARNING"] = 1;
+        values[valuesById[2] = "INFO"] = 2;
+        return values;
+    })();
 
     return TransitAlertExtension;
 })();

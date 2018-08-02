@@ -10,6 +10,13 @@ import "gtfs-realtime.proto";
 message TransitAlertExtension {
     // Creat time of the alerts, in POSIX time
     required uint64 createdAt = 1;
+
+    enum Severity  {
+        DOWNTIME = 0;
+        WARNING = 1;
+        INFO = 2;
+    }
+    required Severity severity = 2;
 }
 
 extend transit_realtime.Alert {
