@@ -22,7 +22,7 @@
         "node >= 0.10.0"
     ],
     "dependencies": {
-        "protobufjs": "^6.8.6"
+        "protobufjs": "6.8.6"
     },
     "devDependencies": {
         "mocha": "1.19.0",
