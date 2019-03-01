@@ -10,8 +10,8 @@
     <projectUrl>https://github.com/google/gtfs-realtime-bindings/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Update .NET to latest gtfs-realtime.proto - Feb 26, 2015</releaseNotes>
-    <copyright>Copyright 2015</copyright>
+    <releaseNotes>Update .NET to latest gtfs-realtime.proto - Feb 20, 2019</releaseNotes>
+    <copyright>Copyright 2019</copyright>
     <tags>gtfs-realtime</tags>
     <dependencies>
       <dependency id="protobuf-net" version="2.0.0.668"/>
