@@ -1,3 +1,17 @@
+// Copyright 2019 Google
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 /*eslint-disable block-scoped-var, no-redeclare, no-control-regex, no-prototype-builtins*/
 "use strict";
 
@@ -2118,6 +2132,9 @@ $root.transit_realtime = (function() {
          * @property {transit_realtime.TranslatedString$Properties} [url] Alert url.
          * @property {transit_realtime.TranslatedString$Properties} [headerText] Alert headerText.
          * @property {transit_realtime.TranslatedString$Properties} [descriptionText] Alert descriptionText.
+         * @property {transit_realtime.TranslatedString$Properties} [ttsHeaderText] Alert ttsHeaderText.
+         * @property {transit_realtime.TranslatedString$Properties} [ttsDescriptionText] Alert ttsDescriptionText.
+         * @property {transit_realtime.Alert.SeverityLevel} [severityLevel] Alert severityLevel.
          */
 
         /**
@@ -2178,6 +2195,24 @@ $root.transit_realtime = (function() {
         Alert.prototype.descriptionText = null;
 
         /**
+         * Alert ttsHeaderText.
+         * @type {(transit_realtime.TranslatedString$Properties|null)}
+         */
+        Alert.prototype.ttsHeaderText = null;
+
+        /**
+         * Alert ttsDescriptionText.
+         * @type {(transit_realtime.TranslatedString$Properties|null)}
+         */
+        Alert.prototype.ttsDescriptionText = null;
+
+        /**
+         * Alert severityLevel.
+         * @type {transit_realtime.Alert.SeverityLevel}
+         */
+        Alert.prototype.severityLevel = 1;
+
+        /**
          * Creates a new Alert instance using the specified properties.
          * @param {transit_realtime.Alert$Properties=} [properties] Properties to set
          * @returns {transit_realtime.Alert} Alert instance
@@ -2211,6 +2246,12 @@ $root.transit_realtime = (function() {
                 $root.transit_realtime.TranslatedString.encode(message.headerText, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
             if (message.descriptionText != null && message.hasOwnProperty("descriptionText"))
                 $root.transit_realtime.TranslatedString.encode(message.descriptionText, writer.uint32(/* id 11, wireType 2 =*/90).fork()).ldelim();
+            if (message.ttsHeaderText != null && message.hasOwnProperty("ttsHeaderText"))
+                $root.transit_realtime.TranslatedString.encode(message.ttsHeaderText, writer.uint32(/* id 12, wireType 2 =*/98).fork()).ldelim();
+            if (message.ttsDescriptionText != null && message.hasOwnProperty("ttsDescriptionText"))
+                $root.transit_realtime.TranslatedString.encode(message.ttsDescriptionText, writer.uint32(/* id 13, wireType 2 =*/106).fork()).ldelim();
+            if (message.severityLevel != null && message.hasOwnProperty("severityLevel"))
+                writer.uint32(/* id 14, wireType 0 =*/112).uint32(message.severityLevel);
             return writer;
         };
 
@@ -2263,6 +2304,15 @@ $root.transit_realtime = (function() {
                     break;
                 case 11:
                     message.descriptionText = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
+                    break;
+                case 12:
+                    message.ttsHeaderText = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
+                    break;
+                case 13:
+                    message.ttsDescriptionText = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
+                    break;
+                case 14:
+                    message.severityLevel = reader.uint32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2342,6 +2392,7 @@ $root.transit_realtime = (function() {
                 case 7:
                 case 8:
                 case 9:
+                case 10:
                     break;
                 }
             if (message.url != null && message.hasOwnProperty("url")) {
@@ -2359,6 +2410,26 @@ $root.transit_realtime = (function() {
                 if (error)
                     return "descriptionText." + error;
             }
+            if (message.ttsHeaderText != null && message.hasOwnProperty("ttsHeaderText")) {
+                var error = $root.transit_realtime.TranslatedString.verify(message.ttsHeaderText);
+                if (error)
+                    return "ttsHeaderText." + error;
+            }
+            if (message.ttsDescriptionText != null && message.hasOwnProperty("ttsDescriptionText")) {
+                var error = $root.transit_realtime.TranslatedString.verify(message.ttsDescriptionText);
+                if (error)
+                    return "ttsDescriptionText." + error;
+            }
+            if (message.severityLevel != null && message.hasOwnProperty("severityLevel"))
+                switch (message.severityLevel) {
+                default:
+                    return "severityLevel: enum value expected";
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                    break;
+                }
             return null;
         };
 
@@ -2478,6 +2549,10 @@ $root.transit_realtime = (function() {
             case 9:
                 message.effect = 9;
                 break;
+            case "NO_EFFECT":
+            case 10:
+                message.effect = 10;
+                break;
             }
             if (object.url != null) {
                 if (typeof object.url !== "object")
@@ -2493,6 +2568,34 @@ $root.transit_realtime = (function() {
                 if (typeof object.descriptionText !== "object")
                     throw TypeError(".transit_realtime.Alert.descriptionText: object expected");
                 message.descriptionText = $root.transit_realtime.TranslatedString.fromObject(object.descriptionText);
+            }
+            if (object.ttsHeaderText != null) {
+                if (typeof object.ttsHeaderText !== "object")
+                    throw TypeError(".transit_realtime.Alert.ttsHeaderText: object expected");
+                message.ttsHeaderText = $root.transit_realtime.TranslatedString.fromObject(object.ttsHeaderText);
+            }
+            if (object.ttsDescriptionText != null) {
+                if (typeof object.ttsDescriptionText !== "object")
+                    throw TypeError(".transit_realtime.Alert.ttsDescriptionText: object expected");
+                message.ttsDescriptionText = $root.transit_realtime.TranslatedString.fromObject(object.ttsDescriptionText);
+            }
+            switch (object.severityLevel) {
+            case "UNKNOWN_SEVERITY":
+            case 1:
+                message.severityLevel = 1;
+                break;
+            case "INFO":
+            case 2:
+                message.severityLevel = 2;
+                break;
+            case "WARNING":
+            case 3:
+                message.severityLevel = 3;
+                break;
+            case "SEVERE":
+            case 4:
+                message.severityLevel = 4;
+                break;
             }
             return message;
         };
@@ -2526,6 +2629,9 @@ $root.transit_realtime = (function() {
                 object.url = null;
                 object.headerText = null;
                 object.descriptionText = null;
+                object.ttsHeaderText = null;
+                object.ttsDescriptionText = null;
+                object.severityLevel = options.enums === String ? "UNKNOWN_SEVERITY" : 1;
             }
             if (message.activePeriod && message.activePeriod.length) {
                 object.activePeriod = [];
@@ -2547,6 +2653,12 @@ $root.transit_realtime = (function() {
                 object.headerText = $root.transit_realtime.TranslatedString.toObject(message.headerText, options);
             if (message.descriptionText != null && message.hasOwnProperty("descriptionText"))
                 object.descriptionText = $root.transit_realtime.TranslatedString.toObject(message.descriptionText, options);
+            if (message.ttsHeaderText != null && message.hasOwnProperty("ttsHeaderText"))
+                object.ttsHeaderText = $root.transit_realtime.TranslatedString.toObject(message.ttsHeaderText, options);
+            if (message.ttsDescriptionText != null && message.hasOwnProperty("ttsDescriptionText"))
+                object.ttsDescriptionText = $root.transit_realtime.TranslatedString.toObject(message.ttsDescriptionText, options);
+            if (message.severityLevel != null && message.hasOwnProperty("severityLevel"))
+                object.severityLevel = options.enums === String ? $root.transit_realtime.Alert.SeverityLevel[message.severityLevel] : message.severityLevel;
             return object;
         };
 
@@ -2616,6 +2728,7 @@ $root.transit_realtime = (function() {
          * @property {number} OTHER_EFFECT=7 OTHER_EFFECT value
          * @property {number} UNKNOWN_EFFECT=8 UNKNOWN_EFFECT value
          * @property {number} STOP_MOVED=9 STOP_MOVED value
+         * @property {number} NO_EFFECT=10 NO_EFFECT value
          */
         Alert.Effect = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -2628,6 +2741,26 @@ $root.transit_realtime = (function() {
             values[valuesById[7] = "OTHER_EFFECT"] = 7;
             values[valuesById[8] = "UNKNOWN_EFFECT"] = 8;
             values[valuesById[9] = "STOP_MOVED"] = 9;
+            values[valuesById[10] = "NO_EFFECT"] = 10;
+            return values;
+        })();
+
+        /**
+         * SeverityLevel enum.
+         * @name SeverityLevel
+         * @memberof transit_realtime.Alert
+         * @enum {number}
+         * @property {number} UNKNOWN_SEVERITY=1 UNKNOWN_SEVERITY value
+         * @property {number} INFO=2 INFO value
+         * @property {number} WARNING=3 WARNING value
+         * @property {number} SEVERE=4 SEVERE value
+         */
+        Alert.SeverityLevel = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[1] = "UNKNOWN_SEVERITY"] = 1;
+            values[valuesById[2] = "INFO"] = 2;
+            values[valuesById[3] = "WARNING"] = 3;
+            values[valuesById[4] = "SEVERE"] = 4;
             return values;
         })();
 
@@ -3303,6 +3436,7 @@ $root.transit_realtime = (function() {
                 case 1:
                 case 2:
                 case 3:
+                case 5:
                     break;
                 }
             return null;
@@ -3343,6 +3477,10 @@ $root.transit_realtime = (function() {
             case "CANCELED":
             case 3:
                 message.scheduleRelationship = 3;
+                break;
+            case "REPLACEMENT":
+            case 5:
+                message.scheduleRelationship = 5;
                 break;
             }
             return message;
@@ -3416,6 +3554,7 @@ $root.transit_realtime = (function() {
          * @property {number} ADDED=1 ADDED value
          * @property {number} UNSCHEDULED=2 UNSCHEDULED value
          * @property {number} CANCELED=3 CANCELED value
+         * @property {number} REPLACEMENT=5 REPLACEMENT value
          */
         TripDescriptor.ScheduleRelationship = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -3423,6 +3562,7 @@ $root.transit_realtime = (function() {
             values[valuesById[1] = "ADDED"] = 1;
             values[valuesById[2] = "UNSCHEDULED"] = 2;
             values[valuesById[3] = "CANCELED"] = 3;
+            values[valuesById[5] = "REPLACEMENT"] = 5;
             return values;
         })();
 
