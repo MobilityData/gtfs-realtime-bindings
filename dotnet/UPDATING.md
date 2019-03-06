@@ -2,6 +2,8 @@
 
 ## Regenerate the language binding source from gtfs-realtime.proto.
 
+#### One-Time Setup
+
 1. You'll need a file `protogen.exe`, which is from [protobuf-net](https://github.com/mgravell/protobuf-net). You can download the `protogen.exe` file from https://protogen.marcgravell.com/ (for example, https://protogen.marcgravell.com/protogen/protogen%202.3.16.zip).  When you extract the zip the exe will be in the `net462` folder.
 
 #### Every time `gtfs-realtime.proto` changes
