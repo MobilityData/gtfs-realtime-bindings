@@ -1,6 +1,6 @@
 #! /usr/bin/python
 #
-# Copyright 2015 Google Inc.
+# Copyright 2019 Google Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@ if __name__ == '__main__':
   ext_module_list = []
 
   setup(name = 'gtfs-realtime-bindings',
-        version = '0.0.5',
+        version = '0.0.6',
         packages = ['google', 'google.transit'],
         namespace_packages = ['google'],
         install_requires = ['setuptools', 'protobuf'],
