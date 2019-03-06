@@ -4,6 +4,7 @@
 
 #### One-Time Setup
 
+1. Download and setup Protocol Buffer release from https://github.com/protocolbuffers/protobuf/releases (if you haven't already done this for another language).  As of February 2019 we're using v3.7 release, which is compatible with proto2 .proto files.
 1. Install [Python](https://www.python.org/downloads/). Release 3.7.2 was most recently used.
 1. Install [nose](https://nose.readthedocs.io/en/latest/) for unit tests by running `easy_install nose`
 1. Install the Python protobuf library via `easy_install protobuf`
