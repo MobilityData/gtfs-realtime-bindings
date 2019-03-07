@@ -1,0 +1,11 @@
+/Users/datatech/Documents/GitHub/gtfs-realtime-bindings/dotnet/tests/obj/Debug/netcoreapp2.2/tests.csprojAssemblyReference.cache
+/Users/datatech/Documents/GitHub/gtfs-realtime-bindings/dotnet/tests/obj/Debug/netcoreapp2.2/tests.csproj.CoreCompileInputs.cache
+/Users/datatech/Documents/GitHub/gtfs-realtime-bindings/dotnet/tests/obj/Debug/netcoreapp2.2/tests.AssemblyInfoInputs.cache
+/Users/datatech/Documents/GitHub/gtfs-realtime-bindings/dotnet/tests/obj/Debug/netcoreapp2.2/tests.AssemblyInfo.cs
+/Users/datatech/Documents/GitHub/gtfs-realtime-bindings/dotnet/tests/bin/Debug/netcoreapp2.2/tests.deps.json
+/Users/datatech/Documents/GitHub/gtfs-realtime-bindings/dotnet/tests/bin/Debug/netcoreapp2.2/tests.runtimeconfig.json
+/Users/datatech/Documents/GitHub/gtfs-realtime-bindings/dotnet/tests/bin/Debug/netcoreapp2.2/tests.runtimeconfig.dev.json
+/Users/datatech/Documents/GitHub/gtfs-realtime-bindings/dotnet/tests/bin/Debug/netcoreapp2.2/tests.dll
+/Users/datatech/Documents/GitHub/gtfs-realtime-bindings/dotnet/tests/bin/Debug/netcoreapp2.2/tests.pdb
+/Users/datatech/Documents/GitHub/gtfs-realtime-bindings/dotnet/tests/obj/Debug/netcoreapp2.2/tests.dll
+/Users/datatech/Documents/GitHub/gtfs-realtime-bindings/dotnet/tests/obj/Debug/netcoreapp2.2/tests.pdb

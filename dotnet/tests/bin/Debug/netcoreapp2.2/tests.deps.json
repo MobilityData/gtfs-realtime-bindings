@@ -1,0 +1,91 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.2",
+    "signature": "cf616444cb35bbeff77df79ff2dd89844d288cb6"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.2": {
+      "tests/1.0.0": {
+        "dependencies": {
+          "Google.Protobuf": "3.7.0",
+          "GtfsRealtimeBindings": "0.0.3",
+          "NUnit": "3.11.0"
+        },
+        "runtime": {
+          "tests.dll": {}
+        }
+      },
+      "Google.Protobuf/3.7.0": {
+        "runtime": {
+          "lib/netstandard1.0/Google.Protobuf.dll": {
+            "assemblyVersion": "3.7.0.0",
+            "fileVersion": "3.7.0.0"
+          }
+        }
+      },
+      "GtfsRealtimeBindings/0.0.3": {
+        "dependencies": {
+          "protobuf-net": "2.0.0.668"
+        },
+        "runtime": {
+          "lib/net40/GtfsRealtimeBindings.dll": {
+            "assemblyVersion": "0.0.3.0",
+            "fileVersion": "0.0.3.0"
+          }
+        }
+      },
+      "NUnit/3.11.0": {
+        "runtime": {
+          "lib/netstandard2.0/nunit.framework.dll": {
+            "assemblyVersion": "3.11.0.0",
+            "fileVersion": "3.11.0.0"
+          }
+        }
+      },
+      "protobuf-net/2.0.0.668": {
+        "runtime": {
+          "lib/net40/protobuf-net.dll": {
+            "assemblyVersion": "2.0.0.668",
+            "fileVersion": "2.0.0.668"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "tests/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Google.Protobuf/3.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OvssyqQTrpJgdH4fjztsCV9AhUo9jgGpDbZ5XAAqC+X6MIUsifHk8Woeom1HXlHdqo/XebiEMpYySE9AxybJ9g==",
+      "path": "google.protobuf/3.7.0",
+      "hashPath": "google.protobuf.3.7.0.nupkg.sha512"
+    },
+    "GtfsRealtimeBindings/0.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WNUcPw1cqs3hfWcJMy53u1o98wfIjXW4cuCgWQu4MeDjp1W3G+LTkDgccm+RMsbmji8S/daUn+GEsEYhdkuP1w==",
+      "path": "gtfsrealtimebindings/0.0.3",
+      "hashPath": "gtfsrealtimebindings.0.0.3.nupkg.sha512"
+    },
+    "NUnit/3.11.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BzGk+u02RCrysmLlSzD+okxzMQ8JRF4eFC/qijDJ8Y/FBdTrTkxkQyTFsYkG1o++pr7QpFAE4VDXDqIfZ/gBAg==",
+      "path": "nunit/3.11.0",
+      "hashPath": "nunit.3.11.0.nupkg.sha512"
+    },
+    "protobuf-net/2.0.0.668": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Lgj+Kf1+RV0utKxX9u1WEcymPGrbWrj/AwFmFADFLLa/LLdc1ji2MIGcecFRAGUu6UO8BRbdjZAIYWvLlN1B/A==",
+      "path": "protobuf-net/2.0.0.668",
+      "hashPath": "protobuf-net.2.0.0.668.nupkg.sha512"
+    }
+  }
+}
