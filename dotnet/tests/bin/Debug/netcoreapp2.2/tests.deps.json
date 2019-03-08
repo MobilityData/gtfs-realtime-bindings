@@ -62,28 +62,28 @@
     "Google.Protobuf/3.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-OvssyqQTrpJgdH4fjztsCV9AhUo9jgGpDbZ5XAAqC+X6MIUsifHk8Woeom1HXlHdqo/XebiEMpYySE9AxybJ9g==",
+      "sha512": "sha512-iGSH+kB233wWy4VjEC+7KrMJTD3K7Nw2VpnboSgbyU1SrCQZUVpKdJ7NKDZVL7JvFYBiUq4VRMgC0OAXxJAvjA==",
       "path": "google.protobuf/3.7.0",
       "hashPath": "google.protobuf.3.7.0.nupkg.sha512"
     },
     "GtfsRealtimeBindings/0.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-WNUcPw1cqs3hfWcJMy53u1o98wfIjXW4cuCgWQu4MeDjp1W3G+LTkDgccm+RMsbmji8S/daUn+GEsEYhdkuP1w==",
+      "sha512": "sha512-bX4yE/x6SGE0T2g6bokyFrrXXgkSzOPheWiDSGWz0xF0yknpkexFPFDS6/w7ud/K5Cx5tH3RnzU+QNrj69+9iQ==",
       "path": "gtfsrealtimebindings/0.0.3",
       "hashPath": "gtfsrealtimebindings.0.0.3.nupkg.sha512"
     },
     "NUnit/3.11.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-BzGk+u02RCrysmLlSzD+okxzMQ8JRF4eFC/qijDJ8Y/FBdTrTkxkQyTFsYkG1o++pr7QpFAE4VDXDqIfZ/gBAg==",
+      "sha512": "sha512-zecrYxUA5p5w8AZ2bvbBbiUIcrQnZAVPrziNMSWMdcOi0D2Oe7yKUNivWPIQMcUwQDHmWtS/ijnD48ubU/eHZQ==",
       "path": "nunit/3.11.0",
       "hashPath": "nunit.3.11.0.nupkg.sha512"
     },
     "protobuf-net/2.0.0.668": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Lgj+Kf1+RV0utKxX9u1WEcymPGrbWrj/AwFmFADFLLa/LLdc1ji2MIGcecFRAGUu6UO8BRbdjZAIYWvLlN1B/A==",
+      "sha512": "sha512-b/f1aC16yW1/EauHZ5BHJC4sW3pMQ+IwL/hDda6fASHJpYnF+21P/bgkTjE0sfmHLZA5N1krPY+uXQHm1voO2w==",
       "path": "protobuf-net/2.0.0.668",
       "hashPath": "protobuf-net.2.0.0.668.nupkg.sha512"
     }
