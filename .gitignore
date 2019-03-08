@@ -2,7 +2,3 @@
 .DS_Store
 bin
 obj
-tests/bin/*
-tests/obj/*
-.vs/*
-tests/.vs/*
