@@ -1,3 +1,5 @@
 *.suo
 *.nupkg
 UpgradeLog.htm
+.vs
+.nuget
