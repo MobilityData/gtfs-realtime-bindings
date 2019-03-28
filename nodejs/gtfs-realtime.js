@@ -210,6 +210,238 @@ $root.TransitAlertExtension = (function() {
     return TransitAlertExtension;
 })();
 
+$root.TransitInformedEntityExtension = (function() {
+
+    /**
+     * Properties of a TransitInformedEntityExtension.
+     * @exports ITransitInformedEntityExtension
+     * @interface ITransitInformedEntityExtension
+     * @property {number} feedId TransitInformedEntityExtension feedId
+     * @property {number} globalRouteId TransitInformedEntityExtension globalRouteId
+     * @property {number} stableStopId TransitInformedEntityExtension stableStopId
+     */
+
+    /**
+     * Constructs a new TransitInformedEntityExtension.
+     * @exports TransitInformedEntityExtension
+     * @classdesc Represents a TransitInformedEntityExtension.
+     * @implements ITransitInformedEntityExtension
+     * @constructor
+     * @param {ITransitInformedEntityExtension=} [properties] Properties to set
+     */
+    function TransitInformedEntityExtension(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * TransitInformedEntityExtension feedId.
+     * @member {number} feedId
+     * @memberof TransitInformedEntityExtension
+     * @instance
+     */
+    TransitInformedEntityExtension.prototype.feedId = 0;
+
+    /**
+     * TransitInformedEntityExtension globalRouteId.
+     * @member {number} globalRouteId
+     * @memberof TransitInformedEntityExtension
+     * @instance
+     */
+    TransitInformedEntityExtension.prototype.globalRouteId = 0;
+
+    /**
+     * TransitInformedEntityExtension stableStopId.
+     * @member {number} stableStopId
+     * @memberof TransitInformedEntityExtension
+     * @instance
+     */
+    TransitInformedEntityExtension.prototype.stableStopId = 0;
+
+    /**
+     * Creates a new TransitInformedEntityExtension instance using the specified properties.
+     * @function create
+     * @memberof TransitInformedEntityExtension
+     * @static
+     * @param {ITransitInformedEntityExtension=} [properties] Properties to set
+     * @returns {TransitInformedEntityExtension} TransitInformedEntityExtension instance
+     */
+    TransitInformedEntityExtension.create = function create(properties) {
+        return new TransitInformedEntityExtension(properties);
+    };
+
+    /**
+     * Encodes the specified TransitInformedEntityExtension message. Does not implicitly {@link TransitInformedEntityExtension.verify|verify} messages.
+     * @function encode
+     * @memberof TransitInformedEntityExtension
+     * @static
+     * @param {ITransitInformedEntityExtension} message TransitInformedEntityExtension message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    TransitInformedEntityExtension.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        writer.uint32(/* id 1, wireType 0 =*/8).int32(message.feedId);
+        writer.uint32(/* id 2, wireType 0 =*/16).int32(message.globalRouteId);
+        writer.uint32(/* id 3, wireType 0 =*/24).int32(message.stableStopId);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified TransitInformedEntityExtension message, length delimited. Does not implicitly {@link TransitInformedEntityExtension.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof TransitInformedEntityExtension
+     * @static
+     * @param {ITransitInformedEntityExtension} message TransitInformedEntityExtension message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    TransitInformedEntityExtension.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a TransitInformedEntityExtension message from the specified reader or buffer.
+     * @function decode
+     * @memberof TransitInformedEntityExtension
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {TransitInformedEntityExtension} TransitInformedEntityExtension
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    TransitInformedEntityExtension.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.TransitInformedEntityExtension();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+            case 1:
+                message.feedId = reader.int32();
+                break;
+            case 2:
+                message.globalRouteId = reader.int32();
+                break;
+            case 3:
+                message.stableStopId = reader.int32();
+                break;
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        if (!message.hasOwnProperty("feedId"))
+            throw $util.ProtocolError("missing required 'feedId'", { instance: message });
+        if (!message.hasOwnProperty("globalRouteId"))
+            throw $util.ProtocolError("missing required 'globalRouteId'", { instance: message });
+        if (!message.hasOwnProperty("stableStopId"))
+            throw $util.ProtocolError("missing required 'stableStopId'", { instance: message });
+        return message;
+    };
+
+    /**
+     * Decodes a TransitInformedEntityExtension message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof TransitInformedEntityExtension
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {TransitInformedEntityExtension} TransitInformedEntityExtension
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    TransitInformedEntityExtension.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a TransitInformedEntityExtension message.
+     * @function verify
+     * @memberof TransitInformedEntityExtension
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    TransitInformedEntityExtension.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (!$util.isInteger(message.feedId))
+            return "feedId: integer expected";
+        if (!$util.isInteger(message.globalRouteId))
+            return "globalRouteId: integer expected";
+        if (!$util.isInteger(message.stableStopId))
+            return "stableStopId: integer expected";
+        return null;
+    };
+
+    /**
+     * Creates a TransitInformedEntityExtension message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof TransitInformedEntityExtension
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {TransitInformedEntityExtension} TransitInformedEntityExtension
+     */
+    TransitInformedEntityExtension.fromObject = function fromObject(object) {
+        if (object instanceof $root.TransitInformedEntityExtension)
+            return object;
+        var message = new $root.TransitInformedEntityExtension();
+        if (object.feedId != null)
+            message.feedId = object.feedId | 0;
+        if (object.globalRouteId != null)
+            message.globalRouteId = object.globalRouteId | 0;
+        if (object.stableStopId != null)
+            message.stableStopId = object.stableStopId | 0;
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a TransitInformedEntityExtension message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof TransitInformedEntityExtension
+     * @static
+     * @param {TransitInformedEntityExtension} message TransitInformedEntityExtension
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    TransitInformedEntityExtension.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.feedId = 0;
+            object.globalRouteId = 0;
+            object.stableStopId = 0;
+        }
+        if (message.feedId != null && message.hasOwnProperty("feedId"))
+            object.feedId = message.feedId;
+        if (message.globalRouteId != null && message.hasOwnProperty("globalRouteId"))
+            object.globalRouteId = message.globalRouteId;
+        if (message.stableStopId != null && message.hasOwnProperty("stableStopId"))
+            object.stableStopId = message.stableStopId;
+        return object;
+    };
+
+    /**
+     * Converts this TransitInformedEntityExtension to JSON.
+     * @function toJSON
+     * @memberof TransitInformedEntityExtension
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    TransitInformedEntityExtension.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    return TransitInformedEntityExtension;
+})();
+
 $root.transit_realtime = (function() {
 
     /**
@@ -4252,6 +4484,7 @@ $root.transit_realtime = (function() {
          * @property {number|null} [routeType] EntitySelector routeType
          * @property {transit_realtime.ITripDescriptor|null} [trip] EntitySelector trip
          * @property {string|null} [stopId] EntitySelector stopId
+         * @property {ITransitInformedEntityExtension|null} [".transitEntitySelectorExtension"] EntitySelector .transitEntitySelectorExtension
          */
 
         /**
@@ -4310,6 +4543,14 @@ $root.transit_realtime = (function() {
         EntitySelector.prototype.stopId = "";
 
         /**
+         * EntitySelector .transitEntitySelectorExtension.
+         * @member {ITransitInformedEntityExtension|null|undefined} .transitEntitySelectorExtension
+         * @memberof transit_realtime.EntitySelector
+         * @instance
+         */
+        EntitySelector.prototype[".transitEntitySelectorExtension"] = null;
+
+        /**
          * Creates a new EntitySelector instance using the specified properties.
          * @function create
          * @memberof transit_realtime.EntitySelector
@@ -4343,6 +4584,8 @@ $root.transit_realtime = (function() {
                 $root.transit_realtime.TripDescriptor.encode(message.trip, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
             if (message.stopId != null && message.hasOwnProperty("stopId"))
                 writer.uint32(/* id 5, wireType 2 =*/42).string(message.stopId);
+            if (message[".transitEntitySelectorExtension"] != null && message.hasOwnProperty(".transitEntitySelectorExtension"))
+                $root.TransitInformedEntityExtension.encode(message[".transitEntitySelectorExtension"], writer.uint32(/* id 1496, wireType 2 =*/11970).fork()).ldelim();
             return writer;
         };
 
@@ -4391,6 +4634,9 @@ $root.transit_realtime = (function() {
                     break;
                 case 5:
                     message.stopId = reader.string();
+                    break;
+                case 1496:
+                    message[".transitEntitySelectorExtension"] = $root.TransitInformedEntityExtension.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4444,6 +4690,11 @@ $root.transit_realtime = (function() {
             if (message.stopId != null && message.hasOwnProperty("stopId"))
                 if (!$util.isString(message.stopId))
                     return "stopId: string expected";
+            if (message[".transitEntitySelectorExtension"] != null && message.hasOwnProperty(".transitEntitySelectorExtension")) {
+                var error = $root.TransitInformedEntityExtension.verify(message[".transitEntitySelectorExtension"]);
+                if (error)
+                    return ".transitEntitySelectorExtension." + error;
+            }
             return null;
         };
 
@@ -4472,6 +4723,11 @@ $root.transit_realtime = (function() {
             }
             if (object.stopId != null)
                 message.stopId = String(object.stopId);
+            if (object[".transitEntitySelectorExtension"] != null) {
+                if (typeof object[".transitEntitySelectorExtension"] !== "object")
+                    throw TypeError(".transit_realtime.EntitySelector..transitEntitySelectorExtension: object expected");
+                message[".transitEntitySelectorExtension"] = $root.TransitInformedEntityExtension.fromObject(object[".transitEntitySelectorExtension"]);
+            }
             return message;
         };
 
@@ -4494,6 +4750,7 @@ $root.transit_realtime = (function() {
                 object.routeType = 0;
                 object.trip = null;
                 object.stopId = "";
+                object[".transitEntitySelectorExtension"] = null;
             }
             if (message.agencyId != null && message.hasOwnProperty("agencyId"))
                 object.agencyId = message.agencyId;
@@ -4505,6 +4762,8 @@ $root.transit_realtime = (function() {
                 object.trip = $root.transit_realtime.TripDescriptor.toObject(message.trip, options);
             if (message.stopId != null && message.hasOwnProperty("stopId"))
                 object.stopId = message.stopId;
+            if (message[".transitEntitySelectorExtension"] != null && message.hasOwnProperty(".transitEntitySelectorExtension"))
+                object[".transitEntitySelectorExtension"] = $root.TransitInformedEntityExtension.toObject(message[".transitEntitySelectorExtension"], options);
             return object;
         };
 

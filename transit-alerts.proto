@@ -9,9 +9,24 @@ import "gtfs-spec/gtfs-realtime/proto/gtfs-realtime.proto";
 
 message TransitAlertExtension {
     // Creat time of the alerts, in POSIX time
-    required uint64 createdAt = 1;
+    required uint64 created_at = 1;
 }
 
 extend transit_realtime.Alert {
     optional TransitAlertExtension transit_alert_extension = 1496;
+}
+
+message TransitInformedEntityExtension {
+    // Transit's feed id for that alert
+    required int32 feed_id = 1;
+
+    // Transit's global route id related to the routeId
+    required int32 global_route_id = 2;
+
+    // Transit's stable stop id related to the stopId
+    required int32 stable_stop_id = 3;
+}
+
+extend transit_realtime.EntitySelector {
+    optional TransitInformedEntityExtension transit_entity_selector_extension = 1496;
 }
