@@ -218,7 +218,7 @@ $root.TransitInformedEntityExtension = (function() {
      * @interface ITransitInformedEntityExtension
      * @property {number} feedId TransitInformedEntityExtension feedId
      * @property {number} globalRouteId TransitInformedEntityExtension globalRouteId
-     * @property {number} stableStopId TransitInformedEntityExtension stableStopId
+     * @property {number|null} [stableStopId] TransitInformedEntityExtension stableStopId
      */
 
     /**
@@ -286,7 +286,8 @@ $root.TransitInformedEntityExtension = (function() {
             writer = $Writer.create();
         writer.uint32(/* id 1, wireType 0 =*/8).int32(message.feedId);
         writer.uint32(/* id 2, wireType 0 =*/16).int32(message.globalRouteId);
-        writer.uint32(/* id 3, wireType 0 =*/24).int32(message.stableStopId);
+        if (message.stableStopId != null && message.hasOwnProperty("stableStopId"))
+            writer.uint32(/* id 3, wireType 0 =*/24).int32(message.stableStopId);
         return writer;
     };
 
@@ -339,8 +340,6 @@ $root.TransitInformedEntityExtension = (function() {
             throw $util.ProtocolError("missing required 'feedId'", { instance: message });
         if (!message.hasOwnProperty("globalRouteId"))
             throw $util.ProtocolError("missing required 'globalRouteId'", { instance: message });
-        if (!message.hasOwnProperty("stableStopId"))
-            throw $util.ProtocolError("missing required 'stableStopId'", { instance: message });
         return message;
     };
 
@@ -375,8 +374,9 @@ $root.TransitInformedEntityExtension = (function() {
             return "feedId: integer expected";
         if (!$util.isInteger(message.globalRouteId))
             return "globalRouteId: integer expected";
-        if (!$util.isInteger(message.stableStopId))
-            return "stableStopId: integer expected";
+        if (message.stableStopId != null && message.hasOwnProperty("stableStopId"))
+            if (!$util.isInteger(message.stableStopId))
+                return "stableStopId: integer expected";
         return null;
     };
 
@@ -440,6 +440,193 @@ $root.TransitInformedEntityExtension = (function() {
     };
 
     return TransitInformedEntityExtension;
+})();
+
+$root.TransitVehicleDescriptorExtension = (function() {
+
+    /**
+     * Properties of a TransitVehicleDescriptorExtension.
+     * @exports ITransitVehicleDescriptorExtension
+     * @interface ITransitVehicleDescriptorExtension
+     * @property {boolean} basedOnCrowdsourcingData TransitVehicleDescriptorExtension basedOnCrowdsourcingData
+     */
+
+    /**
+     * Constructs a new TransitVehicleDescriptorExtension.
+     * @exports TransitVehicleDescriptorExtension
+     * @classdesc Represents a TransitVehicleDescriptorExtension.
+     * @implements ITransitVehicleDescriptorExtension
+     * @constructor
+     * @param {ITransitVehicleDescriptorExtension=} [properties] Properties to set
+     */
+    function TransitVehicleDescriptorExtension(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * TransitVehicleDescriptorExtension basedOnCrowdsourcingData.
+     * @member {boolean} basedOnCrowdsourcingData
+     * @memberof TransitVehicleDescriptorExtension
+     * @instance
+     */
+    TransitVehicleDescriptorExtension.prototype.basedOnCrowdsourcingData = false;
+
+    /**
+     * Creates a new TransitVehicleDescriptorExtension instance using the specified properties.
+     * @function create
+     * @memberof TransitVehicleDescriptorExtension
+     * @static
+     * @param {ITransitVehicleDescriptorExtension=} [properties] Properties to set
+     * @returns {TransitVehicleDescriptorExtension} TransitVehicleDescriptorExtension instance
+     */
+    TransitVehicleDescriptorExtension.create = function create(properties) {
+        return new TransitVehicleDescriptorExtension(properties);
+    };
+
+    /**
+     * Encodes the specified TransitVehicleDescriptorExtension message. Does not implicitly {@link TransitVehicleDescriptorExtension.verify|verify} messages.
+     * @function encode
+     * @memberof TransitVehicleDescriptorExtension
+     * @static
+     * @param {ITransitVehicleDescriptorExtension} message TransitVehicleDescriptorExtension message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    TransitVehicleDescriptorExtension.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        writer.uint32(/* id 1, wireType 0 =*/8).bool(message.basedOnCrowdsourcingData);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified TransitVehicleDescriptorExtension message, length delimited. Does not implicitly {@link TransitVehicleDescriptorExtension.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof TransitVehicleDescriptorExtension
+     * @static
+     * @param {ITransitVehicleDescriptorExtension} message TransitVehicleDescriptorExtension message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    TransitVehicleDescriptorExtension.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a TransitVehicleDescriptorExtension message from the specified reader or buffer.
+     * @function decode
+     * @memberof TransitVehicleDescriptorExtension
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {TransitVehicleDescriptorExtension} TransitVehicleDescriptorExtension
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    TransitVehicleDescriptorExtension.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.TransitVehicleDescriptorExtension();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+            case 1:
+                message.basedOnCrowdsourcingData = reader.bool();
+                break;
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        if (!message.hasOwnProperty("basedOnCrowdsourcingData"))
+            throw $util.ProtocolError("missing required 'basedOnCrowdsourcingData'", { instance: message });
+        return message;
+    };
+
+    /**
+     * Decodes a TransitVehicleDescriptorExtension message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof TransitVehicleDescriptorExtension
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {TransitVehicleDescriptorExtension} TransitVehicleDescriptorExtension
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    TransitVehicleDescriptorExtension.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a TransitVehicleDescriptorExtension message.
+     * @function verify
+     * @memberof TransitVehicleDescriptorExtension
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    TransitVehicleDescriptorExtension.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (typeof message.basedOnCrowdsourcingData !== "boolean")
+            return "basedOnCrowdsourcingData: boolean expected";
+        return null;
+    };
+
+    /**
+     * Creates a TransitVehicleDescriptorExtension message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof TransitVehicleDescriptorExtension
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {TransitVehicleDescriptorExtension} TransitVehicleDescriptorExtension
+     */
+    TransitVehicleDescriptorExtension.fromObject = function fromObject(object) {
+        if (object instanceof $root.TransitVehicleDescriptorExtension)
+            return object;
+        var message = new $root.TransitVehicleDescriptorExtension();
+        if (object.basedOnCrowdsourcingData != null)
+            message.basedOnCrowdsourcingData = Boolean(object.basedOnCrowdsourcingData);
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a TransitVehicleDescriptorExtension message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof TransitVehicleDescriptorExtension
+     * @static
+     * @param {TransitVehicleDescriptorExtension} message TransitVehicleDescriptorExtension
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    TransitVehicleDescriptorExtension.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults)
+            object.basedOnCrowdsourcingData = false;
+        if (message.basedOnCrowdsourcingData != null && message.hasOwnProperty("basedOnCrowdsourcingData"))
+            object.basedOnCrowdsourcingData = message.basedOnCrowdsourcingData;
+        return object;
+    };
+
+    /**
+     * Converts this TransitVehicleDescriptorExtension to JSON.
+     * @function toJSON
+     * @memberof TransitVehicleDescriptorExtension
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    TransitVehicleDescriptorExtension.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    return TransitVehicleDescriptorExtension;
 })();
 
 $root.transit_realtime = (function() {
@@ -4250,6 +4437,7 @@ $root.transit_realtime = (function() {
          * @property {string|null} [id] VehicleDescriptor id
          * @property {string|null} [label] VehicleDescriptor label
          * @property {string|null} [licensePlate] VehicleDescriptor licensePlate
+         * @property {ITransitVehicleDescriptorExtension|null} [".transitVehicleDescriptorExtension"] VehicleDescriptor .transitVehicleDescriptorExtension
          */
 
         /**
@@ -4292,6 +4480,14 @@ $root.transit_realtime = (function() {
         VehicleDescriptor.prototype.licensePlate = "";
 
         /**
+         * VehicleDescriptor .transitVehicleDescriptorExtension.
+         * @member {ITransitVehicleDescriptorExtension|null|undefined} .transitVehicleDescriptorExtension
+         * @memberof transit_realtime.VehicleDescriptor
+         * @instance
+         */
+        VehicleDescriptor.prototype[".transitVehicleDescriptorExtension"] = null;
+
+        /**
          * Creates a new VehicleDescriptor instance using the specified properties.
          * @function create
          * @memberof transit_realtime.VehicleDescriptor
@@ -4321,6 +4517,8 @@ $root.transit_realtime = (function() {
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.label);
             if (message.licensePlate != null && message.hasOwnProperty("licensePlate"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.licensePlate);
+            if (message[".transitVehicleDescriptorExtension"] != null && message.hasOwnProperty(".transitVehicleDescriptorExtension"))
+                $root.TransitVehicleDescriptorExtension.encode(message[".transitVehicleDescriptorExtension"], writer.uint32(/* id 1496, wireType 2 =*/11970).fork()).ldelim();
             return writer;
         };
 
@@ -4363,6 +4561,9 @@ $root.transit_realtime = (function() {
                     break;
                 case 3:
                     message.licensePlate = reader.string();
+                    break;
+                case 1496:
+                    message[".transitVehicleDescriptorExtension"] = $root.TransitVehicleDescriptorExtension.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4408,6 +4609,11 @@ $root.transit_realtime = (function() {
             if (message.licensePlate != null && message.hasOwnProperty("licensePlate"))
                 if (!$util.isString(message.licensePlate))
                     return "licensePlate: string expected";
+            if (message[".transitVehicleDescriptorExtension"] != null && message.hasOwnProperty(".transitVehicleDescriptorExtension")) {
+                var error = $root.TransitVehicleDescriptorExtension.verify(message[".transitVehicleDescriptorExtension"]);
+                if (error)
+                    return ".transitVehicleDescriptorExtension." + error;
+            }
             return null;
         };
 
@@ -4429,6 +4635,11 @@ $root.transit_realtime = (function() {
                 message.label = String(object.label);
             if (object.licensePlate != null)
                 message.licensePlate = String(object.licensePlate);
+            if (object[".transitVehicleDescriptorExtension"] != null) {
+                if (typeof object[".transitVehicleDescriptorExtension"] !== "object")
+                    throw TypeError(".transit_realtime.VehicleDescriptor..transitVehicleDescriptorExtension: object expected");
+                message[".transitVehicleDescriptorExtension"] = $root.TransitVehicleDescriptorExtension.fromObject(object[".transitVehicleDescriptorExtension"]);
+            }
             return message;
         };
 
@@ -4449,6 +4660,7 @@ $root.transit_realtime = (function() {
                 object.id = "";
                 object.label = "";
                 object.licensePlate = "";
+                object[".transitVehicleDescriptorExtension"] = null;
             }
             if (message.id != null && message.hasOwnProperty("id"))
                 object.id = message.id;
@@ -4456,6 +4668,8 @@ $root.transit_realtime = (function() {
                 object.label = message.label;
             if (message.licensePlate != null && message.hasOwnProperty("licensePlate"))
                 object.licensePlate = message.licensePlate;
+            if (message[".transitVehicleDescriptorExtension"] != null && message.hasOwnProperty(".transitVehicleDescriptorExtension"))
+                object[".transitVehicleDescriptorExtension"] = $root.TransitVehicleDescriptorExtension.toObject(message[".transitVehicleDescriptorExtension"], options);
             return object;
         };
 
