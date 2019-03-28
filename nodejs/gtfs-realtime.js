@@ -16,7 +16,6 @@ $root.TransitAlertExtension = (function() {
      * @exports ITransitAlertExtension
      * @interface ITransitAlertExtension
      * @property {number|Long} createdAt TransitAlertExtension createdAt
-     * @property {TransitAlertExtension.Severity} severity TransitAlertExtension severity
      */
 
     /**
@@ -43,14 +42,6 @@ $root.TransitAlertExtension = (function() {
     TransitAlertExtension.prototype.createdAt = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
     /**
-     * TransitAlertExtension severity.
-     * @member {TransitAlertExtension.Severity} severity
-     * @memberof TransitAlertExtension
-     * @instance
-     */
-    TransitAlertExtension.prototype.severity = 0;
-
-    /**
      * Creates a new TransitAlertExtension instance using the specified properties.
      * @function create
      * @memberof TransitAlertExtension
@@ -75,7 +66,6 @@ $root.TransitAlertExtension = (function() {
         if (!writer)
             writer = $Writer.create();
         writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.createdAt);
-        writer.uint32(/* id 2, wireType 0 =*/16).int32(message.severity);
         return writer;
     };
 
@@ -113,9 +103,6 @@ $root.TransitAlertExtension = (function() {
             case 1:
                 message.createdAt = reader.uint64();
                 break;
-            case 2:
-                message.severity = reader.int32();
-                break;
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -123,8 +110,6 @@ $root.TransitAlertExtension = (function() {
         }
         if (!message.hasOwnProperty("createdAt"))
             throw $util.ProtocolError("missing required 'createdAt'", { instance: message });
-        if (!message.hasOwnProperty("severity"))
-            throw $util.ProtocolError("missing required 'severity'", { instance: message });
         return message;
     };
 
@@ -157,14 +142,6 @@ $root.TransitAlertExtension = (function() {
             return "object expected";
         if (!$util.isInteger(message.createdAt) && !(message.createdAt && $util.isInteger(message.createdAt.low) && $util.isInteger(message.createdAt.high)))
             return "createdAt: integer|Long expected";
-        switch (message.severity) {
-        default:
-            return "severity: enum value expected";
-        case 0:
-        case 1:
-        case 2:
-            break;
-        }
         return null;
     };
 
@@ -189,20 +166,6 @@ $root.TransitAlertExtension = (function() {
                 message.createdAt = object.createdAt;
             else if (typeof object.createdAt === "object")
                 message.createdAt = new $util.LongBits(object.createdAt.low >>> 0, object.createdAt.high >>> 0).toNumber(true);
-        switch (object.severity) {
-        case "DOWNTIME":
-        case 0:
-            message.severity = 0;
-            break;
-        case "WARNING":
-        case 1:
-            message.severity = 1;
-            break;
-        case "INFO":
-        case 2:
-            message.severity = 2;
-            break;
-        }
         return message;
     };
 
@@ -219,21 +182,17 @@ $root.TransitAlertExtension = (function() {
         if (!options)
             options = {};
         var object = {};
-        if (options.defaults) {
+        if (options.defaults)
             if ($util.Long) {
                 var long = new $util.Long(0, 0, true);
                 object.createdAt = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
             } else
                 object.createdAt = options.longs === String ? "0" : 0;
-            object.severity = options.enums === String ? "DOWNTIME" : 0;
-        }
         if (message.createdAt != null && message.hasOwnProperty("createdAt"))
             if (typeof message.createdAt === "number")
                 object.createdAt = options.longs === String ? String(message.createdAt) : message.createdAt;
             else
                 object.createdAt = options.longs === String ? $util.Long.prototype.toString.call(message.createdAt) : options.longs === Number ? new $util.LongBits(message.createdAt.low >>> 0, message.createdAt.high >>> 0).toNumber(true) : message.createdAt;
-        if (message.severity != null && message.hasOwnProperty("severity"))
-            object.severity = options.enums === String ? $root.TransitAlertExtension.Severity[message.severity] : message.severity;
         return object;
     };
 
@@ -247,22 +206,6 @@ $root.TransitAlertExtension = (function() {
     TransitAlertExtension.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
-
-    /**
-     * Severity enum.
-     * @name TransitAlertExtension.Severity
-     * @enum {string}
-     * @property {number} DOWNTIME=0 DOWNTIME value
-     * @property {number} WARNING=1 WARNING value
-     * @property {number} INFO=2 INFO value
-     */
-    TransitAlertExtension.Severity = (function() {
-        var valuesById = {}, values = Object.create(valuesById);
-        values[valuesById[0] = "DOWNTIME"] = 0;
-        values[valuesById[1] = "WARNING"] = 1;
-        values[valuesById[2] = "INFO"] = 2;
-        return values;
-    })();
 
     return TransitAlertExtension;
 })();
@@ -2516,6 +2459,9 @@ $root.transit_realtime = (function() {
          * @property {transit_realtime.ITranslatedString|null} [url] Alert url
          * @property {transit_realtime.ITranslatedString|null} [headerText] Alert headerText
          * @property {transit_realtime.ITranslatedString|null} [descriptionText] Alert descriptionText
+         * @property {transit_realtime.ITranslatedString|null} [ttsHeaderText] Alert ttsHeaderText
+         * @property {transit_realtime.ITranslatedString|null} [ttsDescriptionText] Alert ttsDescriptionText
+         * @property {transit_realtime.Alert.SeverityLevel|null} [severityLevel] Alert severityLevel
          * @property {ITransitAlertExtension|null} [".transitAlertExtension"] Alert .transitAlertExtension
          */
 
@@ -2593,6 +2539,30 @@ $root.transit_realtime = (function() {
         Alert.prototype.descriptionText = null;
 
         /**
+         * Alert ttsHeaderText.
+         * @member {transit_realtime.ITranslatedString|null|undefined} ttsHeaderText
+         * @memberof transit_realtime.Alert
+         * @instance
+         */
+        Alert.prototype.ttsHeaderText = null;
+
+        /**
+         * Alert ttsDescriptionText.
+         * @member {transit_realtime.ITranslatedString|null|undefined} ttsDescriptionText
+         * @memberof transit_realtime.Alert
+         * @instance
+         */
+        Alert.prototype.ttsDescriptionText = null;
+
+        /**
+         * Alert severityLevel.
+         * @member {transit_realtime.Alert.SeverityLevel} severityLevel
+         * @memberof transit_realtime.Alert
+         * @instance
+         */
+        Alert.prototype.severityLevel = 1;
+
+        /**
          * Alert .transitAlertExtension.
          * @member {ITransitAlertExtension|null|undefined} .transitAlertExtension
          * @memberof transit_realtime.Alert
@@ -2640,6 +2610,12 @@ $root.transit_realtime = (function() {
                 $root.transit_realtime.TranslatedString.encode(message.headerText, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
             if (message.descriptionText != null && message.hasOwnProperty("descriptionText"))
                 $root.transit_realtime.TranslatedString.encode(message.descriptionText, writer.uint32(/* id 11, wireType 2 =*/90).fork()).ldelim();
+            if (message.ttsHeaderText != null && message.hasOwnProperty("ttsHeaderText"))
+                $root.transit_realtime.TranslatedString.encode(message.ttsHeaderText, writer.uint32(/* id 12, wireType 2 =*/98).fork()).ldelim();
+            if (message.ttsDescriptionText != null && message.hasOwnProperty("ttsDescriptionText"))
+                $root.transit_realtime.TranslatedString.encode(message.ttsDescriptionText, writer.uint32(/* id 13, wireType 2 =*/106).fork()).ldelim();
+            if (message.severityLevel != null && message.hasOwnProperty("severityLevel"))
+                writer.uint32(/* id 14, wireType 0 =*/112).int32(message.severityLevel);
             if (message[".transitAlertExtension"] != null && message.hasOwnProperty(".transitAlertExtension"))
                 $root.TransitAlertExtension.encode(message[".transitAlertExtension"], writer.uint32(/* id 1496, wireType 2 =*/11970).fork()).ldelim();
             return writer;
@@ -2700,6 +2676,15 @@ $root.transit_realtime = (function() {
                     break;
                 case 11:
                     message.descriptionText = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
+                    break;
+                case 12:
+                    message.ttsHeaderText = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
+                    break;
+                case 13:
+                    message.ttsDescriptionText = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
+                    break;
+                case 14:
+                    message.severityLevel = reader.int32();
                     break;
                 case 1496:
                     message[".transitAlertExtension"] = $root.TransitAlertExtension.decode(reader, reader.uint32());
@@ -2788,6 +2773,7 @@ $root.transit_realtime = (function() {
                 case 7:
                 case 8:
                 case 9:
+                case 10:
                     break;
                 }
             if (message.url != null && message.hasOwnProperty("url")) {
@@ -2805,6 +2791,26 @@ $root.transit_realtime = (function() {
                 if (error)
                     return "descriptionText." + error;
             }
+            if (message.ttsHeaderText != null && message.hasOwnProperty("ttsHeaderText")) {
+                var error = $root.transit_realtime.TranslatedString.verify(message.ttsHeaderText);
+                if (error)
+                    return "ttsHeaderText." + error;
+            }
+            if (message.ttsDescriptionText != null && message.hasOwnProperty("ttsDescriptionText")) {
+                var error = $root.transit_realtime.TranslatedString.verify(message.ttsDescriptionText);
+                if (error)
+                    return "ttsDescriptionText." + error;
+            }
+            if (message.severityLevel != null && message.hasOwnProperty("severityLevel"))
+                switch (message.severityLevel) {
+                default:
+                    return "severityLevel: enum value expected";
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                    break;
+                }
             if (message[".transitAlertExtension"] != null && message.hasOwnProperty(".transitAlertExtension")) {
                 var error = $root.TransitAlertExtension.verify(message[".transitAlertExtension"]);
                 if (error)
@@ -2932,6 +2938,10 @@ $root.transit_realtime = (function() {
             case 9:
                 message.effect = 9;
                 break;
+            case "NO_EFFECT":
+            case 10:
+                message.effect = 10;
+                break;
             }
             if (object.url != null) {
                 if (typeof object.url !== "object")
@@ -2947,6 +2957,34 @@ $root.transit_realtime = (function() {
                 if (typeof object.descriptionText !== "object")
                     throw TypeError(".transit_realtime.Alert.descriptionText: object expected");
                 message.descriptionText = $root.transit_realtime.TranslatedString.fromObject(object.descriptionText);
+            }
+            if (object.ttsHeaderText != null) {
+                if (typeof object.ttsHeaderText !== "object")
+                    throw TypeError(".transit_realtime.Alert.ttsHeaderText: object expected");
+                message.ttsHeaderText = $root.transit_realtime.TranslatedString.fromObject(object.ttsHeaderText);
+            }
+            if (object.ttsDescriptionText != null) {
+                if (typeof object.ttsDescriptionText !== "object")
+                    throw TypeError(".transit_realtime.Alert.ttsDescriptionText: object expected");
+                message.ttsDescriptionText = $root.transit_realtime.TranslatedString.fromObject(object.ttsDescriptionText);
+            }
+            switch (object.severityLevel) {
+            case "UNKNOWN_SEVERITY":
+            case 1:
+                message.severityLevel = 1;
+                break;
+            case "INFO":
+            case 2:
+                message.severityLevel = 2;
+                break;
+            case "WARNING":
+            case 3:
+                message.severityLevel = 3;
+                break;
+            case "SEVERE":
+            case 4:
+                message.severityLevel = 4;
+                break;
             }
             if (object[".transitAlertExtension"] != null) {
                 if (typeof object[".transitAlertExtension"] !== "object")
@@ -2979,6 +3017,9 @@ $root.transit_realtime = (function() {
                 object.url = null;
                 object.headerText = null;
                 object.descriptionText = null;
+                object.ttsHeaderText = null;
+                object.ttsDescriptionText = null;
+                object.severityLevel = options.enums === String ? "UNKNOWN_SEVERITY" : 1;
                 object[".transitAlertExtension"] = null;
             }
             if (message.activePeriod && message.activePeriod.length) {
@@ -3001,6 +3042,12 @@ $root.transit_realtime = (function() {
                 object.headerText = $root.transit_realtime.TranslatedString.toObject(message.headerText, options);
             if (message.descriptionText != null && message.hasOwnProperty("descriptionText"))
                 object.descriptionText = $root.transit_realtime.TranslatedString.toObject(message.descriptionText, options);
+            if (message.ttsHeaderText != null && message.hasOwnProperty("ttsHeaderText"))
+                object.ttsHeaderText = $root.transit_realtime.TranslatedString.toObject(message.ttsHeaderText, options);
+            if (message.ttsDescriptionText != null && message.hasOwnProperty("ttsDescriptionText"))
+                object.ttsDescriptionText = $root.transit_realtime.TranslatedString.toObject(message.ttsDescriptionText, options);
+            if (message.severityLevel != null && message.hasOwnProperty("severityLevel"))
+                object.severityLevel = options.enums === String ? $root.transit_realtime.Alert.SeverityLevel[message.severityLevel] : message.severityLevel;
             if (message[".transitAlertExtension"] != null && message.hasOwnProperty(".transitAlertExtension"))
                 object[".transitAlertExtension"] = $root.TransitAlertExtension.toObject(message[".transitAlertExtension"], options);
             return object;
@@ -3064,6 +3111,7 @@ $root.transit_realtime = (function() {
          * @property {number} OTHER_EFFECT=7 OTHER_EFFECT value
          * @property {number} UNKNOWN_EFFECT=8 UNKNOWN_EFFECT value
          * @property {number} STOP_MOVED=9 STOP_MOVED value
+         * @property {number} NO_EFFECT=10 NO_EFFECT value
          */
         Alert.Effect = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -3076,6 +3124,25 @@ $root.transit_realtime = (function() {
             values[valuesById[7] = "OTHER_EFFECT"] = 7;
             values[valuesById[8] = "UNKNOWN_EFFECT"] = 8;
             values[valuesById[9] = "STOP_MOVED"] = 9;
+            values[valuesById[10] = "NO_EFFECT"] = 10;
+            return values;
+        })();
+
+        /**
+         * SeverityLevel enum.
+         * @name transit_realtime.Alert.SeverityLevel
+         * @enum {string}
+         * @property {number} UNKNOWN_SEVERITY=1 UNKNOWN_SEVERITY value
+         * @property {number} INFO=2 INFO value
+         * @property {number} WARNING=3 WARNING value
+         * @property {number} SEVERE=4 SEVERE value
+         */
+        Alert.SeverityLevel = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[1] = "UNKNOWN_SEVERITY"] = 1;
+            values[valuesById[2] = "INFO"] = 2;
+            values[valuesById[3] = "WARNING"] = 3;
+            values[valuesById[4] = "SEVERE"] = 4;
             return values;
         })();
 
@@ -3819,6 +3886,7 @@ $root.transit_realtime = (function() {
                 case 1:
                 case 2:
                 case 3:
+                case 5:
                     break;
                 }
             return null;
@@ -3862,6 +3930,10 @@ $root.transit_realtime = (function() {
             case "CANCELED":
             case 3:
                 message.scheduleRelationship = 3;
+                break;
+            case "REPLACEMENT":
+            case 5:
+                message.scheduleRelationship = 5;
                 break;
             }
             return message;
@@ -3922,6 +3994,7 @@ $root.transit_realtime = (function() {
          * @property {number} ADDED=1 ADDED value
          * @property {number} UNSCHEDULED=2 UNSCHEDULED value
          * @property {number} CANCELED=3 CANCELED value
+         * @property {number} REPLACEMENT=5 REPLACEMENT value
          */
         TripDescriptor.ScheduleRelationship = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -3929,6 +4002,7 @@ $root.transit_realtime = (function() {
             values[valuesById[1] = "ADDED"] = 1;
             values[valuesById[2] = "UNSCHEDULED"] = 2;
             values[valuesById[3] = "CANCELED"] = 3;
+            values[valuesById[5] = "REPLACEMENT"] = 5;
             return values;
         })();
 

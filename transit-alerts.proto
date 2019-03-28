@@ -5,18 +5,11 @@
 // Use 1496 as an extension number
 // Needed to be relatively big and higher than 1000
 
-import "gtfs-realtime.proto";
+import "gtfs-spec/gtfs-realtime/proto/gtfs-realtime.proto";
 
 message TransitAlertExtension {
     // Creat time of the alerts, in POSIX time
     required uint64 createdAt = 1;
-
-    enum Severity  {
-        DOWNTIME = 0;
-        WARNING = 1;
-        INFO = 2;
-    }
-    required Severity severity = 2;
 }
 
 extend transit_realtime.Alert {

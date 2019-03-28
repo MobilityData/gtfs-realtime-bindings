@@ -1,0 +1,3 @@
+[submodule "gtfs-spec"]
+	path = gtfs-spec
+	url = git@github.com:google/transit.git
