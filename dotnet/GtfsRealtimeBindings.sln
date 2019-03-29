@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtfsRealtimeBindings", "GtfsRealtimeBindings\GtfsRealtimeBindings.csproj", "{69AC7E00-F4A0-4C67-B1EA-0D78ADAE5901}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtfsRealtimeBindingsTest", "GtfsRealtimeBindingsTest\GtfsRealtimeBindingsTest.csproj", "{44DC8014-577A-4BF4-AED3-EFEA362380B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{69AC7E00-F4A0-4C67-B1EA-0D78ADAE5901}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69AC7E00-F4A0-4C67-B1EA-0D78ADAE5901}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69AC7E00-F4A0-4C67-B1EA-0D78ADAE5901}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44DC8014-577A-4BF4-AED3-EFEA362380B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44DC8014-577A-4BF4-AED3-EFEA362380B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44DC8014-577A-4BF4-AED3-EFEA362380B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44DC8014-577A-4BF4-AED3-EFEA362380B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C34F5FE-F798-4ABB-89F8-903FF240CF01}
 	EndGlobalSection
 EndGlobal
