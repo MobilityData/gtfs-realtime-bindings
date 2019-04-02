@@ -5,8 +5,7 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtfsRealtimeBindings", "GtfsRealtimeBindings\GtfsRealtimeBindings.csproj", "{69AC7E00-F4A0-4C67-B1EA-0D78ADAE5901}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tests", "tests\tests.csproj", "{18AD3682-7F62-4286-A670-A77FCD0AD383}"
-EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtfsRealtimeBindingsTest", "GtfsRealtimeBindingsTest\GtfsRealtimeBindingsTest.csproj", "{18AD3682-7F62-4286-A670-A77FCD0AD383}"
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
