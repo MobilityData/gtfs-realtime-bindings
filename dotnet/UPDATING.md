@@ -22,10 +22,10 @@ nuget pack GtfsRealtimeBindings.csproj -Prop Configuration=Release
 nuget push GtfsRealtimeBindings-X.Y.Z.nupkg
 ```
 ## Run Unit Test
-In order to run the unit test navigate to the `\dotnet\tests` directory in command line and enter the following command
+In order to run the unit test navigate to the `\dotnet\GtfsRealtimeBindingsTest` directory in command line and enter the following command
 
 ```
-dotnet run
+dotnet test
 ``` 
 
 Alternatively open GtfsRealtimeBindings.sln using Visual Studio and then run GtfsRealtimeTest.cs using the Visual Studio interface.
