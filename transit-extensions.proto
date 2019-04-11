@@ -8,8 +8,10 @@
 import "gtfs-spec/gtfs-realtime/proto/gtfs-realtime.proto";
 
 message TransitAlertExtension {
-    // Creat time of the alerts, in POSIX time
+    // Create time of the alerts, in POSIX time
     required uint64 created_at = 1;
+    // If the alert is a new one that should be sent as push
+    required bool should_send_as_push = 2;
 }
 
 extend transit_realtime.Alert {
