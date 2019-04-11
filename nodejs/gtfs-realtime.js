@@ -16,7 +16,6 @@ $root.TransitAlertExtension = (function() {
      * @exports ITransitAlertExtension
      * @interface ITransitAlertExtension
      * @property {number|Long} createdAt TransitAlertExtension createdAt
-     * @property {boolean} shouldSendAsPush TransitAlertExtension shouldSendAsPush
      */
 
     /**
@@ -43,14 +42,6 @@ $root.TransitAlertExtension = (function() {
     TransitAlertExtension.prototype.createdAt = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
     /**
-     * TransitAlertExtension shouldSendAsPush.
-     * @member {boolean} shouldSendAsPush
-     * @memberof TransitAlertExtension
-     * @instance
-     */
-    TransitAlertExtension.prototype.shouldSendAsPush = false;
-
-    /**
      * Creates a new TransitAlertExtension instance using the specified properties.
      * @function create
      * @memberof TransitAlertExtension
@@ -75,7 +66,6 @@ $root.TransitAlertExtension = (function() {
         if (!writer)
             writer = $Writer.create();
         writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.createdAt);
-        writer.uint32(/* id 2, wireType 0 =*/16).bool(message.shouldSendAsPush);
         return writer;
     };
 
@@ -113,9 +103,6 @@ $root.TransitAlertExtension = (function() {
             case 1:
                 message.createdAt = reader.uint64();
                 break;
-            case 2:
-                message.shouldSendAsPush = reader.bool();
-                break;
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -123,8 +110,6 @@ $root.TransitAlertExtension = (function() {
         }
         if (!message.hasOwnProperty("createdAt"))
             throw $util.ProtocolError("missing required 'createdAt'", { instance: message });
-        if (!message.hasOwnProperty("shouldSendAsPush"))
-            throw $util.ProtocolError("missing required 'shouldSendAsPush'", { instance: message });
         return message;
     };
 
@@ -157,8 +142,6 @@ $root.TransitAlertExtension = (function() {
             return "object expected";
         if (!$util.isInteger(message.createdAt) && !(message.createdAt && $util.isInteger(message.createdAt.low) && $util.isInteger(message.createdAt.high)))
             return "createdAt: integer|Long expected";
-        if (typeof message.shouldSendAsPush !== "boolean")
-            return "shouldSendAsPush: boolean expected";
         return null;
     };
 
@@ -183,8 +166,6 @@ $root.TransitAlertExtension = (function() {
                 message.createdAt = object.createdAt;
             else if (typeof object.createdAt === "object")
                 message.createdAt = new $util.LongBits(object.createdAt.low >>> 0, object.createdAt.high >>> 0).toNumber(true);
-        if (object.shouldSendAsPush != null)
-            message.shouldSendAsPush = Boolean(object.shouldSendAsPush);
         return message;
     };
 
@@ -201,21 +182,17 @@ $root.TransitAlertExtension = (function() {
         if (!options)
             options = {};
         var object = {};
-        if (options.defaults) {
+        if (options.defaults)
             if ($util.Long) {
                 var long = new $util.Long(0, 0, true);
                 object.createdAt = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
             } else
                 object.createdAt = options.longs === String ? "0" : 0;
-            object.shouldSendAsPush = false;
-        }
         if (message.createdAt != null && message.hasOwnProperty("createdAt"))
             if (typeof message.createdAt === "number")
                 object.createdAt = options.longs === String ? String(message.createdAt) : message.createdAt;
             else
                 object.createdAt = options.longs === String ? $util.Long.prototype.toString.call(message.createdAt) : options.longs === Number ? new $util.LongBits(message.createdAt.low >>> 0, message.createdAt.high >>> 0).toNumber(true) : message.createdAt;
-        if (message.shouldSendAsPush != null && message.hasOwnProperty("shouldSendAsPush"))
-            object.shouldSendAsPush = message.shouldSendAsPush;
         return object;
     };
 
