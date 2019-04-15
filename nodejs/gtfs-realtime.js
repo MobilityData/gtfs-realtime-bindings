@@ -216,8 +216,8 @@ $root.TransitInformedEntityExtension = (function() {
      * Properties of a TransitInformedEntityExtension.
      * @exports ITransitInformedEntityExtension
      * @interface ITransitInformedEntityExtension
-     * @property {number} feedId TransitInformedEntityExtension feedId
-     * @property {number} globalRouteId TransitInformedEntityExtension globalRouteId
+     * @property {number|null} [feedId] TransitInformedEntityExtension feedId
+     * @property {number|null} [globalRouteId] TransitInformedEntityExtension globalRouteId
      * @property {number|null} [stableStopId] TransitInformedEntityExtension stableStopId
      */
 
@@ -284,8 +284,10 @@ $root.TransitInformedEntityExtension = (function() {
     TransitInformedEntityExtension.encode = function encode(message, writer) {
         if (!writer)
             writer = $Writer.create();
-        writer.uint32(/* id 1, wireType 0 =*/8).int32(message.feedId);
-        writer.uint32(/* id 2, wireType 0 =*/16).int32(message.globalRouteId);
+        if (message.feedId != null && message.hasOwnProperty("feedId"))
+            writer.uint32(/* id 1, wireType 0 =*/8).int32(message.feedId);
+        if (message.globalRouteId != null && message.hasOwnProperty("globalRouteId"))
+            writer.uint32(/* id 2, wireType 0 =*/16).int32(message.globalRouteId);
         if (message.stableStopId != null && message.hasOwnProperty("stableStopId"))
             writer.uint32(/* id 3, wireType 0 =*/24).int32(message.stableStopId);
         return writer;
@@ -336,10 +338,6 @@ $root.TransitInformedEntityExtension = (function() {
                 break;
             }
         }
-        if (!message.hasOwnProperty("feedId"))
-            throw $util.ProtocolError("missing required 'feedId'", { instance: message });
-        if (!message.hasOwnProperty("globalRouteId"))
-            throw $util.ProtocolError("missing required 'globalRouteId'", { instance: message });
         return message;
     };
 
@@ -370,10 +368,12 @@ $root.TransitInformedEntityExtension = (function() {
     TransitInformedEntityExtension.verify = function verify(message) {
         if (typeof message !== "object" || message === null)
             return "object expected";
-        if (!$util.isInteger(message.feedId))
-            return "feedId: integer expected";
-        if (!$util.isInteger(message.globalRouteId))
-            return "globalRouteId: integer expected";
+        if (message.feedId != null && message.hasOwnProperty("feedId"))
+            if (!$util.isInteger(message.feedId))
+                return "feedId: integer expected";
+        if (message.globalRouteId != null && message.hasOwnProperty("globalRouteId"))
+            if (!$util.isInteger(message.globalRouteId))
+                return "globalRouteId: integer expected";
         if (message.stableStopId != null && message.hasOwnProperty("stableStopId"))
             if (!$util.isInteger(message.stableStopId))
                 return "stableStopId: integer expected";

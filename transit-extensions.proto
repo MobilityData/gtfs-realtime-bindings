@@ -18,10 +18,10 @@ extend transit_realtime.Alert {
 
 message TransitInformedEntityExtension {
     // Transit's feed id for that alert
-    required int32 feed_id = 1;
+    optional int32 feed_id = 1;
 
     // Transit's global route id related to the routeId
-    required int32 global_route_id = 2;
+    optional int32 global_route_id = 2;
 
     // Transit's stable stop id related to the stopId
     optional int32 stable_stop_id = 3;
