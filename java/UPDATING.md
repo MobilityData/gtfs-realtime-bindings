@@ -41,11 +41,11 @@ gpg --keyserver hkp://pgp.mit.edu --send-keys HEX_KEY_ID_GOES_HERE
 ```
 
 Add a profile in your `~/.m2/settings.xml` file with the key id and password.
-I use `google-release` in this example:
+I use `mobilitydata-release` in this example:
 
 ```
 <profile>
-  <id>google-release</id>
+  <id>mobilitydata-release</id>
   <properties>
     <gpg.keyname>HEX_KEY_ID_GOES_HERE</gpg.keyname>
     <gpg.passphrase>**************</gpg.passphrase>
@@ -61,7 +61,7 @@ which key and password to use when signing the release.
 Prepare the release:
 
 ```
-mvn -P google-release release:clean release:prepare
+mvn -P mobilitydata-release release:clean release:prepare
 ```
 
 When tagging the release, use a tag of
@@ -70,14 +70,14 @@ the form `gtfs-realtime-bindings-java-0.0.1` (Note the addition of `-java`).
 Now perform the release:
 
 ```
-mvn -P google-release release:perform
+mvn -P mobilitydata-release release:perform
 ```
 
 Push the release the central Maven repo:
 
 * Login at https://oss.sonatype.org/
 * Go to 'Staging Repositories'
-* Select the `comgoogletransit` repo.
+* Select the `iomobilitydatatransit` repo.
 * Close the repo.
 * Twiddle your thumbs.
 * Select the repo again.

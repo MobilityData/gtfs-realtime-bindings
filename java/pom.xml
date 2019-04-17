@@ -1,5 +1,5 @@
 <!--
- Copyright 2015 Google Inc.
+ Copyright 2015-2019 Google Inc., MobilityData
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -22,24 +22,24 @@
     <version>9</version>
   </parent>
 
-  <groupId>com.google.transit</groupId>
+  <groupId>io.mobilitydata.transit</groupId>
   <artifactId>gtfs-realtime-bindings</artifactId>
   <version>0.0.6-SNAPSHOT</version>
 
   <name>gtfs-realtime-bindings</name>
   <description>Java classes generated from the GTFS-realtime protocol buffer specification.</description>
-  <url>https://github.com/google/gtfs-realtime-bindings</url>
+  <url>https://github.com/MobilityData/gtfs-realtime-bindings</url>
 
   <scm>
-    <connection>scm:git:http://github.com/google/gtfs-realtime-bindings.git</connection>
-    <developerConnection>scm:git:https://github.com/google/gtfs-realtime-bindings.git</developerConnection>
-    <url>http://github.com/google/gtfs-realtime-bindings</url>
+    <connection>scm:git:https://github.com/MobilityData/gtfs-realtime-bindings.git</connection>
+    <developerConnection>scm:git:https://github.com/MobilityData/gtfs-realtime-bindings.git</developerConnection>
+    <url>https://github.com/MobilityData/gtfs-realtime-bindings</url>
     <tag>HEAD</tag>
   </scm>
 
   <issueManagement>
     <system>GitHub</system>
-    <url>https://github.com/google/gtfs-realtime-bindings/issues</url>
+    <url>https://github.com/MobilityData/gtfs-realtime-bindings/issues</url>
   </issueManagement>
 
   <licenses>

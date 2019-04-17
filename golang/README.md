@@ -1,7 +1,7 @@
 # Golang GTFS-realtime Language Bindings
 
 Provides Golang structs generated from the
-[GTFS-realtime](https://developers.google.com/transit/gtfs-realtime/) Protocol
+[GTFS-realtime](https://github.com/google/transit/tree/master/gtfs-realtime) Protocol
 Buffer specification.  These structs will allow you to parse a binary Protocol
 Buffer GTFS-realtime data feed into Golang objects.
 
@@ -11,7 +11,7 @@ To use the `gtfs-realtime-bindings` structs in your own project, you need to
 first install this library with: 
 
 ```
-go get github.com/google/gtfs-realtime-bindings/golang/gtfs
+go get github.com/MobilityData/gtfs-realtime-bindings/golang/gtfs
 ```
 
 And install the golang protobuf library dependency with:
@@ -31,7 +31,7 @@ package main
 import (
     "fmt"
     proto "github.com/golang/protobuf/proto"
-    "github.com/google/gtfs-realtime-bindings/golang/gtfs"
+    "github.com/MobilityData/gtfs-realtime-bindings/golang/gtfs"
     "io/ioutil"
     "log"
     "net/http"
@@ -73,7 +73,7 @@ func main() {
 
 For more details on the naming conventions for the Golang structs generated
 from the
-[gtfs-realtime.proto](https://developers.google.com/transit/gtfs-realtime/gtfs-realtime-proto),
+[gtfs-realtime.proto](https://github.com/google/transit/blob/master/gtfs-realtime/proto/gtfs-realtime.proto),
 check out the
 [Golang Generated Code](https://developers.google.com/protocol-buffers/docs/reference/go-generated)
 section of the Protocol Buffers developer site.

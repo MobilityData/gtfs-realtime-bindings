@@ -1,7 +1,7 @@
 # How-To Update Bindings When gtfs-realtime.proto Changes
 
 When
-[gtfs-realtime.proto](https://developers.google.com/transit/gtfs-realtime/gtfs-realtime-proto)
+[gtfs-realtime.proto](https://github.com/google/transit/blob/master/gtfs-realtime/proto/gtfs-realtime.proto)
 is updated, the various languages bindings must be regenerated, packaged, and
 deployed.
 

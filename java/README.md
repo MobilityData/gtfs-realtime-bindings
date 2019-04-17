@@ -1,8 +1,8 @@
 # Java GTFS-realtime Language Bindings
 
-![Maven Central Version](https://img.shields.io/maven-central/v/com.google.transit/gtfs-realtime-bindings.svg)
+![Maven Central Version](https://img.shields.io/maven-central/v/io.mobilitydata.transit/gtfs-realtime-bindings.svg)
 
-Provides Java classes generated from the [GTFS-realtime](https://developers.google.com/transit/gtfs-realtime/)
+Provides Java classes generated from the [GTFS-realtime](https://github.com/google/transit/tree/master/gtfs-realtime)
 Protocol Buffer specification.  These classes will allow you to parse a binary Protocol Buffer
 GTFS-realtime data feed into Java objects.
 
@@ -17,7 +17,7 @@ dependencies section:
 
 ```xml
 <dependency>
-  <groupId>com.google.transit</groupId>
+  <groupId>io.mobilitydata.transit</groupId>
   <artifactId>gtfs-realtime-bindings</artifactId>
   <version>0.0.4</version>
 </dependency>
@@ -27,7 +27,7 @@ For [Gradle](https://www.gradle.org/), add the following to your `build.gradle`
 dependecies section:
 
 ```
-compile group: 'com.google.transit', name: 'gtfs-realtime-bindings', version: '0.0.4'
+compile group: 'io.mobilitydata.transit', name: 'gtfs-realtime-bindings', version: '0.0.4'
 ```
 
 Make sure the Maven central repository is referenced by your project.
@@ -41,8 +41,8 @@ GTFS-realtime schema), and iterating over the results.
 ```java
 import java.net.URL;
 
-import com.google.transit.realtime.GtfsRealtime.FeedEntity;
-import com.google.transit.realtime.GtfsRealtime.FeedMessage;
+import io.mobilitydata.transit.realtime.GtfsRealtime.FeedEntity;
+import io.mobilitydata.transit.realtime.GtfsRealtime.FeedMessage;
 
 public class GtfsRealtimeExample {
   public static void main(String[] args) throws Exception {
@@ -58,6 +58,6 @@ public class GtfsRealtimeExample {
 ```
 
 For more details on the naming conventions for the Java classes generated from
-the [gtfs-realtime.proto](https://developers.google.com/transit/gtfs-realtime/gtfs-realtime-proto),
+the [gtfs-realtime.proto](https://github.com/google/transit/blob/master/gtfs-realtime/proto/gtfs-realtime.proto),
 check out the [Java Generated Code](https://developers.google.com/protocol-buffers/docs/reference/java-generated)
 section of the Protocol Buffers developer site.
