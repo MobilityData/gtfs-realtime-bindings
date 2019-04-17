@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("GtfsRealtimeBindings")]
 [assembly: AssemblyDescription("Provides .NET classes generated from the GTFS-realtime Protocol Buffer specification.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Google Inc.")]
+[assembly: AssemblyCompany("MobilityData")]
 [assembly: AssemblyProduct("GtfsRealtimeBindings")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyCopyright("Copyright ©  2015-2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

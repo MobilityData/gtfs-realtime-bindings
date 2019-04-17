@@ -3,7 +3,7 @@
 [![npm version](https://badge.fury.io/js/gtfs-realtime-bindings.svg)](http://badge.fury.io/js/gtfs-realtime-bindings)
 
 Provides JavaScript classes generated from the
-[GTFS-realtime](https://developers.google.com/transit/gtfs-realtime/) Protocol
+[GTFS-realtime](https://github.com/google/transit/tree/master/gtfs-realtime) Protocol
 Buffer specification.  These classes will allow you to parse a binary Protocol
 Buffer GTFS-realtime data feed into JavaScript objects.
 
@@ -52,6 +52,6 @@ request(requestSettings, function (error, response, body) {
 
 For more details on the naming conventions for the Javascript classes generated
 from the
-[gtfs-realtime.proto](https://developers.google.com/transit/gtfs-realtime/gtfs-realtime-proto),
+[gtfs-realtime.proto](https://github.com/google/transit/blob/master/gtfs-realtime/proto/gtfs-realtime.proto),
 check out the [ProtoBuf.js project](https://github.com/dcodeIO/ProtoBuf.js/wiki)
 which we use to handle our Protocol Buffer serialization.

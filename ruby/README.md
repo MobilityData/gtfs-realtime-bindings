@@ -3,7 +3,7 @@
 [![Gem Version](https://badge.fury.io/rb/gtfs-realtime-bindings.svg)](http://badge.fury.io/rb/gtfs-realtime-bindings)
 
 Provides Ruby classes generated from the
-[GTFS-realtime](https://developers.google.com/transit/gtfs-realtime/) Protocol
+[GTFS-realtime](https://github.com/google/transit/tree/master/gtfs-realtime) Protocol
 Buffer specification.  These classes will allow you to parse a binary Protocol
 Buffer GTFS-realtime data feed into Ruby objects.
 
@@ -38,5 +38,5 @@ end
 ```
 
 For more details on the naming conventions for the Ruby classes generated from
-the [gtfs-realtime.proto](https://developers.google.com/transit/gtfs-realtime/gtfs-realtime-proto),
-check out the [the gtfs-realtime.pb.rb source file](TODO).
+the [gtfs-realtime.proto](https://github.com/google/transit/blob/master/gtfs-realtime/proto/gtfs-realtime.proto),
+check out the [the gtfs-realtime.pb.rb source file](https://github.com/MobilityData/gtfs-realtime-bindings/blob/master/ruby/lib/google/transit/gtfs-realtime.pb.rb).
