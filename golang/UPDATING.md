@@ -9,31 +9,32 @@
 
 #### Every time `gtfs-realtime.proto` changes
 
-Regenerate the language binding source from gtfs-realtime.proto by running the following from the `golang` directory:
+1. Regenerate the language binding source from gtfs-realtime.proto by running the following from the `golang` directory:
 
-```
-go get -u github.com/golang/protobuf/protoc-gen-go
-protoc --go_out=./gtfs/ --proto_path=.. ../gtfs-realtime.proto
-```
+    ```
+    go get -u github.com/golang/protobuf/protoc-gen-go
+    protoc --go_out=./gtfs/ --proto_path=.. ../gtfs-realtime.proto
+    ```
 
-Add the license header back to the generated source file.
+1. Add the license header back to the generated source file.
 
-Change the line:
-```golang
-package transit_realtime
-```
+1. Change the line:
 
-to:
+    ```golang
+    package transit_realtime
+    ```
 
-```golang
-package gtfs
-```
+    to:
 
-Test the generated code from the `golang/gtfs` directory:
+    ```golang
+    package gtfs
+    ```
 
-```
-go test
-````
+1. Test the generated code from the `golang/gtfs` directory:
+
+    ```
+    go test
+    ````
 
 ## Publishing a new release
 
