@@ -159,7 +159,7 @@ public final class GtfsRealtime {
               break;
             case 10: {
               com.google.transit.realtime.GtfsRealtime.FeedHeader.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+              if (((bitField0_ & 0x00000001) != 0)) {
                 subBuilder = header_.toBuilder();
               }
               header_ = input.readMessage(com.google.transit.realtime.GtfsRealtime.FeedHeader.PARSER, extensionRegistry);
@@ -171,7 +171,7 @@ public final class GtfsRealtime {
               break;
             }
             case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 entity_ = new java.util.ArrayList<com.google.transit.realtime.GtfsRealtime.FeedEntity>();
                 mutable_bitField0_ |= 0x00000002;
               }
@@ -194,7 +194,7 @@ public final class GtfsRealtime {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
           entity_ = java.util.Collections.unmodifiableList(entity_);
         }
         this.unknownFields = unknownFields.build();
@@ -225,7 +225,7 @@ public final class GtfsRealtime {
      * <code>required .transit_realtime.FeedHeader header = 1;</code>
      */
     public boolean hasHeader() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -338,7 +338,7 @@ public final class GtfsRealtime {
       com.google.protobuf.GeneratedMessageV3
         .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.FeedMessage>.ExtensionWriter
           extensionWriter = newExtensionWriter();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(1, getHeader());
       }
       for (int i = 0; i < entity_.size(); i++) {
@@ -354,7 +354,7 @@ public final class GtfsRealtime {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getHeader());
       }
@@ -378,18 +378,17 @@ public final class GtfsRealtime {
       }
       com.google.transit.realtime.GtfsRealtime.FeedMessage other = (com.google.transit.realtime.GtfsRealtime.FeedMessage) obj;
 
-      boolean result = true;
-      result = result && (hasHeader() == other.hasHeader());
+      if (hasHeader() != other.hasHeader()) return false;
       if (hasHeader()) {
-        result = result && getHeader()
-            .equals(other.getHeader());
+        if (!getHeader()
+            .equals(other.getHeader())) return false;
       }
-      result = result && getEntityList()
-          .equals(other.getEntityList());
-      result = result && unknownFields.equals(other.unknownFields);
-      result = result &&
-          getExtensionFields().equals(other.getExtensionFields());
-      return result;
+      if (!getEntityList()
+          .equals(other.getEntityList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getExtensionFields().equals(other.getExtensionFields()))
+        return false;
+      return true;
     }
 
     @java.lang.Override
@@ -596,16 +595,16 @@ public final class GtfsRealtime {
         com.google.transit.realtime.GtfsRealtime.FeedMessage result = new com.google.transit.realtime.GtfsRealtime.FeedMessage(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          if (headerBuilder_ == null) {
+            result.header_ = header_;
+          } else {
+            result.header_ = headerBuilder_.build();
+          }
           to_bitField0_ |= 0x00000001;
         }
-        if (headerBuilder_ == null) {
-          result.header_ = header_;
-        } else {
-          result.header_ = headerBuilder_.build();
-        }
         if (entityBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             entity_ = java.util.Collections.unmodifiableList(entity_);
             bitField0_ = (bitField0_ & ~0x00000002);
           }
@@ -620,62 +619,62 @@ public final class GtfsRealtime {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.FeedMessage, Type> extension,
           Type value) {
-        return (Builder) super.setExtension(extension, value);
+        return super.setExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.FeedMessage, java.util.List<Type>> extension,
           int index, Type value) {
-        return (Builder) super.setExtension(extension, index, value);
+        return super.setExtension(extension, index, value);
       }
       @java.lang.Override
       public <Type> Builder addExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.FeedMessage, java.util.List<Type>> extension,
           Type value) {
-        return (Builder) super.addExtension(extension, value);
+        return super.addExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder clearExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.FeedMessage, ?> extension) {
-        return (Builder) super.clearExtension(extension);
+        return super.clearExtension(extension);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -763,7 +762,7 @@ public final class GtfsRealtime {
       }
       private int bitField0_;
 
-      private com.google.transit.realtime.GtfsRealtime.FeedHeader header_ = null;
+      private com.google.transit.realtime.GtfsRealtime.FeedHeader header_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.transit.realtime.GtfsRealtime.FeedHeader, com.google.transit.realtime.GtfsRealtime.FeedHeader.Builder, com.google.transit.realtime.GtfsRealtime.FeedHeaderOrBuilder> headerBuilder_;
       /**
@@ -774,7 +773,7 @@ public final class GtfsRealtime {
        * <code>required .transit_realtime.FeedHeader header = 1;</code>
        */
       public boolean hasHeader() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -837,7 +836,7 @@ public final class GtfsRealtime {
        */
       public Builder mergeHeader(com.google.transit.realtime.GtfsRealtime.FeedHeader value) {
         if (headerBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+          if (((bitField0_ & 0x00000001) != 0) &&
               header_ != null &&
               header_ != com.google.transit.realtime.GtfsRealtime.FeedHeader.getDefaultInstance()) {
             header_ =
@@ -920,7 +919,7 @@ public final class GtfsRealtime {
       private java.util.List<com.google.transit.realtime.GtfsRealtime.FeedEntity> entity_ =
         java.util.Collections.emptyList();
       private void ensureEntityIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           entity_ = new java.util.ArrayList<com.google.transit.realtime.GtfsRealtime.FeedEntity>(entity_);
           bitField0_ |= 0x00000002;
          }
@@ -1221,7 +1220,7 @@ public final class GtfsRealtime {
           entityBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.transit.realtime.GtfsRealtime.FeedEntity, com.google.transit.realtime.GtfsRealtime.FeedEntity.Builder, com.google.transit.realtime.GtfsRealtime.FeedEntityOrBuilder>(
                   entity_,
-                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           entity_ = null;
@@ -1365,7 +1364,6 @@ public final class GtfsRealtime {
     private FeedHeader() {
       gtfsRealtimeVersion_ = "";
       incrementality_ = 0;
-      timestamp_ = 0L;
     }
 
     @java.lang.Override
@@ -1557,7 +1555,7 @@ public final class GtfsRealtime {
      * <code>required string gtfs_realtime_version = 1;</code>
      */
     public boolean hasGtfsRealtimeVersion() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1609,7 +1607,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.FeedHeader.Incrementality incrementality = 2 [default = FULL_DATASET];</code>
      */
     public boolean hasIncrementality() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>optional .transit_realtime.FeedHeader.Incrementality incrementality = 2 [default = FULL_DATASET];</code>
@@ -1632,7 +1630,7 @@ public final class GtfsRealtime {
      * <code>optional uint64 timestamp = 3;</code>
      */
     public boolean hasTimestamp() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1672,13 +1670,13 @@ public final class GtfsRealtime {
       com.google.protobuf.GeneratedMessageV3
         .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.FeedHeader>.ExtensionWriter
           extensionWriter = newExtensionWriter();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, gtfsRealtimeVersion_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeEnum(2, incrementality_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeUInt64(3, timestamp_);
       }
       extensionWriter.writeUntil(2000, output);
@@ -1691,14 +1689,14 @@ public final class GtfsRealtime {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, gtfsRealtimeVersion_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, incrementality_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(3, timestamp_);
       }
@@ -1718,25 +1716,24 @@ public final class GtfsRealtime {
       }
       com.google.transit.realtime.GtfsRealtime.FeedHeader other = (com.google.transit.realtime.GtfsRealtime.FeedHeader) obj;
 
-      boolean result = true;
-      result = result && (hasGtfsRealtimeVersion() == other.hasGtfsRealtimeVersion());
+      if (hasGtfsRealtimeVersion() != other.hasGtfsRealtimeVersion()) return false;
       if (hasGtfsRealtimeVersion()) {
-        result = result && getGtfsRealtimeVersion()
-            .equals(other.getGtfsRealtimeVersion());
+        if (!getGtfsRealtimeVersion()
+            .equals(other.getGtfsRealtimeVersion())) return false;
       }
-      result = result && (hasIncrementality() == other.hasIncrementality());
+      if (hasIncrementality() != other.hasIncrementality()) return false;
       if (hasIncrementality()) {
-        result = result && incrementality_ == other.incrementality_;
+        if (incrementality_ != other.incrementality_) return false;
       }
-      result = result && (hasTimestamp() == other.hasTimestamp());
+      if (hasTimestamp() != other.hasTimestamp()) return false;
       if (hasTimestamp()) {
-        result = result && (getTimestamp()
-            == other.getTimestamp());
+        if (getTimestamp()
+            != other.getTimestamp()) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      result = result &&
-          getExtensionFields().equals(other.getExtensionFields());
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getExtensionFields().equals(other.getExtensionFields()))
+        return false;
+      return true;
     }
 
     @java.lang.Override
@@ -1932,18 +1929,18 @@ public final class GtfsRealtime {
         com.google.transit.realtime.GtfsRealtime.FeedHeader result = new com.google.transit.realtime.GtfsRealtime.FeedHeader(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((from_bitField0_ & 0x00000001) != 0)) {
           to_bitField0_ |= 0x00000001;
         }
         result.gtfsRealtimeVersion_ = gtfsRealtimeVersion_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
         result.incrementality_ = incrementality_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.timestamp_ = timestamp_;
           to_bitField0_ |= 0x00000004;
         }
-        result.timestamp_ = timestamp_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1951,62 +1948,62 @@ public final class GtfsRealtime {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.FeedHeader, Type> extension,
           Type value) {
-        return (Builder) super.setExtension(extension, value);
+        return super.setExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.FeedHeader, java.util.List<Type>> extension,
           int index, Type value) {
-        return (Builder) super.setExtension(extension, index, value);
+        return super.setExtension(extension, index, value);
       }
       @java.lang.Override
       public <Type> Builder addExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.FeedHeader, java.util.List<Type>> extension,
           Type value) {
-        return (Builder) super.addExtension(extension, value);
+        return super.addExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder clearExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.FeedHeader, ?> extension) {
-        return (Builder) super.clearExtension(extension);
+        return super.clearExtension(extension);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -2078,7 +2075,7 @@ public final class GtfsRealtime {
        * <code>required string gtfs_realtime_version = 1;</code>
        */
       public boolean hasGtfsRealtimeVersion() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -2179,7 +2176,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.FeedHeader.Incrementality incrementality = 2 [default = FULL_DATASET];</code>
        */
       public boolean hasIncrementality() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <code>optional .transit_realtime.FeedHeader.Incrementality incrementality = 2 [default = FULL_DATASET];</code>
@@ -2222,7 +2219,7 @@ public final class GtfsRealtime {
        * <code>optional uint64 timestamp = 3;</code>
        */
       public boolean hasTimestamp() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -2463,7 +2460,6 @@ public final class GtfsRealtime {
     }
     private FeedEntity() {
       id_ = "";
-      isDeleted_ = false;
     }
 
     @java.lang.Override
@@ -2503,7 +2499,7 @@ public final class GtfsRealtime {
             }
             case 26: {
               com.google.transit.realtime.GtfsRealtime.TripUpdate.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+              if (((bitField0_ & 0x00000004) != 0)) {
                 subBuilder = tripUpdate_.toBuilder();
               }
               tripUpdate_ = input.readMessage(com.google.transit.realtime.GtfsRealtime.TripUpdate.PARSER, extensionRegistry);
@@ -2516,7 +2512,7 @@ public final class GtfsRealtime {
             }
             case 34: {
               com.google.transit.realtime.GtfsRealtime.VehiclePosition.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+              if (((bitField0_ & 0x00000008) != 0)) {
                 subBuilder = vehicle_.toBuilder();
               }
               vehicle_ = input.readMessage(com.google.transit.realtime.GtfsRealtime.VehiclePosition.PARSER, extensionRegistry);
@@ -2529,7 +2525,7 @@ public final class GtfsRealtime {
             }
             case 42: {
               com.google.transit.realtime.GtfsRealtime.Alert.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000010) == 0x00000010)) {
+              if (((bitField0_ & 0x00000010) != 0)) {
                 subBuilder = alert_.toBuilder();
               }
               alert_ = input.readMessage(com.google.transit.realtime.GtfsRealtime.Alert.PARSER, extensionRegistry);
@@ -2590,7 +2586,7 @@ public final class GtfsRealtime {
      * <code>required string id = 1;</code>
      */
     public boolean hasId() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -2659,7 +2655,7 @@ public final class GtfsRealtime {
      * <code>optional bool is_deleted = 2 [default = false];</code>
      */
     public boolean hasIsDeleted() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -2684,7 +2680,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.TripUpdate trip_update = 3;</code>
      */
     public boolean hasTripUpdate() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -2715,7 +2711,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.VehiclePosition vehicle = 4;</code>
      */
     public boolean hasVehicle() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <code>optional .transit_realtime.VehiclePosition vehicle = 4;</code>
@@ -2736,7 +2732,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.Alert alert = 5;</code>
      */
     public boolean hasAlert() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <code>optional .transit_realtime.Alert alert = 5;</code>
@@ -2794,19 +2790,19 @@ public final class GtfsRealtime {
       com.google.protobuf.GeneratedMessageV3
         .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.FeedEntity>.ExtensionWriter
           extensionWriter = newExtensionWriter();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeBool(2, isDeleted_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeMessage(3, getTripUpdate());
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         output.writeMessage(4, getVehicle());
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         output.writeMessage(5, getAlert());
       }
       extensionWriter.writeUntil(2000, output);
@@ -2819,22 +2815,22 @@ public final class GtfsRealtime {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, isDeleted_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getTripUpdate());
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getVehicle());
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getAlert());
       }
@@ -2854,36 +2850,35 @@ public final class GtfsRealtime {
       }
       com.google.transit.realtime.GtfsRealtime.FeedEntity other = (com.google.transit.realtime.GtfsRealtime.FeedEntity) obj;
 
-      boolean result = true;
-      result = result && (hasId() == other.hasId());
+      if (hasId() != other.hasId()) return false;
       if (hasId()) {
-        result = result && getId()
-            .equals(other.getId());
+        if (!getId()
+            .equals(other.getId())) return false;
       }
-      result = result && (hasIsDeleted() == other.hasIsDeleted());
+      if (hasIsDeleted() != other.hasIsDeleted()) return false;
       if (hasIsDeleted()) {
-        result = result && (getIsDeleted()
-            == other.getIsDeleted());
+        if (getIsDeleted()
+            != other.getIsDeleted()) return false;
       }
-      result = result && (hasTripUpdate() == other.hasTripUpdate());
+      if (hasTripUpdate() != other.hasTripUpdate()) return false;
       if (hasTripUpdate()) {
-        result = result && getTripUpdate()
-            .equals(other.getTripUpdate());
+        if (!getTripUpdate()
+            .equals(other.getTripUpdate())) return false;
       }
-      result = result && (hasVehicle() == other.hasVehicle());
+      if (hasVehicle() != other.hasVehicle()) return false;
       if (hasVehicle()) {
-        result = result && getVehicle()
-            .equals(other.getVehicle());
+        if (!getVehicle()
+            .equals(other.getVehicle())) return false;
       }
-      result = result && (hasAlert() == other.hasAlert());
+      if (hasAlert() != other.hasAlert()) return false;
       if (hasAlert()) {
-        result = result && getAlert()
-            .equals(other.getAlert());
+        if (!getAlert()
+            .equals(other.getAlert())) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      result = result &&
-          getExtensionFields().equals(other.getExtensionFields());
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getExtensionFields().equals(other.getExtensionFields()))
+        return false;
+      return true;
     }
 
     @java.lang.Override
@@ -3106,37 +3101,37 @@ public final class GtfsRealtime {
         com.google.transit.realtime.GtfsRealtime.FeedEntity result = new com.google.transit.realtime.GtfsRealtime.FeedEntity(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((from_bitField0_ & 0x00000001) != 0)) {
           to_bitField0_ |= 0x00000001;
         }
         result.id_ = id_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.isDeleted_ = isDeleted_;
           to_bitField0_ |= 0x00000002;
         }
-        result.isDeleted_ = isDeleted_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          if (tripUpdateBuilder_ == null) {
+            result.tripUpdate_ = tripUpdate_;
+          } else {
+            result.tripUpdate_ = tripUpdateBuilder_.build();
+          }
           to_bitField0_ |= 0x00000004;
         }
-        if (tripUpdateBuilder_ == null) {
-          result.tripUpdate_ = tripUpdate_;
-        } else {
-          result.tripUpdate_ = tripUpdateBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          if (vehicleBuilder_ == null) {
+            result.vehicle_ = vehicle_;
+          } else {
+            result.vehicle_ = vehicleBuilder_.build();
+          }
           to_bitField0_ |= 0x00000008;
         }
-        if (vehicleBuilder_ == null) {
-          result.vehicle_ = vehicle_;
-        } else {
-          result.vehicle_ = vehicleBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          if (alertBuilder_ == null) {
+            result.alert_ = alert_;
+          } else {
+            result.alert_ = alertBuilder_.build();
+          }
           to_bitField0_ |= 0x00000010;
-        }
-        if (alertBuilder_ == null) {
-          result.alert_ = alert_;
-        } else {
-          result.alert_ = alertBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -3145,62 +3140,62 @@ public final class GtfsRealtime {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.FeedEntity, Type> extension,
           Type value) {
-        return (Builder) super.setExtension(extension, value);
+        return super.setExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.FeedEntity, java.util.List<Type>> extension,
           int index, Type value) {
-        return (Builder) super.setExtension(extension, index, value);
+        return super.setExtension(extension, index, value);
       }
       @java.lang.Override
       public <Type> Builder addExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.FeedEntity, java.util.List<Type>> extension,
           Type value) {
-        return (Builder) super.addExtension(extension, value);
+        return super.addExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder clearExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.FeedEntity, ?> extension) {
-        return (Builder) super.clearExtension(extension);
+        return super.clearExtension(extension);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -3299,7 +3294,7 @@ public final class GtfsRealtime {
        * <code>required string id = 1;</code>
        */
       public boolean hasId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -3435,7 +3430,7 @@ public final class GtfsRealtime {
        * <code>optional bool is_deleted = 2 [default = false];</code>
        */
       public boolean hasIsDeleted() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -3477,7 +3472,7 @@ public final class GtfsRealtime {
         return this;
       }
 
-      private com.google.transit.realtime.GtfsRealtime.TripUpdate tripUpdate_ = null;
+      private com.google.transit.realtime.GtfsRealtime.TripUpdate tripUpdate_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.transit.realtime.GtfsRealtime.TripUpdate, com.google.transit.realtime.GtfsRealtime.TripUpdate.Builder, com.google.transit.realtime.GtfsRealtime.TripUpdateOrBuilder> tripUpdateBuilder_;
       /**
@@ -3489,7 +3484,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TripUpdate trip_update = 3;</code>
        */
       public boolean hasTripUpdate() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -3556,7 +3551,7 @@ public final class GtfsRealtime {
        */
       public Builder mergeTripUpdate(com.google.transit.realtime.GtfsRealtime.TripUpdate value) {
         if (tripUpdateBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+          if (((bitField0_ & 0x00000004) != 0) &&
               tripUpdate_ != null &&
               tripUpdate_ != com.google.transit.realtime.GtfsRealtime.TripUpdate.getDefaultInstance()) {
             tripUpdate_ =
@@ -3640,14 +3635,14 @@ public final class GtfsRealtime {
         return tripUpdateBuilder_;
       }
 
-      private com.google.transit.realtime.GtfsRealtime.VehiclePosition vehicle_ = null;
+      private com.google.transit.realtime.GtfsRealtime.VehiclePosition vehicle_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.transit.realtime.GtfsRealtime.VehiclePosition, com.google.transit.realtime.GtfsRealtime.VehiclePosition.Builder, com.google.transit.realtime.GtfsRealtime.VehiclePositionOrBuilder> vehicleBuilder_;
       /**
        * <code>optional .transit_realtime.VehiclePosition vehicle = 4;</code>
        */
       public boolean hasVehicle() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <code>optional .transit_realtime.VehiclePosition vehicle = 4;</code>
@@ -3694,7 +3689,7 @@ public final class GtfsRealtime {
        */
       public Builder mergeVehicle(com.google.transit.realtime.GtfsRealtime.VehiclePosition value) {
         if (vehicleBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+          if (((bitField0_ & 0x00000008) != 0) &&
               vehicle_ != null &&
               vehicle_ != com.google.transit.realtime.GtfsRealtime.VehiclePosition.getDefaultInstance()) {
             vehicle_ =
@@ -3758,14 +3753,14 @@ public final class GtfsRealtime {
         return vehicleBuilder_;
       }
 
-      private com.google.transit.realtime.GtfsRealtime.Alert alert_ = null;
+      private com.google.transit.realtime.GtfsRealtime.Alert alert_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.transit.realtime.GtfsRealtime.Alert, com.google.transit.realtime.GtfsRealtime.Alert.Builder, com.google.transit.realtime.GtfsRealtime.AlertOrBuilder> alertBuilder_;
       /**
        * <code>optional .transit_realtime.Alert alert = 5;</code>
        */
       public boolean hasAlert() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <code>optional .transit_realtime.Alert alert = 5;</code>
@@ -3812,7 +3807,7 @@ public final class GtfsRealtime {
        */
       public Builder mergeAlert(com.google.transit.realtime.GtfsRealtime.Alert value) {
         if (alertBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+          if (((bitField0_ & 0x00000010) != 0) &&
               alert_ != null &&
               alert_ != com.google.transit.realtime.GtfsRealtime.Alert.getDefaultInstance()) {
             alert_ =
@@ -4220,8 +4215,6 @@ public final class GtfsRealtime {
     }
     private TripUpdate() {
       stopTimeUpdate_ = java.util.Collections.emptyList();
-      timestamp_ = 0L;
-      delay_ = 0;
     }
 
     @java.lang.Override
@@ -4250,7 +4243,7 @@ public final class GtfsRealtime {
               break;
             case 10: {
               com.google.transit.realtime.GtfsRealtime.TripDescriptor.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+              if (((bitField0_ & 0x00000001) != 0)) {
                 subBuilder = trip_.toBuilder();
               }
               trip_ = input.readMessage(com.google.transit.realtime.GtfsRealtime.TripDescriptor.PARSER, extensionRegistry);
@@ -4262,7 +4255,7 @@ public final class GtfsRealtime {
               break;
             }
             case 18: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
                 stopTimeUpdate_ = new java.util.ArrayList<com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate>();
                 mutable_bitField0_ |= 0x00000004;
               }
@@ -4272,7 +4265,7 @@ public final class GtfsRealtime {
             }
             case 26: {
               com.google.transit.realtime.GtfsRealtime.VehicleDescriptor.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+              if (((bitField0_ & 0x00000002) != 0)) {
                 subBuilder = vehicle_.toBuilder();
               }
               vehicle_ = input.readMessage(com.google.transit.realtime.GtfsRealtime.VehicleDescriptor.PARSER, extensionRegistry);
@@ -4308,7 +4301,7 @@ public final class GtfsRealtime {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((mutable_bitField0_ & 0x00000004) != 0)) {
           stopTimeUpdate_ = java.util.Collections.unmodifiableList(stopTimeUpdate_);
         }
         this.unknownFields = unknownFields.build();
@@ -4429,9 +4422,6 @@ public final class GtfsRealtime {
         super(builder);
       }
       private StopTimeEvent() {
-        delay_ = 0;
-        time_ = 0L;
-        uncertainty_ = 0;
       }
 
       @java.lang.Override
@@ -4518,7 +4508,7 @@ public final class GtfsRealtime {
        * <code>optional int32 delay = 1;</code>
        */
       public boolean hasDelay() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -4545,7 +4535,7 @@ public final class GtfsRealtime {
        * <code>optional int64 time = 2;</code>
        */
       public boolean hasTime() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -4573,7 +4563,7 @@ public final class GtfsRealtime {
        * <code>optional int32 uncertainty = 3;</code>
        */
       public boolean hasUncertainty() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -4610,13 +4600,13 @@ public final class GtfsRealtime {
         com.google.protobuf.GeneratedMessageV3
           .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent>.ExtensionWriter
             extensionWriter = newExtensionWriter();
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((bitField0_ & 0x00000001) != 0)) {
           output.writeInt32(1, delay_);
         }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           output.writeInt64(2, time_);
         }
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           output.writeInt32(3, uncertainty_);
         }
         extensionWriter.writeUntil(2000, output);
@@ -4629,15 +4619,15 @@ public final class GtfsRealtime {
         if (size != -1) return size;
 
         size = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((bitField0_ & 0x00000001) != 0)) {
           size += com.google.protobuf.CodedOutputStream
             .computeInt32Size(1, delay_);
         }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           size += com.google.protobuf.CodedOutputStream
             .computeInt64Size(2, time_);
         }
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           size += com.google.protobuf.CodedOutputStream
             .computeInt32Size(3, uncertainty_);
         }
@@ -4657,26 +4647,25 @@ public final class GtfsRealtime {
         }
         com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent other = (com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent) obj;
 
-        boolean result = true;
-        result = result && (hasDelay() == other.hasDelay());
+        if (hasDelay() != other.hasDelay()) return false;
         if (hasDelay()) {
-          result = result && (getDelay()
-              == other.getDelay());
+          if (getDelay()
+              != other.getDelay()) return false;
         }
-        result = result && (hasTime() == other.hasTime());
+        if (hasTime() != other.hasTime()) return false;
         if (hasTime()) {
-          result = result && (getTime()
-              == other.getTime());
+          if (getTime()
+              != other.getTime()) return false;
         }
-        result = result && (hasUncertainty() == other.hasUncertainty());
+        if (hasUncertainty() != other.hasUncertainty()) return false;
         if (hasUncertainty()) {
-          result = result && (getUncertainty()
-              == other.getUncertainty());
+          if (getUncertainty()
+              != other.getUncertainty()) return false;
         }
-        result = result && unknownFields.equals(other.unknownFields);
-        result = result &&
-            getExtensionFields().equals(other.getExtensionFields());
-        return result;
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getExtensionFields().equals(other.getExtensionFields()))
+          return false;
+        return true;
       }
 
       @java.lang.Override
@@ -4885,18 +4874,18 @@ public final class GtfsRealtime {
           com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent result = new com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent(this);
           int from_bitField0_ = bitField0_;
           int to_bitField0_ = 0;
-          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.delay_ = delay_;
             to_bitField0_ |= 0x00000001;
           }
-          result.delay_ = delay_;
-          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.time_ = time_;
             to_bitField0_ |= 0x00000002;
           }
-          result.time_ = time_;
-          if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          if (((from_bitField0_ & 0x00000004) != 0)) {
+            result.uncertainty_ = uncertainty_;
             to_bitField0_ |= 0x00000004;
           }
-          result.uncertainty_ = uncertainty_;
           result.bitField0_ = to_bitField0_;
           onBuilt();
           return result;
@@ -4904,62 +4893,62 @@ public final class GtfsRealtime {
 
         @java.lang.Override
         public Builder clone() {
-          return (Builder) super.clone();
+          return super.clone();
         }
         @java.lang.Override
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             java.lang.Object value) {
-          return (Builder) super.setField(field, value);
+          return super.setField(field, value);
         }
         @java.lang.Override
         public Builder clearField(
             com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return (Builder) super.clearField(field);
+          return super.clearField(field);
         }
         @java.lang.Override
         public Builder clearOneof(
             com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return (Builder) super.clearOneof(oneof);
+          return super.clearOneof(oneof);
         }
         @java.lang.Override
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             int index, java.lang.Object value) {
-          return (Builder) super.setRepeatedField(field, index, value);
+          return super.setRepeatedField(field, index, value);
         }
         @java.lang.Override
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             java.lang.Object value) {
-          return (Builder) super.addRepeatedField(field, value);
+          return super.addRepeatedField(field, value);
         }
         @java.lang.Override
         public <Type> Builder setExtension(
             com.google.protobuf.GeneratedMessage.GeneratedExtension<
                 com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent, Type> extension,
             Type value) {
-          return (Builder) super.setExtension(extension, value);
+          return super.setExtension(extension, value);
         }
         @java.lang.Override
         public <Type> Builder setExtension(
             com.google.protobuf.GeneratedMessage.GeneratedExtension<
                 com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent, java.util.List<Type>> extension,
             int index, Type value) {
-          return (Builder) super.setExtension(extension, index, value);
+          return super.setExtension(extension, index, value);
         }
         @java.lang.Override
         public <Type> Builder addExtension(
             com.google.protobuf.GeneratedMessage.GeneratedExtension<
                 com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent, java.util.List<Type>> extension,
             Type value) {
-          return (Builder) super.addExtension(extension, value);
+          return super.addExtension(extension, value);
         }
         @java.lang.Override
         public <Type> Builder clearExtension(
             com.google.protobuf.GeneratedMessage.GeneratedExtension<
                 com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent, ?> extension) {
-          return (Builder) super.clearExtension(extension);
+          return super.clearExtension(extension);
         }
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -5027,7 +5016,7 @@ public final class GtfsRealtime {
          * <code>optional int32 delay = 1;</code>
          */
         public boolean hasDelay() {
-          return ((bitField0_ & 0x00000001) == 0x00000001);
+          return ((bitField0_ & 0x00000001) != 0);
         }
         /**
          * <pre>
@@ -5083,7 +5072,7 @@ public final class GtfsRealtime {
          * <code>optional int64 time = 2;</code>
          */
         public boolean hasTime() {
-          return ((bitField0_ & 0x00000002) == 0x00000002);
+          return ((bitField0_ & 0x00000002) != 0);
         }
         /**
          * <pre>
@@ -5140,7 +5129,7 @@ public final class GtfsRealtime {
          * <code>optional int32 uncertainty = 3;</code>
          */
         public boolean hasUncertainty() {
-          return ((bitField0_ & 0x00000004) == 0x00000004);
+          return ((bitField0_ & 0x00000004) != 0);
         }
         /**
          * <pre>
@@ -5343,7 +5332,6 @@ public final class GtfsRealtime {
         super(builder);
       }
       private StopTimeUpdate() {
-        stopSequence_ = 0;
         stopId_ = "";
         scheduleRelationship_ = 0;
       }
@@ -5379,7 +5367,7 @@ public final class GtfsRealtime {
               }
               case 18: {
                 com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent.Builder subBuilder = null;
-                if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                if (((bitField0_ & 0x00000004) != 0)) {
                   subBuilder = arrival_.toBuilder();
                 }
                 arrival_ = input.readMessage(com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent.PARSER, extensionRegistry);
@@ -5392,7 +5380,7 @@ public final class GtfsRealtime {
               }
               case 26: {
                 com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent.Builder subBuilder = null;
-                if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                if (((bitField0_ & 0x00000008) != 0)) {
                   subBuilder = departure_.toBuilder();
                 }
                 departure_ = input.readMessage(com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent.PARSER, extensionRegistry);
@@ -5609,7 +5597,7 @@ public final class GtfsRealtime {
        * <code>optional uint32 stop_sequence = 1;</code>
        */
       public boolean hasStopSequence() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -5632,7 +5620,7 @@ public final class GtfsRealtime {
        * <code>optional string stop_id = 4;</code>
        */
       public boolean hasStopId() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -5682,7 +5670,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TripUpdate.StopTimeEvent arrival = 2;</code>
        */
       public boolean hasArrival() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <code>optional .transit_realtime.TripUpdate.StopTimeEvent arrival = 2;</code>
@@ -5703,7 +5691,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TripUpdate.StopTimeEvent departure = 3;</code>
        */
       public boolean hasDeparture() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <code>optional .transit_realtime.TripUpdate.StopTimeEvent departure = 3;</code>
@@ -5724,7 +5712,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TripUpdate.StopTimeUpdate.ScheduleRelationship schedule_relationship = 5 [default = SCHEDULED];</code>
        */
       public boolean hasScheduleRelationship() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <code>optional .transit_realtime.TripUpdate.StopTimeUpdate.ScheduleRelationship schedule_relationship = 5 [default = SCHEDULED];</code>
@@ -5768,19 +5756,19 @@ public final class GtfsRealtime {
         com.google.protobuf.GeneratedMessageV3
           .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate>.ExtensionWriter
             extensionWriter = newExtensionWriter();
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((bitField0_ & 0x00000001) != 0)) {
           output.writeUInt32(1, stopSequence_);
         }
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           output.writeMessage(2, getArrival());
         }
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           output.writeMessage(3, getDeparture());
         }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 4, stopId_);
         }
-        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           output.writeEnum(5, scheduleRelationship_);
         }
         extensionWriter.writeUntil(2000, output);
@@ -5793,22 +5781,22 @@ public final class GtfsRealtime {
         if (size != -1) return size;
 
         size = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((bitField0_ & 0x00000001) != 0)) {
           size += com.google.protobuf.CodedOutputStream
             .computeUInt32Size(1, stopSequence_);
         }
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(2, getArrival());
         }
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(3, getDeparture());
         }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, stopId_);
         }
-        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           size += com.google.protobuf.CodedOutputStream
             .computeEnumSize(5, scheduleRelationship_);
         }
@@ -5828,35 +5816,34 @@ public final class GtfsRealtime {
         }
         com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate other = (com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate) obj;
 
-        boolean result = true;
-        result = result && (hasStopSequence() == other.hasStopSequence());
+        if (hasStopSequence() != other.hasStopSequence()) return false;
         if (hasStopSequence()) {
-          result = result && (getStopSequence()
-              == other.getStopSequence());
+          if (getStopSequence()
+              != other.getStopSequence()) return false;
         }
-        result = result && (hasStopId() == other.hasStopId());
+        if (hasStopId() != other.hasStopId()) return false;
         if (hasStopId()) {
-          result = result && getStopId()
-              .equals(other.getStopId());
+          if (!getStopId()
+              .equals(other.getStopId())) return false;
         }
-        result = result && (hasArrival() == other.hasArrival());
+        if (hasArrival() != other.hasArrival()) return false;
         if (hasArrival()) {
-          result = result && getArrival()
-              .equals(other.getArrival());
+          if (!getArrival()
+              .equals(other.getArrival())) return false;
         }
-        result = result && (hasDeparture() == other.hasDeparture());
+        if (hasDeparture() != other.hasDeparture()) return false;
         if (hasDeparture()) {
-          result = result && getDeparture()
-              .equals(other.getDeparture());
+          if (!getDeparture()
+              .equals(other.getDeparture())) return false;
         }
-        result = result && (hasScheduleRelationship() == other.hasScheduleRelationship());
+        if (hasScheduleRelationship() != other.hasScheduleRelationship()) return false;
         if (hasScheduleRelationship()) {
-          result = result && scheduleRelationship_ == other.scheduleRelationship_;
+          if (scheduleRelationship_ != other.scheduleRelationship_) return false;
         }
-        result = result && unknownFields.equals(other.unknownFields);
-        result = result &&
-            getExtensionFields().equals(other.getExtensionFields());
-        return result;
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getExtensionFields().equals(other.getExtensionFields()))
+          return false;
+        return true;
       }
 
       @java.lang.Override
@@ -6075,31 +6062,31 @@ public final class GtfsRealtime {
           com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate result = new com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate(this);
           int from_bitField0_ = bitField0_;
           int to_bitField0_ = 0;
-          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.stopSequence_ = stopSequence_;
             to_bitField0_ |= 0x00000001;
           }
-          result.stopSequence_ = stopSequence_;
-          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          if (((from_bitField0_ & 0x00000002) != 0)) {
             to_bitField0_ |= 0x00000002;
           }
           result.stopId_ = stopId_;
-          if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          if (((from_bitField0_ & 0x00000004) != 0)) {
+            if (arrivalBuilder_ == null) {
+              result.arrival_ = arrival_;
+            } else {
+              result.arrival_ = arrivalBuilder_.build();
+            }
             to_bitField0_ |= 0x00000004;
           }
-          if (arrivalBuilder_ == null) {
-            result.arrival_ = arrival_;
-          } else {
-            result.arrival_ = arrivalBuilder_.build();
-          }
-          if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          if (((from_bitField0_ & 0x00000008) != 0)) {
+            if (departureBuilder_ == null) {
+              result.departure_ = departure_;
+            } else {
+              result.departure_ = departureBuilder_.build();
+            }
             to_bitField0_ |= 0x00000008;
           }
-          if (departureBuilder_ == null) {
-            result.departure_ = departure_;
-          } else {
-            result.departure_ = departureBuilder_.build();
-          }
-          if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          if (((from_bitField0_ & 0x00000010) != 0)) {
             to_bitField0_ |= 0x00000010;
           }
           result.scheduleRelationship_ = scheduleRelationship_;
@@ -6110,62 +6097,62 @@ public final class GtfsRealtime {
 
         @java.lang.Override
         public Builder clone() {
-          return (Builder) super.clone();
+          return super.clone();
         }
         @java.lang.Override
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             java.lang.Object value) {
-          return (Builder) super.setField(field, value);
+          return super.setField(field, value);
         }
         @java.lang.Override
         public Builder clearField(
             com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return (Builder) super.clearField(field);
+          return super.clearField(field);
         }
         @java.lang.Override
         public Builder clearOneof(
             com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return (Builder) super.clearOneof(oneof);
+          return super.clearOneof(oneof);
         }
         @java.lang.Override
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             int index, java.lang.Object value) {
-          return (Builder) super.setRepeatedField(field, index, value);
+          return super.setRepeatedField(field, index, value);
         }
         @java.lang.Override
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             java.lang.Object value) {
-          return (Builder) super.addRepeatedField(field, value);
+          return super.addRepeatedField(field, value);
         }
         @java.lang.Override
         public <Type> Builder setExtension(
             com.google.protobuf.GeneratedMessage.GeneratedExtension<
                 com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate, Type> extension,
             Type value) {
-          return (Builder) super.setExtension(extension, value);
+          return super.setExtension(extension, value);
         }
         @java.lang.Override
         public <Type> Builder setExtension(
             com.google.protobuf.GeneratedMessage.GeneratedExtension<
                 com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate, java.util.List<Type>> extension,
             int index, Type value) {
-          return (Builder) super.setExtension(extension, index, value);
+          return super.setExtension(extension, index, value);
         }
         @java.lang.Override
         public <Type> Builder addExtension(
             com.google.protobuf.GeneratedMessage.GeneratedExtension<
                 com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate, java.util.List<Type>> extension,
             Type value) {
-          return (Builder) super.addExtension(extension, value);
+          return super.addExtension(extension, value);
         }
         @java.lang.Override
         public <Type> Builder clearExtension(
             com.google.protobuf.GeneratedMessage.GeneratedExtension<
                 com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate, ?> extension) {
-          return (Builder) super.clearExtension(extension);
+          return super.clearExtension(extension);
         }
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -6249,7 +6236,7 @@ public final class GtfsRealtime {
          * <code>optional uint32 stop_sequence = 1;</code>
          */
         public boolean hasStopSequence() {
-          return ((bitField0_ & 0x00000001) == 0x00000001);
+          return ((bitField0_ & 0x00000001) != 0);
         }
         /**
          * <pre>
@@ -6297,7 +6284,7 @@ public final class GtfsRealtime {
          * <code>optional string stop_id = 4;</code>
          */
         public boolean hasStopId() {
-          return ((bitField0_ & 0x00000002) == 0x00000002);
+          return ((bitField0_ & 0x00000002) != 0);
         }
         /**
          * <pre>
@@ -6388,14 +6375,14 @@ public final class GtfsRealtime {
           return this;
         }
 
-        private com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent arrival_ = null;
+        private com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent arrival_;
         private com.google.protobuf.SingleFieldBuilderV3<
             com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent.Builder, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEventOrBuilder> arrivalBuilder_;
         /**
          * <code>optional .transit_realtime.TripUpdate.StopTimeEvent arrival = 2;</code>
          */
         public boolean hasArrival() {
-          return ((bitField0_ & 0x00000004) == 0x00000004);
+          return ((bitField0_ & 0x00000004) != 0);
         }
         /**
          * <code>optional .transit_realtime.TripUpdate.StopTimeEvent arrival = 2;</code>
@@ -6442,7 +6429,7 @@ public final class GtfsRealtime {
          */
         public Builder mergeArrival(com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent value) {
           if (arrivalBuilder_ == null) {
-            if (((bitField0_ & 0x00000004) == 0x00000004) &&
+            if (((bitField0_ & 0x00000004) != 0) &&
                 arrival_ != null &&
                 arrival_ != com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent.getDefaultInstance()) {
               arrival_ =
@@ -6506,14 +6493,14 @@ public final class GtfsRealtime {
           return arrivalBuilder_;
         }
 
-        private com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent departure_ = null;
+        private com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent departure_;
         private com.google.protobuf.SingleFieldBuilderV3<
             com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent.Builder, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEventOrBuilder> departureBuilder_;
         /**
          * <code>optional .transit_realtime.TripUpdate.StopTimeEvent departure = 3;</code>
          */
         public boolean hasDeparture() {
-          return ((bitField0_ & 0x00000008) == 0x00000008);
+          return ((bitField0_ & 0x00000008) != 0);
         }
         /**
          * <code>optional .transit_realtime.TripUpdate.StopTimeEvent departure = 3;</code>
@@ -6560,7 +6547,7 @@ public final class GtfsRealtime {
          */
         public Builder mergeDeparture(com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent value) {
           if (departureBuilder_ == null) {
-            if (((bitField0_ & 0x00000008) == 0x00000008) &&
+            if (((bitField0_ & 0x00000008) != 0) &&
                 departure_ != null &&
                 departure_ != com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent.getDefaultInstance()) {
               departure_ =
@@ -6629,7 +6616,7 @@ public final class GtfsRealtime {
          * <code>optional .transit_realtime.TripUpdate.StopTimeUpdate.ScheduleRelationship schedule_relationship = 5 [default = SCHEDULED];</code>
          */
         public boolean hasScheduleRelationship() {
-          return ((bitField0_ & 0x00000010) == 0x00000010);
+          return ((bitField0_ & 0x00000010) != 0);
         }
         /**
          * <code>optional .transit_realtime.TripUpdate.StopTimeUpdate.ScheduleRelationship schedule_relationship = 5 [default = SCHEDULED];</code>
@@ -6727,7 +6714,7 @@ public final class GtfsRealtime {
      * <code>required .transit_realtime.TripDescriptor trip = 1;</code>
      */
     public boolean hasTrip() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -6766,7 +6753,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.VehicleDescriptor vehicle = 3;</code>
      */
     public boolean hasVehicle() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -6935,7 +6922,7 @@ public final class GtfsRealtime {
      * <code>optional uint64 timestamp = 4;</code>
      */
     public boolean hasTimestamp() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -6972,7 +6959,7 @@ public final class GtfsRealtime {
      * <code>optional int32 delay = 5;</code>
      */
     public boolean hasDelay() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -7039,19 +7026,19 @@ public final class GtfsRealtime {
       com.google.protobuf.GeneratedMessageV3
         .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.TripUpdate>.ExtensionWriter
           extensionWriter = newExtensionWriter();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(1, getTrip());
       }
       for (int i = 0; i < stopTimeUpdate_.size(); i++) {
         output.writeMessage(2, stopTimeUpdate_.get(i));
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeMessage(3, getVehicle());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeUInt64(4, timestamp_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         output.writeInt32(5, delay_);
       }
       extensionWriter.writeUntil(2000, output);
@@ -7064,7 +7051,7 @@ public final class GtfsRealtime {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getTrip());
       }
@@ -7072,15 +7059,15 @@ public final class GtfsRealtime {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, stopTimeUpdate_.get(i));
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getVehicle());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(4, timestamp_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, delay_);
       }
@@ -7100,33 +7087,32 @@ public final class GtfsRealtime {
       }
       com.google.transit.realtime.GtfsRealtime.TripUpdate other = (com.google.transit.realtime.GtfsRealtime.TripUpdate) obj;
 
-      boolean result = true;
-      result = result && (hasTrip() == other.hasTrip());
+      if (hasTrip() != other.hasTrip()) return false;
       if (hasTrip()) {
-        result = result && getTrip()
-            .equals(other.getTrip());
+        if (!getTrip()
+            .equals(other.getTrip())) return false;
       }
-      result = result && (hasVehicle() == other.hasVehicle());
+      if (hasVehicle() != other.hasVehicle()) return false;
       if (hasVehicle()) {
-        result = result && getVehicle()
-            .equals(other.getVehicle());
+        if (!getVehicle()
+            .equals(other.getVehicle())) return false;
       }
-      result = result && getStopTimeUpdateList()
-          .equals(other.getStopTimeUpdateList());
-      result = result && (hasTimestamp() == other.hasTimestamp());
+      if (!getStopTimeUpdateList()
+          .equals(other.getStopTimeUpdateList())) return false;
+      if (hasTimestamp() != other.hasTimestamp()) return false;
       if (hasTimestamp()) {
-        result = result && (getTimestamp()
-            == other.getTimestamp());
+        if (getTimestamp()
+            != other.getTimestamp()) return false;
       }
-      result = result && (hasDelay() == other.hasDelay());
+      if (hasDelay() != other.hasDelay()) return false;
       if (hasDelay()) {
-        result = result && (getDelay()
-            == other.getDelay());
+        if (getDelay()
+            != other.getDelay()) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      result = result &&
-          getExtensionFields().equals(other.getExtensionFields());
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getExtensionFields().equals(other.getExtensionFields()))
+        return false;
+      return true;
     }
 
     @java.lang.Override
@@ -7372,24 +7358,24 @@ public final class GtfsRealtime {
         com.google.transit.realtime.GtfsRealtime.TripUpdate result = new com.google.transit.realtime.GtfsRealtime.TripUpdate(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          if (tripBuilder_ == null) {
+            result.trip_ = trip_;
+          } else {
+            result.trip_ = tripBuilder_.build();
+          }
           to_bitField0_ |= 0x00000001;
         }
-        if (tripBuilder_ == null) {
-          result.trip_ = trip_;
-        } else {
-          result.trip_ = tripBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          if (vehicleBuilder_ == null) {
+            result.vehicle_ = vehicle_;
+          } else {
+            result.vehicle_ = vehicleBuilder_.build();
+          }
           to_bitField0_ |= 0x00000002;
         }
-        if (vehicleBuilder_ == null) {
-          result.vehicle_ = vehicle_;
-        } else {
-          result.vehicle_ = vehicleBuilder_.build();
-        }
         if (stopTimeUpdateBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          if (((bitField0_ & 0x00000004) != 0)) {
             stopTimeUpdate_ = java.util.Collections.unmodifiableList(stopTimeUpdate_);
             bitField0_ = (bitField0_ & ~0x00000004);
           }
@@ -7397,14 +7383,14 @@ public final class GtfsRealtime {
         } else {
           result.stopTimeUpdate_ = stopTimeUpdateBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.timestamp_ = timestamp_;
           to_bitField0_ |= 0x00000004;
         }
-        result.timestamp_ = timestamp_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.delay_ = delay_;
           to_bitField0_ |= 0x00000008;
         }
-        result.delay_ = delay_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -7412,62 +7398,62 @@ public final class GtfsRealtime {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.TripUpdate, Type> extension,
           Type value) {
-        return (Builder) super.setExtension(extension, value);
+        return super.setExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.TripUpdate, java.util.List<Type>> extension,
           int index, Type value) {
-        return (Builder) super.setExtension(extension, index, value);
+        return super.setExtension(extension, index, value);
       }
       @java.lang.Override
       public <Type> Builder addExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.TripUpdate, java.util.List<Type>> extension,
           Type value) {
-        return (Builder) super.addExtension(extension, value);
+        return super.addExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder clearExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.TripUpdate, ?> extension) {
-        return (Builder) super.clearExtension(extension);
+        return super.clearExtension(extension);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -7569,7 +7555,7 @@ public final class GtfsRealtime {
       }
       private int bitField0_;
 
-      private com.google.transit.realtime.GtfsRealtime.TripDescriptor trip_ = null;
+      private com.google.transit.realtime.GtfsRealtime.TripDescriptor trip_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.transit.realtime.GtfsRealtime.TripDescriptor, com.google.transit.realtime.GtfsRealtime.TripDescriptor.Builder, com.google.transit.realtime.GtfsRealtime.TripDescriptorOrBuilder> tripBuilder_;
       /**
@@ -7583,7 +7569,7 @@ public final class GtfsRealtime {
        * <code>required .transit_realtime.TripDescriptor trip = 1;</code>
        */
       public boolean hasTrip() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -7658,7 +7644,7 @@ public final class GtfsRealtime {
        */
       public Builder mergeTrip(com.google.transit.realtime.GtfsRealtime.TripDescriptor value) {
         if (tripBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+          if (((bitField0_ & 0x00000001) != 0) &&
               trip_ != null &&
               trip_ != com.google.transit.realtime.GtfsRealtime.TripDescriptor.getDefaultInstance()) {
             trip_ =
@@ -7750,7 +7736,7 @@ public final class GtfsRealtime {
         return tripBuilder_;
       }
 
-      private com.google.transit.realtime.GtfsRealtime.VehicleDescriptor vehicle_ = null;
+      private com.google.transit.realtime.GtfsRealtime.VehicleDescriptor vehicle_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.transit.realtime.GtfsRealtime.VehicleDescriptor, com.google.transit.realtime.GtfsRealtime.VehicleDescriptor.Builder, com.google.transit.realtime.GtfsRealtime.VehicleDescriptorOrBuilder> vehicleBuilder_;
       /**
@@ -7761,7 +7747,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.VehicleDescriptor vehicle = 3;</code>
        */
       public boolean hasVehicle() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -7824,7 +7810,7 @@ public final class GtfsRealtime {
        */
       public Builder mergeVehicle(com.google.transit.realtime.GtfsRealtime.VehicleDescriptor value) {
         if (vehicleBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+          if (((bitField0_ & 0x00000002) != 0) &&
               vehicle_ != null &&
               vehicle_ != com.google.transit.realtime.GtfsRealtime.VehicleDescriptor.getDefaultInstance()) {
             vehicle_ =
@@ -7907,7 +7893,7 @@ public final class GtfsRealtime {
       private java.util.List<com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate> stopTimeUpdate_ =
         java.util.Collections.emptyList();
       private void ensureStopTimeUpdateIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           stopTimeUpdate_ = new java.util.ArrayList<com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate>(stopTimeUpdate_);
           bitField0_ |= 0x00000004;
          }
@@ -8496,7 +8482,7 @@ public final class GtfsRealtime {
           stopTimeUpdateBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate.Builder, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdateOrBuilder>(
                   stopTimeUpdate_,
-                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  ((bitField0_ & 0x00000004) != 0),
                   getParentForChildren(),
                   isClean());
           stopTimeUpdate_ = null;
@@ -8514,7 +8500,7 @@ public final class GtfsRealtime {
        * <code>optional uint64 timestamp = 4;</code>
        */
       public boolean hasTimestamp() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -8578,7 +8564,7 @@ public final class GtfsRealtime {
        * <code>optional int32 delay = 5;</code>
        */
       public boolean hasDelay() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -8920,10 +8906,8 @@ public final class GtfsRealtime {
       super(builder);
     }
     private VehiclePosition() {
-      currentStopSequence_ = 0;
       stopId_ = "";
       currentStatus_ = 2;
-      timestamp_ = 0L;
       congestionLevel_ = 0;
       occupancyStatus_ = 0;
     }
@@ -8954,7 +8938,7 @@ public final class GtfsRealtime {
               break;
             case 10: {
               com.google.transit.realtime.GtfsRealtime.TripDescriptor.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+              if (((bitField0_ & 0x00000001) != 0)) {
                 subBuilder = trip_.toBuilder();
               }
               trip_ = input.readMessage(com.google.transit.realtime.GtfsRealtime.TripDescriptor.PARSER, extensionRegistry);
@@ -8967,7 +8951,7 @@ public final class GtfsRealtime {
             }
             case 18: {
               com.google.transit.realtime.GtfsRealtime.Position.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+              if (((bitField0_ & 0x00000004) != 0)) {
                 subBuilder = position_.toBuilder();
               }
               position_ = input.readMessage(com.google.transit.realtime.GtfsRealtime.Position.PARSER, extensionRegistry);
@@ -9020,7 +9004,7 @@ public final class GtfsRealtime {
             }
             case 66: {
               com.google.transit.realtime.GtfsRealtime.VehicleDescriptor.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+              if (((bitField0_ & 0x00000002) != 0)) {
                 subBuilder = vehicle_.toBuilder();
               }
               vehicle_ = input.readMessage(com.google.transit.realtime.GtfsRealtime.VehicleDescriptor.PARSER, extensionRegistry);
@@ -9557,7 +9541,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.TripDescriptor trip = 1;</code>
      */
     public boolean hasTrip() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -9594,7 +9578,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.VehicleDescriptor vehicle = 8;</code>
      */
     public boolean hasVehicle() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -9627,7 +9611,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.Position position = 2;</code>
      */
     public boolean hasPosition() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -9663,7 +9647,7 @@ public final class GtfsRealtime {
      * <code>optional uint32 current_stop_sequence = 3;</code>
      */
     public boolean hasCurrentStopSequence() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -9690,7 +9674,7 @@ public final class GtfsRealtime {
      * <code>optional string stop_id = 7;</code>
      */
     public boolean hasStopId() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -9747,7 +9731,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.VehiclePosition.VehicleStopStatus current_status = 4 [default = IN_TRANSIT_TO];</code>
      */
     public boolean hasCurrentStatus() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -9774,7 +9758,7 @@ public final class GtfsRealtime {
      * <code>optional uint64 timestamp = 5;</code>
      */
     public boolean hasTimestamp() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -9794,7 +9778,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.VehiclePosition.CongestionLevel congestion_level = 6;</code>
      */
     public boolean hasCongestionLevel() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <code>optional .transit_realtime.VehiclePosition.CongestionLevel congestion_level = 6;</code>
@@ -9811,7 +9795,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.VehiclePosition.OccupancyStatus occupancy_status = 9;</code>
      */
     public boolean hasOccupancyStatus() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <code>optional .transit_realtime.VehiclePosition.OccupancyStatus occupancy_status = 9;</code>
@@ -9861,31 +9845,31 @@ public final class GtfsRealtime {
       com.google.protobuf.GeneratedMessageV3
         .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.VehiclePosition>.ExtensionWriter
           extensionWriter = newExtensionWriter();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(1, getTrip());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeMessage(2, getPosition());
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         output.writeUInt32(3, currentStopSequence_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         output.writeEnum(4, currentStatus_);
       }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         output.writeUInt64(5, timestamp_);
       }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+      if (((bitField0_ & 0x00000080) != 0)) {
         output.writeEnum(6, congestionLevel_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, stopId_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeMessage(8, getVehicle());
       }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+      if (((bitField0_ & 0x00000100) != 0)) {
         output.writeEnum(9, occupancyStatus_);
       }
       extensionWriter.writeUntil(2000, output);
@@ -9898,38 +9882,38 @@ public final class GtfsRealtime {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getTrip());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getPosition());
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(3, currentStopSequence_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, currentStatus_);
       }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(5, timestamp_);
       }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+      if (((bitField0_ & 0x00000080) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(6, congestionLevel_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, stopId_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, getVehicle());
       }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+      if (((bitField0_ & 0x00000100) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(9, occupancyStatus_);
       }
@@ -9949,53 +9933,52 @@ public final class GtfsRealtime {
       }
       com.google.transit.realtime.GtfsRealtime.VehiclePosition other = (com.google.transit.realtime.GtfsRealtime.VehiclePosition) obj;
 
-      boolean result = true;
-      result = result && (hasTrip() == other.hasTrip());
+      if (hasTrip() != other.hasTrip()) return false;
       if (hasTrip()) {
-        result = result && getTrip()
-            .equals(other.getTrip());
+        if (!getTrip()
+            .equals(other.getTrip())) return false;
       }
-      result = result && (hasVehicle() == other.hasVehicle());
+      if (hasVehicle() != other.hasVehicle()) return false;
       if (hasVehicle()) {
-        result = result && getVehicle()
-            .equals(other.getVehicle());
+        if (!getVehicle()
+            .equals(other.getVehicle())) return false;
       }
-      result = result && (hasPosition() == other.hasPosition());
+      if (hasPosition() != other.hasPosition()) return false;
       if (hasPosition()) {
-        result = result && getPosition()
-            .equals(other.getPosition());
+        if (!getPosition()
+            .equals(other.getPosition())) return false;
       }
-      result = result && (hasCurrentStopSequence() == other.hasCurrentStopSequence());
+      if (hasCurrentStopSequence() != other.hasCurrentStopSequence()) return false;
       if (hasCurrentStopSequence()) {
-        result = result && (getCurrentStopSequence()
-            == other.getCurrentStopSequence());
+        if (getCurrentStopSequence()
+            != other.getCurrentStopSequence()) return false;
       }
-      result = result && (hasStopId() == other.hasStopId());
+      if (hasStopId() != other.hasStopId()) return false;
       if (hasStopId()) {
-        result = result && getStopId()
-            .equals(other.getStopId());
+        if (!getStopId()
+            .equals(other.getStopId())) return false;
       }
-      result = result && (hasCurrentStatus() == other.hasCurrentStatus());
+      if (hasCurrentStatus() != other.hasCurrentStatus()) return false;
       if (hasCurrentStatus()) {
-        result = result && currentStatus_ == other.currentStatus_;
+        if (currentStatus_ != other.currentStatus_) return false;
       }
-      result = result && (hasTimestamp() == other.hasTimestamp());
+      if (hasTimestamp() != other.hasTimestamp()) return false;
       if (hasTimestamp()) {
-        result = result && (getTimestamp()
-            == other.getTimestamp());
+        if (getTimestamp()
+            != other.getTimestamp()) return false;
       }
-      result = result && (hasCongestionLevel() == other.hasCongestionLevel());
+      if (hasCongestionLevel() != other.hasCongestionLevel()) return false;
       if (hasCongestionLevel()) {
-        result = result && congestionLevel_ == other.congestionLevel_;
+        if (congestionLevel_ != other.congestionLevel_) return false;
       }
-      result = result && (hasOccupancyStatus() == other.hasOccupancyStatus());
+      if (hasOccupancyStatus() != other.hasOccupancyStatus()) return false;
       if (hasOccupancyStatus()) {
-        result = result && occupancyStatus_ == other.occupancyStatus_;
+        if (occupancyStatus_ != other.occupancyStatus_) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      result = result &&
-          getExtensionFields().equals(other.getExtensionFields());
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getExtensionFields().equals(other.getExtensionFields()))
+        return false;
+      return true;
     }
 
     @java.lang.Override
@@ -10242,51 +10225,51 @@ public final class GtfsRealtime {
         com.google.transit.realtime.GtfsRealtime.VehiclePosition result = new com.google.transit.realtime.GtfsRealtime.VehiclePosition(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          if (tripBuilder_ == null) {
+            result.trip_ = trip_;
+          } else {
+            result.trip_ = tripBuilder_.build();
+          }
           to_bitField0_ |= 0x00000001;
         }
-        if (tripBuilder_ == null) {
-          result.trip_ = trip_;
-        } else {
-          result.trip_ = tripBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          if (vehicleBuilder_ == null) {
+            result.vehicle_ = vehicle_;
+          } else {
+            result.vehicle_ = vehicleBuilder_.build();
+          }
           to_bitField0_ |= 0x00000002;
         }
-        if (vehicleBuilder_ == null) {
-          result.vehicle_ = vehicle_;
-        } else {
-          result.vehicle_ = vehicleBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          if (positionBuilder_ == null) {
+            result.position_ = position_;
+          } else {
+            result.position_ = positionBuilder_.build();
+          }
           to_bitField0_ |= 0x00000004;
         }
-        if (positionBuilder_ == null) {
-          result.position_ = position_;
-        } else {
-          result.position_ = positionBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.currentStopSequence_ = currentStopSequence_;
           to_bitField0_ |= 0x00000008;
         }
-        result.currentStopSequence_ = currentStopSequence_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((from_bitField0_ & 0x00000010) != 0)) {
           to_bitField0_ |= 0x00000010;
         }
         result.stopId_ = stopId_;
-        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((from_bitField0_ & 0x00000020) != 0)) {
           to_bitField0_ |= 0x00000020;
         }
         result.currentStatus_ = currentStatus_;
-        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.timestamp_ = timestamp_;
           to_bitField0_ |= 0x00000040;
         }
-        result.timestamp_ = timestamp_;
-        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+        if (((from_bitField0_ & 0x00000080) != 0)) {
           to_bitField0_ |= 0x00000080;
         }
         result.congestionLevel_ = congestionLevel_;
-        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+        if (((from_bitField0_ & 0x00000100) != 0)) {
           to_bitField0_ |= 0x00000100;
         }
         result.occupancyStatus_ = occupancyStatus_;
@@ -10297,62 +10280,62 @@ public final class GtfsRealtime {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.VehiclePosition, Type> extension,
           Type value) {
-        return (Builder) super.setExtension(extension, value);
+        return super.setExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.VehiclePosition, java.util.List<Type>> extension,
           int index, Type value) {
-        return (Builder) super.setExtension(extension, index, value);
+        return super.setExtension(extension, index, value);
       }
       @java.lang.Override
       public <Type> Builder addExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.VehiclePosition, java.util.List<Type>> extension,
           Type value) {
-        return (Builder) super.addExtension(extension, value);
+        return super.addExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder clearExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.VehiclePosition, ?> extension) {
-        return (Builder) super.clearExtension(extension);
+        return super.clearExtension(extension);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -10444,7 +10427,7 @@ public final class GtfsRealtime {
       }
       private int bitField0_;
 
-      private com.google.transit.realtime.GtfsRealtime.TripDescriptor trip_ = null;
+      private com.google.transit.realtime.GtfsRealtime.TripDescriptor trip_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.transit.realtime.GtfsRealtime.TripDescriptor, com.google.transit.realtime.GtfsRealtime.TripDescriptor.Builder, com.google.transit.realtime.GtfsRealtime.TripDescriptorOrBuilder> tripBuilder_;
       /**
@@ -10457,7 +10440,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TripDescriptor trip = 1;</code>
        */
       public boolean hasTrip() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -10528,7 +10511,7 @@ public final class GtfsRealtime {
        */
       public Builder mergeTrip(com.google.transit.realtime.GtfsRealtime.TripDescriptor value) {
         if (tripBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+          if (((bitField0_ & 0x00000001) != 0) &&
               trip_ != null &&
               trip_ != com.google.transit.realtime.GtfsRealtime.TripDescriptor.getDefaultInstance()) {
             trip_ =
@@ -10616,7 +10599,7 @@ public final class GtfsRealtime {
         return tripBuilder_;
       }
 
-      private com.google.transit.realtime.GtfsRealtime.VehicleDescriptor vehicle_ = null;
+      private com.google.transit.realtime.GtfsRealtime.VehicleDescriptor vehicle_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.transit.realtime.GtfsRealtime.VehicleDescriptor, com.google.transit.realtime.GtfsRealtime.VehicleDescriptor.Builder, com.google.transit.realtime.GtfsRealtime.VehicleDescriptorOrBuilder> vehicleBuilder_;
       /**
@@ -10627,7 +10610,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.VehicleDescriptor vehicle = 8;</code>
        */
       public boolean hasVehicle() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -10690,7 +10673,7 @@ public final class GtfsRealtime {
        */
       public Builder mergeVehicle(com.google.transit.realtime.GtfsRealtime.VehicleDescriptor value) {
         if (vehicleBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+          if (((bitField0_ & 0x00000002) != 0) &&
               vehicle_ != null &&
               vehicle_ != com.google.transit.realtime.GtfsRealtime.VehicleDescriptor.getDefaultInstance()) {
             vehicle_ =
@@ -10770,7 +10753,7 @@ public final class GtfsRealtime {
         return vehicleBuilder_;
       }
 
-      private com.google.transit.realtime.GtfsRealtime.Position position_ = null;
+      private com.google.transit.realtime.GtfsRealtime.Position position_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.transit.realtime.GtfsRealtime.Position, com.google.transit.realtime.GtfsRealtime.Position.Builder, com.google.transit.realtime.GtfsRealtime.PositionOrBuilder> positionBuilder_;
       /**
@@ -10781,7 +10764,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.Position position = 2;</code>
        */
       public boolean hasPosition() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -10844,7 +10827,7 @@ public final class GtfsRealtime {
        */
       public Builder mergePosition(com.google.transit.realtime.GtfsRealtime.Position value) {
         if (positionBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+          if (((bitField0_ & 0x00000004) != 0) &&
               position_ != null &&
               position_ != com.google.transit.realtime.GtfsRealtime.Position.getDefaultInstance()) {
             position_ =
@@ -10936,7 +10919,7 @@ public final class GtfsRealtime {
        * <code>optional uint32 current_stop_sequence = 3;</code>
        */
       public boolean hasCurrentStopSequence() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -10994,7 +10977,7 @@ public final class GtfsRealtime {
        * <code>optional string stop_id = 7;</code>
        */
       public boolean hasStopId() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -11100,7 +11083,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.VehiclePosition.VehicleStopStatus current_status = 4 [default = IN_TRANSIT_TO];</code>
        */
       public boolean hasCurrentStatus() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <pre>
@@ -11157,7 +11140,7 @@ public final class GtfsRealtime {
        * <code>optional uint64 timestamp = 5;</code>
        */
       public boolean hasTimestamp() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000040) != 0);
       }
       /**
        * <pre>
@@ -11204,7 +11187,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.VehiclePosition.CongestionLevel congestion_level = 6;</code>
        */
       public boolean hasCongestionLevel() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000080) != 0);
       }
       /**
        * <code>optional .transit_realtime.VehiclePosition.CongestionLevel congestion_level = 6;</code>
@@ -11241,7 +11224,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.VehiclePosition.OccupancyStatus occupancy_status = 9;</code>
        */
       public boolean hasOccupancyStatus() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
+        return ((bitField0_ & 0x00000100) != 0);
       }
       /**
        * <code>optional .transit_realtime.VehiclePosition.OccupancyStatus occupancy_status = 9;</code>
@@ -11639,7 +11622,7 @@ public final class GtfsRealtime {
               done = true;
               break;
             case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 activePeriod_ = new java.util.ArrayList<com.google.transit.realtime.GtfsRealtime.TimeRange>();
                 mutable_bitField0_ |= 0x00000001;
               }
@@ -11648,7 +11631,7 @@ public final class GtfsRealtime {
               break;
             }
             case 42: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 informedEntity_ = new java.util.ArrayList<com.google.transit.realtime.GtfsRealtime.EntitySelector>();
                 mutable_bitField0_ |= 0x00000002;
               }
@@ -11682,7 +11665,7 @@ public final class GtfsRealtime {
             }
             case 66: {
               com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+              if (((bitField0_ & 0x00000004) != 0)) {
                 subBuilder = url_.toBuilder();
               }
               url_ = input.readMessage(com.google.transit.realtime.GtfsRealtime.TranslatedString.PARSER, extensionRegistry);
@@ -11695,7 +11678,7 @@ public final class GtfsRealtime {
             }
             case 82: {
               com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+              if (((bitField0_ & 0x00000008) != 0)) {
                 subBuilder = headerText_.toBuilder();
               }
               headerText_ = input.readMessage(com.google.transit.realtime.GtfsRealtime.TranslatedString.PARSER, extensionRegistry);
@@ -11708,7 +11691,7 @@ public final class GtfsRealtime {
             }
             case 90: {
               com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000010) == 0x00000010)) {
+              if (((bitField0_ & 0x00000010) != 0)) {
                 subBuilder = descriptionText_.toBuilder();
               }
               descriptionText_ = input.readMessage(com.google.transit.realtime.GtfsRealtime.TranslatedString.PARSER, extensionRegistry);
@@ -11721,7 +11704,7 @@ public final class GtfsRealtime {
             }
             case 98: {
               com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000020) == 0x00000020)) {
+              if (((bitField0_ & 0x00000020) != 0)) {
                 subBuilder = ttsHeaderText_.toBuilder();
               }
               ttsHeaderText_ = input.readMessage(com.google.transit.realtime.GtfsRealtime.TranslatedString.PARSER, extensionRegistry);
@@ -11734,7 +11717,7 @@ public final class GtfsRealtime {
             }
             case 106: {
               com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000040) == 0x00000040)) {
+              if (((bitField0_ & 0x00000040) != 0)) {
                 subBuilder = ttsDescriptionText_.toBuilder();
               }
               ttsDescriptionText_ = input.readMessage(com.google.transit.realtime.GtfsRealtime.TranslatedString.PARSER, extensionRegistry);
@@ -11772,10 +11755,10 @@ public final class GtfsRealtime {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           activePeriod_ = java.util.Collections.unmodifiableList(activePeriod_);
         }
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
           informedEntity_ = java.util.Collections.unmodifiableList(informedEntity_);
         }
         this.unknownFields = unknownFields.build();
@@ -12421,7 +12404,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.Alert.Cause cause = 6 [default = UNKNOWN_CAUSE];</code>
      */
     public boolean hasCause() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>optional .transit_realtime.Alert.Cause cause = 6 [default = UNKNOWN_CAUSE];</code>
@@ -12438,7 +12421,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.Alert.Effect effect = 7 [default = UNKNOWN_EFFECT];</code>
      */
     public boolean hasEffect() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>optional .transit_realtime.Alert.Effect effect = 7 [default = UNKNOWN_EFFECT];</code>
@@ -12459,7 +12442,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.TranslatedString url = 8;</code>
      */
     public boolean hasUrl() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -12492,7 +12475,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.TranslatedString header_text = 10;</code>
      */
     public boolean hasHeaderText() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -12526,7 +12509,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.TranslatedString description_text = 11;</code>
      */
     public boolean hasDescriptionText() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -12562,7 +12545,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.TranslatedString tts_header_text = 12;</code>
      */
     public boolean hasTtsHeaderText() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -12598,7 +12581,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.TranslatedString tts_description_text = 13;</code>
      */
     public boolean hasTtsDescriptionText() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -12629,7 +12612,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.Alert.SeverityLevel severity_level = 14 [default = UNKNOWN_SEVERITY];</code>
      */
     public boolean hasSeverityLevel() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <code>optional .transit_realtime.Alert.SeverityLevel severity_level = 14 [default = UNKNOWN_SEVERITY];</code>
@@ -12709,28 +12692,28 @@ public final class GtfsRealtime {
       for (int i = 0; i < informedEntity_.size(); i++) {
         output.writeMessage(5, informedEntity_.get(i));
       }
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeEnum(6, cause_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeEnum(7, effect_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeMessage(8, getUrl());
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         output.writeMessage(10, getHeaderText());
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         output.writeMessage(11, getDescriptionText());
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         output.writeMessage(12, getTtsHeaderText());
       }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         output.writeMessage(13, getTtsDescriptionText());
       }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+      if (((bitField0_ & 0x00000080) != 0)) {
         output.writeEnum(14, severityLevel_);
       }
       extensionWriter.writeUntil(2000, output);
@@ -12751,35 +12734,35 @@ public final class GtfsRealtime {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, informedEntity_.get(i));
       }
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(6, cause_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(7, effect_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, getUrl());
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(10, getHeaderText());
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(11, getDescriptionText());
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(12, getTtsHeaderText());
       }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(13, getTtsDescriptionText());
       }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+      if (((bitField0_ & 0x00000080) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(14, severityLevel_);
       }
@@ -12799,52 +12782,51 @@ public final class GtfsRealtime {
       }
       com.google.transit.realtime.GtfsRealtime.Alert other = (com.google.transit.realtime.GtfsRealtime.Alert) obj;
 
-      boolean result = true;
-      result = result && getActivePeriodList()
-          .equals(other.getActivePeriodList());
-      result = result && getInformedEntityList()
-          .equals(other.getInformedEntityList());
-      result = result && (hasCause() == other.hasCause());
+      if (!getActivePeriodList()
+          .equals(other.getActivePeriodList())) return false;
+      if (!getInformedEntityList()
+          .equals(other.getInformedEntityList())) return false;
+      if (hasCause() != other.hasCause()) return false;
       if (hasCause()) {
-        result = result && cause_ == other.cause_;
+        if (cause_ != other.cause_) return false;
       }
-      result = result && (hasEffect() == other.hasEffect());
+      if (hasEffect() != other.hasEffect()) return false;
       if (hasEffect()) {
-        result = result && effect_ == other.effect_;
+        if (effect_ != other.effect_) return false;
       }
-      result = result && (hasUrl() == other.hasUrl());
+      if (hasUrl() != other.hasUrl()) return false;
       if (hasUrl()) {
-        result = result && getUrl()
-            .equals(other.getUrl());
+        if (!getUrl()
+            .equals(other.getUrl())) return false;
       }
-      result = result && (hasHeaderText() == other.hasHeaderText());
+      if (hasHeaderText() != other.hasHeaderText()) return false;
       if (hasHeaderText()) {
-        result = result && getHeaderText()
-            .equals(other.getHeaderText());
+        if (!getHeaderText()
+            .equals(other.getHeaderText())) return false;
       }
-      result = result && (hasDescriptionText() == other.hasDescriptionText());
+      if (hasDescriptionText() != other.hasDescriptionText()) return false;
       if (hasDescriptionText()) {
-        result = result && getDescriptionText()
-            .equals(other.getDescriptionText());
+        if (!getDescriptionText()
+            .equals(other.getDescriptionText())) return false;
       }
-      result = result && (hasTtsHeaderText() == other.hasTtsHeaderText());
+      if (hasTtsHeaderText() != other.hasTtsHeaderText()) return false;
       if (hasTtsHeaderText()) {
-        result = result && getTtsHeaderText()
-            .equals(other.getTtsHeaderText());
+        if (!getTtsHeaderText()
+            .equals(other.getTtsHeaderText())) return false;
       }
-      result = result && (hasTtsDescriptionText() == other.hasTtsDescriptionText());
+      if (hasTtsDescriptionText() != other.hasTtsDescriptionText()) return false;
       if (hasTtsDescriptionText()) {
-        result = result && getTtsDescriptionText()
-            .equals(other.getTtsDescriptionText());
+        if (!getTtsDescriptionText()
+            .equals(other.getTtsDescriptionText())) return false;
       }
-      result = result && (hasSeverityLevel() == other.hasSeverityLevel());
+      if (hasSeverityLevel() != other.hasSeverityLevel()) return false;
       if (hasSeverityLevel()) {
-        result = result && severityLevel_ == other.severityLevel_;
+        if (severityLevel_ != other.severityLevel_) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      result = result &&
-          getExtensionFields().equals(other.getExtensionFields());
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getExtensionFields().equals(other.getExtensionFields()))
+        return false;
+      return true;
     }
 
     @java.lang.Override
@@ -13117,7 +13099,7 @@ public final class GtfsRealtime {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (activePeriodBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             activePeriod_ = java.util.Collections.unmodifiableList(activePeriod_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
@@ -13126,7 +13108,7 @@ public final class GtfsRealtime {
           result.activePeriod_ = activePeriodBuilder_.build();
         }
         if (informedEntityBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             informedEntity_ = java.util.Collections.unmodifiableList(informedEntity_);
             bitField0_ = (bitField0_ & ~0x00000002);
           }
@@ -13134,55 +13116,55 @@ public final class GtfsRealtime {
         } else {
           result.informedEntity_ = informedEntityBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((from_bitField0_ & 0x00000004) != 0)) {
           to_bitField0_ |= 0x00000001;
         }
         result.cause_ = cause_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((from_bitField0_ & 0x00000008) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
         result.effect_ = effect_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          if (urlBuilder_ == null) {
+            result.url_ = url_;
+          } else {
+            result.url_ = urlBuilder_.build();
+          }
           to_bitField0_ |= 0x00000004;
         }
-        if (urlBuilder_ == null) {
-          result.url_ = url_;
-        } else {
-          result.url_ = urlBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          if (headerTextBuilder_ == null) {
+            result.headerText_ = headerText_;
+          } else {
+            result.headerText_ = headerTextBuilder_.build();
+          }
           to_bitField0_ |= 0x00000008;
         }
-        if (headerTextBuilder_ == null) {
-          result.headerText_ = headerText_;
-        } else {
-          result.headerText_ = headerTextBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          if (descriptionTextBuilder_ == null) {
+            result.descriptionText_ = descriptionText_;
+          } else {
+            result.descriptionText_ = descriptionTextBuilder_.build();
+          }
           to_bitField0_ |= 0x00000010;
         }
-        if (descriptionTextBuilder_ == null) {
-          result.descriptionText_ = descriptionText_;
-        } else {
-          result.descriptionText_ = descriptionTextBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          if (ttsHeaderTextBuilder_ == null) {
+            result.ttsHeaderText_ = ttsHeaderText_;
+          } else {
+            result.ttsHeaderText_ = ttsHeaderTextBuilder_.build();
+          }
           to_bitField0_ |= 0x00000020;
         }
-        if (ttsHeaderTextBuilder_ == null) {
-          result.ttsHeaderText_ = ttsHeaderText_;
-        } else {
-          result.ttsHeaderText_ = ttsHeaderTextBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          if (ttsDescriptionTextBuilder_ == null) {
+            result.ttsDescriptionText_ = ttsDescriptionText_;
+          } else {
+            result.ttsDescriptionText_ = ttsDescriptionTextBuilder_.build();
+          }
           to_bitField0_ |= 0x00000040;
         }
-        if (ttsDescriptionTextBuilder_ == null) {
-          result.ttsDescriptionText_ = ttsDescriptionText_;
-        } else {
-          result.ttsDescriptionText_ = ttsDescriptionTextBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+        if (((from_bitField0_ & 0x00000200) != 0)) {
           to_bitField0_ |= 0x00000080;
         }
         result.severityLevel_ = severityLevel_;
@@ -13193,62 +13175,62 @@ public final class GtfsRealtime {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.Alert, Type> extension,
           Type value) {
-        return (Builder) super.setExtension(extension, value);
+        return super.setExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.Alert, java.util.List<Type>> extension,
           int index, Type value) {
-        return (Builder) super.setExtension(extension, index, value);
+        return super.setExtension(extension, index, value);
       }
       @java.lang.Override
       public <Type> Builder addExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.Alert, java.util.List<Type>> extension,
           Type value) {
-        return (Builder) super.addExtension(extension, value);
+        return super.addExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder clearExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.Alert, ?> extension) {
-        return (Builder) super.clearExtension(extension);
+        return super.clearExtension(extension);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -13410,7 +13392,7 @@ public final class GtfsRealtime {
       private java.util.List<com.google.transit.realtime.GtfsRealtime.TimeRange> activePeriod_ =
         java.util.Collections.emptyList();
       private void ensureActivePeriodIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           activePeriod_ = new java.util.ArrayList<com.google.transit.realtime.GtfsRealtime.TimeRange>(activePeriod_);
           bitField0_ |= 0x00000001;
          }
@@ -13747,7 +13729,7 @@ public final class GtfsRealtime {
           activePeriodBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.transit.realtime.GtfsRealtime.TimeRange, com.google.transit.realtime.GtfsRealtime.TimeRange.Builder, com.google.transit.realtime.GtfsRealtime.TimeRangeOrBuilder>(
                   activePeriod_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           activePeriod_ = null;
@@ -13758,7 +13740,7 @@ public final class GtfsRealtime {
       private java.util.List<com.google.transit.realtime.GtfsRealtime.EntitySelector> informedEntity_ =
         java.util.Collections.emptyList();
       private void ensureInformedEntityIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           informedEntity_ = new java.util.ArrayList<com.google.transit.realtime.GtfsRealtime.EntitySelector>(informedEntity_);
           bitField0_ |= 0x00000002;
          }
@@ -14059,7 +14041,7 @@ public final class GtfsRealtime {
           informedEntityBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.transit.realtime.GtfsRealtime.EntitySelector, com.google.transit.realtime.GtfsRealtime.EntitySelector.Builder, com.google.transit.realtime.GtfsRealtime.EntitySelectorOrBuilder>(
                   informedEntity_,
-                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           informedEntity_ = null;
@@ -14072,7 +14054,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.Alert.Cause cause = 6 [default = UNKNOWN_CAUSE];</code>
        */
       public boolean hasCause() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <code>optional .transit_realtime.Alert.Cause cause = 6 [default = UNKNOWN_CAUSE];</code>
@@ -14109,7 +14091,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.Alert.Effect effect = 7 [default = UNKNOWN_EFFECT];</code>
        */
       public boolean hasEffect() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <code>optional .transit_realtime.Alert.Effect effect = 7 [default = UNKNOWN_EFFECT];</code>
@@ -14141,7 +14123,7 @@ public final class GtfsRealtime {
         return this;
       }
 
-      private com.google.transit.realtime.GtfsRealtime.TranslatedString url_ = null;
+      private com.google.transit.realtime.GtfsRealtime.TranslatedString url_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.transit.realtime.GtfsRealtime.TranslatedString, com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedStringOrBuilder> urlBuilder_;
       /**
@@ -14152,7 +14134,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TranslatedString url = 8;</code>
        */
       public boolean hasUrl() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -14215,7 +14197,7 @@ public final class GtfsRealtime {
        */
       public Builder mergeUrl(com.google.transit.realtime.GtfsRealtime.TranslatedString value) {
         if (urlBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+          if (((bitField0_ & 0x00000010) != 0) &&
               url_ != null &&
               url_ != com.google.transit.realtime.GtfsRealtime.TranslatedString.getDefaultInstance()) {
             url_ =
@@ -14295,7 +14277,7 @@ public final class GtfsRealtime {
         return urlBuilder_;
       }
 
-      private com.google.transit.realtime.GtfsRealtime.TranslatedString headerText_ = null;
+      private com.google.transit.realtime.GtfsRealtime.TranslatedString headerText_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.transit.realtime.GtfsRealtime.TranslatedString, com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedStringOrBuilder> headerTextBuilder_;
       /**
@@ -14306,7 +14288,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TranslatedString header_text = 10;</code>
        */
       public boolean hasHeaderText() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <pre>
@@ -14369,7 +14351,7 @@ public final class GtfsRealtime {
        */
       public Builder mergeHeaderText(com.google.transit.realtime.GtfsRealtime.TranslatedString value) {
         if (headerTextBuilder_ == null) {
-          if (((bitField0_ & 0x00000020) == 0x00000020) &&
+          if (((bitField0_ & 0x00000020) != 0) &&
               headerText_ != null &&
               headerText_ != com.google.transit.realtime.GtfsRealtime.TranslatedString.getDefaultInstance()) {
             headerText_ =
@@ -14449,7 +14431,7 @@ public final class GtfsRealtime {
         return headerTextBuilder_;
       }
 
-      private com.google.transit.realtime.GtfsRealtime.TranslatedString descriptionText_ = null;
+      private com.google.transit.realtime.GtfsRealtime.TranslatedString descriptionText_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.transit.realtime.GtfsRealtime.TranslatedString, com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedStringOrBuilder> descriptionTextBuilder_;
       /**
@@ -14461,7 +14443,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TranslatedString description_text = 11;</code>
        */
       public boolean hasDescriptionText() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000040) != 0);
       }
       /**
        * <pre>
@@ -14528,7 +14510,7 @@ public final class GtfsRealtime {
        */
       public Builder mergeDescriptionText(com.google.transit.realtime.GtfsRealtime.TranslatedString value) {
         if (descriptionTextBuilder_ == null) {
-          if (((bitField0_ & 0x00000040) == 0x00000040) &&
+          if (((bitField0_ & 0x00000040) != 0) &&
               descriptionText_ != null &&
               descriptionText_ != com.google.transit.realtime.GtfsRealtime.TranslatedString.getDefaultInstance()) {
             descriptionText_ =
@@ -14612,7 +14594,7 @@ public final class GtfsRealtime {
         return descriptionTextBuilder_;
       }
 
-      private com.google.transit.realtime.GtfsRealtime.TranslatedString ttsHeaderText_ = null;
+      private com.google.transit.realtime.GtfsRealtime.TranslatedString ttsHeaderText_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.transit.realtime.GtfsRealtime.TranslatedString, com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedStringOrBuilder> ttsHeaderTextBuilder_;
       /**
@@ -14624,7 +14606,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TranslatedString tts_header_text = 12;</code>
        */
       public boolean hasTtsHeaderText() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000080) != 0);
       }
       /**
        * <pre>
@@ -14691,7 +14673,7 @@ public final class GtfsRealtime {
        */
       public Builder mergeTtsHeaderText(com.google.transit.realtime.GtfsRealtime.TranslatedString value) {
         if (ttsHeaderTextBuilder_ == null) {
-          if (((bitField0_ & 0x00000080) == 0x00000080) &&
+          if (((bitField0_ & 0x00000080) != 0) &&
               ttsHeaderText_ != null &&
               ttsHeaderText_ != com.google.transit.realtime.GtfsRealtime.TranslatedString.getDefaultInstance()) {
             ttsHeaderText_ =
@@ -14762,7 +14744,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TranslatedString tts_header_text = 12;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.TranslatedString, com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedStringOrBuilder>
+          com.google.transit.realtime.GtfsRealtime.TranslatedString, com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedStringOrBuilder> 
           getTtsHeaderTextFieldBuilder() {
         if (ttsHeaderTextBuilder_ == null) {
           ttsHeaderTextBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -14775,7 +14757,7 @@ public final class GtfsRealtime {
         return ttsHeaderTextBuilder_;
       }
 
-      private com.google.transit.realtime.GtfsRealtime.TranslatedString ttsDescriptionText_ = null;
+      private com.google.transit.realtime.GtfsRealtime.TranslatedString ttsDescriptionText_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.transit.realtime.GtfsRealtime.TranslatedString, com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedStringOrBuilder> ttsDescriptionTextBuilder_;
       /**
@@ -14787,7 +14769,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TranslatedString tts_description_text = 13;</code>
        */
       public boolean hasTtsDescriptionText() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
+        return ((bitField0_ & 0x00000100) != 0);
       }
       /**
        * <pre>
@@ -14854,7 +14836,7 @@ public final class GtfsRealtime {
        */
       public Builder mergeTtsDescriptionText(com.google.transit.realtime.GtfsRealtime.TranslatedString value) {
         if (ttsDescriptionTextBuilder_ == null) {
-          if (((bitField0_ & 0x00000100) == 0x00000100) &&
+          if (((bitField0_ & 0x00000100) != 0) &&
               ttsDescriptionText_ != null &&
               ttsDescriptionText_ != com.google.transit.realtime.GtfsRealtime.TranslatedString.getDefaultInstance()) {
             ttsDescriptionText_ =
@@ -14925,7 +14907,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TranslatedString tts_description_text = 13;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.TranslatedString, com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedStringOrBuilder>
+          com.google.transit.realtime.GtfsRealtime.TranslatedString, com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedStringOrBuilder> 
           getTtsDescriptionTextFieldBuilder() {
         if (ttsDescriptionTextBuilder_ == null) {
           ttsDescriptionTextBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -14943,7 +14925,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.Alert.SeverityLevel severity_level = 14 [default = UNKNOWN_SEVERITY];</code>
        */
       public boolean hasSeverityLevel() {
-        return ((bitField0_ & 0x00000200) == 0x00000200);
+        return ((bitField0_ & 0x00000200) != 0);
       }
       /**
        * <code>optional .transit_realtime.Alert.SeverityLevel severity_level = 14 [default = UNKNOWN_SEVERITY];</code>
@@ -15093,8 +15075,6 @@ public final class GtfsRealtime {
       super(builder);
     }
     private TimeRange() {
-      start_ = 0L;
-      end_ = 0L;
     }
 
     @java.lang.Override
@@ -15176,7 +15156,7 @@ public final class GtfsRealtime {
      * <code>optional uint64 start = 1;</code>
      */
     public boolean hasStart() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -15203,7 +15183,7 @@ public final class GtfsRealtime {
      * <code>optional uint64 end = 2;</code>
      */
     public boolean hasEnd() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -15239,10 +15219,10 @@ public final class GtfsRealtime {
       com.google.protobuf.GeneratedMessageV3
         .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.TimeRange>.ExtensionWriter
           extensionWriter = newExtensionWriter();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeUInt64(1, start_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeUInt64(2, end_);
       }
       extensionWriter.writeUntil(2000, output);
@@ -15255,11 +15235,11 @@ public final class GtfsRealtime {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, start_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, end_);
       }
@@ -15279,21 +15259,20 @@ public final class GtfsRealtime {
       }
       com.google.transit.realtime.GtfsRealtime.TimeRange other = (com.google.transit.realtime.GtfsRealtime.TimeRange) obj;
 
-      boolean result = true;
-      result = result && (hasStart() == other.hasStart());
+      if (hasStart() != other.hasStart()) return false;
       if (hasStart()) {
-        result = result && (getStart()
-            == other.getStart());
+        if (getStart()
+            != other.getStart()) return false;
       }
-      result = result && (hasEnd() == other.hasEnd());
+      if (hasEnd() != other.hasEnd()) return false;
       if (hasEnd()) {
-        result = result && (getEnd()
-            == other.getEnd());
+        if (getEnd()
+            != other.getEnd()) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      result = result &&
-          getExtensionFields().equals(other.getExtensionFields());
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getExtensionFields().equals(other.getExtensionFields()))
+        return false;
+      return true;
     }
 
     @java.lang.Override
@@ -15485,14 +15464,14 @@ public final class GtfsRealtime {
         com.google.transit.realtime.GtfsRealtime.TimeRange result = new com.google.transit.realtime.GtfsRealtime.TimeRange(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.start_ = start_;
           to_bitField0_ |= 0x00000001;
         }
-        result.start_ = start_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.end_ = end_;
           to_bitField0_ |= 0x00000002;
         }
-        result.end_ = end_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -15500,62 +15479,62 @@ public final class GtfsRealtime {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.TimeRange, Type> extension,
           Type value) {
-        return (Builder) super.setExtension(extension, value);
+        return super.setExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.TimeRange, java.util.List<Type>> extension,
           int index, Type value) {
-        return (Builder) super.setExtension(extension, index, value);
+        return super.setExtension(extension, index, value);
       }
       @java.lang.Override
       public <Type> Builder addExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.TimeRange, java.util.List<Type>> extension,
           Type value) {
-        return (Builder) super.addExtension(extension, value);
+        return super.addExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder clearExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.TimeRange, ?> extension) {
-        return (Builder) super.clearExtension(extension);
+        return super.clearExtension(extension);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -15620,7 +15599,7 @@ public final class GtfsRealtime {
        * <code>optional uint64 start = 1;</code>
        */
       public boolean hasStart() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -15676,7 +15655,7 @@ public final class GtfsRealtime {
        * <code>optional uint64 end = 2;</code>
        */
       public boolean hasEnd() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -15889,11 +15868,6 @@ public final class GtfsRealtime {
       super(builder);
     }
     private Position() {
-      latitude_ = 0F;
-      longitude_ = 0F;
-      bearing_ = 0F;
-      odometer_ = 0D;
-      speed_ = 0F;
     }
 
     @java.lang.Override
@@ -15988,7 +15962,7 @@ public final class GtfsRealtime {
      * <code>required float latitude = 1;</code>
      */
     public boolean hasLatitude() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -16011,7 +15985,7 @@ public final class GtfsRealtime {
      * <code>required float longitude = 2;</code>
      */
     public boolean hasLongitude() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -16038,7 +16012,7 @@ public final class GtfsRealtime {
      * <code>optional float bearing = 3;</code>
      */
     public boolean hasBearing() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -16065,7 +16039,7 @@ public final class GtfsRealtime {
      * <code>optional double odometer = 4;</code>
      */
     public boolean hasOdometer() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -16088,7 +16062,7 @@ public final class GtfsRealtime {
      * <code>optional float speed = 5;</code>
      */
     public boolean hasSpeed() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -16130,19 +16104,19 @@ public final class GtfsRealtime {
       com.google.protobuf.GeneratedMessageV3
         .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.Position>.ExtensionWriter
           extensionWriter = newExtensionWriter();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeFloat(1, latitude_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeFloat(2, longitude_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeFloat(3, bearing_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         output.writeDouble(4, odometer_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         output.writeFloat(5, speed_);
       }
       extensionWriter.writeUntil(2000, output);
@@ -16155,23 +16129,23 @@ public final class GtfsRealtime {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(1, latitude_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(2, longitude_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(3, bearing_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(4, odometer_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(5, speed_);
       }
@@ -16191,46 +16165,40 @@ public final class GtfsRealtime {
       }
       com.google.transit.realtime.GtfsRealtime.Position other = (com.google.transit.realtime.GtfsRealtime.Position) obj;
 
-      boolean result = true;
-      result = result && (hasLatitude() == other.hasLatitude());
+      if (hasLatitude() != other.hasLatitude()) return false;
       if (hasLatitude()) {
-        result = result && (
-            java.lang.Float.floatToIntBits(getLatitude())
-            == java.lang.Float.floatToIntBits(
-                other.getLatitude()));
+        if (java.lang.Float.floatToIntBits(getLatitude())
+            != java.lang.Float.floatToIntBits(
+                other.getLatitude())) return false;
       }
-      result = result && (hasLongitude() == other.hasLongitude());
+      if (hasLongitude() != other.hasLongitude()) return false;
       if (hasLongitude()) {
-        result = result && (
-            java.lang.Float.floatToIntBits(getLongitude())
-            == java.lang.Float.floatToIntBits(
-                other.getLongitude()));
+        if (java.lang.Float.floatToIntBits(getLongitude())
+            != java.lang.Float.floatToIntBits(
+                other.getLongitude())) return false;
       }
-      result = result && (hasBearing() == other.hasBearing());
+      if (hasBearing() != other.hasBearing()) return false;
       if (hasBearing()) {
-        result = result && (
-            java.lang.Float.floatToIntBits(getBearing())
-            == java.lang.Float.floatToIntBits(
-                other.getBearing()));
+        if (java.lang.Float.floatToIntBits(getBearing())
+            != java.lang.Float.floatToIntBits(
+                other.getBearing())) return false;
       }
-      result = result && (hasOdometer() == other.hasOdometer());
+      if (hasOdometer() != other.hasOdometer()) return false;
       if (hasOdometer()) {
-        result = result && (
-            java.lang.Double.doubleToLongBits(getOdometer())
-            == java.lang.Double.doubleToLongBits(
-                other.getOdometer()));
+        if (java.lang.Double.doubleToLongBits(getOdometer())
+            != java.lang.Double.doubleToLongBits(
+                other.getOdometer())) return false;
       }
-      result = result && (hasSpeed() == other.hasSpeed());
+      if (hasSpeed() != other.hasSpeed()) return false;
       if (hasSpeed()) {
-        result = result && (
-            java.lang.Float.floatToIntBits(getSpeed())
-            == java.lang.Float.floatToIntBits(
-                other.getSpeed()));
+        if (java.lang.Float.floatToIntBits(getSpeed())
+            != java.lang.Float.floatToIntBits(
+                other.getSpeed())) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      result = result &&
-          getExtensionFields().equals(other.getExtensionFields());
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getExtensionFields().equals(other.getExtensionFields()))
+        return false;
+      return true;
     }
 
     @java.lang.Override
@@ -16442,26 +16410,26 @@ public final class GtfsRealtime {
         com.google.transit.realtime.GtfsRealtime.Position result = new com.google.transit.realtime.GtfsRealtime.Position(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.latitude_ = latitude_;
           to_bitField0_ |= 0x00000001;
         }
-        result.latitude_ = latitude_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.longitude_ = longitude_;
           to_bitField0_ |= 0x00000002;
         }
-        result.longitude_ = longitude_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.bearing_ = bearing_;
           to_bitField0_ |= 0x00000004;
         }
-        result.bearing_ = bearing_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.odometer_ = odometer_;
           to_bitField0_ |= 0x00000008;
         }
-        result.odometer_ = odometer_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.speed_ = speed_;
           to_bitField0_ |= 0x00000010;
         }
-        result.speed_ = speed_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -16469,62 +16437,62 @@ public final class GtfsRealtime {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.Position, Type> extension,
           Type value) {
-        return (Builder) super.setExtension(extension, value);
+        return super.setExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.Position, java.util.List<Type>> extension,
           int index, Type value) {
-        return (Builder) super.setExtension(extension, index, value);
+        return super.setExtension(extension, index, value);
       }
       @java.lang.Override
       public <Type> Builder addExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.Position, java.util.List<Type>> extension,
           Type value) {
-        return (Builder) super.addExtension(extension, value);
+        return super.addExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder clearExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.Position, ?> extension) {
-        return (Builder) super.clearExtension(extension);
+        return super.clearExtension(extension);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -16602,7 +16570,7 @@ public final class GtfsRealtime {
        * <code>required float latitude = 1;</code>
        */
       public boolean hasLatitude() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -16650,7 +16618,7 @@ public final class GtfsRealtime {
        * <code>required float longitude = 2;</code>
        */
       public boolean hasLongitude() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -16702,7 +16670,7 @@ public final class GtfsRealtime {
        * <code>optional float bearing = 3;</code>
        */
       public boolean hasBearing() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -16762,7 +16730,7 @@ public final class GtfsRealtime {
        * <code>optional double odometer = 4;</code>
        */
       public boolean hasOdometer() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -16810,7 +16778,7 @@ public final class GtfsRealtime {
        * <code>optional float speed = 5;</code>
        */
       public boolean hasSpeed() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -17148,7 +17116,6 @@ public final class GtfsRealtime {
     private TripDescriptor() {
       tripId_ = "";
       routeId_ = "";
-      directionId_ = 0;
       startTime_ = "";
       startDate_ = "";
       scheduleRelationship_ = 0;
@@ -17437,7 +17404,7 @@ public final class GtfsRealtime {
      * <code>optional string trip_id = 1;</code>
      */
     public boolean hasTripId() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -17497,7 +17464,7 @@ public final class GtfsRealtime {
      * <code>optional string route_id = 5;</code>
      */
     public boolean hasRouteId() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -17554,7 +17521,7 @@ public final class GtfsRealtime {
      * <code>optional uint32 direction_id = 6;</code>
      */
     public boolean hasDirectionId() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -17594,7 +17561,7 @@ public final class GtfsRealtime {
      * <code>optional string start_time = 2;</code>
      */
     public boolean hasStartTime() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -17685,7 +17652,7 @@ public final class GtfsRealtime {
      * <code>optional string start_date = 3;</code>
      */
     public boolean hasStartDate() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -17753,7 +17720,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.TripDescriptor.ScheduleRelationship schedule_relationship = 4;</code>
      */
     public boolean hasScheduleRelationship() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <code>optional .transit_realtime.TripDescriptor.ScheduleRelationship schedule_relationship = 4;</code>
@@ -17785,22 +17752,22 @@ public final class GtfsRealtime {
       com.google.protobuf.GeneratedMessageV3
         .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.TripDescriptor>.ExtensionWriter
           extensionWriter = newExtensionWriter();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tripId_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, startTime_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, startDate_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         output.writeEnum(4, scheduleRelationship_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, routeId_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeUInt32(6, directionId_);
       }
       extensionWriter.writeUntil(2000, output);
@@ -17813,23 +17780,23 @@ public final class GtfsRealtime {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tripId_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, startTime_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, startDate_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, scheduleRelationship_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, routeId_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(6, directionId_);
       }
@@ -17849,40 +17816,39 @@ public final class GtfsRealtime {
       }
       com.google.transit.realtime.GtfsRealtime.TripDescriptor other = (com.google.transit.realtime.GtfsRealtime.TripDescriptor) obj;
 
-      boolean result = true;
-      result = result && (hasTripId() == other.hasTripId());
+      if (hasTripId() != other.hasTripId()) return false;
       if (hasTripId()) {
-        result = result && getTripId()
-            .equals(other.getTripId());
+        if (!getTripId()
+            .equals(other.getTripId())) return false;
       }
-      result = result && (hasRouteId() == other.hasRouteId());
+      if (hasRouteId() != other.hasRouteId()) return false;
       if (hasRouteId()) {
-        result = result && getRouteId()
-            .equals(other.getRouteId());
+        if (!getRouteId()
+            .equals(other.getRouteId())) return false;
       }
-      result = result && (hasDirectionId() == other.hasDirectionId());
+      if (hasDirectionId() != other.hasDirectionId()) return false;
       if (hasDirectionId()) {
-        result = result && (getDirectionId()
-            == other.getDirectionId());
+        if (getDirectionId()
+            != other.getDirectionId()) return false;
       }
-      result = result && (hasStartTime() == other.hasStartTime());
+      if (hasStartTime() != other.hasStartTime()) return false;
       if (hasStartTime()) {
-        result = result && getStartTime()
-            .equals(other.getStartTime());
+        if (!getStartTime()
+            .equals(other.getStartTime())) return false;
       }
-      result = result && (hasStartDate() == other.hasStartDate());
+      if (hasStartDate() != other.hasStartDate()) return false;
       if (hasStartDate()) {
-        result = result && getStartDate()
-            .equals(other.getStartDate());
+        if (!getStartDate()
+            .equals(other.getStartDate())) return false;
       }
-      result = result && (hasScheduleRelationship() == other.hasScheduleRelationship());
+      if (hasScheduleRelationship() != other.hasScheduleRelationship()) return false;
       if (hasScheduleRelationship()) {
-        result = result && scheduleRelationship_ == other.scheduleRelationship_;
+        if (scheduleRelationship_ != other.scheduleRelationship_) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      result = result &&
-          getExtensionFields().equals(other.getExtensionFields());
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getExtensionFields().equals(other.getExtensionFields()))
+        return false;
+      return true;
     }
 
     @java.lang.Override
@@ -18103,27 +18069,27 @@ public final class GtfsRealtime {
         com.google.transit.realtime.GtfsRealtime.TripDescriptor result = new com.google.transit.realtime.GtfsRealtime.TripDescriptor(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((from_bitField0_ & 0x00000001) != 0)) {
           to_bitField0_ |= 0x00000001;
         }
         result.tripId_ = tripId_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
         result.routeId_ = routeId_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.directionId_ = directionId_;
           to_bitField0_ |= 0x00000004;
         }
-        result.directionId_ = directionId_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((from_bitField0_ & 0x00000008) != 0)) {
           to_bitField0_ |= 0x00000008;
         }
         result.startTime_ = startTime_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((from_bitField0_ & 0x00000010) != 0)) {
           to_bitField0_ |= 0x00000010;
         }
         result.startDate_ = startDate_;
-        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((from_bitField0_ & 0x00000020) != 0)) {
           to_bitField0_ |= 0x00000020;
         }
         result.scheduleRelationship_ = scheduleRelationship_;
@@ -18134,62 +18100,62 @@ public final class GtfsRealtime {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.TripDescriptor, Type> extension,
           Type value) {
-        return (Builder) super.setExtension(extension, value);
+        return super.setExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.TripDescriptor, java.util.List<Type>> extension,
           int index, Type value) {
-        return (Builder) super.setExtension(extension, index, value);
+        return super.setExtension(extension, index, value);
       }
       @java.lang.Override
       public <Type> Builder addExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.TripDescriptor, java.util.List<Type>> extension,
           Type value) {
-        return (Builder) super.addExtension(extension, value);
+        return super.addExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder clearExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.TripDescriptor, ?> extension) {
-        return (Builder) super.clearExtension(extension);
+        return super.clearExtension(extension);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -18275,7 +18241,7 @@ public final class GtfsRealtime {
        * <code>optional string trip_id = 1;</code>
        */
       public boolean hasTripId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -18390,7 +18356,7 @@ public final class GtfsRealtime {
        * <code>optional string route_id = 5;</code>
        */
       public boolean hasRouteId() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -18493,7 +18459,7 @@ public final class GtfsRealtime {
        * <code>optional uint32 direction_id = 6;</code>
        */
       public boolean hasDirectionId() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -18564,7 +18530,7 @@ public final class GtfsRealtime {
        * <code>optional string start_time = 2;</code>
        */
       public boolean hasStartTime() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -18743,7 +18709,7 @@ public final class GtfsRealtime {
        * <code>optional string start_date = 3;</code>
        */
       public boolean hasStartDate() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -18884,7 +18850,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TripDescriptor.ScheduleRelationship schedule_relationship = 4;</code>
        */
       public boolean hasScheduleRelationship() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <code>optional .transit_realtime.TripDescriptor.ScheduleRelationship schedule_relationship = 4;</code>
@@ -19170,7 +19136,7 @@ public final class GtfsRealtime {
      * <code>optional string id = 1;</code>
      */
     public boolean hasId() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -19229,7 +19195,7 @@ public final class GtfsRealtime {
      * <code>optional string label = 2;</code>
      */
     public boolean hasLabel() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -19285,7 +19251,7 @@ public final class GtfsRealtime {
      * <code>optional string license_plate = 3;</code>
      */
     public boolean hasLicensePlate() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -19350,13 +19316,13 @@ public final class GtfsRealtime {
       com.google.protobuf.GeneratedMessageV3
         .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.VehicleDescriptor>.ExtensionWriter
           extensionWriter = newExtensionWriter();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, label_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, licensePlate_);
       }
       extensionWriter.writeUntil(2000, output);
@@ -19369,13 +19335,13 @@ public final class GtfsRealtime {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, label_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, licensePlate_);
       }
       size += extensionsSerializedSize();
@@ -19394,26 +19360,25 @@ public final class GtfsRealtime {
       }
       com.google.transit.realtime.GtfsRealtime.VehicleDescriptor other = (com.google.transit.realtime.GtfsRealtime.VehicleDescriptor) obj;
 
-      boolean result = true;
-      result = result && (hasId() == other.hasId());
+      if (hasId() != other.hasId()) return false;
       if (hasId()) {
-        result = result && getId()
-            .equals(other.getId());
+        if (!getId()
+            .equals(other.getId())) return false;
       }
-      result = result && (hasLabel() == other.hasLabel());
+      if (hasLabel() != other.hasLabel()) return false;
       if (hasLabel()) {
-        result = result && getLabel()
-            .equals(other.getLabel());
+        if (!getLabel()
+            .equals(other.getLabel())) return false;
       }
-      result = result && (hasLicensePlate() == other.hasLicensePlate());
+      if (hasLicensePlate() != other.hasLicensePlate()) return false;
       if (hasLicensePlate()) {
-        result = result && getLicensePlate()
-            .equals(other.getLicensePlate());
+        if (!getLicensePlate()
+            .equals(other.getLicensePlate())) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      result = result &&
-          getExtensionFields().equals(other.getExtensionFields());
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getExtensionFields().equals(other.getExtensionFields()))
+        return false;
+      return true;
     }
 
     @java.lang.Override
@@ -19608,15 +19573,15 @@ public final class GtfsRealtime {
         com.google.transit.realtime.GtfsRealtime.VehicleDescriptor result = new com.google.transit.realtime.GtfsRealtime.VehicleDescriptor(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((from_bitField0_ & 0x00000001) != 0)) {
           to_bitField0_ |= 0x00000001;
         }
         result.id_ = id_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
         result.label_ = label_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((from_bitField0_ & 0x00000004) != 0)) {
           to_bitField0_ |= 0x00000004;
         }
         result.licensePlate_ = licensePlate_;
@@ -19627,62 +19592,62 @@ public final class GtfsRealtime {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.VehicleDescriptor, Type> extension,
           Type value) {
-        return (Builder) super.setExtension(extension, value);
+        return super.setExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.VehicleDescriptor, java.util.List<Type>> extension,
           int index, Type value) {
-        return (Builder) super.setExtension(extension, index, value);
+        return super.setExtension(extension, index, value);
       }
       @java.lang.Override
       public <Type> Builder addExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.VehicleDescriptor, java.util.List<Type>> extension,
           Type value) {
-        return (Builder) super.addExtension(extension, value);
+        return super.addExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder clearExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.VehicleDescriptor, ?> extension) {
-        return (Builder) super.clearExtension(extension);
+        return super.clearExtension(extension);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -19756,7 +19721,7 @@ public final class GtfsRealtime {
        * <code>optional string id = 1;</code>
        */
       public boolean hasId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -19867,7 +19832,7 @@ public final class GtfsRealtime {
        * <code>optional string label = 2;</code>
        */
       public boolean hasLabel() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -19972,7 +19937,7 @@ public final class GtfsRealtime {
        * <code>optional string license_plate = 3;</code>
        */
       public boolean hasLicensePlate() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -20233,7 +20198,6 @@ public final class GtfsRealtime {
     private EntitySelector() {
       agencyId_ = "";
       routeId_ = "";
-      routeType_ = 0;
       stopId_ = "";
     }
 
@@ -20280,7 +20244,7 @@ public final class GtfsRealtime {
             }
             case 34: {
               com.google.transit.realtime.GtfsRealtime.TripDescriptor.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+              if (((bitField0_ & 0x00000008) != 0)) {
                 subBuilder = trip_.toBuilder();
               }
               trip_ = input.readMessage(com.google.transit.realtime.GtfsRealtime.TripDescriptor.PARSER, extensionRegistry);
@@ -20343,7 +20307,7 @@ public final class GtfsRealtime {
      * <code>optional string agency_id = 1;</code>
      */
     public boolean hasAgencyId() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -20399,7 +20363,7 @@ public final class GtfsRealtime {
      * <code>optional string route_id = 2;</code>
      */
     public boolean hasRouteId() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>optional string route_id = 2;</code>
@@ -20445,7 +20409,7 @@ public final class GtfsRealtime {
      * <code>optional int32 route_type = 3;</code>
      */
     public boolean hasRouteType() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -20464,7 +20428,7 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.TripDescriptor trip = 4;</code>
      */
     public boolean hasTrip() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <code>optional .transit_realtime.TripDescriptor trip = 4;</code>
@@ -20485,7 +20449,7 @@ public final class GtfsRealtime {
      * <code>optional string stop_id = 5;</code>
      */
     public boolean hasStopId() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <code>optional string stop_id = 5;</code>
@@ -20548,19 +20512,19 @@ public final class GtfsRealtime {
       com.google.protobuf.GeneratedMessageV3
         .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.EntitySelector>.ExtensionWriter
           extensionWriter = newExtensionWriter();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, agencyId_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, routeId_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeInt32(3, routeType_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         output.writeMessage(4, getTrip());
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, stopId_);
       }
       extensionWriter.writeUntil(2000, output);
@@ -20573,21 +20537,21 @@ public final class GtfsRealtime {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, agencyId_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, routeId_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, routeType_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getTrip());
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, stopId_);
       }
       size += extensionsSerializedSize();
@@ -20606,36 +20570,35 @@ public final class GtfsRealtime {
       }
       com.google.transit.realtime.GtfsRealtime.EntitySelector other = (com.google.transit.realtime.GtfsRealtime.EntitySelector) obj;
 
-      boolean result = true;
-      result = result && (hasAgencyId() == other.hasAgencyId());
+      if (hasAgencyId() != other.hasAgencyId()) return false;
       if (hasAgencyId()) {
-        result = result && getAgencyId()
-            .equals(other.getAgencyId());
+        if (!getAgencyId()
+            .equals(other.getAgencyId())) return false;
       }
-      result = result && (hasRouteId() == other.hasRouteId());
+      if (hasRouteId() != other.hasRouteId()) return false;
       if (hasRouteId()) {
-        result = result && getRouteId()
-            .equals(other.getRouteId());
+        if (!getRouteId()
+            .equals(other.getRouteId())) return false;
       }
-      result = result && (hasRouteType() == other.hasRouteType());
+      if (hasRouteType() != other.hasRouteType()) return false;
       if (hasRouteType()) {
-        result = result && (getRouteType()
-            == other.getRouteType());
+        if (getRouteType()
+            != other.getRouteType()) return false;
       }
-      result = result && (hasTrip() == other.hasTrip());
+      if (hasTrip() != other.hasTrip()) return false;
       if (hasTrip()) {
-        result = result && getTrip()
-            .equals(other.getTrip());
+        if (!getTrip()
+            .equals(other.getTrip())) return false;
       }
-      result = result && (hasStopId() == other.hasStopId());
+      if (hasStopId() != other.hasStopId()) return false;
       if (hasStopId()) {
-        result = result && getStopId()
-            .equals(other.getStopId());
+        if (!getStopId()
+            .equals(other.getStopId())) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      result = result &&
-          getExtensionFields().equals(other.getExtensionFields());
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getExtensionFields().equals(other.getExtensionFields()))
+        return false;
+      return true;
     }
 
     @java.lang.Override
@@ -20847,27 +20810,27 @@ public final class GtfsRealtime {
         com.google.transit.realtime.GtfsRealtime.EntitySelector result = new com.google.transit.realtime.GtfsRealtime.EntitySelector(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((from_bitField0_ & 0x00000001) != 0)) {
           to_bitField0_ |= 0x00000001;
         }
         result.agencyId_ = agencyId_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
         result.routeId_ = routeId_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.routeType_ = routeType_;
           to_bitField0_ |= 0x00000004;
         }
-        result.routeType_ = routeType_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          if (tripBuilder_ == null) {
+            result.trip_ = trip_;
+          } else {
+            result.trip_ = tripBuilder_.build();
+          }
           to_bitField0_ |= 0x00000008;
         }
-        if (tripBuilder_ == null) {
-          result.trip_ = trip_;
-        } else {
-          result.trip_ = tripBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((from_bitField0_ & 0x00000010) != 0)) {
           to_bitField0_ |= 0x00000010;
         }
         result.stopId_ = stopId_;
@@ -20878,62 +20841,62 @@ public final class GtfsRealtime {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.EntitySelector, Type> extension,
           Type value) {
-        return (Builder) super.setExtension(extension, value);
+        return super.setExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.EntitySelector, java.util.List<Type>> extension,
           int index, Type value) {
-        return (Builder) super.setExtension(extension, index, value);
+        return super.setExtension(extension, index, value);
       }
       @java.lang.Override
       public <Type> Builder addExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.EntitySelector, java.util.List<Type>> extension,
           Type value) {
-        return (Builder) super.addExtension(extension, value);
+        return super.addExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder clearExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.EntitySelector, ?> extension) {
-        return (Builder) super.clearExtension(extension);
+        return super.clearExtension(extension);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -21019,7 +20982,7 @@ public final class GtfsRealtime {
        * <code>optional string agency_id = 1;</code>
        */
       public boolean hasAgencyId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -21130,7 +21093,7 @@ public final class GtfsRealtime {
        * <code>optional string route_id = 2;</code>
        */
       public boolean hasRouteId() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <code>optional string route_id = 2;</code>
@@ -21210,7 +21173,7 @@ public final class GtfsRealtime {
        * <code>optional int32 route_type = 3;</code>
        */
       public boolean hasRouteType() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -21249,14 +21212,14 @@ public final class GtfsRealtime {
         return this;
       }
 
-      private com.google.transit.realtime.GtfsRealtime.TripDescriptor trip_ = null;
+      private com.google.transit.realtime.GtfsRealtime.TripDescriptor trip_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.transit.realtime.GtfsRealtime.TripDescriptor, com.google.transit.realtime.GtfsRealtime.TripDescriptor.Builder, com.google.transit.realtime.GtfsRealtime.TripDescriptorOrBuilder> tripBuilder_;
       /**
        * <code>optional .transit_realtime.TripDescriptor trip = 4;</code>
        */
       public boolean hasTrip() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <code>optional .transit_realtime.TripDescriptor trip = 4;</code>
@@ -21303,7 +21266,7 @@ public final class GtfsRealtime {
        */
       public Builder mergeTrip(com.google.transit.realtime.GtfsRealtime.TripDescriptor value) {
         if (tripBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+          if (((bitField0_ & 0x00000008) != 0) &&
               trip_ != null &&
               trip_ != com.google.transit.realtime.GtfsRealtime.TripDescriptor.getDefaultInstance()) {
             trip_ =
@@ -21372,7 +21335,7 @@ public final class GtfsRealtime {
        * <code>optional string stop_id = 5;</code>
        */
       public boolean hasStopId() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <code>optional string stop_id = 5;</code>
@@ -21599,7 +21562,7 @@ public final class GtfsRealtime {
               done = true;
               break;
             case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 translation_ = new java.util.ArrayList<com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation>();
                 mutable_bitField0_ |= 0x00000001;
               }
@@ -21622,7 +21585,7 @@ public final class GtfsRealtime {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           translation_ = java.util.Collections.unmodifiableList(translation_);
         }
         this.unknownFields = unknownFields.build();
@@ -21802,7 +21765,7 @@ public final class GtfsRealtime {
        * <code>required string text = 1;</code>
        */
       public boolean hasText() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -21858,7 +21821,7 @@ public final class GtfsRealtime {
        * <code>optional string language = 2;</code>
        */
       public boolean hasLanguage() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -21931,10 +21894,10 @@ public final class GtfsRealtime {
         com.google.protobuf.GeneratedMessageV3
           .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation>.ExtensionWriter
             extensionWriter = newExtensionWriter();
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((bitField0_ & 0x00000001) != 0)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 1, text_);
         }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 2, language_);
         }
         extensionWriter.writeUntil(2000, output);
@@ -21947,10 +21910,10 @@ public final class GtfsRealtime {
         if (size != -1) return size;
 
         size = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((bitField0_ & 0x00000001) != 0)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, text_);
         }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, language_);
         }
         size += extensionsSerializedSize();
@@ -21969,21 +21932,20 @@ public final class GtfsRealtime {
         }
         com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation other = (com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation) obj;
 
-        boolean result = true;
-        result = result && (hasText() == other.hasText());
+        if (hasText() != other.hasText()) return false;
         if (hasText()) {
-          result = result && getText()
-              .equals(other.getText());
+          if (!getText()
+              .equals(other.getText())) return false;
         }
-        result = result && (hasLanguage() == other.hasLanguage());
+        if (hasLanguage() != other.hasLanguage()) return false;
         if (hasLanguage()) {
-          result = result && getLanguage()
-              .equals(other.getLanguage());
+          if (!getLanguage()
+              .equals(other.getLanguage())) return false;
         }
-        result = result && unknownFields.equals(other.unknownFields);
-        result = result &&
-            getExtensionFields().equals(other.getExtensionFields());
-        return result;
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getExtensionFields().equals(other.getExtensionFields()))
+          return false;
+        return true;
       }
 
       @java.lang.Override
@@ -22168,11 +22130,11 @@ public final class GtfsRealtime {
           com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation result = new com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation(this);
           int from_bitField0_ = bitField0_;
           int to_bitField0_ = 0;
-          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          if (((from_bitField0_ & 0x00000001) != 0)) {
             to_bitField0_ |= 0x00000001;
           }
           result.text_ = text_;
-          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          if (((from_bitField0_ & 0x00000002) != 0)) {
             to_bitField0_ |= 0x00000002;
           }
           result.language_ = language_;
@@ -22183,62 +22145,62 @@ public final class GtfsRealtime {
 
         @java.lang.Override
         public Builder clone() {
-          return (Builder) super.clone();
+          return super.clone();
         }
         @java.lang.Override
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             java.lang.Object value) {
-          return (Builder) super.setField(field, value);
+          return super.setField(field, value);
         }
         @java.lang.Override
         public Builder clearField(
             com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return (Builder) super.clearField(field);
+          return super.clearField(field);
         }
         @java.lang.Override
         public Builder clearOneof(
             com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return (Builder) super.clearOneof(oneof);
+          return super.clearOneof(oneof);
         }
         @java.lang.Override
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             int index, java.lang.Object value) {
-          return (Builder) super.setRepeatedField(field, index, value);
+          return super.setRepeatedField(field, index, value);
         }
         @java.lang.Override
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
             java.lang.Object value) {
-          return (Builder) super.addRepeatedField(field, value);
+          return super.addRepeatedField(field, value);
         }
         @java.lang.Override
         public <Type> Builder setExtension(
             com.google.protobuf.GeneratedMessage.GeneratedExtension<
                 com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation, Type> extension,
             Type value) {
-          return (Builder) super.setExtension(extension, value);
+          return super.setExtension(extension, value);
         }
         @java.lang.Override
         public <Type> Builder setExtension(
             com.google.protobuf.GeneratedMessage.GeneratedExtension<
                 com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation, java.util.List<Type>> extension,
             int index, Type value) {
-          return (Builder) super.setExtension(extension, index, value);
+          return super.setExtension(extension, index, value);
         }
         @java.lang.Override
         public <Type> Builder addExtension(
             com.google.protobuf.GeneratedMessage.GeneratedExtension<
                 com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation, java.util.List<Type>> extension,
             Type value) {
-          return (Builder) super.addExtension(extension, value);
+          return super.addExtension(extension, value);
         }
         @java.lang.Override
         public <Type> Builder clearExtension(
             com.google.protobuf.GeneratedMessage.GeneratedExtension<
                 com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation, ?> extension) {
-          return (Builder) super.clearExtension(extension);
+          return super.clearExtension(extension);
         }
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -22308,7 +22270,7 @@ public final class GtfsRealtime {
          * <code>required string text = 1;</code>
          */
         public boolean hasText() {
-          return ((bitField0_ & 0x00000001) == 0x00000001);
+          return ((bitField0_ & 0x00000001) != 0);
         }
         /**
          * <pre>
@@ -22410,7 +22372,7 @@ public final class GtfsRealtime {
          * <code>optional string language = 2;</code>
          */
         public boolean hasLanguage() {
-          return ((bitField0_ & 0x00000002) == 0x00000002);
+          return ((bitField0_ & 0x00000002) != 0);
         }
         /**
          * <pre>
@@ -22678,13 +22640,12 @@ public final class GtfsRealtime {
       }
       com.google.transit.realtime.GtfsRealtime.TranslatedString other = (com.google.transit.realtime.GtfsRealtime.TranslatedString) obj;
 
-      boolean result = true;
-      result = result && getTranslationList()
-          .equals(other.getTranslationList());
-      result = result && unknownFields.equals(other.unknownFields);
-      result = result &&
-          getExtensionFields().equals(other.getExtensionFields());
-      return result;
+      if (!getTranslationList()
+          .equals(other.getTranslationList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getExtensionFields().equals(other.getExtensionFields()))
+        return false;
+      return true;
     }
 
     @java.lang.Override
@@ -22881,7 +22842,7 @@ public final class GtfsRealtime {
         com.google.transit.realtime.GtfsRealtime.TranslatedString result = new com.google.transit.realtime.GtfsRealtime.TranslatedString(this);
         int from_bitField0_ = bitField0_;
         if (translationBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             translation_ = java.util.Collections.unmodifiableList(translation_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
@@ -22895,62 +22856,62 @@ public final class GtfsRealtime {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.TranslatedString, Type> extension,
           Type value) {
-        return (Builder) super.setExtension(extension, value);
+        return super.setExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder setExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.TranslatedString, java.util.List<Type>> extension,
           int index, Type value) {
-        return (Builder) super.setExtension(extension, index, value);
+        return super.setExtension(extension, index, value);
       }
       @java.lang.Override
       public <Type> Builder addExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.TranslatedString, java.util.List<Type>> extension,
           Type value) {
-        return (Builder) super.addExtension(extension, value);
+        return super.addExtension(extension, value);
       }
       @java.lang.Override
       public <Type> Builder clearExtension(
           com.google.protobuf.GeneratedMessage.GeneratedExtension<
               com.google.transit.realtime.GtfsRealtime.TranslatedString, ?> extension) {
-        return (Builder) super.clearExtension(extension);
+        return super.clearExtension(extension);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -23032,7 +22993,7 @@ public final class GtfsRealtime {
       private java.util.List<com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation> translation_ =
         java.util.Collections.emptyList();
       private void ensureTranslationIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           translation_ = new java.util.ArrayList<com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation>(translation_);
           bitField0_ |= 0x00000001;
          }
@@ -23333,7 +23294,7 @@ public final class GtfsRealtime {
           translationBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation, com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedString.TranslationOrBuilder>(
                   translation_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           translation_ = null;
@@ -23395,77 +23356,77 @@ public final class GtfsRealtime {
 
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_FeedMessage_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_FeedMessage_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_FeedHeader_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_FeedHeader_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_FeedEntity_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_FeedEntity_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_TripUpdate_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_TripUpdate_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_TripUpdate_StopTimeEvent_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_TripUpdate_StopTimeEvent_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_TripUpdate_StopTimeUpdate_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_TripUpdate_StopTimeUpdate_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_VehiclePosition_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_VehiclePosition_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_Alert_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_Alert_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_TimeRange_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_TimeRange_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_Position_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_Position_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_TripDescriptor_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_TripDescriptor_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_VehicleDescriptor_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_VehicleDescriptor_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_EntitySelector_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_EntitySelector_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_TranslatedString_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_TranslatedString_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_TranslatedString_Translation_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_TranslatedString_Translation_fieldAccessorTable;
 
