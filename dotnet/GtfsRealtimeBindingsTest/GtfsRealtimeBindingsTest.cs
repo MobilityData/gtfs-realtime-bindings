@@ -2,7 +2,7 @@
 using System.Net;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProtoBuf;
-using transit_realtime;
+using TransitRealtime;
 
 namespace GtfsRealtimeBindingsTest
 {
@@ -15,11 +15,11 @@ namespace GtfsRealtimeBindingsTest
             var path = Path.Combine(Directory.GetCurrentDirectory(), "vehicle_position.pb");
             var req = WebRequest.Create(path);
             FeedMessage feed = Serializer.Deserialize<FeedMessage>(req.GetResponse().GetResponseStream());
-            int c = feed.entity.Count;
+            int c = feed.Entities.Count;
             Assert.AreEqual(c, 1);
-            var entity = feed.entity[0];
-            Assert.AreEqual(entity.id, "1");
-            Assert.IsTrue(entity.vehicle != null);
+            var entity = feed.Entities[0];
+            Assert.AreEqual(entity.Id, "1");
+            Assert.IsTrue(entity.Vehicle != null);
         }
     }
 }
