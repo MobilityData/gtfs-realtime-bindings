@@ -1,17 +1,17 @@
 {
-    "author": "Google Inc.",
+    "author": "MobilityData",
     "name": "gtfs-realtime-bindings",
     "description": "Javascript classes generated from the GTFS-realtime protocol buffer specification.",
     "tags": [
         "gtfs-realtime"
     ],
-    "version": "0.0.4",
+    "version": "0.0.5",
     "repository": {
         "type": "git",
-        "url": "https://github.com/google/gtfs-realtime-bindings.git"
+        "url": "https://github.com/MobilityData/gtfs-realtime-bindings.git"
     },
     "bugs": {
-        "url": "https://github.com/google/gtfs-realtime-bindings/issues"
+        "url": "https://github.com/MobilityData/gtfs-realtime-bindings/issues"
     },
     "main": "gtfs-realtime.js",
     "scripts": {
@@ -22,7 +22,7 @@
         "node >= 0.10.0"
     ],
     "dependencies": {
-        "protobufjs": "6.7.3"
+        "protobufjs": "6.8.6"
     },
     "devDependencies": {
         "mocha": "1.19.0",

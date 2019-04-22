@@ -3,7 +3,7 @@
 [![PyPI version](https://badge.fury.io/py/gtfs-realtime-bindings.svg)](http://badge.fury.io/py/gtfs-realtime-bindings)
 
 Provides Python classes generated from the
-[GTFS-realtime](https://developers.google.com/transit/gtfs-realtime/) Protocol
+[GTFS-realtime](https://github.com/google/transit/tree/master/gtfs-realtime) Protocol
 Buffer specification.  These classes will allow you to parse a binary Protocol
 Buffer GTFS-realtime data feed into Python objects.
 
@@ -41,7 +41,7 @@ for entity in feed.entity:
 
 For more details on the naming conventions for the Python classes generated
 from the
-[gtfs-realtime.proto](https://developers.google.com/transit/gtfs-realtime/gtfs-realtime-proto),
+[gtfs-realtime.proto](https://github.com/google/transit/blob/master/gtfs-realtime/proto/gtfs-realtime.proto),
 check out the
 [Python Generated Code](https://developers.google.com/protocol-buffers/docs/reference/python-generated)
 section of the Protocol Buffers developer site.

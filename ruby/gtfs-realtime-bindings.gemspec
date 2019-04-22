@@ -5,9 +5,9 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 Gem::Specification.new do |spec|
   spec.name          = "gtfs-realtime-bindings"
   spec.version       = "0.0.5"
-  spec.authors       = ["Google Inc."]
+  spec.authors       = ["MobilityData"]
   spec.email         = ["gtfs-realtime@googlegroups.com"]
-  spec.homepage      = "http://github.com/google/gtfs-realtime-bindings"
+  spec.homepage      = "https://github.com/MobilityData/gtfs-realtime-bindings"
   spec.summary       = %q{Ruby classes generated from the GTFS-realtime protocol buffer specification.}
   spec.license       = 'Apache License, Version 2.0'
 

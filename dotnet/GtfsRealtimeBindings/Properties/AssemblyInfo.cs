@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("GtfsRealtimeBindings")]
 [assembly: AssemblyDescription("Provides .NET classes generated from the GTFS-realtime Protocol Buffer specification.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Google Inc.")]
+[assembly: AssemblyCompany("MobilityData")]
 [assembly: AssemblyProduct("GtfsRealtimeBindings")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyCopyright("Copyright ©  2015-2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.0.3.0")]
-[assembly: AssemblyFileVersion("0.0.3.0")]
+[assembly: AssemblyVersion("0.0.4.0")]
+[assembly: AssemblyFileVersion("0.0.4.0")]

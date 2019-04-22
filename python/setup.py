@@ -1,6 +1,6 @@
 #! /usr/bin/python
 #
-# Copyright 2015 Google Inc.
+# Copyright 2015-2019 Google Inc., MobilityData
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -32,12 +32,12 @@ if __name__ == '__main__':
   ext_module_list = []
 
   setup(name = 'gtfs-realtime-bindings',
-        version = '0.0.5',
+        version = '0.0.6',
         packages = ['google', 'google.transit'],
         namespace_packages = ['google'],
         install_requires = ['setuptools', 'protobuf'],
-        url = 'https://github.com/google/gtfs-realtime-bindings',
-        maintainer = 'Google Inc.',
+        url = 'https://github.com/MobilityData/gtfs-realtime-bindings',
+        maintainer = 'MobilityData',
         maintainer_email = 'gtfs-realtime@googlegroups.com',
         license = 'Apache License, Version 2.0',
         description = 'Python classes generated from the GTFS-realtime protocol buffer specification.',

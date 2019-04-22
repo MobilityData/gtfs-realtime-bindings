@@ -3,7 +3,7 @@
 [![NuGet version](https://badge.fury.io/nu/GtfsRealtimeBindings.svg)](http://badge.fury.io/nu/GtfsRealtimeBindings)
 
 Provides .NET classes generated from the
-[GTFS-realtime](https://developers.google.com/transit/gtfs-realtime/) Protocol
+[GTFS-realtime](https://github.com/google/transit/tree/master/gtfs-realtime) Protocol
 Buffer specification.  These classes will allow you to parse a binary Protocol
 Buffer GTFS-realtime data feed into C# objects.
 
@@ -34,7 +34,3 @@ foreach (FeedEntity entity in feed.entity) {
   ...
 }
 ```
-
-For more details on the naming conventions for the C# classes generated
-from the
-[gtfs-realtime.proto](https://developers.google.com/transit/gtfs-realtime/gtfs-realtime-proto).
