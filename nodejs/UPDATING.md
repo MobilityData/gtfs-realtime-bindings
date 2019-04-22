@@ -5,31 +5,28 @@
 #### One-Time Setup
 
 1. Download and install [Node.js](https://www.npmjs.com/get-npm) (v10.15.2 LTS has been used)
-1. Run `npm install` from the `nodejs` folder to install the protobuf package
 
 #### Every time `gtfs-realtime.proto` changes
 
-Regenerate the language binding source from gtfs-realtime.proto by running the following from the `nodejs` folder:
+1. Run `npm install` from the `nodejs` folder to install the protobuf package
 
-```
-npm run buildProto
-```
+1. Regenerate the language binding source from gtfs-realtime.proto by running the following from the `nodejs` folder:
 
-Add the license header back to the generated source file.
+    ```
+    npm run buildProto
+    ```
 
-Test the generated code:
+1. Add the license header back to the generated source file.
 
-```
-npm run test
-```
+1. Test the generated code:
 
-Update the version number in `package.json`.
+    ```
+    npm run test
+    ```
+
+1. Update the version number in `package.json`.
 
 ## Publishing a new release
-
-#### One-Time Setup
-
-?
 
 #### Every release
 

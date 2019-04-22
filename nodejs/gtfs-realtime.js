@@ -1,4 +1,4 @@
-// Copyright 2019 Google
+// Copyright 2019 Google, MobilityData
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -36,17 +36,19 @@ $root.transit_realtime = (function() {
 
         /**
          * Properties of a FeedMessage.
-         * @typedef transit_realtime.FeedMessage$Properties
-         * @type {Object}
-         * @property {transit_realtime.FeedHeader$Properties} header FeedMessage header.
-         * @property {Array.<transit_realtime.FeedEntity$Properties>} [entity] FeedMessage entity.
+         * @memberof transit_realtime
+         * @interface IFeedMessage
+         * @property {transit_realtime.IFeedHeader} header FeedMessage header
+         * @property {Array.<transit_realtime.IFeedEntity>|null} [entity] FeedMessage entity
          */
 
         /**
          * Constructs a new FeedMessage.
-         * @exports transit_realtime.FeedMessage
+         * @memberof transit_realtime
+         * @classdesc Represents a FeedMessage.
+         * @implements IFeedMessage
          * @constructor
-         * @param {transit_realtime.FeedMessage$Properties=} [properties] Properties to set
+         * @param {transit_realtime.IFeedMessage=} [properties] Properties to set
          */
         function FeedMessage(properties) {
             this.entity = [];
@@ -58,19 +60,26 @@ $root.transit_realtime = (function() {
 
         /**
          * FeedMessage header.
-         * @type {transit_realtime.FeedHeader$Properties}
+         * @member {transit_realtime.IFeedHeader} header
+         * @memberof transit_realtime.FeedMessage
+         * @instance
          */
         FeedMessage.prototype.header = null;
 
         /**
          * FeedMessage entity.
-         * @type {Array.<transit_realtime.FeedEntity$Properties>}
+         * @member {Array.<transit_realtime.IFeedEntity>} entity
+         * @memberof transit_realtime.FeedMessage
+         * @instance
          */
         FeedMessage.prototype.entity = $util.emptyArray;
 
         /**
          * Creates a new FeedMessage instance using the specified properties.
-         * @param {transit_realtime.FeedMessage$Properties=} [properties] Properties to set
+         * @function create
+         * @memberof transit_realtime.FeedMessage
+         * @static
+         * @param {transit_realtime.IFeedMessage=} [properties] Properties to set
          * @returns {transit_realtime.FeedMessage} FeedMessage instance
          */
         FeedMessage.create = function create(properties) {
@@ -79,7 +88,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified FeedMessage message. Does not implicitly {@link transit_realtime.FeedMessage.verify|verify} messages.
-         * @param {transit_realtime.FeedMessage$Properties} message FeedMessage message or plain object to encode
+         * @function encode
+         * @memberof transit_realtime.FeedMessage
+         * @static
+         * @param {transit_realtime.IFeedMessage} message FeedMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -95,7 +107,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified FeedMessage message, length delimited. Does not implicitly {@link transit_realtime.FeedMessage.verify|verify} messages.
-         * @param {transit_realtime.FeedMessage$Properties} message FeedMessage message or plain object to encode
+         * @function encodeDelimited
+         * @memberof transit_realtime.FeedMessage
+         * @static
+         * @param {transit_realtime.IFeedMessage} message FeedMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -105,6 +120,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes a FeedMessage message from the specified reader or buffer.
+         * @function decode
+         * @memberof transit_realtime.FeedMessage
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
          * @returns {transit_realtime.FeedMessage} FeedMessage
@@ -138,6 +156,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes a FeedMessage message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof transit_realtime.FeedMessage
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @returns {transit_realtime.FeedMessage} FeedMessage
          * @throws {Error} If the payload is not a reader or valid buffer
@@ -145,21 +166,26 @@ $root.transit_realtime = (function() {
          */
         FeedMessage.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
-                reader = $Reader(reader);
+                reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
          * Verifies a FeedMessage message.
+         * @function verify
+         * @memberof transit_realtime.FeedMessage
+         * @static
          * @param {Object.<string,*>} message Plain object to verify
-         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
         FeedMessage.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var error = $root.transit_realtime.FeedHeader.verify(message.header);
-            if (error)
-                return "header." + error;
+            {
+                var error = $root.transit_realtime.FeedHeader.verify(message.header);
+                if (error)
+                    return "header." + error;
+            }
             if (message.entity != null && message.hasOwnProperty("entity")) {
                 if (!Array.isArray(message.entity))
                     return "entity: array expected";
@@ -174,6 +200,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Creates a FeedMessage message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof transit_realtime.FeedMessage
+         * @static
          * @param {Object.<string,*>} object Plain object
          * @returns {transit_realtime.FeedMessage} FeedMessage
          */
@@ -200,18 +229,12 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates a FeedMessage message from a plain object. Also converts values to their respective internal types.
-         * This is an alias of {@link transit_realtime.FeedMessage.fromObject}.
-         * @function
-         * @param {Object.<string,*>} object Plain object
-         * @returns {transit_realtime.FeedMessage} FeedMessage
-         */
-        FeedMessage.from = FeedMessage.fromObject;
-
-        /**
          * Creates a plain object from a FeedMessage message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof transit_realtime.FeedMessage
+         * @static
          * @param {transit_realtime.FeedMessage} message FeedMessage
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
         FeedMessage.toObject = function toObject(message, options) {
@@ -233,16 +256,10 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates a plain object from this FeedMessage message. Also converts values to other types if specified.
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        FeedMessage.prototype.toObject = function toObject(options) {
-            return this.constructor.toObject(this, options);
-        };
-
-        /**
          * Converts this FeedMessage to JSON.
+         * @function toJSON
+         * @memberof transit_realtime.FeedMessage
+         * @instance
          * @returns {Object.<string,*>} JSON object
          */
         FeedMessage.prototype.toJSON = function toJSON() {
@@ -256,18 +273,20 @@ $root.transit_realtime = (function() {
 
         /**
          * Properties of a FeedHeader.
-         * @typedef transit_realtime.FeedHeader$Properties
-         * @type {Object}
-         * @property {string} gtfsRealtimeVersion FeedHeader gtfsRealtimeVersion.
-         * @property {transit_realtime.FeedHeader.Incrementality} [incrementality] FeedHeader incrementality.
-         * @property {number|Long} [timestamp] FeedHeader timestamp.
+         * @memberof transit_realtime
+         * @interface IFeedHeader
+         * @property {string} gtfsRealtimeVersion FeedHeader gtfsRealtimeVersion
+         * @property {transit_realtime.FeedHeader.Incrementality|null} [incrementality] FeedHeader incrementality
+         * @property {number|Long|null} [timestamp] FeedHeader timestamp
          */
 
         /**
          * Constructs a new FeedHeader.
-         * @exports transit_realtime.FeedHeader
+         * @memberof transit_realtime
+         * @classdesc Represents a FeedHeader.
+         * @implements IFeedHeader
          * @constructor
-         * @param {transit_realtime.FeedHeader$Properties=} [properties] Properties to set
+         * @param {transit_realtime.IFeedHeader=} [properties] Properties to set
          */
         function FeedHeader(properties) {
             if (properties)
@@ -278,25 +297,34 @@ $root.transit_realtime = (function() {
 
         /**
          * FeedHeader gtfsRealtimeVersion.
-         * @type {string}
+         * @member {string} gtfsRealtimeVersion
+         * @memberof transit_realtime.FeedHeader
+         * @instance
          */
         FeedHeader.prototype.gtfsRealtimeVersion = "";
 
         /**
          * FeedHeader incrementality.
-         * @type {transit_realtime.FeedHeader.Incrementality}
+         * @member {transit_realtime.FeedHeader.Incrementality} incrementality
+         * @memberof transit_realtime.FeedHeader
+         * @instance
          */
         FeedHeader.prototype.incrementality = 0;
 
         /**
          * FeedHeader timestamp.
-         * @type {number|Long}
+         * @member {number|Long} timestamp
+         * @memberof transit_realtime.FeedHeader
+         * @instance
          */
         FeedHeader.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
         /**
          * Creates a new FeedHeader instance using the specified properties.
-         * @param {transit_realtime.FeedHeader$Properties=} [properties] Properties to set
+         * @function create
+         * @memberof transit_realtime.FeedHeader
+         * @static
+         * @param {transit_realtime.IFeedHeader=} [properties] Properties to set
          * @returns {transit_realtime.FeedHeader} FeedHeader instance
          */
         FeedHeader.create = function create(properties) {
@@ -305,7 +333,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified FeedHeader message. Does not implicitly {@link transit_realtime.FeedHeader.verify|verify} messages.
-         * @param {transit_realtime.FeedHeader$Properties} message FeedHeader message or plain object to encode
+         * @function encode
+         * @memberof transit_realtime.FeedHeader
+         * @static
+         * @param {transit_realtime.IFeedHeader} message FeedHeader message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -314,7 +345,7 @@ $root.transit_realtime = (function() {
                 writer = $Writer.create();
             writer.uint32(/* id 1, wireType 2 =*/10).string(message.gtfsRealtimeVersion);
             if (message.incrementality != null && message.hasOwnProperty("incrementality"))
-                writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.incrementality);
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.incrementality);
             if (message.timestamp != null && message.hasOwnProperty("timestamp"))
                 writer.uint32(/* id 3, wireType 0 =*/24).uint64(message.timestamp);
             return writer;
@@ -322,7 +353,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified FeedHeader message, length delimited. Does not implicitly {@link transit_realtime.FeedHeader.verify|verify} messages.
-         * @param {transit_realtime.FeedHeader$Properties} message FeedHeader message or plain object to encode
+         * @function encodeDelimited
+         * @memberof transit_realtime.FeedHeader
+         * @static
+         * @param {transit_realtime.IFeedHeader} message FeedHeader message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -332,6 +366,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes a FeedHeader message from the specified reader or buffer.
+         * @function decode
+         * @memberof transit_realtime.FeedHeader
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
          * @returns {transit_realtime.FeedHeader} FeedHeader
@@ -349,7 +386,7 @@ $root.transit_realtime = (function() {
                     message.gtfsRealtimeVersion = reader.string();
                     break;
                 case 2:
-                    message.incrementality = reader.uint32();
+                    message.incrementality = reader.int32();
                     break;
                 case 3:
                     message.timestamp = reader.uint64();
@@ -366,6 +403,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes a FeedHeader message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof transit_realtime.FeedHeader
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @returns {transit_realtime.FeedHeader} FeedHeader
          * @throws {Error} If the payload is not a reader or valid buffer
@@ -373,14 +413,17 @@ $root.transit_realtime = (function() {
          */
         FeedHeader.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
-                reader = $Reader(reader);
+                reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
          * Verifies a FeedHeader message.
+         * @function verify
+         * @memberof transit_realtime.FeedHeader
+         * @static
          * @param {Object.<string,*>} message Plain object to verify
-         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
         FeedHeader.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
@@ -403,6 +446,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Creates a FeedHeader message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof transit_realtime.FeedHeader
+         * @static
          * @param {Object.<string,*>} object Plain object
          * @returns {transit_realtime.FeedHeader} FeedHeader
          */
@@ -435,18 +481,12 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates a FeedHeader message from a plain object. Also converts values to their respective internal types.
-         * This is an alias of {@link transit_realtime.FeedHeader.fromObject}.
-         * @function
-         * @param {Object.<string,*>} object Plain object
-         * @returns {transit_realtime.FeedHeader} FeedHeader
-         */
-        FeedHeader.from = FeedHeader.fromObject;
-
-        /**
          * Creates a plain object from a FeedHeader message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof transit_realtime.FeedHeader
+         * @static
          * @param {transit_realtime.FeedHeader} message FeedHeader
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
         FeedHeader.toObject = function toObject(message, options) {
@@ -475,16 +515,10 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates a plain object from this FeedHeader message. Also converts values to other types if specified.
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        FeedHeader.prototype.toObject = function toObject(options) {
-            return this.constructor.toObject(this, options);
-        };
-
-        /**
          * Converts this FeedHeader to JSON.
+         * @function toJSON
+         * @memberof transit_realtime.FeedHeader
+         * @instance
          * @returns {Object.<string,*>} JSON object
          */
         FeedHeader.prototype.toJSON = function toJSON() {
@@ -493,9 +527,8 @@ $root.transit_realtime = (function() {
 
         /**
          * Incrementality enum.
-         * @name Incrementality
-         * @memberof transit_realtime.FeedHeader
-         * @enum {number}
+         * @name transit_realtime.FeedHeader.Incrementality
+         * @enum {string}
          * @property {number} FULL_DATASET=0 FULL_DATASET value
          * @property {number} DIFFERENTIAL=1 DIFFERENTIAL value
          */
@@ -513,20 +546,22 @@ $root.transit_realtime = (function() {
 
         /**
          * Properties of a FeedEntity.
-         * @typedef transit_realtime.FeedEntity$Properties
-         * @type {Object}
-         * @property {string} id FeedEntity id.
-         * @property {boolean} [isDeleted] FeedEntity isDeleted.
-         * @property {transit_realtime.TripUpdate$Properties} [tripUpdate] FeedEntity tripUpdate.
-         * @property {transit_realtime.VehiclePosition$Properties} [vehicle] FeedEntity vehicle.
-         * @property {transit_realtime.Alert$Properties} [alert] FeedEntity alert.
+         * @memberof transit_realtime
+         * @interface IFeedEntity
+         * @property {string} id FeedEntity id
+         * @property {boolean|null} [isDeleted] FeedEntity isDeleted
+         * @property {transit_realtime.ITripUpdate|null} [tripUpdate] FeedEntity tripUpdate
+         * @property {transit_realtime.IVehiclePosition|null} [vehicle] FeedEntity vehicle
+         * @property {transit_realtime.IAlert|null} [alert] FeedEntity alert
          */
 
         /**
          * Constructs a new FeedEntity.
-         * @exports transit_realtime.FeedEntity
+         * @memberof transit_realtime
+         * @classdesc Represents a FeedEntity.
+         * @implements IFeedEntity
          * @constructor
-         * @param {transit_realtime.FeedEntity$Properties=} [properties] Properties to set
+         * @param {transit_realtime.IFeedEntity=} [properties] Properties to set
          */
         function FeedEntity(properties) {
             if (properties)
@@ -537,37 +572,50 @@ $root.transit_realtime = (function() {
 
         /**
          * FeedEntity id.
-         * @type {string}
+         * @member {string} id
+         * @memberof transit_realtime.FeedEntity
+         * @instance
          */
         FeedEntity.prototype.id = "";
 
         /**
          * FeedEntity isDeleted.
-         * @type {boolean}
+         * @member {boolean} isDeleted
+         * @memberof transit_realtime.FeedEntity
+         * @instance
          */
         FeedEntity.prototype.isDeleted = false;
 
         /**
          * FeedEntity tripUpdate.
-         * @type {(transit_realtime.TripUpdate$Properties|null)}
+         * @member {transit_realtime.ITripUpdate|null|undefined} tripUpdate
+         * @memberof transit_realtime.FeedEntity
+         * @instance
          */
         FeedEntity.prototype.tripUpdate = null;
 
         /**
          * FeedEntity vehicle.
-         * @type {(transit_realtime.VehiclePosition$Properties|null)}
+         * @member {transit_realtime.IVehiclePosition|null|undefined} vehicle
+         * @memberof transit_realtime.FeedEntity
+         * @instance
          */
         FeedEntity.prototype.vehicle = null;
 
         /**
          * FeedEntity alert.
-         * @type {(transit_realtime.Alert$Properties|null)}
+         * @member {transit_realtime.IAlert|null|undefined} alert
+         * @memberof transit_realtime.FeedEntity
+         * @instance
          */
         FeedEntity.prototype.alert = null;
 
         /**
          * Creates a new FeedEntity instance using the specified properties.
-         * @param {transit_realtime.FeedEntity$Properties=} [properties] Properties to set
+         * @function create
+         * @memberof transit_realtime.FeedEntity
+         * @static
+         * @param {transit_realtime.IFeedEntity=} [properties] Properties to set
          * @returns {transit_realtime.FeedEntity} FeedEntity instance
          */
         FeedEntity.create = function create(properties) {
@@ -576,7 +624,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified FeedEntity message. Does not implicitly {@link transit_realtime.FeedEntity.verify|verify} messages.
-         * @param {transit_realtime.FeedEntity$Properties} message FeedEntity message or plain object to encode
+         * @function encode
+         * @memberof transit_realtime.FeedEntity
+         * @static
+         * @param {transit_realtime.IFeedEntity} message FeedEntity message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -597,7 +648,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified FeedEntity message, length delimited. Does not implicitly {@link transit_realtime.FeedEntity.verify|verify} messages.
-         * @param {transit_realtime.FeedEntity$Properties} message FeedEntity message or plain object to encode
+         * @function encodeDelimited
+         * @memberof transit_realtime.FeedEntity
+         * @static
+         * @param {transit_realtime.IFeedEntity} message FeedEntity message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -607,6 +661,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes a FeedEntity message from the specified reader or buffer.
+         * @function decode
+         * @memberof transit_realtime.FeedEntity
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
          * @returns {transit_realtime.FeedEntity} FeedEntity
@@ -647,6 +704,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes a FeedEntity message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof transit_realtime.FeedEntity
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @returns {transit_realtime.FeedEntity} FeedEntity
          * @throws {Error} If the payload is not a reader or valid buffer
@@ -654,14 +714,17 @@ $root.transit_realtime = (function() {
          */
         FeedEntity.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
-                reader = $Reader(reader);
+                reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
          * Verifies a FeedEntity message.
+         * @function verify
+         * @memberof transit_realtime.FeedEntity
+         * @static
          * @param {Object.<string,*>} message Plain object to verify
-         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
         FeedEntity.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
@@ -691,6 +754,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Creates a FeedEntity message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof transit_realtime.FeedEntity
+         * @static
          * @param {Object.<string,*>} object Plain object
          * @returns {transit_realtime.FeedEntity} FeedEntity
          */
@@ -721,18 +787,12 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates a FeedEntity message from a plain object. Also converts values to their respective internal types.
-         * This is an alias of {@link transit_realtime.FeedEntity.fromObject}.
-         * @function
-         * @param {Object.<string,*>} object Plain object
-         * @returns {transit_realtime.FeedEntity} FeedEntity
-         */
-        FeedEntity.from = FeedEntity.fromObject;
-
-        /**
          * Creates a plain object from a FeedEntity message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof transit_realtime.FeedEntity
+         * @static
          * @param {transit_realtime.FeedEntity} message FeedEntity
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
         FeedEntity.toObject = function toObject(message, options) {
@@ -760,16 +820,10 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates a plain object from this FeedEntity message. Also converts values to other types if specified.
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        FeedEntity.prototype.toObject = function toObject(options) {
-            return this.constructor.toObject(this, options);
-        };
-
-        /**
          * Converts this FeedEntity to JSON.
+         * @function toJSON
+         * @memberof transit_realtime.FeedEntity
+         * @instance
          * @returns {Object.<string,*>} JSON object
          */
         FeedEntity.prototype.toJSON = function toJSON() {
@@ -783,20 +837,22 @@ $root.transit_realtime = (function() {
 
         /**
          * Properties of a TripUpdate.
-         * @typedef transit_realtime.TripUpdate$Properties
-         * @type {Object}
-         * @property {transit_realtime.TripDescriptor$Properties} trip TripUpdate trip.
-         * @property {transit_realtime.VehicleDescriptor$Properties} [vehicle] TripUpdate vehicle.
-         * @property {Array.<transit_realtime.TripUpdate.StopTimeUpdate$Properties>} [stopTimeUpdate] TripUpdate stopTimeUpdate.
-         * @property {number|Long} [timestamp] TripUpdate timestamp.
-         * @property {number} [delay] TripUpdate delay.
+         * @memberof transit_realtime
+         * @interface ITripUpdate
+         * @property {transit_realtime.ITripDescriptor} trip TripUpdate trip
+         * @property {transit_realtime.IVehicleDescriptor|null} [vehicle] TripUpdate vehicle
+         * @property {Array.<transit_realtime.TripUpdate.IStopTimeUpdate>|null} [stopTimeUpdate] TripUpdate stopTimeUpdate
+         * @property {number|Long|null} [timestamp] TripUpdate timestamp
+         * @property {number|null} [delay] TripUpdate delay
          */
 
         /**
          * Constructs a new TripUpdate.
-         * @exports transit_realtime.TripUpdate
+         * @memberof transit_realtime
+         * @classdesc Represents a TripUpdate.
+         * @implements ITripUpdate
          * @constructor
-         * @param {transit_realtime.TripUpdate$Properties=} [properties] Properties to set
+         * @param {transit_realtime.ITripUpdate=} [properties] Properties to set
          */
         function TripUpdate(properties) {
             this.stopTimeUpdate = [];
@@ -808,37 +864,50 @@ $root.transit_realtime = (function() {
 
         /**
          * TripUpdate trip.
-         * @type {transit_realtime.TripDescriptor$Properties}
+         * @member {transit_realtime.ITripDescriptor} trip
+         * @memberof transit_realtime.TripUpdate
+         * @instance
          */
         TripUpdate.prototype.trip = null;
 
         /**
          * TripUpdate vehicle.
-         * @type {(transit_realtime.VehicleDescriptor$Properties|null)}
+         * @member {transit_realtime.IVehicleDescriptor|null|undefined} vehicle
+         * @memberof transit_realtime.TripUpdate
+         * @instance
          */
         TripUpdate.prototype.vehicle = null;
 
         /**
          * TripUpdate stopTimeUpdate.
-         * @type {Array.<transit_realtime.TripUpdate.StopTimeUpdate$Properties>}
+         * @member {Array.<transit_realtime.TripUpdate.IStopTimeUpdate>} stopTimeUpdate
+         * @memberof transit_realtime.TripUpdate
+         * @instance
          */
         TripUpdate.prototype.stopTimeUpdate = $util.emptyArray;
 
         /**
          * TripUpdate timestamp.
-         * @type {number|Long}
+         * @member {number|Long} timestamp
+         * @memberof transit_realtime.TripUpdate
+         * @instance
          */
         TripUpdate.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
         /**
          * TripUpdate delay.
-         * @type {number}
+         * @member {number} delay
+         * @memberof transit_realtime.TripUpdate
+         * @instance
          */
         TripUpdate.prototype.delay = 0;
 
         /**
          * Creates a new TripUpdate instance using the specified properties.
-         * @param {transit_realtime.TripUpdate$Properties=} [properties] Properties to set
+         * @function create
+         * @memberof transit_realtime.TripUpdate
+         * @static
+         * @param {transit_realtime.ITripUpdate=} [properties] Properties to set
          * @returns {transit_realtime.TripUpdate} TripUpdate instance
          */
         TripUpdate.create = function create(properties) {
@@ -847,7 +916,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified TripUpdate message. Does not implicitly {@link transit_realtime.TripUpdate.verify|verify} messages.
-         * @param {transit_realtime.TripUpdate$Properties} message TripUpdate message or plain object to encode
+         * @function encode
+         * @memberof transit_realtime.TripUpdate
+         * @static
+         * @param {transit_realtime.ITripUpdate} message TripUpdate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -869,7 +941,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified TripUpdate message, length delimited. Does not implicitly {@link transit_realtime.TripUpdate.verify|verify} messages.
-         * @param {transit_realtime.TripUpdate$Properties} message TripUpdate message or plain object to encode
+         * @function encodeDelimited
+         * @memberof transit_realtime.TripUpdate
+         * @static
+         * @param {transit_realtime.ITripUpdate} message TripUpdate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -879,6 +954,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes a TripUpdate message from the specified reader or buffer.
+         * @function decode
+         * @memberof transit_realtime.TripUpdate
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
          * @returns {transit_realtime.TripUpdate} TripUpdate
@@ -921,6 +999,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes a TripUpdate message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof transit_realtime.TripUpdate
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @returns {transit_realtime.TripUpdate} TripUpdate
          * @throws {Error} If the payload is not a reader or valid buffer
@@ -928,21 +1009,26 @@ $root.transit_realtime = (function() {
          */
         TripUpdate.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
-                reader = $Reader(reader);
+                reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
          * Verifies a TripUpdate message.
+         * @function verify
+         * @memberof transit_realtime.TripUpdate
+         * @static
          * @param {Object.<string,*>} message Plain object to verify
-         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
         TripUpdate.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var error = $root.transit_realtime.TripDescriptor.verify(message.trip);
-            if (error)
-                return "trip." + error;
+            {
+                var error = $root.transit_realtime.TripDescriptor.verify(message.trip);
+                if (error)
+                    return "trip." + error;
+            }
             if (message.vehicle != null && message.hasOwnProperty("vehicle")) {
                 var error = $root.transit_realtime.VehicleDescriptor.verify(message.vehicle);
                 if (error)
@@ -968,6 +1054,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Creates a TripUpdate message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof transit_realtime.TripUpdate
+         * @static
          * @param {Object.<string,*>} object Plain object
          * @returns {transit_realtime.TripUpdate} TripUpdate
          */
@@ -1010,18 +1099,12 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates a TripUpdate message from a plain object. Also converts values to their respective internal types.
-         * This is an alias of {@link transit_realtime.TripUpdate.fromObject}.
-         * @function
-         * @param {Object.<string,*>} object Plain object
-         * @returns {transit_realtime.TripUpdate} TripUpdate
-         */
-        TripUpdate.from = TripUpdate.fromObject;
-
-        /**
          * Creates a plain object from a TripUpdate message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof transit_realtime.TripUpdate
+         * @static
          * @param {transit_realtime.TripUpdate} message TripUpdate
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
         TripUpdate.toObject = function toObject(message, options) {
@@ -1060,16 +1143,10 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates a plain object from this TripUpdate message. Also converts values to other types if specified.
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        TripUpdate.prototype.toObject = function toObject(options) {
-            return this.constructor.toObject(this, options);
-        };
-
-        /**
          * Converts this TripUpdate to JSON.
+         * @function toJSON
+         * @memberof transit_realtime.TripUpdate
+         * @instance
          * @returns {Object.<string,*>} JSON object
          */
         TripUpdate.prototype.toJSON = function toJSON() {
@@ -1080,18 +1157,20 @@ $root.transit_realtime = (function() {
 
             /**
              * Properties of a StopTimeEvent.
-             * @typedef transit_realtime.TripUpdate.StopTimeEvent$Properties
-             * @type {Object}
-             * @property {number} [delay] StopTimeEvent delay.
-             * @property {number|Long} [time] StopTimeEvent time.
-             * @property {number} [uncertainty] StopTimeEvent uncertainty.
+             * @memberof transit_realtime.TripUpdate
+             * @interface IStopTimeEvent
+             * @property {number|null} [delay] StopTimeEvent delay
+             * @property {number|Long|null} [time] StopTimeEvent time
+             * @property {number|null} [uncertainty] StopTimeEvent uncertainty
              */
 
             /**
              * Constructs a new StopTimeEvent.
-             * @exports transit_realtime.TripUpdate.StopTimeEvent
+             * @memberof transit_realtime.TripUpdate
+             * @classdesc Represents a StopTimeEvent.
+             * @implements IStopTimeEvent
              * @constructor
-             * @param {transit_realtime.TripUpdate.StopTimeEvent$Properties=} [properties] Properties to set
+             * @param {transit_realtime.TripUpdate.IStopTimeEvent=} [properties] Properties to set
              */
             function StopTimeEvent(properties) {
                 if (properties)
@@ -1102,25 +1181,34 @@ $root.transit_realtime = (function() {
 
             /**
              * StopTimeEvent delay.
-             * @type {number}
+             * @member {number} delay
+             * @memberof transit_realtime.TripUpdate.StopTimeEvent
+             * @instance
              */
             StopTimeEvent.prototype.delay = 0;
 
             /**
              * StopTimeEvent time.
-             * @type {number|Long}
+             * @member {number|Long} time
+             * @memberof transit_realtime.TripUpdate.StopTimeEvent
+             * @instance
              */
             StopTimeEvent.prototype.time = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
             /**
              * StopTimeEvent uncertainty.
-             * @type {number}
+             * @member {number} uncertainty
+             * @memberof transit_realtime.TripUpdate.StopTimeEvent
+             * @instance
              */
             StopTimeEvent.prototype.uncertainty = 0;
 
             /**
              * Creates a new StopTimeEvent instance using the specified properties.
-             * @param {transit_realtime.TripUpdate.StopTimeEvent$Properties=} [properties] Properties to set
+             * @function create
+             * @memberof transit_realtime.TripUpdate.StopTimeEvent
+             * @static
+             * @param {transit_realtime.TripUpdate.IStopTimeEvent=} [properties] Properties to set
              * @returns {transit_realtime.TripUpdate.StopTimeEvent} StopTimeEvent instance
              */
             StopTimeEvent.create = function create(properties) {
@@ -1129,7 +1217,10 @@ $root.transit_realtime = (function() {
 
             /**
              * Encodes the specified StopTimeEvent message. Does not implicitly {@link transit_realtime.TripUpdate.StopTimeEvent.verify|verify} messages.
-             * @param {transit_realtime.TripUpdate.StopTimeEvent$Properties} message StopTimeEvent message or plain object to encode
+             * @function encode
+             * @memberof transit_realtime.TripUpdate.StopTimeEvent
+             * @static
+             * @param {transit_realtime.TripUpdate.IStopTimeEvent} message StopTimeEvent message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1147,7 +1238,10 @@ $root.transit_realtime = (function() {
 
             /**
              * Encodes the specified StopTimeEvent message, length delimited. Does not implicitly {@link transit_realtime.TripUpdate.StopTimeEvent.verify|verify} messages.
-             * @param {transit_realtime.TripUpdate.StopTimeEvent$Properties} message StopTimeEvent message or plain object to encode
+             * @function encodeDelimited
+             * @memberof transit_realtime.TripUpdate.StopTimeEvent
+             * @static
+             * @param {transit_realtime.TripUpdate.IStopTimeEvent} message StopTimeEvent message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1157,6 +1251,9 @@ $root.transit_realtime = (function() {
 
             /**
              * Decodes a StopTimeEvent message from the specified reader or buffer.
+             * @function decode
+             * @memberof transit_realtime.TripUpdate.StopTimeEvent
+             * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
              * @returns {transit_realtime.TripUpdate.StopTimeEvent} StopTimeEvent
@@ -1189,6 +1286,9 @@ $root.transit_realtime = (function() {
 
             /**
              * Decodes a StopTimeEvent message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof transit_realtime.TripUpdate.StopTimeEvent
+             * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @returns {transit_realtime.TripUpdate.StopTimeEvent} StopTimeEvent
              * @throws {Error} If the payload is not a reader or valid buffer
@@ -1196,14 +1296,17 @@ $root.transit_realtime = (function() {
              */
             StopTimeEvent.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
-                    reader = $Reader(reader);
+                    reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
              * Verifies a StopTimeEvent message.
+             * @function verify
+             * @memberof transit_realtime.TripUpdate.StopTimeEvent
+             * @static
              * @param {Object.<string,*>} message Plain object to verify
-             * @returns {?string} `null` if valid, otherwise the reason why it is not
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
             StopTimeEvent.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
@@ -1222,6 +1325,9 @@ $root.transit_realtime = (function() {
 
             /**
              * Creates a StopTimeEvent message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof transit_realtime.TripUpdate.StopTimeEvent
+             * @static
              * @param {Object.<string,*>} object Plain object
              * @returns {transit_realtime.TripUpdate.StopTimeEvent} StopTimeEvent
              */
@@ -1246,18 +1352,12 @@ $root.transit_realtime = (function() {
             };
 
             /**
-             * Creates a StopTimeEvent message from a plain object. Also converts values to their respective internal types.
-             * This is an alias of {@link transit_realtime.TripUpdate.StopTimeEvent.fromObject}.
-             * @function
-             * @param {Object.<string,*>} object Plain object
-             * @returns {transit_realtime.TripUpdate.StopTimeEvent} StopTimeEvent
-             */
-            StopTimeEvent.from = StopTimeEvent.fromObject;
-
-            /**
              * Creates a plain object from a StopTimeEvent message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof transit_realtime.TripUpdate.StopTimeEvent
+             * @static
              * @param {transit_realtime.TripUpdate.StopTimeEvent} message StopTimeEvent
-             * @param {$protobuf.ConversionOptions} [options] Conversion options
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
             StopTimeEvent.toObject = function toObject(message, options) {
@@ -1286,16 +1386,10 @@ $root.transit_realtime = (function() {
             };
 
             /**
-             * Creates a plain object from this StopTimeEvent message. Also converts values to other types if specified.
-             * @param {$protobuf.ConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            StopTimeEvent.prototype.toObject = function toObject(options) {
-                return this.constructor.toObject(this, options);
-            };
-
-            /**
              * Converts this StopTimeEvent to JSON.
+             * @function toJSON
+             * @memberof transit_realtime.TripUpdate.StopTimeEvent
+             * @instance
              * @returns {Object.<string,*>} JSON object
              */
             StopTimeEvent.prototype.toJSON = function toJSON() {
@@ -1309,20 +1403,22 @@ $root.transit_realtime = (function() {
 
             /**
              * Properties of a StopTimeUpdate.
-             * @typedef transit_realtime.TripUpdate.StopTimeUpdate$Properties
-             * @type {Object}
-             * @property {number} [stopSequence] StopTimeUpdate stopSequence.
-             * @property {string} [stopId] StopTimeUpdate stopId.
-             * @property {transit_realtime.TripUpdate.StopTimeEvent$Properties} [arrival] StopTimeUpdate arrival.
-             * @property {transit_realtime.TripUpdate.StopTimeEvent$Properties} [departure] StopTimeUpdate departure.
-             * @property {transit_realtime.TripUpdate.StopTimeUpdate.ScheduleRelationship} [scheduleRelationship] StopTimeUpdate scheduleRelationship.
+             * @memberof transit_realtime.TripUpdate
+             * @interface IStopTimeUpdate
+             * @property {number|null} [stopSequence] StopTimeUpdate stopSequence
+             * @property {string|null} [stopId] StopTimeUpdate stopId
+             * @property {transit_realtime.TripUpdate.IStopTimeEvent|null} [arrival] StopTimeUpdate arrival
+             * @property {transit_realtime.TripUpdate.IStopTimeEvent|null} [departure] StopTimeUpdate departure
+             * @property {transit_realtime.TripUpdate.StopTimeUpdate.ScheduleRelationship|null} [scheduleRelationship] StopTimeUpdate scheduleRelationship
              */
 
             /**
              * Constructs a new StopTimeUpdate.
-             * @exports transit_realtime.TripUpdate.StopTimeUpdate
+             * @memberof transit_realtime.TripUpdate
+             * @classdesc Represents a StopTimeUpdate.
+             * @implements IStopTimeUpdate
              * @constructor
-             * @param {transit_realtime.TripUpdate.StopTimeUpdate$Properties=} [properties] Properties to set
+             * @param {transit_realtime.TripUpdate.IStopTimeUpdate=} [properties] Properties to set
              */
             function StopTimeUpdate(properties) {
                 if (properties)
@@ -1333,37 +1429,50 @@ $root.transit_realtime = (function() {
 
             /**
              * StopTimeUpdate stopSequence.
-             * @type {number}
+             * @member {number} stopSequence
+             * @memberof transit_realtime.TripUpdate.StopTimeUpdate
+             * @instance
              */
             StopTimeUpdate.prototype.stopSequence = 0;
 
             /**
              * StopTimeUpdate stopId.
-             * @type {string}
+             * @member {string} stopId
+             * @memberof transit_realtime.TripUpdate.StopTimeUpdate
+             * @instance
              */
             StopTimeUpdate.prototype.stopId = "";
 
             /**
              * StopTimeUpdate arrival.
-             * @type {(transit_realtime.TripUpdate.StopTimeEvent$Properties|null)}
+             * @member {transit_realtime.TripUpdate.IStopTimeEvent|null|undefined} arrival
+             * @memberof transit_realtime.TripUpdate.StopTimeUpdate
+             * @instance
              */
             StopTimeUpdate.prototype.arrival = null;
 
             /**
              * StopTimeUpdate departure.
-             * @type {(transit_realtime.TripUpdate.StopTimeEvent$Properties|null)}
+             * @member {transit_realtime.TripUpdate.IStopTimeEvent|null|undefined} departure
+             * @memberof transit_realtime.TripUpdate.StopTimeUpdate
+             * @instance
              */
             StopTimeUpdate.prototype.departure = null;
 
             /**
              * StopTimeUpdate scheduleRelationship.
-             * @type {transit_realtime.TripUpdate.StopTimeUpdate.ScheduleRelationship}
+             * @member {transit_realtime.TripUpdate.StopTimeUpdate.ScheduleRelationship} scheduleRelationship
+             * @memberof transit_realtime.TripUpdate.StopTimeUpdate
+             * @instance
              */
             StopTimeUpdate.prototype.scheduleRelationship = 0;
 
             /**
              * Creates a new StopTimeUpdate instance using the specified properties.
-             * @param {transit_realtime.TripUpdate.StopTimeUpdate$Properties=} [properties] Properties to set
+             * @function create
+             * @memberof transit_realtime.TripUpdate.StopTimeUpdate
+             * @static
+             * @param {transit_realtime.TripUpdate.IStopTimeUpdate=} [properties] Properties to set
              * @returns {transit_realtime.TripUpdate.StopTimeUpdate} StopTimeUpdate instance
              */
             StopTimeUpdate.create = function create(properties) {
@@ -1372,7 +1481,10 @@ $root.transit_realtime = (function() {
 
             /**
              * Encodes the specified StopTimeUpdate message. Does not implicitly {@link transit_realtime.TripUpdate.StopTimeUpdate.verify|verify} messages.
-             * @param {transit_realtime.TripUpdate.StopTimeUpdate$Properties} message StopTimeUpdate message or plain object to encode
+             * @function encode
+             * @memberof transit_realtime.TripUpdate.StopTimeUpdate
+             * @static
+             * @param {transit_realtime.TripUpdate.IStopTimeUpdate} message StopTimeUpdate message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1388,13 +1500,16 @@ $root.transit_realtime = (function() {
                 if (message.stopId != null && message.hasOwnProperty("stopId"))
                     writer.uint32(/* id 4, wireType 2 =*/34).string(message.stopId);
                 if (message.scheduleRelationship != null && message.hasOwnProperty("scheduleRelationship"))
-                    writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.scheduleRelationship);
+                    writer.uint32(/* id 5, wireType 0 =*/40).int32(message.scheduleRelationship);
                 return writer;
             };
 
             /**
              * Encodes the specified StopTimeUpdate message, length delimited. Does not implicitly {@link transit_realtime.TripUpdate.StopTimeUpdate.verify|verify} messages.
-             * @param {transit_realtime.TripUpdate.StopTimeUpdate$Properties} message StopTimeUpdate message or plain object to encode
+             * @function encodeDelimited
+             * @memberof transit_realtime.TripUpdate.StopTimeUpdate
+             * @static
+             * @param {transit_realtime.TripUpdate.IStopTimeUpdate} message StopTimeUpdate message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1404,6 +1519,9 @@ $root.transit_realtime = (function() {
 
             /**
              * Decodes a StopTimeUpdate message from the specified reader or buffer.
+             * @function decode
+             * @memberof transit_realtime.TripUpdate.StopTimeUpdate
+             * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
              * @returns {transit_realtime.TripUpdate.StopTimeUpdate} StopTimeUpdate
@@ -1430,7 +1548,7 @@ $root.transit_realtime = (function() {
                         message.departure = $root.transit_realtime.TripUpdate.StopTimeEvent.decode(reader, reader.uint32());
                         break;
                     case 5:
-                        message.scheduleRelationship = reader.uint32();
+                        message.scheduleRelationship = reader.int32();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -1442,6 +1560,9 @@ $root.transit_realtime = (function() {
 
             /**
              * Decodes a StopTimeUpdate message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof transit_realtime.TripUpdate.StopTimeUpdate
+             * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @returns {transit_realtime.TripUpdate.StopTimeUpdate} StopTimeUpdate
              * @throws {Error} If the payload is not a reader or valid buffer
@@ -1449,14 +1570,17 @@ $root.transit_realtime = (function() {
              */
             StopTimeUpdate.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
-                    reader = $Reader(reader);
+                    reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
              * Verifies a StopTimeUpdate message.
+             * @function verify
+             * @memberof transit_realtime.TripUpdate.StopTimeUpdate
+             * @static
              * @param {Object.<string,*>} message Plain object to verify
-             * @returns {?string} `null` if valid, otherwise the reason why it is not
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
             StopTimeUpdate.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
@@ -1491,6 +1615,9 @@ $root.transit_realtime = (function() {
 
             /**
              * Creates a StopTimeUpdate message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof transit_realtime.TripUpdate.StopTimeUpdate
+             * @static
              * @param {Object.<string,*>} object Plain object
              * @returns {transit_realtime.TripUpdate.StopTimeUpdate} StopTimeUpdate
              */
@@ -1530,18 +1657,12 @@ $root.transit_realtime = (function() {
             };
 
             /**
-             * Creates a StopTimeUpdate message from a plain object. Also converts values to their respective internal types.
-             * This is an alias of {@link transit_realtime.TripUpdate.StopTimeUpdate.fromObject}.
-             * @function
-             * @param {Object.<string,*>} object Plain object
-             * @returns {transit_realtime.TripUpdate.StopTimeUpdate} StopTimeUpdate
-             */
-            StopTimeUpdate.from = StopTimeUpdate.fromObject;
-
-            /**
              * Creates a plain object from a StopTimeUpdate message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof transit_realtime.TripUpdate.StopTimeUpdate
+             * @static
              * @param {transit_realtime.TripUpdate.StopTimeUpdate} message StopTimeUpdate
-             * @param {$protobuf.ConversionOptions} [options] Conversion options
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
             StopTimeUpdate.toObject = function toObject(message, options) {
@@ -1569,16 +1690,10 @@ $root.transit_realtime = (function() {
             };
 
             /**
-             * Creates a plain object from this StopTimeUpdate message. Also converts values to other types if specified.
-             * @param {$protobuf.ConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            StopTimeUpdate.prototype.toObject = function toObject(options) {
-                return this.constructor.toObject(this, options);
-            };
-
-            /**
              * Converts this StopTimeUpdate to JSON.
+             * @function toJSON
+             * @memberof transit_realtime.TripUpdate.StopTimeUpdate
+             * @instance
              * @returns {Object.<string,*>} JSON object
              */
             StopTimeUpdate.prototype.toJSON = function toJSON() {
@@ -1587,9 +1702,8 @@ $root.transit_realtime = (function() {
 
             /**
              * ScheduleRelationship enum.
-             * @name ScheduleRelationship
-             * @memberof transit_realtime.TripUpdate.StopTimeUpdate
-             * @enum {number}
+             * @name transit_realtime.TripUpdate.StopTimeUpdate.ScheduleRelationship
+             * @enum {string}
              * @property {number} SCHEDULED=0 SCHEDULED value
              * @property {number} SKIPPED=1 SKIPPED value
              * @property {number} NO_DATA=2 NO_DATA value
@@ -1612,24 +1726,26 @@ $root.transit_realtime = (function() {
 
         /**
          * Properties of a VehiclePosition.
-         * @typedef transit_realtime.VehiclePosition$Properties
-         * @type {Object}
-         * @property {transit_realtime.TripDescriptor$Properties} [trip] VehiclePosition trip.
-         * @property {transit_realtime.VehicleDescriptor$Properties} [vehicle] VehiclePosition vehicle.
-         * @property {transit_realtime.Position$Properties} [position] VehiclePosition position.
-         * @property {number} [currentStopSequence] VehiclePosition currentStopSequence.
-         * @property {string} [stopId] VehiclePosition stopId.
-         * @property {transit_realtime.VehiclePosition.VehicleStopStatus} [currentStatus] VehiclePosition currentStatus.
-         * @property {number|Long} [timestamp] VehiclePosition timestamp.
-         * @property {transit_realtime.VehiclePosition.CongestionLevel} [congestionLevel] VehiclePosition congestionLevel.
-         * @property {transit_realtime.VehiclePosition.OccupancyStatus} [occupancyStatus] VehiclePosition occupancyStatus.
+         * @memberof transit_realtime
+         * @interface IVehiclePosition
+         * @property {transit_realtime.ITripDescriptor|null} [trip] VehiclePosition trip
+         * @property {transit_realtime.IVehicleDescriptor|null} [vehicle] VehiclePosition vehicle
+         * @property {transit_realtime.IPosition|null} [position] VehiclePosition position
+         * @property {number|null} [currentStopSequence] VehiclePosition currentStopSequence
+         * @property {string|null} [stopId] VehiclePosition stopId
+         * @property {transit_realtime.VehiclePosition.VehicleStopStatus|null} [currentStatus] VehiclePosition currentStatus
+         * @property {number|Long|null} [timestamp] VehiclePosition timestamp
+         * @property {transit_realtime.VehiclePosition.CongestionLevel|null} [congestionLevel] VehiclePosition congestionLevel
+         * @property {transit_realtime.VehiclePosition.OccupancyStatus|null} [occupancyStatus] VehiclePosition occupancyStatus
          */
 
         /**
          * Constructs a new VehiclePosition.
-         * @exports transit_realtime.VehiclePosition
+         * @memberof transit_realtime
+         * @classdesc Represents a VehiclePosition.
+         * @implements IVehiclePosition
          * @constructor
-         * @param {transit_realtime.VehiclePosition$Properties=} [properties] Properties to set
+         * @param {transit_realtime.IVehiclePosition=} [properties] Properties to set
          */
         function VehiclePosition(properties) {
             if (properties)
@@ -1640,61 +1756,82 @@ $root.transit_realtime = (function() {
 
         /**
          * VehiclePosition trip.
-         * @type {(transit_realtime.TripDescriptor$Properties|null)}
+         * @member {transit_realtime.ITripDescriptor|null|undefined} trip
+         * @memberof transit_realtime.VehiclePosition
+         * @instance
          */
         VehiclePosition.prototype.trip = null;
 
         /**
          * VehiclePosition vehicle.
-         * @type {(transit_realtime.VehicleDescriptor$Properties|null)}
+         * @member {transit_realtime.IVehicleDescriptor|null|undefined} vehicle
+         * @memberof transit_realtime.VehiclePosition
+         * @instance
          */
         VehiclePosition.prototype.vehicle = null;
 
         /**
          * VehiclePosition position.
-         * @type {(transit_realtime.Position$Properties|null)}
+         * @member {transit_realtime.IPosition|null|undefined} position
+         * @memberof transit_realtime.VehiclePosition
+         * @instance
          */
         VehiclePosition.prototype.position = null;
 
         /**
          * VehiclePosition currentStopSequence.
-         * @type {number}
+         * @member {number} currentStopSequence
+         * @memberof transit_realtime.VehiclePosition
+         * @instance
          */
         VehiclePosition.prototype.currentStopSequence = 0;
 
         /**
          * VehiclePosition stopId.
-         * @type {string}
+         * @member {string} stopId
+         * @memberof transit_realtime.VehiclePosition
+         * @instance
          */
         VehiclePosition.prototype.stopId = "";
 
         /**
          * VehiclePosition currentStatus.
-         * @type {transit_realtime.VehiclePosition.VehicleStopStatus}
+         * @member {transit_realtime.VehiclePosition.VehicleStopStatus} currentStatus
+         * @memberof transit_realtime.VehiclePosition
+         * @instance
          */
         VehiclePosition.prototype.currentStatus = 2;
 
         /**
          * VehiclePosition timestamp.
-         * @type {number|Long}
+         * @member {number|Long} timestamp
+         * @memberof transit_realtime.VehiclePosition
+         * @instance
          */
         VehiclePosition.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
         /**
          * VehiclePosition congestionLevel.
-         * @type {transit_realtime.VehiclePosition.CongestionLevel}
+         * @member {transit_realtime.VehiclePosition.CongestionLevel} congestionLevel
+         * @memberof transit_realtime.VehiclePosition
+         * @instance
          */
         VehiclePosition.prototype.congestionLevel = 0;
 
         /**
          * VehiclePosition occupancyStatus.
-         * @type {transit_realtime.VehiclePosition.OccupancyStatus}
+         * @member {transit_realtime.VehiclePosition.OccupancyStatus} occupancyStatus
+         * @memberof transit_realtime.VehiclePosition
+         * @instance
          */
         VehiclePosition.prototype.occupancyStatus = 0;
 
         /**
          * Creates a new VehiclePosition instance using the specified properties.
-         * @param {transit_realtime.VehiclePosition$Properties=} [properties] Properties to set
+         * @function create
+         * @memberof transit_realtime.VehiclePosition
+         * @static
+         * @param {transit_realtime.IVehiclePosition=} [properties] Properties to set
          * @returns {transit_realtime.VehiclePosition} VehiclePosition instance
          */
         VehiclePosition.create = function create(properties) {
@@ -1703,7 +1840,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified VehiclePosition message. Does not implicitly {@link transit_realtime.VehiclePosition.verify|verify} messages.
-         * @param {transit_realtime.VehiclePosition$Properties} message VehiclePosition message or plain object to encode
+         * @function encode
+         * @memberof transit_realtime.VehiclePosition
+         * @static
+         * @param {transit_realtime.IVehiclePosition} message VehiclePosition message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1717,23 +1857,26 @@ $root.transit_realtime = (function() {
             if (message.currentStopSequence != null && message.hasOwnProperty("currentStopSequence"))
                 writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.currentStopSequence);
             if (message.currentStatus != null && message.hasOwnProperty("currentStatus"))
-                writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.currentStatus);
+                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.currentStatus);
             if (message.timestamp != null && message.hasOwnProperty("timestamp"))
                 writer.uint32(/* id 5, wireType 0 =*/40).uint64(message.timestamp);
             if (message.congestionLevel != null && message.hasOwnProperty("congestionLevel"))
-                writer.uint32(/* id 6, wireType 0 =*/48).uint32(message.congestionLevel);
+                writer.uint32(/* id 6, wireType 0 =*/48).int32(message.congestionLevel);
             if (message.stopId != null && message.hasOwnProperty("stopId"))
                 writer.uint32(/* id 7, wireType 2 =*/58).string(message.stopId);
             if (message.vehicle != null && message.hasOwnProperty("vehicle"))
                 $root.transit_realtime.VehicleDescriptor.encode(message.vehicle, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
             if (message.occupancyStatus != null && message.hasOwnProperty("occupancyStatus"))
-                writer.uint32(/* id 9, wireType 0 =*/72).uint32(message.occupancyStatus);
+                writer.uint32(/* id 9, wireType 0 =*/72).int32(message.occupancyStatus);
             return writer;
         };
 
         /**
          * Encodes the specified VehiclePosition message, length delimited. Does not implicitly {@link transit_realtime.VehiclePosition.verify|verify} messages.
-         * @param {transit_realtime.VehiclePosition$Properties} message VehiclePosition message or plain object to encode
+         * @function encodeDelimited
+         * @memberof transit_realtime.VehiclePosition
+         * @static
+         * @param {transit_realtime.IVehiclePosition} message VehiclePosition message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1743,6 +1886,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes a VehiclePosition message from the specified reader or buffer.
+         * @function decode
+         * @memberof transit_realtime.VehiclePosition
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
          * @returns {transit_realtime.VehiclePosition} VehiclePosition
@@ -1772,16 +1918,16 @@ $root.transit_realtime = (function() {
                     message.stopId = reader.string();
                     break;
                 case 4:
-                    message.currentStatus = reader.uint32();
+                    message.currentStatus = reader.int32();
                     break;
                 case 5:
                     message.timestamp = reader.uint64();
                     break;
                 case 6:
-                    message.congestionLevel = reader.uint32();
+                    message.congestionLevel = reader.int32();
                     break;
                 case 9:
-                    message.occupancyStatus = reader.uint32();
+                    message.occupancyStatus = reader.int32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1793,6 +1939,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes a VehiclePosition message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof transit_realtime.VehiclePosition
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @returns {transit_realtime.VehiclePosition} VehiclePosition
          * @throws {Error} If the payload is not a reader or valid buffer
@@ -1800,14 +1949,17 @@ $root.transit_realtime = (function() {
          */
         VehiclePosition.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
-                reader = $Reader(reader);
+                reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
          * Verifies a VehiclePosition message.
+         * @function verify
+         * @memberof transit_realtime.VehiclePosition
+         * @static
          * @param {Object.<string,*>} message Plain object to verify
-         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
         VehiclePosition.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
@@ -1874,6 +2026,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Creates a VehiclePosition message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof transit_realtime.VehiclePosition
+         * @static
          * @param {Object.<string,*>} object Plain object
          * @returns {transit_realtime.VehiclePosition} VehiclePosition
          */
@@ -1979,18 +2134,12 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates a VehiclePosition message from a plain object. Also converts values to their respective internal types.
-         * This is an alias of {@link transit_realtime.VehiclePosition.fromObject}.
-         * @function
-         * @param {Object.<string,*>} object Plain object
-         * @returns {transit_realtime.VehiclePosition} VehiclePosition
-         */
-        VehiclePosition.from = VehiclePosition.fromObject;
-
-        /**
          * Creates a plain object from a VehiclePosition message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof transit_realtime.VehiclePosition
+         * @static
          * @param {transit_realtime.VehiclePosition} message VehiclePosition
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
         VehiclePosition.toObject = function toObject(message, options) {
@@ -2037,16 +2186,10 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates a plain object from this VehiclePosition message. Also converts values to other types if specified.
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        VehiclePosition.prototype.toObject = function toObject(options) {
-            return this.constructor.toObject(this, options);
-        };
-
-        /**
          * Converts this VehiclePosition to JSON.
+         * @function toJSON
+         * @memberof transit_realtime.VehiclePosition
+         * @instance
          * @returns {Object.<string,*>} JSON object
          */
         VehiclePosition.prototype.toJSON = function toJSON() {
@@ -2055,9 +2198,8 @@ $root.transit_realtime = (function() {
 
         /**
          * VehicleStopStatus enum.
-         * @name VehicleStopStatus
-         * @memberof transit_realtime.VehiclePosition
-         * @enum {number}
+         * @name transit_realtime.VehiclePosition.VehicleStopStatus
+         * @enum {string}
          * @property {number} INCOMING_AT=0 INCOMING_AT value
          * @property {number} STOPPED_AT=1 STOPPED_AT value
          * @property {number} IN_TRANSIT_TO=2 IN_TRANSIT_TO value
@@ -2072,9 +2214,8 @@ $root.transit_realtime = (function() {
 
         /**
          * CongestionLevel enum.
-         * @name CongestionLevel
-         * @memberof transit_realtime.VehiclePosition
-         * @enum {number}
+         * @name transit_realtime.VehiclePosition.CongestionLevel
+         * @enum {string}
          * @property {number} UNKNOWN_CONGESTION_LEVEL=0 UNKNOWN_CONGESTION_LEVEL value
          * @property {number} RUNNING_SMOOTHLY=1 RUNNING_SMOOTHLY value
          * @property {number} STOP_AND_GO=2 STOP_AND_GO value
@@ -2093,9 +2234,8 @@ $root.transit_realtime = (function() {
 
         /**
          * OccupancyStatus enum.
-         * @name OccupancyStatus
-         * @memberof transit_realtime.VehiclePosition
-         * @enum {number}
+         * @name transit_realtime.VehiclePosition.OccupancyStatus
+         * @enum {string}
          * @property {number} EMPTY=0 EMPTY value
          * @property {number} MANY_SEATS_AVAILABLE=1 MANY_SEATS_AVAILABLE value
          * @property {number} FEW_SEATS_AVAILABLE=2 FEW_SEATS_AVAILABLE value
@@ -2123,25 +2263,27 @@ $root.transit_realtime = (function() {
 
         /**
          * Properties of an Alert.
-         * @typedef transit_realtime.Alert$Properties
-         * @type {Object}
-         * @property {Array.<transit_realtime.TimeRange$Properties>} [activePeriod] Alert activePeriod.
-         * @property {Array.<transit_realtime.EntitySelector$Properties>} [informedEntity] Alert informedEntity.
-         * @property {transit_realtime.Alert.Cause} [cause] Alert cause.
-         * @property {transit_realtime.Alert.Effect} [effect] Alert effect.
-         * @property {transit_realtime.TranslatedString$Properties} [url] Alert url.
-         * @property {transit_realtime.TranslatedString$Properties} [headerText] Alert headerText.
-         * @property {transit_realtime.TranslatedString$Properties} [descriptionText] Alert descriptionText.
-         * @property {transit_realtime.TranslatedString$Properties} [ttsHeaderText] Alert ttsHeaderText.
-         * @property {transit_realtime.TranslatedString$Properties} [ttsDescriptionText] Alert ttsDescriptionText.
-         * @property {transit_realtime.Alert.SeverityLevel} [severityLevel] Alert severityLevel.
+         * @memberof transit_realtime
+         * @interface IAlert
+         * @property {Array.<transit_realtime.ITimeRange>|null} [activePeriod] Alert activePeriod
+         * @property {Array.<transit_realtime.IEntitySelector>|null} [informedEntity] Alert informedEntity
+         * @property {transit_realtime.Alert.Cause|null} [cause] Alert cause
+         * @property {transit_realtime.Alert.Effect|null} [effect] Alert effect
+         * @property {transit_realtime.ITranslatedString|null} [url] Alert url
+         * @property {transit_realtime.ITranslatedString|null} [headerText] Alert headerText
+         * @property {transit_realtime.ITranslatedString|null} [descriptionText] Alert descriptionText
+         * @property {transit_realtime.ITranslatedString|null} [ttsHeaderText] Alert ttsHeaderText
+         * @property {transit_realtime.ITranslatedString|null} [ttsDescriptionText] Alert ttsDescriptionText
+         * @property {transit_realtime.Alert.SeverityLevel|null} [severityLevel] Alert severityLevel
          */
 
         /**
          * Constructs a new Alert.
-         * @exports transit_realtime.Alert
+         * @memberof transit_realtime
+         * @classdesc Represents an Alert.
+         * @implements IAlert
          * @constructor
-         * @param {transit_realtime.Alert$Properties=} [properties] Properties to set
+         * @param {transit_realtime.IAlert=} [properties] Properties to set
          */
         function Alert(properties) {
             this.activePeriod = [];
@@ -2154,67 +2296,90 @@ $root.transit_realtime = (function() {
 
         /**
          * Alert activePeriod.
-         * @type {Array.<transit_realtime.TimeRange$Properties>}
+         * @member {Array.<transit_realtime.ITimeRange>} activePeriod
+         * @memberof transit_realtime.Alert
+         * @instance
          */
         Alert.prototype.activePeriod = $util.emptyArray;
 
         /**
          * Alert informedEntity.
-         * @type {Array.<transit_realtime.EntitySelector$Properties>}
+         * @member {Array.<transit_realtime.IEntitySelector>} informedEntity
+         * @memberof transit_realtime.Alert
+         * @instance
          */
         Alert.prototype.informedEntity = $util.emptyArray;
 
         /**
          * Alert cause.
-         * @type {transit_realtime.Alert.Cause}
+         * @member {transit_realtime.Alert.Cause} cause
+         * @memberof transit_realtime.Alert
+         * @instance
          */
         Alert.prototype.cause = 1;
 
         /**
          * Alert effect.
-         * @type {transit_realtime.Alert.Effect}
+         * @member {transit_realtime.Alert.Effect} effect
+         * @memberof transit_realtime.Alert
+         * @instance
          */
         Alert.prototype.effect = 8;
 
         /**
          * Alert url.
-         * @type {(transit_realtime.TranslatedString$Properties|null)}
+         * @member {transit_realtime.ITranslatedString|null|undefined} url
+         * @memberof transit_realtime.Alert
+         * @instance
          */
         Alert.prototype.url = null;
 
         /**
          * Alert headerText.
-         * @type {(transit_realtime.TranslatedString$Properties|null)}
+         * @member {transit_realtime.ITranslatedString|null|undefined} headerText
+         * @memberof transit_realtime.Alert
+         * @instance
          */
         Alert.prototype.headerText = null;
 
         /**
          * Alert descriptionText.
-         * @type {(transit_realtime.TranslatedString$Properties|null)}
+         * @member {transit_realtime.ITranslatedString|null|undefined} descriptionText
+         * @memberof transit_realtime.Alert
+         * @instance
          */
         Alert.prototype.descriptionText = null;
 
         /**
          * Alert ttsHeaderText.
-         * @type {(transit_realtime.TranslatedString$Properties|null)}
+         * @member {transit_realtime.ITranslatedString|null|undefined} ttsHeaderText
+         * @memberof transit_realtime.Alert
+         * @instance
          */
         Alert.prototype.ttsHeaderText = null;
 
         /**
          * Alert ttsDescriptionText.
-         * @type {(transit_realtime.TranslatedString$Properties|null)}
+         * @member {transit_realtime.ITranslatedString|null|undefined} ttsDescriptionText
+         * @memberof transit_realtime.Alert
+         * @instance
          */
         Alert.prototype.ttsDescriptionText = null;
 
         /**
          * Alert severityLevel.
-         * @type {transit_realtime.Alert.SeverityLevel}
+         * @member {transit_realtime.Alert.SeverityLevel} severityLevel
+         * @memberof transit_realtime.Alert
+         * @instance
          */
         Alert.prototype.severityLevel = 1;
 
         /**
          * Creates a new Alert instance using the specified properties.
-         * @param {transit_realtime.Alert$Properties=} [properties] Properties to set
+         * @function create
+         * @memberof transit_realtime.Alert
+         * @static
+         * @param {transit_realtime.IAlert=} [properties] Properties to set
          * @returns {transit_realtime.Alert} Alert instance
          */
         Alert.create = function create(properties) {
@@ -2223,7 +2388,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified Alert message. Does not implicitly {@link transit_realtime.Alert.verify|verify} messages.
-         * @param {transit_realtime.Alert$Properties} message Alert message or plain object to encode
+         * @function encode
+         * @memberof transit_realtime.Alert
+         * @static
+         * @param {transit_realtime.IAlert} message Alert message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2237,9 +2405,9 @@ $root.transit_realtime = (function() {
                 for (var i = 0; i < message.informedEntity.length; ++i)
                     $root.transit_realtime.EntitySelector.encode(message.informedEntity[i], writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
             if (message.cause != null && message.hasOwnProperty("cause"))
-                writer.uint32(/* id 6, wireType 0 =*/48).uint32(message.cause);
+                writer.uint32(/* id 6, wireType 0 =*/48).int32(message.cause);
             if (message.effect != null && message.hasOwnProperty("effect"))
-                writer.uint32(/* id 7, wireType 0 =*/56).uint32(message.effect);
+                writer.uint32(/* id 7, wireType 0 =*/56).int32(message.effect);
             if (message.url != null && message.hasOwnProperty("url"))
                 $root.transit_realtime.TranslatedString.encode(message.url, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
             if (message.headerText != null && message.hasOwnProperty("headerText"))
@@ -2251,13 +2419,16 @@ $root.transit_realtime = (function() {
             if (message.ttsDescriptionText != null && message.hasOwnProperty("ttsDescriptionText"))
                 $root.transit_realtime.TranslatedString.encode(message.ttsDescriptionText, writer.uint32(/* id 13, wireType 2 =*/106).fork()).ldelim();
             if (message.severityLevel != null && message.hasOwnProperty("severityLevel"))
-                writer.uint32(/* id 14, wireType 0 =*/112).uint32(message.severityLevel);
+                writer.uint32(/* id 14, wireType 0 =*/112).int32(message.severityLevel);
             return writer;
         };
 
         /**
          * Encodes the specified Alert message, length delimited. Does not implicitly {@link transit_realtime.Alert.verify|verify} messages.
-         * @param {transit_realtime.Alert$Properties} message Alert message or plain object to encode
+         * @function encodeDelimited
+         * @memberof transit_realtime.Alert
+         * @static
+         * @param {transit_realtime.IAlert} message Alert message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2267,6 +2438,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes an Alert message from the specified reader or buffer.
+         * @function decode
+         * @memberof transit_realtime.Alert
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
          * @returns {transit_realtime.Alert} Alert
@@ -2291,10 +2465,10 @@ $root.transit_realtime = (function() {
                     message.informedEntity.push($root.transit_realtime.EntitySelector.decode(reader, reader.uint32()));
                     break;
                 case 6:
-                    message.cause = reader.uint32();
+                    message.cause = reader.int32();
                     break;
                 case 7:
-                    message.effect = reader.uint32();
+                    message.effect = reader.int32();
                     break;
                 case 8:
                     message.url = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
@@ -2312,7 +2486,7 @@ $root.transit_realtime = (function() {
                     message.ttsDescriptionText = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
                     break;
                 case 14:
-                    message.severityLevel = reader.uint32();
+                    message.severityLevel = reader.int32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2324,6 +2498,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes an Alert message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof transit_realtime.Alert
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @returns {transit_realtime.Alert} Alert
          * @throws {Error} If the payload is not a reader or valid buffer
@@ -2331,14 +2508,17 @@ $root.transit_realtime = (function() {
          */
         Alert.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
-                reader = $Reader(reader);
+                reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
          * Verifies an Alert message.
+         * @function verify
+         * @memberof transit_realtime.Alert
+         * @static
          * @param {Object.<string,*>} message Plain object to verify
-         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
         Alert.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
@@ -2435,6 +2615,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Creates an Alert message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof transit_realtime.Alert
+         * @static
          * @param {Object.<string,*>} object Plain object
          * @returns {transit_realtime.Alert} Alert
          */
@@ -2601,18 +2784,12 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates an Alert message from a plain object. Also converts values to their respective internal types.
-         * This is an alias of {@link transit_realtime.Alert.fromObject}.
-         * @function
-         * @param {Object.<string,*>} object Plain object
-         * @returns {transit_realtime.Alert} Alert
-         */
-        Alert.from = Alert.fromObject;
-
-        /**
          * Creates a plain object from an Alert message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof transit_realtime.Alert
+         * @static
          * @param {transit_realtime.Alert} message Alert
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
         Alert.toObject = function toObject(message, options) {
@@ -2663,16 +2840,10 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates a plain object from this Alert message. Also converts values to other types if specified.
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        Alert.prototype.toObject = function toObject(options) {
-            return this.constructor.toObject(this, options);
-        };
-
-        /**
          * Converts this Alert to JSON.
+         * @function toJSON
+         * @memberof transit_realtime.Alert
+         * @instance
          * @returns {Object.<string,*>} JSON object
          */
         Alert.prototype.toJSON = function toJSON() {
@@ -2681,9 +2852,8 @@ $root.transit_realtime = (function() {
 
         /**
          * Cause enum.
-         * @name Cause
-         * @memberof transit_realtime.Alert
-         * @enum {number}
+         * @name transit_realtime.Alert.Cause
+         * @enum {string}
          * @property {number} UNKNOWN_CAUSE=1 UNKNOWN_CAUSE value
          * @property {number} OTHER_CAUSE=2 OTHER_CAUSE value
          * @property {number} TECHNICAL_PROBLEM=3 TECHNICAL_PROBLEM value
@@ -2716,9 +2886,8 @@ $root.transit_realtime = (function() {
 
         /**
          * Effect enum.
-         * @name Effect
-         * @memberof transit_realtime.Alert
-         * @enum {number}
+         * @name transit_realtime.Alert.Effect
+         * @enum {string}
          * @property {number} NO_SERVICE=1 NO_SERVICE value
          * @property {number} REDUCED_SERVICE=2 REDUCED_SERVICE value
          * @property {number} SIGNIFICANT_DELAYS=3 SIGNIFICANT_DELAYS value
@@ -2747,9 +2916,8 @@ $root.transit_realtime = (function() {
 
         /**
          * SeverityLevel enum.
-         * @name SeverityLevel
-         * @memberof transit_realtime.Alert
-         * @enum {number}
+         * @name transit_realtime.Alert.SeverityLevel
+         * @enum {string}
          * @property {number} UNKNOWN_SEVERITY=1 UNKNOWN_SEVERITY value
          * @property {number} INFO=2 INFO value
          * @property {number} WARNING=3 WARNING value
@@ -2771,17 +2939,19 @@ $root.transit_realtime = (function() {
 
         /**
          * Properties of a TimeRange.
-         * @typedef transit_realtime.TimeRange$Properties
-         * @type {Object}
-         * @property {number|Long} [start] TimeRange start.
-         * @property {number|Long} [end] TimeRange end.
+         * @memberof transit_realtime
+         * @interface ITimeRange
+         * @property {number|Long|null} [start] TimeRange start
+         * @property {number|Long|null} [end] TimeRange end
          */
 
         /**
          * Constructs a new TimeRange.
-         * @exports transit_realtime.TimeRange
+         * @memberof transit_realtime
+         * @classdesc Represents a TimeRange.
+         * @implements ITimeRange
          * @constructor
-         * @param {transit_realtime.TimeRange$Properties=} [properties] Properties to set
+         * @param {transit_realtime.ITimeRange=} [properties] Properties to set
          */
         function TimeRange(properties) {
             if (properties)
@@ -2792,19 +2962,26 @@ $root.transit_realtime = (function() {
 
         /**
          * TimeRange start.
-         * @type {number|Long}
+         * @member {number|Long} start
+         * @memberof transit_realtime.TimeRange
+         * @instance
          */
         TimeRange.prototype.start = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
         /**
          * TimeRange end.
-         * @type {number|Long}
+         * @member {number|Long} end
+         * @memberof transit_realtime.TimeRange
+         * @instance
          */
         TimeRange.prototype.end = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
         /**
          * Creates a new TimeRange instance using the specified properties.
-         * @param {transit_realtime.TimeRange$Properties=} [properties] Properties to set
+         * @function create
+         * @memberof transit_realtime.TimeRange
+         * @static
+         * @param {transit_realtime.ITimeRange=} [properties] Properties to set
          * @returns {transit_realtime.TimeRange} TimeRange instance
          */
         TimeRange.create = function create(properties) {
@@ -2813,7 +2990,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified TimeRange message. Does not implicitly {@link transit_realtime.TimeRange.verify|verify} messages.
-         * @param {transit_realtime.TimeRange$Properties} message TimeRange message or plain object to encode
+         * @function encode
+         * @memberof transit_realtime.TimeRange
+         * @static
+         * @param {transit_realtime.ITimeRange} message TimeRange message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2829,7 +3009,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified TimeRange message, length delimited. Does not implicitly {@link transit_realtime.TimeRange.verify|verify} messages.
-         * @param {transit_realtime.TimeRange$Properties} message TimeRange message or plain object to encode
+         * @function encodeDelimited
+         * @memberof transit_realtime.TimeRange
+         * @static
+         * @param {transit_realtime.ITimeRange} message TimeRange message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2839,6 +3022,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes a TimeRange message from the specified reader or buffer.
+         * @function decode
+         * @memberof transit_realtime.TimeRange
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
          * @returns {transit_realtime.TimeRange} TimeRange
@@ -2868,6 +3054,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes a TimeRange message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof transit_realtime.TimeRange
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @returns {transit_realtime.TimeRange} TimeRange
          * @throws {Error} If the payload is not a reader or valid buffer
@@ -2875,14 +3064,17 @@ $root.transit_realtime = (function() {
          */
         TimeRange.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
-                reader = $Reader(reader);
+                reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
          * Verifies a TimeRange message.
+         * @function verify
+         * @memberof transit_realtime.TimeRange
+         * @static
          * @param {Object.<string,*>} message Plain object to verify
-         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
         TimeRange.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
@@ -2898,6 +3090,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Creates a TimeRange message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof transit_realtime.TimeRange
+         * @static
          * @param {Object.<string,*>} object Plain object
          * @returns {transit_realtime.TimeRange} TimeRange
          */
@@ -2927,18 +3122,12 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates a TimeRange message from a plain object. Also converts values to their respective internal types.
-         * This is an alias of {@link transit_realtime.TimeRange.fromObject}.
-         * @function
-         * @param {Object.<string,*>} object Plain object
-         * @returns {transit_realtime.TimeRange} TimeRange
-         */
-        TimeRange.from = TimeRange.fromObject;
-
-        /**
          * Creates a plain object from a TimeRange message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof transit_realtime.TimeRange
+         * @static
          * @param {transit_realtime.TimeRange} message TimeRange
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
         TimeRange.toObject = function toObject(message, options) {
@@ -2971,16 +3160,10 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates a plain object from this TimeRange message. Also converts values to other types if specified.
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        TimeRange.prototype.toObject = function toObject(options) {
-            return this.constructor.toObject(this, options);
-        };
-
-        /**
          * Converts this TimeRange to JSON.
+         * @function toJSON
+         * @memberof transit_realtime.TimeRange
+         * @instance
          * @returns {Object.<string,*>} JSON object
          */
         TimeRange.prototype.toJSON = function toJSON() {
@@ -2994,20 +3177,22 @@ $root.transit_realtime = (function() {
 
         /**
          * Properties of a Position.
-         * @typedef transit_realtime.Position$Properties
-         * @type {Object}
-         * @property {number} latitude Position latitude.
-         * @property {number} longitude Position longitude.
-         * @property {number} [bearing] Position bearing.
-         * @property {number} [odometer] Position odometer.
-         * @property {number} [speed] Position speed.
+         * @memberof transit_realtime
+         * @interface IPosition
+         * @property {number} latitude Position latitude
+         * @property {number} longitude Position longitude
+         * @property {number|null} [bearing] Position bearing
+         * @property {number|null} [odometer] Position odometer
+         * @property {number|null} [speed] Position speed
          */
 
         /**
          * Constructs a new Position.
-         * @exports transit_realtime.Position
+         * @memberof transit_realtime
+         * @classdesc Represents a Position.
+         * @implements IPosition
          * @constructor
-         * @param {transit_realtime.Position$Properties=} [properties] Properties to set
+         * @param {transit_realtime.IPosition=} [properties] Properties to set
          */
         function Position(properties) {
             if (properties)
@@ -3018,37 +3203,50 @@ $root.transit_realtime = (function() {
 
         /**
          * Position latitude.
-         * @type {number}
+         * @member {number} latitude
+         * @memberof transit_realtime.Position
+         * @instance
          */
         Position.prototype.latitude = 0;
 
         /**
          * Position longitude.
-         * @type {number}
+         * @member {number} longitude
+         * @memberof transit_realtime.Position
+         * @instance
          */
         Position.prototype.longitude = 0;
 
         /**
          * Position bearing.
-         * @type {number}
+         * @member {number} bearing
+         * @memberof transit_realtime.Position
+         * @instance
          */
         Position.prototype.bearing = 0;
 
         /**
          * Position odometer.
-         * @type {number}
+         * @member {number} odometer
+         * @memberof transit_realtime.Position
+         * @instance
          */
         Position.prototype.odometer = 0;
 
         /**
          * Position speed.
-         * @type {number}
+         * @member {number} speed
+         * @memberof transit_realtime.Position
+         * @instance
          */
         Position.prototype.speed = 0;
 
         /**
          * Creates a new Position instance using the specified properties.
-         * @param {transit_realtime.Position$Properties=} [properties] Properties to set
+         * @function create
+         * @memberof transit_realtime.Position
+         * @static
+         * @param {transit_realtime.IPosition=} [properties] Properties to set
          * @returns {transit_realtime.Position} Position instance
          */
         Position.create = function create(properties) {
@@ -3057,7 +3255,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified Position message. Does not implicitly {@link transit_realtime.Position.verify|verify} messages.
-         * @param {transit_realtime.Position$Properties} message Position message or plain object to encode
+         * @function encode
+         * @memberof transit_realtime.Position
+         * @static
+         * @param {transit_realtime.IPosition} message Position message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3077,7 +3278,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified Position message, length delimited. Does not implicitly {@link transit_realtime.Position.verify|verify} messages.
-         * @param {transit_realtime.Position$Properties} message Position message or plain object to encode
+         * @function encodeDelimited
+         * @memberof transit_realtime.Position
+         * @static
+         * @param {transit_realtime.IPosition} message Position message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3087,6 +3291,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes a Position message from the specified reader or buffer.
+         * @function decode
+         * @memberof transit_realtime.Position
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
          * @returns {transit_realtime.Position} Position
@@ -3129,6 +3336,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes a Position message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof transit_realtime.Position
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @returns {transit_realtime.Position} Position
          * @throws {Error} If the payload is not a reader or valid buffer
@@ -3136,14 +3346,17 @@ $root.transit_realtime = (function() {
          */
         Position.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
-                reader = $Reader(reader);
+                reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
          * Verifies a Position message.
+         * @function verify
+         * @memberof transit_realtime.Position
+         * @static
          * @param {Object.<string,*>} message Plain object to verify
-         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
         Position.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
@@ -3166,6 +3379,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Creates a Position message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof transit_realtime.Position
+         * @static
          * @param {Object.<string,*>} object Plain object
          * @returns {transit_realtime.Position} Position
          */
@@ -3187,18 +3403,12 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates a Position message from a plain object. Also converts values to their respective internal types.
-         * This is an alias of {@link transit_realtime.Position.fromObject}.
-         * @function
-         * @param {Object.<string,*>} object Plain object
-         * @returns {transit_realtime.Position} Position
-         */
-        Position.from = Position.fromObject;
-
-        /**
          * Creates a plain object from a Position message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof transit_realtime.Position
+         * @static
          * @param {transit_realtime.Position} message Position
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
         Position.toObject = function toObject(message, options) {
@@ -3213,29 +3423,23 @@ $root.transit_realtime = (function() {
                 object.speed = 0;
             }
             if (message.latitude != null && message.hasOwnProperty("latitude"))
-                object.latitude = message.latitude;
+                object.latitude = options.json && !isFinite(message.latitude) ? String(message.latitude) : message.latitude;
             if (message.longitude != null && message.hasOwnProperty("longitude"))
-                object.longitude = message.longitude;
+                object.longitude = options.json && !isFinite(message.longitude) ? String(message.longitude) : message.longitude;
             if (message.bearing != null && message.hasOwnProperty("bearing"))
-                object.bearing = message.bearing;
+                object.bearing = options.json && !isFinite(message.bearing) ? String(message.bearing) : message.bearing;
             if (message.odometer != null && message.hasOwnProperty("odometer"))
-                object.odometer = message.odometer;
+                object.odometer = options.json && !isFinite(message.odometer) ? String(message.odometer) : message.odometer;
             if (message.speed != null && message.hasOwnProperty("speed"))
-                object.speed = message.speed;
+                object.speed = options.json && !isFinite(message.speed) ? String(message.speed) : message.speed;
             return object;
         };
 
         /**
-         * Creates a plain object from this Position message. Also converts values to other types if specified.
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        Position.prototype.toObject = function toObject(options) {
-            return this.constructor.toObject(this, options);
-        };
-
-        /**
          * Converts this Position to JSON.
+         * @function toJSON
+         * @memberof transit_realtime.Position
+         * @instance
          * @returns {Object.<string,*>} JSON object
          */
         Position.prototype.toJSON = function toJSON() {
@@ -3249,21 +3453,23 @@ $root.transit_realtime = (function() {
 
         /**
          * Properties of a TripDescriptor.
-         * @typedef transit_realtime.TripDescriptor$Properties
-         * @type {Object}
-         * @property {string} [tripId] TripDescriptor tripId.
-         * @property {string} [routeId] TripDescriptor routeId.
-         * @property {number} [directionId] TripDescriptor directionId.
-         * @property {string} [startTime] TripDescriptor startTime.
-         * @property {string} [startDate] TripDescriptor startDate.
-         * @property {transit_realtime.TripDescriptor.ScheduleRelationship} [scheduleRelationship] TripDescriptor scheduleRelationship.
+         * @memberof transit_realtime
+         * @interface ITripDescriptor
+         * @property {string|null} [tripId] TripDescriptor tripId
+         * @property {string|null} [routeId] TripDescriptor routeId
+         * @property {number|null} [directionId] TripDescriptor directionId
+         * @property {string|null} [startTime] TripDescriptor startTime
+         * @property {string|null} [startDate] TripDescriptor startDate
+         * @property {transit_realtime.TripDescriptor.ScheduleRelationship|null} [scheduleRelationship] TripDescriptor scheduleRelationship
          */
 
         /**
          * Constructs a new TripDescriptor.
-         * @exports transit_realtime.TripDescriptor
+         * @memberof transit_realtime
+         * @classdesc Represents a TripDescriptor.
+         * @implements ITripDescriptor
          * @constructor
-         * @param {transit_realtime.TripDescriptor$Properties=} [properties] Properties to set
+         * @param {transit_realtime.ITripDescriptor=} [properties] Properties to set
          */
         function TripDescriptor(properties) {
             if (properties)
@@ -3274,43 +3480,58 @@ $root.transit_realtime = (function() {
 
         /**
          * TripDescriptor tripId.
-         * @type {string}
+         * @member {string} tripId
+         * @memberof transit_realtime.TripDescriptor
+         * @instance
          */
         TripDescriptor.prototype.tripId = "";
 
         /**
          * TripDescriptor routeId.
-         * @type {string}
+         * @member {string} routeId
+         * @memberof transit_realtime.TripDescriptor
+         * @instance
          */
         TripDescriptor.prototype.routeId = "";
 
         /**
          * TripDescriptor directionId.
-         * @type {number}
+         * @member {number} directionId
+         * @memberof transit_realtime.TripDescriptor
+         * @instance
          */
         TripDescriptor.prototype.directionId = 0;
 
         /**
          * TripDescriptor startTime.
-         * @type {string}
+         * @member {string} startTime
+         * @memberof transit_realtime.TripDescriptor
+         * @instance
          */
         TripDescriptor.prototype.startTime = "";
 
         /**
          * TripDescriptor startDate.
-         * @type {string}
+         * @member {string} startDate
+         * @memberof transit_realtime.TripDescriptor
+         * @instance
          */
         TripDescriptor.prototype.startDate = "";
 
         /**
          * TripDescriptor scheduleRelationship.
-         * @type {transit_realtime.TripDescriptor.ScheduleRelationship}
+         * @member {transit_realtime.TripDescriptor.ScheduleRelationship} scheduleRelationship
+         * @memberof transit_realtime.TripDescriptor
+         * @instance
          */
         TripDescriptor.prototype.scheduleRelationship = 0;
 
         /**
          * Creates a new TripDescriptor instance using the specified properties.
-         * @param {transit_realtime.TripDescriptor$Properties=} [properties] Properties to set
+         * @function create
+         * @memberof transit_realtime.TripDescriptor
+         * @static
+         * @param {transit_realtime.ITripDescriptor=} [properties] Properties to set
          * @returns {transit_realtime.TripDescriptor} TripDescriptor instance
          */
         TripDescriptor.create = function create(properties) {
@@ -3319,7 +3540,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified TripDescriptor message. Does not implicitly {@link transit_realtime.TripDescriptor.verify|verify} messages.
-         * @param {transit_realtime.TripDescriptor$Properties} message TripDescriptor message or plain object to encode
+         * @function encode
+         * @memberof transit_realtime.TripDescriptor
+         * @static
+         * @param {transit_realtime.ITripDescriptor} message TripDescriptor message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3333,7 +3557,7 @@ $root.transit_realtime = (function() {
             if (message.startDate != null && message.hasOwnProperty("startDate"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.startDate);
             if (message.scheduleRelationship != null && message.hasOwnProperty("scheduleRelationship"))
-                writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.scheduleRelationship);
+                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.scheduleRelationship);
             if (message.routeId != null && message.hasOwnProperty("routeId"))
                 writer.uint32(/* id 5, wireType 2 =*/42).string(message.routeId);
             if (message.directionId != null && message.hasOwnProperty("directionId"))
@@ -3343,7 +3567,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified TripDescriptor message, length delimited. Does not implicitly {@link transit_realtime.TripDescriptor.verify|verify} messages.
-         * @param {transit_realtime.TripDescriptor$Properties} message TripDescriptor message or plain object to encode
+         * @function encodeDelimited
+         * @memberof transit_realtime.TripDescriptor
+         * @static
+         * @param {transit_realtime.ITripDescriptor} message TripDescriptor message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3353,6 +3580,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes a TripDescriptor message from the specified reader or buffer.
+         * @function decode
+         * @memberof transit_realtime.TripDescriptor
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
          * @returns {transit_realtime.TripDescriptor} TripDescriptor
@@ -3382,7 +3612,7 @@ $root.transit_realtime = (function() {
                     message.startDate = reader.string();
                     break;
                 case 4:
-                    message.scheduleRelationship = reader.uint32();
+                    message.scheduleRelationship = reader.int32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3394,6 +3624,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes a TripDescriptor message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof transit_realtime.TripDescriptor
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @returns {transit_realtime.TripDescriptor} TripDescriptor
          * @throws {Error} If the payload is not a reader or valid buffer
@@ -3401,14 +3634,17 @@ $root.transit_realtime = (function() {
          */
         TripDescriptor.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
-                reader = $Reader(reader);
+                reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
          * Verifies a TripDescriptor message.
+         * @function verify
+         * @memberof transit_realtime.TripDescriptor
+         * @static
          * @param {Object.<string,*>} message Plain object to verify
-         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
         TripDescriptor.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
@@ -3444,6 +3680,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Creates a TripDescriptor message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof transit_realtime.TripDescriptor
+         * @static
          * @param {Object.<string,*>} object Plain object
          * @returns {transit_realtime.TripDescriptor} TripDescriptor
          */
@@ -3487,18 +3726,12 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates a TripDescriptor message from a plain object. Also converts values to their respective internal types.
-         * This is an alias of {@link transit_realtime.TripDescriptor.fromObject}.
-         * @function
-         * @param {Object.<string,*>} object Plain object
-         * @returns {transit_realtime.TripDescriptor} TripDescriptor
-         */
-        TripDescriptor.from = TripDescriptor.fromObject;
-
-        /**
          * Creates a plain object from a TripDescriptor message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof transit_realtime.TripDescriptor
+         * @static
          * @param {transit_realtime.TripDescriptor} message TripDescriptor
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
         TripDescriptor.toObject = function toObject(message, options) {
@@ -3529,16 +3762,10 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates a plain object from this TripDescriptor message. Also converts values to other types if specified.
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        TripDescriptor.prototype.toObject = function toObject(options) {
-            return this.constructor.toObject(this, options);
-        };
-
-        /**
          * Converts this TripDescriptor to JSON.
+         * @function toJSON
+         * @memberof transit_realtime.TripDescriptor
+         * @instance
          * @returns {Object.<string,*>} JSON object
          */
         TripDescriptor.prototype.toJSON = function toJSON() {
@@ -3547,9 +3774,8 @@ $root.transit_realtime = (function() {
 
         /**
          * ScheduleRelationship enum.
-         * @name ScheduleRelationship
-         * @memberof transit_realtime.TripDescriptor
-         * @enum {number}
+         * @name transit_realtime.TripDescriptor.ScheduleRelationship
+         * @enum {string}
          * @property {number} SCHEDULED=0 SCHEDULED value
          * @property {number} ADDED=1 ADDED value
          * @property {number} UNSCHEDULED=2 UNSCHEDULED value
@@ -3573,18 +3799,20 @@ $root.transit_realtime = (function() {
 
         /**
          * Properties of a VehicleDescriptor.
-         * @typedef transit_realtime.VehicleDescriptor$Properties
-         * @type {Object}
-         * @property {string} [id] VehicleDescriptor id.
-         * @property {string} [label] VehicleDescriptor label.
-         * @property {string} [licensePlate] VehicleDescriptor licensePlate.
+         * @memberof transit_realtime
+         * @interface IVehicleDescriptor
+         * @property {string|null} [id] VehicleDescriptor id
+         * @property {string|null} [label] VehicleDescriptor label
+         * @property {string|null} [licensePlate] VehicleDescriptor licensePlate
          */
 
         /**
          * Constructs a new VehicleDescriptor.
-         * @exports transit_realtime.VehicleDescriptor
+         * @memberof transit_realtime
+         * @classdesc Represents a VehicleDescriptor.
+         * @implements IVehicleDescriptor
          * @constructor
-         * @param {transit_realtime.VehicleDescriptor$Properties=} [properties] Properties to set
+         * @param {transit_realtime.IVehicleDescriptor=} [properties] Properties to set
          */
         function VehicleDescriptor(properties) {
             if (properties)
@@ -3595,25 +3823,34 @@ $root.transit_realtime = (function() {
 
         /**
          * VehicleDescriptor id.
-         * @type {string}
+         * @member {string} id
+         * @memberof transit_realtime.VehicleDescriptor
+         * @instance
          */
         VehicleDescriptor.prototype.id = "";
 
         /**
          * VehicleDescriptor label.
-         * @type {string}
+         * @member {string} label
+         * @memberof transit_realtime.VehicleDescriptor
+         * @instance
          */
         VehicleDescriptor.prototype.label = "";
 
         /**
          * VehicleDescriptor licensePlate.
-         * @type {string}
+         * @member {string} licensePlate
+         * @memberof transit_realtime.VehicleDescriptor
+         * @instance
          */
         VehicleDescriptor.prototype.licensePlate = "";
 
         /**
          * Creates a new VehicleDescriptor instance using the specified properties.
-         * @param {transit_realtime.VehicleDescriptor$Properties=} [properties] Properties to set
+         * @function create
+         * @memberof transit_realtime.VehicleDescriptor
+         * @static
+         * @param {transit_realtime.IVehicleDescriptor=} [properties] Properties to set
          * @returns {transit_realtime.VehicleDescriptor} VehicleDescriptor instance
          */
         VehicleDescriptor.create = function create(properties) {
@@ -3622,7 +3859,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified VehicleDescriptor message. Does not implicitly {@link transit_realtime.VehicleDescriptor.verify|verify} messages.
-         * @param {transit_realtime.VehicleDescriptor$Properties} message VehicleDescriptor message or plain object to encode
+         * @function encode
+         * @memberof transit_realtime.VehicleDescriptor
+         * @static
+         * @param {transit_realtime.IVehicleDescriptor} message VehicleDescriptor message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3640,7 +3880,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified VehicleDescriptor message, length delimited. Does not implicitly {@link transit_realtime.VehicleDescriptor.verify|verify} messages.
-         * @param {transit_realtime.VehicleDescriptor$Properties} message VehicleDescriptor message or plain object to encode
+         * @function encodeDelimited
+         * @memberof transit_realtime.VehicleDescriptor
+         * @static
+         * @param {transit_realtime.IVehicleDescriptor} message VehicleDescriptor message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3650,6 +3893,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes a VehicleDescriptor message from the specified reader or buffer.
+         * @function decode
+         * @memberof transit_realtime.VehicleDescriptor
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
          * @returns {transit_realtime.VehicleDescriptor} VehicleDescriptor
@@ -3682,6 +3928,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes a VehicleDescriptor message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof transit_realtime.VehicleDescriptor
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @returns {transit_realtime.VehicleDescriptor} VehicleDescriptor
          * @throws {Error} If the payload is not a reader or valid buffer
@@ -3689,14 +3938,17 @@ $root.transit_realtime = (function() {
          */
         VehicleDescriptor.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
-                reader = $Reader(reader);
+                reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
          * Verifies a VehicleDescriptor message.
+         * @function verify
+         * @memberof transit_realtime.VehicleDescriptor
+         * @static
          * @param {Object.<string,*>} message Plain object to verify
-         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
         VehicleDescriptor.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
@@ -3715,6 +3967,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Creates a VehicleDescriptor message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof transit_realtime.VehicleDescriptor
+         * @static
          * @param {Object.<string,*>} object Plain object
          * @returns {transit_realtime.VehicleDescriptor} VehicleDescriptor
          */
@@ -3732,18 +3987,12 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates a VehicleDescriptor message from a plain object. Also converts values to their respective internal types.
-         * This is an alias of {@link transit_realtime.VehicleDescriptor.fromObject}.
-         * @function
-         * @param {Object.<string,*>} object Plain object
-         * @returns {transit_realtime.VehicleDescriptor} VehicleDescriptor
-         */
-        VehicleDescriptor.from = VehicleDescriptor.fromObject;
-
-        /**
          * Creates a plain object from a VehicleDescriptor message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof transit_realtime.VehicleDescriptor
+         * @static
          * @param {transit_realtime.VehicleDescriptor} message VehicleDescriptor
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
         VehicleDescriptor.toObject = function toObject(message, options) {
@@ -3765,16 +4014,10 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates a plain object from this VehicleDescriptor message. Also converts values to other types if specified.
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        VehicleDescriptor.prototype.toObject = function toObject(options) {
-            return this.constructor.toObject(this, options);
-        };
-
-        /**
          * Converts this VehicleDescriptor to JSON.
+         * @function toJSON
+         * @memberof transit_realtime.VehicleDescriptor
+         * @instance
          * @returns {Object.<string,*>} JSON object
          */
         VehicleDescriptor.prototype.toJSON = function toJSON() {
@@ -3788,20 +4031,22 @@ $root.transit_realtime = (function() {
 
         /**
          * Properties of an EntitySelector.
-         * @typedef transit_realtime.EntitySelector$Properties
-         * @type {Object}
-         * @property {string} [agencyId] EntitySelector agencyId.
-         * @property {string} [routeId] EntitySelector routeId.
-         * @property {number} [routeType] EntitySelector routeType.
-         * @property {transit_realtime.TripDescriptor$Properties} [trip] EntitySelector trip.
-         * @property {string} [stopId] EntitySelector stopId.
+         * @memberof transit_realtime
+         * @interface IEntitySelector
+         * @property {string|null} [agencyId] EntitySelector agencyId
+         * @property {string|null} [routeId] EntitySelector routeId
+         * @property {number|null} [routeType] EntitySelector routeType
+         * @property {transit_realtime.ITripDescriptor|null} [trip] EntitySelector trip
+         * @property {string|null} [stopId] EntitySelector stopId
          */
 
         /**
          * Constructs a new EntitySelector.
-         * @exports transit_realtime.EntitySelector
+         * @memberof transit_realtime
+         * @classdesc Represents an EntitySelector.
+         * @implements IEntitySelector
          * @constructor
-         * @param {transit_realtime.EntitySelector$Properties=} [properties] Properties to set
+         * @param {transit_realtime.IEntitySelector=} [properties] Properties to set
          */
         function EntitySelector(properties) {
             if (properties)
@@ -3812,37 +4057,50 @@ $root.transit_realtime = (function() {
 
         /**
          * EntitySelector agencyId.
-         * @type {string}
+         * @member {string} agencyId
+         * @memberof transit_realtime.EntitySelector
+         * @instance
          */
         EntitySelector.prototype.agencyId = "";
 
         /**
          * EntitySelector routeId.
-         * @type {string}
+         * @member {string} routeId
+         * @memberof transit_realtime.EntitySelector
+         * @instance
          */
         EntitySelector.prototype.routeId = "";
 
         /**
          * EntitySelector routeType.
-         * @type {number}
+         * @member {number} routeType
+         * @memberof transit_realtime.EntitySelector
+         * @instance
          */
         EntitySelector.prototype.routeType = 0;
 
         /**
          * EntitySelector trip.
-         * @type {(transit_realtime.TripDescriptor$Properties|null)}
+         * @member {transit_realtime.ITripDescriptor|null|undefined} trip
+         * @memberof transit_realtime.EntitySelector
+         * @instance
          */
         EntitySelector.prototype.trip = null;
 
         /**
          * EntitySelector stopId.
-         * @type {string}
+         * @member {string} stopId
+         * @memberof transit_realtime.EntitySelector
+         * @instance
          */
         EntitySelector.prototype.stopId = "";
 
         /**
          * Creates a new EntitySelector instance using the specified properties.
-         * @param {transit_realtime.EntitySelector$Properties=} [properties] Properties to set
+         * @function create
+         * @memberof transit_realtime.EntitySelector
+         * @static
+         * @param {transit_realtime.IEntitySelector=} [properties] Properties to set
          * @returns {transit_realtime.EntitySelector} EntitySelector instance
          */
         EntitySelector.create = function create(properties) {
@@ -3851,7 +4109,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified EntitySelector message. Does not implicitly {@link transit_realtime.EntitySelector.verify|verify} messages.
-         * @param {transit_realtime.EntitySelector$Properties} message EntitySelector message or plain object to encode
+         * @function encode
+         * @memberof transit_realtime.EntitySelector
+         * @static
+         * @param {transit_realtime.IEntitySelector} message EntitySelector message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3873,7 +4134,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified EntitySelector message, length delimited. Does not implicitly {@link transit_realtime.EntitySelector.verify|verify} messages.
-         * @param {transit_realtime.EntitySelector$Properties} message EntitySelector message or plain object to encode
+         * @function encodeDelimited
+         * @memberof transit_realtime.EntitySelector
+         * @static
+         * @param {transit_realtime.IEntitySelector} message EntitySelector message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3883,6 +4147,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes an EntitySelector message from the specified reader or buffer.
+         * @function decode
+         * @memberof transit_realtime.EntitySelector
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
          * @returns {transit_realtime.EntitySelector} EntitySelector
@@ -3921,6 +4188,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes an EntitySelector message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof transit_realtime.EntitySelector
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @returns {transit_realtime.EntitySelector} EntitySelector
          * @throws {Error} If the payload is not a reader or valid buffer
@@ -3928,14 +4198,17 @@ $root.transit_realtime = (function() {
          */
         EntitySelector.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
-                reader = $Reader(reader);
+                reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
          * Verifies an EntitySelector message.
+         * @function verify
+         * @memberof transit_realtime.EntitySelector
+         * @static
          * @param {Object.<string,*>} message Plain object to verify
-         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
         EntitySelector.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
@@ -3962,6 +4235,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Creates an EntitySelector message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof transit_realtime.EntitySelector
+         * @static
          * @param {Object.<string,*>} object Plain object
          * @returns {transit_realtime.EntitySelector} EntitySelector
          */
@@ -3986,18 +4262,12 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates an EntitySelector message from a plain object. Also converts values to their respective internal types.
-         * This is an alias of {@link transit_realtime.EntitySelector.fromObject}.
-         * @function
-         * @param {Object.<string,*>} object Plain object
-         * @returns {transit_realtime.EntitySelector} EntitySelector
-         */
-        EntitySelector.from = EntitySelector.fromObject;
-
-        /**
          * Creates a plain object from an EntitySelector message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof transit_realtime.EntitySelector
+         * @static
          * @param {transit_realtime.EntitySelector} message EntitySelector
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
         EntitySelector.toObject = function toObject(message, options) {
@@ -4025,16 +4295,10 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates a plain object from this EntitySelector message. Also converts values to other types if specified.
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        EntitySelector.prototype.toObject = function toObject(options) {
-            return this.constructor.toObject(this, options);
-        };
-
-        /**
          * Converts this EntitySelector to JSON.
+         * @function toJSON
+         * @memberof transit_realtime.EntitySelector
+         * @instance
          * @returns {Object.<string,*>} JSON object
          */
         EntitySelector.prototype.toJSON = function toJSON() {
@@ -4048,16 +4312,18 @@ $root.transit_realtime = (function() {
 
         /**
          * Properties of a TranslatedString.
-         * @typedef transit_realtime.TranslatedString$Properties
-         * @type {Object}
-         * @property {Array.<transit_realtime.TranslatedString.Translation$Properties>} [translation] TranslatedString translation.
+         * @memberof transit_realtime
+         * @interface ITranslatedString
+         * @property {Array.<transit_realtime.TranslatedString.ITranslation>|null} [translation] TranslatedString translation
          */
 
         /**
          * Constructs a new TranslatedString.
-         * @exports transit_realtime.TranslatedString
+         * @memberof transit_realtime
+         * @classdesc Represents a TranslatedString.
+         * @implements ITranslatedString
          * @constructor
-         * @param {transit_realtime.TranslatedString$Properties=} [properties] Properties to set
+         * @param {transit_realtime.ITranslatedString=} [properties] Properties to set
          */
         function TranslatedString(properties) {
             this.translation = [];
@@ -4069,13 +4335,18 @@ $root.transit_realtime = (function() {
 
         /**
          * TranslatedString translation.
-         * @type {Array.<transit_realtime.TranslatedString.Translation$Properties>}
+         * @member {Array.<transit_realtime.TranslatedString.ITranslation>} translation
+         * @memberof transit_realtime.TranslatedString
+         * @instance
          */
         TranslatedString.prototype.translation = $util.emptyArray;
 
         /**
          * Creates a new TranslatedString instance using the specified properties.
-         * @param {transit_realtime.TranslatedString$Properties=} [properties] Properties to set
+         * @function create
+         * @memberof transit_realtime.TranslatedString
+         * @static
+         * @param {transit_realtime.ITranslatedString=} [properties] Properties to set
          * @returns {transit_realtime.TranslatedString} TranslatedString instance
          */
         TranslatedString.create = function create(properties) {
@@ -4084,7 +4355,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified TranslatedString message. Does not implicitly {@link transit_realtime.TranslatedString.verify|verify} messages.
-         * @param {transit_realtime.TranslatedString$Properties} message TranslatedString message or plain object to encode
+         * @function encode
+         * @memberof transit_realtime.TranslatedString
+         * @static
+         * @param {transit_realtime.ITranslatedString} message TranslatedString message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -4099,7 +4373,10 @@ $root.transit_realtime = (function() {
 
         /**
          * Encodes the specified TranslatedString message, length delimited. Does not implicitly {@link transit_realtime.TranslatedString.verify|verify} messages.
-         * @param {transit_realtime.TranslatedString$Properties} message TranslatedString message or plain object to encode
+         * @function encodeDelimited
+         * @memberof transit_realtime.TranslatedString
+         * @static
+         * @param {transit_realtime.ITranslatedString} message TranslatedString message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -4109,6 +4386,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes a TranslatedString message from the specified reader or buffer.
+         * @function decode
+         * @memberof transit_realtime.TranslatedString
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
          * @returns {transit_realtime.TranslatedString} TranslatedString
@@ -4137,6 +4417,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Decodes a TranslatedString message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof transit_realtime.TranslatedString
+         * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @returns {transit_realtime.TranslatedString} TranslatedString
          * @throws {Error} If the payload is not a reader or valid buffer
@@ -4144,14 +4427,17 @@ $root.transit_realtime = (function() {
          */
         TranslatedString.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
-                reader = $Reader(reader);
+                reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
          * Verifies a TranslatedString message.
+         * @function verify
+         * @memberof transit_realtime.TranslatedString
+         * @static
          * @param {Object.<string,*>} message Plain object to verify
-         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
         TranslatedString.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
@@ -4170,6 +4456,9 @@ $root.transit_realtime = (function() {
 
         /**
          * Creates a TranslatedString message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof transit_realtime.TranslatedString
+         * @static
          * @param {Object.<string,*>} object Plain object
          * @returns {transit_realtime.TranslatedString} TranslatedString
          */
@@ -4191,18 +4480,12 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates a TranslatedString message from a plain object. Also converts values to their respective internal types.
-         * This is an alias of {@link transit_realtime.TranslatedString.fromObject}.
-         * @function
-         * @param {Object.<string,*>} object Plain object
-         * @returns {transit_realtime.TranslatedString} TranslatedString
-         */
-        TranslatedString.from = TranslatedString.fromObject;
-
-        /**
          * Creates a plain object from a TranslatedString message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof transit_realtime.TranslatedString
+         * @static
          * @param {transit_realtime.TranslatedString} message TranslatedString
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
         TranslatedString.toObject = function toObject(message, options) {
@@ -4220,16 +4503,10 @@ $root.transit_realtime = (function() {
         };
 
         /**
-         * Creates a plain object from this TranslatedString message. Also converts values to other types if specified.
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        TranslatedString.prototype.toObject = function toObject(options) {
-            return this.constructor.toObject(this, options);
-        };
-
-        /**
          * Converts this TranslatedString to JSON.
+         * @function toJSON
+         * @memberof transit_realtime.TranslatedString
+         * @instance
          * @returns {Object.<string,*>} JSON object
          */
         TranslatedString.prototype.toJSON = function toJSON() {
@@ -4240,17 +4517,19 @@ $root.transit_realtime = (function() {
 
             /**
              * Properties of a Translation.
-             * @typedef transit_realtime.TranslatedString.Translation$Properties
-             * @type {Object}
-             * @property {string} text Translation text.
-             * @property {string} [language] Translation language.
+             * @memberof transit_realtime.TranslatedString
+             * @interface ITranslation
+             * @property {string} text Translation text
+             * @property {string|null} [language] Translation language
              */
 
             /**
              * Constructs a new Translation.
-             * @exports transit_realtime.TranslatedString.Translation
+             * @memberof transit_realtime.TranslatedString
+             * @classdesc Represents a Translation.
+             * @implements ITranslation
              * @constructor
-             * @param {transit_realtime.TranslatedString.Translation$Properties=} [properties] Properties to set
+             * @param {transit_realtime.TranslatedString.ITranslation=} [properties] Properties to set
              */
             function Translation(properties) {
                 if (properties)
@@ -4261,19 +4540,26 @@ $root.transit_realtime = (function() {
 
             /**
              * Translation text.
-             * @type {string}
+             * @member {string} text
+             * @memberof transit_realtime.TranslatedString.Translation
+             * @instance
              */
             Translation.prototype.text = "";
 
             /**
              * Translation language.
-             * @type {string}
+             * @member {string} language
+             * @memberof transit_realtime.TranslatedString.Translation
+             * @instance
              */
             Translation.prototype.language = "";
 
             /**
              * Creates a new Translation instance using the specified properties.
-             * @param {transit_realtime.TranslatedString.Translation$Properties=} [properties] Properties to set
+             * @function create
+             * @memberof transit_realtime.TranslatedString.Translation
+             * @static
+             * @param {transit_realtime.TranslatedString.ITranslation=} [properties] Properties to set
              * @returns {transit_realtime.TranslatedString.Translation} Translation instance
              */
             Translation.create = function create(properties) {
@@ -4282,7 +4568,10 @@ $root.transit_realtime = (function() {
 
             /**
              * Encodes the specified Translation message. Does not implicitly {@link transit_realtime.TranslatedString.Translation.verify|verify} messages.
-             * @param {transit_realtime.TranslatedString.Translation$Properties} message Translation message or plain object to encode
+             * @function encode
+             * @memberof transit_realtime.TranslatedString.Translation
+             * @static
+             * @param {transit_realtime.TranslatedString.ITranslation} message Translation message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -4297,7 +4586,10 @@ $root.transit_realtime = (function() {
 
             /**
              * Encodes the specified Translation message, length delimited. Does not implicitly {@link transit_realtime.TranslatedString.Translation.verify|verify} messages.
-             * @param {transit_realtime.TranslatedString.Translation$Properties} message Translation message or plain object to encode
+             * @function encodeDelimited
+             * @memberof transit_realtime.TranslatedString.Translation
+             * @static
+             * @param {transit_realtime.TranslatedString.ITranslation} message Translation message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -4307,6 +4599,9 @@ $root.transit_realtime = (function() {
 
             /**
              * Decodes a Translation message from the specified reader or buffer.
+             * @function decode
+             * @memberof transit_realtime.TranslatedString.Translation
+             * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
              * @returns {transit_realtime.TranslatedString.Translation} Translation
@@ -4338,6 +4633,9 @@ $root.transit_realtime = (function() {
 
             /**
              * Decodes a Translation message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof transit_realtime.TranslatedString.Translation
+             * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @returns {transit_realtime.TranslatedString.Translation} Translation
              * @throws {Error} If the payload is not a reader or valid buffer
@@ -4345,14 +4643,17 @@ $root.transit_realtime = (function() {
              */
             Translation.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
-                    reader = $Reader(reader);
+                    reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
              * Verifies a Translation message.
+             * @function verify
+             * @memberof transit_realtime.TranslatedString.Translation
+             * @static
              * @param {Object.<string,*>} message Plain object to verify
-             * @returns {?string} `null` if valid, otherwise the reason why it is not
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
             Translation.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
@@ -4367,6 +4668,9 @@ $root.transit_realtime = (function() {
 
             /**
              * Creates a Translation message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof transit_realtime.TranslatedString.Translation
+             * @static
              * @param {Object.<string,*>} object Plain object
              * @returns {transit_realtime.TranslatedString.Translation} Translation
              */
@@ -4382,18 +4686,12 @@ $root.transit_realtime = (function() {
             };
 
             /**
-             * Creates a Translation message from a plain object. Also converts values to their respective internal types.
-             * This is an alias of {@link transit_realtime.TranslatedString.Translation.fromObject}.
-             * @function
-             * @param {Object.<string,*>} object Plain object
-             * @returns {transit_realtime.TranslatedString.Translation} Translation
-             */
-            Translation.from = Translation.fromObject;
-
-            /**
              * Creates a plain object from a Translation message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof transit_realtime.TranslatedString.Translation
+             * @static
              * @param {transit_realtime.TranslatedString.Translation} message Translation
-             * @param {$protobuf.ConversionOptions} [options] Conversion options
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
             Translation.toObject = function toObject(message, options) {
@@ -4412,16 +4710,10 @@ $root.transit_realtime = (function() {
             };
 
             /**
-             * Creates a plain object from this Translation message. Also converts values to other types if specified.
-             * @param {$protobuf.ConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            Translation.prototype.toObject = function toObject(options) {
-                return this.constructor.toObject(this, options);
-            };
-
-            /**
              * Converts this Translation to JSON.
+             * @function toJSON
+             * @memberof transit_realtime.TranslatedString.Translation
+             * @instance
              * @returns {Object.<string,*>} JSON object
              */
             Translation.prototype.toJSON = function toJSON() {
