@@ -11,21 +11,21 @@
 
 #### Every time `gtfs-realtime.proto` changes
 
-Regenerate the language binding source from gtfs-realtime.proto by running the following from the `python` folder:
+1. Regenerate the language binding source from gtfs-realtime.proto by running the following from the `python` folder:
 
-```
-protoc --python_out=google/transit --proto_path=.. ../gtfs-realtime.proto
-```
+    ```
+    protoc --python_out=google/transit --proto_path=.. ../gtfs-realtime.proto
+    ```
 
-Add the license header back to the generated source file.
+1. Add the license header back to the generated source file.
 
-Test the generated code:
+1. Test the generated code:
 
-```
-nosetests
-````
+    ```
+    nosetests
+    ````
 
-Bump the version number in `setup.py`.
+1. Bump the version number in `setup.py`.
 
 ## Publishing a new release
 
