@@ -1,23 +1,34 @@
 # How-To Update Bindings When gtfs-realtime.proto Changes
 
-Regenerate the language binding source from gtfs-realtime.proto.
+## Regenerate the language binding source from gtfs-realtime.proto.
 
-```
-npm run buildProto
-```
+#### One-Time Setup
 
-You might need to optionally `npm install` to install the protobuf package
-before building the proto.
+1. Download and install [Node.js](https://www.npmjs.com/get-npm) (v10.15.2 LTS has been used)
 
-Add the license header back to the generated source file.
+#### Every time `gtfs-realtime.proto` changes
 
-Test the generated code:
+1. Run `npm install` from the `nodejs` folder to install the protobuf package
 
-```
-npm run test
-```
+1. Regenerate the language binding source from gtfs-realtime.proto by running the following from the `nodejs` folder:
 
-Update the version number in `package.json`.
+    ```
+    npm run buildProto
+    ```
+
+1. Add the license header back to the generated source file.
+
+1. Test the generated code:
+
+    ```
+    npm run test
+    ```
+
+1. Update the version number in `package.json`.
+
+## Publishing a new release
+
+#### Every release
 
 Publish the package to NPM:
 

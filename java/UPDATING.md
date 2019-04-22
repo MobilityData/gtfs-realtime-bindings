@@ -1,8 +1,38 @@
 # How-To Update Bindings When gtfs-realtime.proto Changes
 
-## One-Time Setup
+## Regenerate the language binding source from gtfs-realtime.proto.
 
-You will need a GPG key to sign the release artificats.  Generate a key and
+#### One-Time Setup
+
+1. Download and setup Protocol Buffer release from https://github.com/protocolbuffers/protobuf/releases (if you haven't already done this for another language).  As of February 2019 we're using v3.7 release, which is compatible with proto2 .proto files.
+1. Download [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+1. Download and install [Maven](https://maven.apache.org/download.cgi)
+
+#### Every time `gtfs-realtime.proto` changes
+
+Regenerate the language binding source from gtfs-realtime.proto.
+
+From the project `/java` folder, run:
+
+```
+protoc --java_out=src/main/java --proto_path=.. ../gtfs-realtime.proto
+```
+
+Add the license header back to the generated source file.
+
+Test the generated code:
+
+```
+mvn verify
+````
+
+Bump version numbers as appropriate in `pom.xml`
+
+## Publishing a new release
+
+#### One-Time Setup
+
+You will need a GPG key to sign the release artifacts.  Generate a key and
 publish it.
 
 ```
@@ -26,21 +56,7 @@ I use `mobilitydata-release` in this example:
 We will activate this profile when performing the release so that Maven knows
 which key and password to use when signing the release.
 
-## Updates
-
-Regenerate the language binding source from gtfs-realtime.proto.
-
-```
-protoc --java_out=src/main/java --proto_path=.. ../gtfs-realtime.proto
-```
-
-Add the license header back to the generated source file.
-
-Test the generated code:
-
-```
-mvn verify
-````
+#### Every release
 
 Prepare the release:
 
@@ -48,7 +64,7 @@ Prepare the release:
 mvn -P mobilitydata-release release:clean release:prepare
 ```
 
-Bump version numbers as appropriate.  When tagging the release, use a tag of
+When tagging the release, use a tag of
 the form `gtfs-realtime-bindings-java-0.0.1` (Note the addition of `-java`).
 
 Now perform the release:

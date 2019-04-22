@@ -1,27 +1,41 @@
 # How-To Update Bindings When gtfs-realtime.proto Changes
 
-Regenerate the language binding source from gtfs-realtime.proto.
+## Regenerate the language binding source from gtfs-realtime.proto.
 
-```
-go get -u github.com/golang/protobuf/protoc-gen-go
-protoc --go_out=./golang/gtfs/ ./gtfs-realtime.proto
-```
+#### One-Time Setup
 
-Add the license header back to the generated source file.
+1. Download and setup Protocol Buffer release from https://github.com/protocolbuffers/protobuf/releases (if you haven't already done this for another language).  As of February 2019 we're using v3.7 release, which is compatible with proto2 .proto files.
+1. Download [Go](https://golang.org/dl/)
 
-Change the line:
-```golang
-package transit_realtime
-```
+#### Every time `gtfs-realtime.proto` changes
 
-to:
+1. Regenerate the language binding source from gtfs-realtime.proto by running the following from the `golang` directory:
 
-```golang
-package gtfs
-```
+    ```
+    go get -u github.com/golang/protobuf/protoc-gen-go
+    protoc --go_out=./gtfs/ --proto_path=.. ../gtfs-realtime.proto
+    ```
 
-Test the generated code:
+1. Add the license header back to the generated source file.
 
-```
-go test
-````
+1. Change the line:
+
+    ```golang
+    package transit_realtime
+    ```
+
+    to:
+
+    ```golang
+    package gtfs
+    ```
+
+1. Test the generated code from the `golang/gtfs` directory:
+
+    ```
+    go test
+    ````
+
+## Publishing a new release
+
+Not needed - Users can pull dependency directly from GitHub after the above process is completed. See [Go README](/golang/README.md) for details.

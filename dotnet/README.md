@@ -26,11 +26,11 @@ GTFS-realtime schema), and iterating over the results.
 ```csharp
 using System.Net;
 using ProtoBuf;
-using transit_realtime;
+using TransitRealtime;
 
 WebRequest req = HttpWebRequest.Create("URL OF YOUR GTFS-REALTIME SOURCE GOES HERE");
 FeedMessage feed = Serializer.Deserialize<FeedMessage>(req.GetResponse().GetResponseStream());
-foreach (FeedEntity entity in feed.entity) {
+foreach (FeedEntity entity in feed.Entities) {
   ...
 }
 ```

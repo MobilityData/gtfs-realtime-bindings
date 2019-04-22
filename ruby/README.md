@@ -7,6 +7,8 @@ Provides Ruby classes generated from the
 Buffer specification.  These classes will allow you to parse a binary Protocol
 Buffer GTFS-realtime data feed into Ruby objects.
 
+**Deprecated:** *As of February 2019, the official `google-protobuf` Google protoc tool [doesn't support extensions](https://github.com/protocolbuffers/protobuf/issues/1198) in proto2 files.  A 3rd party tool, [ruby-protocol-buffers](https://github.com/codekitchen/ruby-protocol-buffers), can be installed using `gem install ruby-protocol-buffers`, but doesn't seem to match the existing structure of the Ruby GTFS-rt bindings, as the unit tests fail.  As a result we are deprecating the Ruby bindings until official support for proto2 files is implemented in the Google protocol buffer tools.*
+
 ## Add the Dependency
 
 To use the `gtfs-realtime-bindings` classes in your own project, you need to

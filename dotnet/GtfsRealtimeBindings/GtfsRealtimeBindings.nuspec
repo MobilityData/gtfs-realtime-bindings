@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/MobilityData/gtfs-realtime-bindings/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Update .NET to latest gtfs-realtime.proto - Feb 26, 2015</releaseNotes>
+    <releaseNotes>Update .NET to latest gtfs-realtime.proto - Feb 20, 2019</releaseNotes>
     <copyright>Copyright 2015-2019</copyright>
     <tags>gtfs-realtime</tags>
     <dependencies>

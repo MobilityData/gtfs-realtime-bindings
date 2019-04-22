@@ -30,7 +30,7 @@ func TestFeedMessage(t *testing.T) {
 
 	entity := feed.Entity[0]
 	if *entity.Id != expectedEntityId {
-		t.Errorf("Expected entity id: %s, got: %s\n", expectedEntityId, entity.Id)
+		t.Errorf("Expected entity id: %v, got: %v\n", expectedEntityId, entity.Id)
 	}
 
 	vehicle := entity.Vehicle
@@ -44,6 +44,6 @@ func TestFeedMessage(t *testing.T) {
 	}
 
 	if *trip.TripId != expectedTripId {
-		t.Errorf("Expected trip id: %s, got: %s", expectedTripId, trip.TripId)
+		t.Errorf("Expected trip id: %v, got: %v", expectedTripId, trip.TripId)
 	}
 }
