@@ -30,6 +30,12 @@
 
 #### Every release
 
+Log in with your account on NPM that has permissions for https://www.npmjs.com/package/gtfs-realtime-bindings:
+
+```
+npm login
+```
+
 Publish the package to NPM:
 
 ```
