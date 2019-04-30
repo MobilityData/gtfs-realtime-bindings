@@ -29,7 +29,11 @@
 
 #### One-Time Setup
 
-Download [Visual Studio](https://visualstudio.microsoft.com/downloads/) - the free "Community" version is fine
+1. Download and install [Visual Studio](https://visualstudio.microsoft.com/downloads/) - the free "Community" version is fine
+
+1. Download and install [NuGet CLI](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference)
+
+1. Create an API key and configure Nuget using your authorized account for [gtfs-realtime-bindings](https://www.nuget.org/packages/GtfsRealtimeBindings/) as discussed [here](https://docs.microsoft.com/en-us/nuget/create-packages/publish-a-package)
 
 #### Every release
 
@@ -43,9 +47,10 @@ Download [Visual Studio](https://visualstudio.microsoft.com/downloads/) - the fr
 
     `vstest.console dotnet\GtfsRealtimeBindingsTest\bin\Release\GtfsRealtimeBindingsTest.dll`
 
-4. Build and deploy the package to NuGet.
+4. Set API key, build and deploy the package to NuGet.
 
 ```
-nuget pack GtfsRealtimeBindings.csproj -Prop Configuration=Release
-nuget push GtfsRealtimeBindings-X.Y.Z.nupkg
+nuget setApiKey xxxxxxx
+nuget pack GtfsRealtimeBindings/GtfsRealtimeBindings.csproj -Prop Configuration=Release
+nuget push GtfsRealtimeBindings.X.Y.Z.nupkg -Source https://api.nuget.org/v3/index.json
 ```
