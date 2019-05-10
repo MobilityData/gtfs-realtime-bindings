@@ -3193,6 +3193,7 @@ $root.transit_realtime = (function() {
                 case 8:
                 case 9:
                 case 10:
+                case 11:
                     break;
                 }
             if (message.url != null && message.hasOwnProperty("url")) {
@@ -3360,6 +3361,10 @@ $root.transit_realtime = (function() {
             case "NO_EFFECT":
             case 10:
                 message.effect = 10;
+                break;
+            case "ACCESSIBILITY_ISSUE":
+            case 11:
+                message.effect = 11;
                 break;
             }
             if (object.url != null) {
@@ -3531,6 +3536,7 @@ $root.transit_realtime = (function() {
          * @property {number} UNKNOWN_EFFECT=8 UNKNOWN_EFFECT value
          * @property {number} STOP_MOVED=9 STOP_MOVED value
          * @property {number} NO_EFFECT=10 NO_EFFECT value
+         * @property {number} ACCESSIBILITY_ISSUE=11 ACCESSIBILITY_ISSUE value
          */
         Alert.Effect = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -3544,6 +3550,7 @@ $root.transit_realtime = (function() {
             values[valuesById[8] = "UNKNOWN_EFFECT"] = 8;
             values[valuesById[9] = "STOP_MOVED"] = 9;
             values[valuesById[10] = "NO_EFFECT"] = 10;
+            values[valuesById[11] = "ACCESSIBILITY_ISSUE"] = 11;
             return values;
         })();
 
@@ -4698,6 +4705,7 @@ $root.transit_realtime = (function() {
          * @property {number|null} [routeType] EntitySelector routeType
          * @property {transit_realtime.ITripDescriptor|null} [trip] EntitySelector trip
          * @property {string|null} [stopId] EntitySelector stopId
+         * @property {number|null} [directionId] EntitySelector directionId
          * @property {ITransitInformedEntityExtension|null} [".transitEntitySelectorExtension"] EntitySelector .transitEntitySelectorExtension
          */
 
@@ -4757,6 +4765,14 @@ $root.transit_realtime = (function() {
         EntitySelector.prototype.stopId = "";
 
         /**
+         * EntitySelector directionId.
+         * @member {number} directionId
+         * @memberof transit_realtime.EntitySelector
+         * @instance
+         */
+        EntitySelector.prototype.directionId = 0;
+
+        /**
          * EntitySelector .transitEntitySelectorExtension.
          * @member {ITransitInformedEntityExtension|null|undefined} .transitEntitySelectorExtension
          * @memberof transit_realtime.EntitySelector
@@ -4798,6 +4814,8 @@ $root.transit_realtime = (function() {
                 $root.transit_realtime.TripDescriptor.encode(message.trip, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
             if (message.stopId != null && message.hasOwnProperty("stopId"))
                 writer.uint32(/* id 5, wireType 2 =*/42).string(message.stopId);
+            if (message.directionId != null && message.hasOwnProperty("directionId"))
+                writer.uint32(/* id 6, wireType 0 =*/48).uint32(message.directionId);
             if (message[".transitEntitySelectorExtension"] != null && message.hasOwnProperty(".transitEntitySelectorExtension"))
                 $root.TransitInformedEntityExtension.encode(message[".transitEntitySelectorExtension"], writer.uint32(/* id 1496, wireType 2 =*/11970).fork()).ldelim();
             return writer;
@@ -4848,6 +4866,9 @@ $root.transit_realtime = (function() {
                     break;
                 case 5:
                     message.stopId = reader.string();
+                    break;
+                case 6:
+                    message.directionId = reader.uint32();
                     break;
                 case 1496:
                     message[".transitEntitySelectorExtension"] = $root.TransitInformedEntityExtension.decode(reader, reader.uint32());
@@ -4904,6 +4925,9 @@ $root.transit_realtime = (function() {
             if (message.stopId != null && message.hasOwnProperty("stopId"))
                 if (!$util.isString(message.stopId))
                     return "stopId: string expected";
+            if (message.directionId != null && message.hasOwnProperty("directionId"))
+                if (!$util.isInteger(message.directionId))
+                    return "directionId: integer expected";
             if (message[".transitEntitySelectorExtension"] != null && message.hasOwnProperty(".transitEntitySelectorExtension")) {
                 var error = $root.TransitInformedEntityExtension.verify(message[".transitEntitySelectorExtension"]);
                 if (error)
@@ -4937,6 +4961,8 @@ $root.transit_realtime = (function() {
             }
             if (object.stopId != null)
                 message.stopId = String(object.stopId);
+            if (object.directionId != null)
+                message.directionId = object.directionId >>> 0;
             if (object[".transitEntitySelectorExtension"] != null) {
                 if (typeof object[".transitEntitySelectorExtension"] !== "object")
                     throw TypeError(".transit_realtime.EntitySelector..transitEntitySelectorExtension: object expected");
@@ -4964,6 +4990,7 @@ $root.transit_realtime = (function() {
                 object.routeType = 0;
                 object.trip = null;
                 object.stopId = "";
+                object.directionId = 0;
                 object[".transitEntitySelectorExtension"] = null;
             }
             if (message.agencyId != null && message.hasOwnProperty("agencyId"))
@@ -4976,6 +5003,8 @@ $root.transit_realtime = (function() {
                 object.trip = $root.transit_realtime.TripDescriptor.toObject(message.trip, options);
             if (message.stopId != null && message.hasOwnProperty("stopId"))
                 object.stopId = message.stopId;
+            if (message.directionId != null && message.hasOwnProperty("directionId"))
+                object.directionId = message.directionId;
             if (message[".transitEntitySelectorExtension"] != null && message.hasOwnProperty(".transitEntitySelectorExtension"))
                 object[".transitEntitySelectorExtension"] = $root.TransitInformedEntityExtension.toObject(message[".transitEntitySelectorExtension"], options);
             return object;
