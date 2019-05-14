@@ -5,6 +5,7 @@
 // Use 1496 as an extension number
 // Needed to be relatively big and higher than 1000
 
+syntax = "proto2";
 import "gtfs-spec/gtfs-realtime/proto/gtfs-realtime.proto";
 
 message TransitAlertExtension {
