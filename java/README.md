@@ -19,7 +19,7 @@ dependencies section:
 <dependency>
   <groupId>io.mobilitydata.transit</groupId>
   <artifactId>gtfs-realtime-bindings</artifactId>
-  <version>0.0.4</version>
+  <version>0.0.5</version>
 </dependency>
 ```
 
