@@ -32,54 +32,48 @@ Bump version numbers as appropriate in `pom.xml`
 
 #### One-Time Setup
 
-You will need a GPG key to sign the release artifacts.  Generate a key and
-publish it.
+We're hosting releases on JCenter via [Bintray](https://bintray.com/).
 
-```
-gpg --gen-key
-gpg --keyserver hkp://pgp.mit.edu --send-keys HEX_KEY_ID_GOES_HERE
-```
+These are the steps for publishing the `gtfs-realtime-bindings` library on `jcenter` repository.
 
-Add a profile in your `~/.m2/settings.xml` file with the key id and password.
-I use `mobilitydata-release` in this example:
+###### 1 - Create an account on [Bintray](https://bintray.com/).
+###### 2 - Setup your pom.xml
 
+We need to specify the URL from which to distribute your project. 
 ```
-<profile>
-  <id>mobilitydata-release</id>
-  <properties>
-    <gpg.keyname>HEX_KEY_ID_GOES_HERE</gpg.keyname>
-    <gpg.passphrase>**************</gpg.passphrase>
-  </properties>
-</profile>
+  <distributionManagement>
+    <repository>
+      <id>jCenter</id>
+      <url>https://api.bintray.com/maven/mobilitydata/mobilitydata-mvn-repo/gtfs-realtime-bindings/;publish=1</url>
+    </repository>
+  </distributionManagement>
 ```
 
-We will activate this profile when performing the release so that Maven knows
-which key and password to use when signing the release.
+###### 3 - Setup your setting.xml
+We need to provide Bintray username and API Key to the Maven `settings.xml` file.  This may be under your Maven installation directory (e.g., `C:\Program Files\Apache Software Foundation\apache-maven-3.2.5\conf`).
+
+```
+<server>
+  <id>jCenter</id>
+  <username>yourjcenteraccount</username>
+  <password>***youraccount-secret-api-key***</password>
+</server>
+```
+
+To sign the application (required for publishing to Maven Central) we use Bintray's automated signing using their internal key as discussed [here](https://www.jfrog.com/confluence/display/BT/Managing+Uploaded+Content#ManagingUploadedContent-SigningwiththeBintrayKey)
+
+###### 4 - Run maven deploy
+
+Finally, we can run ```mvn deploy``` to complete publishing.
 
 #### Every release
 
-Prepare the release:
+1. Bump the version in `pom.xml`
 
-```
-mvn -P mobilitydata-release release:clean release:prepare
-```
+1. Deploy it:
 
-When tagging the release, use a tag of
-the form `gtfs-realtime-bindings-java-0.0.1` (Note the addition of `-java`).
+    ```
+    mvn deploy
+    ```
 
-Now perform the release:
-
-```
-mvn -P mobilitydata-release release:perform
-```
-
-Push the release the central Maven repo:
-
-* Login at https://oss.sonatype.org/
-* Go to 'Staging Repositories'
-* Select the `iomobilitydatatransit` repo.
-* Close the repo.
-* Twiddle your thumbs.
-* Select the repo again.
-* Release the repo.
-* Jars will be staged to central Maven repo after a couple of hours.
+1. When tagging the release, use a tag of the form `gtfs-realtime-bindings-java-0.0.1` (Note the addition of `-java`).
