@@ -27,7 +27,7 @@ For [Gradle](https://www.gradle.org/), add the following to your `build.gradle`
 dependecies section:
 
 ```
-compile group: 'io.mobilitydata.transit', name: 'gtfs-realtime-bindings', version: '0.0.4'
+compile group: 'io.mobilitydata.transit', name: 'gtfs-realtime-bindings', version: '0.0.5'
 ```
 
 Make sure the Maven central repository is referenced by your project.
