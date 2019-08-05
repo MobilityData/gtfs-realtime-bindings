@@ -41,8 +41,8 @@ GTFS-realtime schema), and iterating over the results.
 ```java
 import java.net.URL;
 
-import io.mobilitydata.transit.realtime.GtfsRealtime.FeedEntity;
-import io.mobilitydata.transit.realtime.GtfsRealtime.FeedMessage;
+import com.google.transit.realtime.GtfsRealtime.FeedEntity;
+import com.google.transit.realtime.GtfsRealtime.FeedMessage;
 
 public class GtfsRealtimeExample {
   public static void main(String[] args) throws Exception {
