@@ -5,6 +5,9 @@
 // Use 1496 as an extension number
 // Needed to be relatively big and higher than 1000
 
+// We will migrate the alerts extension at another moment
+// Using private extension ID 9514. Has to be between 9000 and 9999
+
 syntax = "proto2";
 import "gtfs-spec/gtfs-realtime/proto/gtfs-realtime.proto";
 
