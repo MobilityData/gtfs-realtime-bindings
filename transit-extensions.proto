@@ -2,10 +2,6 @@
 // Transit Extensions for the GTFS-realtime protocol.
 //
 
-// Use 1496 as an extension number
-// Needed to be relatively big and higher than 1000
-
-// We will migrate the alerts extension at another moment
 // Using private extension ID 9514. Has to be between 9000 and 9999
 
 syntax = "proto2";
@@ -17,7 +13,7 @@ message TransitAlertExtension {
 }
 
 extend transit_realtime.Alert {
-    optional TransitAlertExtension transit_alert_extension = 1496;
+    optional TransitAlertExtension transit_alert_extension = 9514;
 }
 
 message TransitInformedEntityExtension {
@@ -32,7 +28,7 @@ message TransitInformedEntityExtension {
 }
 
 extend transit_realtime.EntitySelector {
-    optional TransitInformedEntityExtension transit_entity_selector_extension = 1496;
+    optional TransitInformedEntityExtension transit_entity_selector_extension = 9514;
 }
 
 message TransitVehicleDescriptorExtension {
