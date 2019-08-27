@@ -35,6 +35,9 @@ extend transit_realtime.EntitySelector {
 message TransitVehicleDescriptorExtension {
     // If that vehicle information is based on crowd information
     optional bool based_on_crowdsourcing_data = 1;
+
+    // VehicleId in the transitBackend that generated that prediction
+    optional string transit_vehicle_id = 2;
 }
 
 extend transit_realtime.VehicleDescriptor {
@@ -50,7 +53,11 @@ message TransitTripDescriptorExtension {
         TRANSIT_PREDICTION_ENGINE = 1;
     }
 
-    optional OriginPrediction origin_prediction = 2 [default = AGENCY_ORIGINAL_DATA];
+    // Who generated the prediction
+    optional OriginPrediction origin_prediction = 1 [default = AGENCY_ORIGINAL_DATA];
+
+    // Timestamp when the prediction was made, in POSIX time
+    optional uint64 prediction_made_at = 2;
 }
 
 extend transit_realtime.TripDescriptor {
@@ -59,8 +66,9 @@ extend transit_realtime.TripDescriptor {
 
 message TransitStopTimeUpdateExtension {
     // If the prediction should be kept in the app until it receives an update from the server saying
-    // that the vehicle is past the stop
-    optional bool is_vehicle_arriving_at_stop = 1;
+    // that the vehicle is past the stop. Should not assume that the vehicle is past the stop until
+    // the server says so
+    optional bool should_not_assume_vehicle_is_past = 1;
 }
 
 extend transit_realtime.TripUpdate.StopTimeUpdate {
