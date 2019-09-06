@@ -5,7 +5,7 @@
     "tags": [
         "gtfs-realtime"
     ],
-    "version": "1.4.5",
+    "version": "1.6.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/google/gtfs-realtime-bindings.git"
@@ -18,8 +18,8 @@
         "test": "mocha test/*.js",
         "buildProto": "pbjs -t static-module -w commonjs -o gtfs-realtime.js ../transit-extensions.proto"
     },
-    "engines" : {
-        "node" : ">=8.0.0"
+    "engines": {
+        "node": ">=8.0.0"
     },
     "dependencies": {
         "protobufjs": "^6.8.8"
