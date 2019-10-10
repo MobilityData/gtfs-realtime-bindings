@@ -1,4 +1,4 @@
-# gtfs-realtime-bindings
+# gtfs-realtime-bindings [![Join the MobilityData IO chat](https://mobilitydata-io.herokuapp.com/badge.svg)](https://mobilitydata-io.herokuapp.com/)
 
 Language bindings generated from the
 [GTFS-realtime](https://github.com/google/transit/tree/master/gtfs-realtime) protocol
