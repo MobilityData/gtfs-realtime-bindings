@@ -46,6 +46,9 @@ message FeedMessage {
   // GTFS Realtime specification in order to add and evaluate new features and
   // modifications to the spec.
   extensions 1000 to 1999;
+
+  // The following extension IDs are reserved for private use by any organization.
+  extensions 9000 to 9999;
 }
 
 // Metadata about a feed, included in feed messages.
@@ -74,6 +77,9 @@ message FeedHeader {
   // GTFS Realtime specification in order to add and evaluate new features and
   // modifications to the spec.
   extensions 1000 to 1999;
+
+  // The following extension IDs are reserved for private use by any organization.
+  extensions 9000 to 9999;
 }
 
 // A definition (or update) of an entity in the transit feed.
@@ -97,11 +103,17 @@ message FeedEntity {
   optional TripUpdate trip_update = 3;
   optional VehiclePosition vehicle = 4;
   optional Alert alert = 5;
-
+  optional Trip trip = 6;
+  optional Shape shape = 7;
+  optional Route route = 8;
+  optional Stop stop = 9;
   // The extensions namespace allows 3rd-party developers to extend the
   // GTFS Realtime Specification in order to add and evaluate new features and
   // modifications to the spec.
   extensions 1000 to 1999;
+
+  // The following extension IDs are reserved for private use by any organization.
+  extensions 9000 to 9999;
 }
 
 //
@@ -176,10 +188,15 @@ message TripUpdate {
     // To specify a completely certain prediction, set its uncertainty to 0.
     optional int32 uncertainty = 3;
 
+    optional int64 schedule_time = 4;
+
     // The extensions namespace allows 3rd-party developers to extend the
     // GTFS Realtime Specification in order to add and evaluate new features
     // and modifications to the spec.
     extensions 1000 to 1999;
+
+    // The following extension IDs are reserved for private use by any organization.
+    extensions 9000 to 9999;
   }
 
   // Realtime update for arrival and/or departure events for a given stop on a
@@ -204,7 +221,8 @@ message TripUpdate {
       // stops, although not necessarily according to the times of the schedule.
       // At least one of arrival and departure must be provided. If the schedule
       // for this stop contains both arrival and departure times then so must
-      // this update.
+      // this update. Frequency-based trips (GTFS frequencies.txt with exact_times = 0)
+      // should not have a SCHEDULED value and should use UNSCHEDULED instead.
       SCHEDULED = 0;
 
       // The stop is skipped, i.e., the vehicle will not stop at this stop.
@@ -217,14 +235,27 @@ message TripUpdate {
       // stops in the trip are considered to be unspecified as well.
       // Neither arrival nor departure should be supplied.
       NO_DATA = 2;
+
+      // The vehicle is operating a trip defined in GTFS frequencies.txt with exact_times = 0.
+      // This value should not be used for trips that are not defined in GTFS frequencies.txt,
+      // or trips in GTFS frequencies.txt with exact_times = 1. Trips containing StopTimeUpdates
+      // with ScheduleRelationship=UNSCHEDULED must also set TripDescriptor.ScheduleRelationship=UNSCHEDULED.
+      // NOTE: This field is still experimental, and subject to change. It may be
+      // formally adopted in the future.
+      UNSCHEDULED = 3;
     }
     optional ScheduleRelationship schedule_relationship = 5
-        [default = SCHEDULED];
+    [default = SCHEDULED];
+
+    optional StopTimeProperties stop_time_properties = 6;
 
     // The extensions namespace allows 3rd-party developers to extend the
     // GTFS Realtime Specification in order to add and evaluate new features
     // and modifications to the spec.
     extensions 1000 to 1999;
+
+    // The following extension IDs are reserved for private use by any organization.
+    extensions 9000 to 9999;
   }
 
   // Updates to StopTimes for the trip (both future, i.e., predictions, and in
@@ -271,11 +302,18 @@ message TripUpdate {
   // NOTE: This field is still experimental, and subject to change. It may be
   // formally adopted in the future.
   optional int32 delay = 5;
+  optional TripProperties trip_properties = 6;
+  optional VehicleProperties vehicle_properties = 7;
+
+
 
   // The extensions namespace allows 3rd-party developers to extend the
   // GTFS Realtime Specification in order to add and evaluate new features and
   // modifications to the spec.
   extensions 1000 to 1999;
+
+  // The following extension IDs are reserved for private use by any organization.
+  extensions 9000 to 9999;
 }
 
 // Realtime positioning information for a given vehicle.
@@ -370,6 +408,9 @@ message VehiclePosition {
   // GTFS Realtime Specification in order to add and evaluate new features and
   // modifications to the spec.
   extensions 1000 to 1999;
+
+  // The following extension IDs are reserved for private use by any organization.
+  extensions 9000 to 9999;
 }
 
 // An alert, indicating some sort of incident in the public transit network.
@@ -416,6 +457,7 @@ message Alert {
     UNKNOWN_EFFECT = 8;
     STOP_MOVED = 9;
     NO_EFFECT = 10;
+    ACCESSIBILITY_ISSUE = 11;
   }
   optional Effect effect = 7 [default = UNKNOWN_EFFECT];
 
@@ -440,10 +482,10 @@ message Alert {
   // Severity of this alert.
   // This field is still experimental, and subject to change. It may be formally adopted in the future.
   enum SeverityLevel {
-	UNKNOWN_SEVERITY = 1;
-	INFO = 2;
-	WARNING = 3;
-	SEVERE = 4;
+    UNKNOWN_SEVERITY = 1;
+    INFO = 2;
+    WARNING = 3;
+    SEVERE = 4;
   }
 
   optional SeverityLevel severity_level = 14 [default = UNKNOWN_SEVERITY];
@@ -452,6 +494,9 @@ message Alert {
   // GTFS Realtime Specification in order to add and evaluate new features
   // and modifications to the spec.
   extensions 1000 to 1999;
+
+  // The following extension IDs are reserved for private use by any organization.
+  extensions 9000 to 9999;
 }
 
 //
@@ -475,6 +520,9 @@ message TimeRange {
   // GTFS Realtime Specification in order to add and evaluate new features and
   // modifications to the spec.
   extensions 1000 to 1999;
+
+  // The following extension IDs are reserved for private use by any organization.
+  extensions 9000 to 9999;
 }
 
 // A position.
@@ -501,6 +549,9 @@ message Position {
   // GTFS Realtime Specification in order to add and evaluate new features and
   // modifications to the spec.
   extensions 1000 to 1999;
+
+  // The following extension IDs are reserved for private use by any organization.
+  extensions 9000 to 9999;
 }
 
 // A descriptor that identifies an instance of a GTFS trip, or all instances of
@@ -567,10 +618,10 @@ message TripDescriptor {
     // An extra trip that was added in addition to a running schedule, for
     // example, to replace a broken vehicle or to respond to sudden passenger
     // load.
-    ADDED = 1;
+    ADDED = 1 [deprecated = true];
 
-    // A trip that is running with no schedule associated to it, for example, if
-    // there is no schedule at all.
+    // A trip that is running with no schedule associated to it (GTFS frequencies.txt exact_times=0).
+    // Trips with ScheduleRelationship=UNSCHEDULED must also set all StopTimeUpdates.ScheduleRelationship=UNSCHEDULED.
     UNSCHEDULED = 2;
 
     // A trip that existed in the schedule but was removed.
@@ -578,6 +629,8 @@ message TripDescriptor {
 
     // Should not be used - for backwards-compatibility only.
     REPLACEMENT = 5 [deprecated=true];
+
+    DUPLICATED = 6;
   }
   optional ScheduleRelationship schedule_relationship = 4;
 
@@ -585,6 +638,9 @@ message TripDescriptor {
   // GTFS Realtime Specification in order to add and evaluate new features and
   // modifications to the spec.
   extensions 1000 to 1999;
+
+  // The following extension IDs are reserved for private use by any organization.
+  extensions 9000 to 9999;
 }
 
 // Identification information for the vehicle performing the trip.
@@ -605,6 +661,9 @@ message VehicleDescriptor {
   // GTFS Realtime Specification in order to add and evaluate new features and
   // modifications to the spec.
   extensions 1000 to 1999;
+
+  // The following extension IDs are reserved for private use by any organization.
+  extensions 9000 to 9999;
 }
 
 // A selector for an entity in a GTFS feed.
@@ -619,11 +678,18 @@ message EntitySelector {
   optional int32 route_type = 3;
   optional TripDescriptor trip = 4;
   optional string stop_id = 5;
+  // Corresponds to trip direction_id in GTFS trips.txt. If provided the
+  // route_id must also be provided. This field is still experimental, and
+  // subject to change. It may be formally adopted in the future.
+  optional uint32 direction_id = 6;
 
   // The extensions namespace allows 3rd-party developers to extend the
   // GTFS Realtime Specification in order to add and evaluate new features and
   // modifications to the spec.
   extensions 1000 to 1999;
+
+  // The following extension IDs are reserved for private use by any organization.
+  extensions 9000 to 9999;
 }
 
 // An internationalized message containing per-language versions of a snippet of
@@ -649,6 +715,9 @@ message TranslatedString {
     // GTFS Realtime Specification in order to add and evaluate new features and
     // modifications to the spec.
     extensions 1000 to 1999;
+
+    // The following extension IDs are reserved for private use by any organization.
+    extensions 9000 to 9999;
   }
   // At least one translation must be provided.
   repeated Translation translation = 1;
@@ -657,4 +726,278 @@ message TranslatedString {
   // GTFS Realtime Specification in order to add and evaluate new features and
   // modifications to the spec.
   extensions 1000 to 1999;
+
+  // The following extension IDs are reserved for private use by any organization.
+  extensions 9000 to 9999;
+}
+
+// All messages below this comment are added in order to reflect the changes v3.1 of GTFS-ServiceChanges provide
+
+// Provides the updated properties for the trip.
+message TripProperties {
+  // Identifies a trip.
+  required string trip_id = 1;
+  // Dates on which the trip will be run in YYYYMMDD format.
+  required string start_date = 2;
+  // Departure start time of the trip when it’s duplicated.
+  required string start_time = 3;
+  // Refers to a route defined in the GTFS.
+  optional string route_id = 4;
+  // Text that appears on signage identifying the trip's destination to riders.
+  optional TranslatedString trip_headsign = 5;
+  // Public facing text used to identify the trip to riders.
+  optional TranslatedString trip_short_name = 6;
+  // Identifies the block to which the trip belongs.
+  optional string block_id = 7;
+  // Identifies a geospatial shape describing the vehicle travel path for a trip.
+  optional string shape_id = 8;
+}
+
+//  Provides the updated properties for the vehicle.
+message VehicleProperties {
+
+  // Indicates wheelchair accessibility.
+  optional WheelchairAccessibleStatus wheelchair_accessible = 1 [default = UNKNOWN_WHEELCHAIR_ACCESSIBILITY];
+  // Indicates whether bikes are allowed or not.
+  optional BikesAllowedStatus biked_allowed = 2 [default = UNKNOWN_BIKES_ALLOWANCE];
+
+  // Options for wheelchair_accessible:
+  // 0 or empty - No accessibility information for the trip.
+  // 1 - Vehicle being used on this particular trip can accommodate at least one rider in a wheelchair.
+  // 2 - No riders in wheelchairs can be accommodated on this trip.
+  enum WheelchairAccessibleStatus {
+    UNKNOWN_WHEELCHAIR_ACCESSIBILITY = 0;
+    WHEELCHAIR_ACCESSIBLE = 1;
+    NOT_WHEELCHAIR_ACCESSIBLE = 2;
+  }
+
+  // Options for biked_allowed:
+  //0 or empty - No bike information for the trip.
+  //1 - Vehicle being used on this particular trip can accommodate at least one bicycle.
+  //2 - No bicycles are allowed on this trip.
+  enum BikesAllowedStatus {
+    UNKNOWN_BIKES_ALLOWANCE = 0;
+    BIKES_ALLOWED = 1;
+    BIKES_NOT_ALLOWED = 2;
+  }
+}
+
+// Provides the updated values for the stop time.
+message StopTimeProperties {
+  // Refers to a stop_id defined in the GTFS.
+  optional string platform_id = 1;
+  // Text that appears on signage identifying the trip's destination to riders.
+  optional TranslatedString stop_headsign = 2;
+  // Indicates pickup method.
+  optional PickupType pickup_type = 3 [default = REGULAR_PICKUP];
+  // Indicates drop off method.
+  optional DropOffType drop_off_type = 4 [default = REGULAR_DROP_OFF];
+  // Actual distance traveled along the associated shape, from the first stop to the stop specified in this record.
+  optional float shape_dist_traveled = 5;
+  // Identifies the new serviced stop (defined in the RT-GTFS).
+  optional string stop_id = 6;
+
+  // Valid options for pickup_type:
+  enum PickupType {
+    REGULAR_PICKUP = 0;
+    NO_PICKUP = 1;
+    MUST_PHONE_AGENCY_PICKUP = 2;
+    MUST_ASK_DRIVER_PICKUP = 3;
+  }
+
+  // Valid options for drop_off_type:
+  enum DropOffType {
+    REGULAR_DROP_OFF = 0;
+    NO_DROP_OFF = 1;
+    MUST_PHONE_AGENCY_DROP_OFF = 2;
+    MUST_ASK_DRIVER_DROP_OFF = 3;
+  }
+}
+
+// Describes new trips.
+message Trip {
+  // Identifier of the trip. Must be different than any trip_id defined in the GTFS.
+  required string trip_id = 1;
+  // Identifies a route.
+  optional string route_id = 2;
+  // Text that appears on signage identifying the trip's destination to riders.
+  required TranslatedString trip_headsign = 3 ;
+  // Public facing text used to identify the trip to riders, for instance, to identify train numbers for commuter rail trip
+  required string trip_short_name = 4;
+  // Indicates the direction of travel for a trip.
+  optional int64 direction_id = 5;
+  // Identifies the block to which the trip belongs.
+  optional string block_id = 6;
+  // Identifies a geospatial shape describing the vehicle travel path for a trip.
+  optional string shape_id = 7;
+  // Indicates wheelchair accessibility.
+  optional WheelchairAccessibleStatus wheelchair_accessible = 8 [default = UNKNOWN_WHEELCHAIR_ACCESSIBILITY];
+  // Indicates whether bikes are allowed or not.
+  optional BikesAllowedStatus biked_allowed = 9 [default = UNKNOWN_BIKES_ALLOWANCE];
+  //  Defines which trips are being replaced by this trip.
+  repeated string replaces_trip_id = 10;
+
+  // Options for wheelchair_accessible:
+  // 0 or empty - No accessibility information for the trip.
+  // 1 - Vehicle being used on this particular trip can accommodate at least one rider in a wheelchair.
+  // 2 - No riders in wheelchairs can be accommodated on this trip.
+  enum WheelchairAccessibleStatus {
+    UNKNOWN_WHEELCHAIR_ACCESSIBILITY = 0;
+    WHEELCHAIR_ACCESSIBLE = 1;
+    NOT_WHEELCHAIR_ACCESSIBLE = 2;
+  }
+
+  // Options for biked_allowed:
+  // 0 or empty - No bike information for the trip.
+  // 1 - Vehicle being used on this particular trip can accommodate at least one bicycle.
+  // 2 - No bicycles are allowed on this trip.
+  enum BikesAllowedStatus {
+    UNKNOWN_BIKES_ALLOWANCE = 0;
+    BIKES_ALLOWED = 1;
+    BIKES_NOT_ALLOWED = 2;
+  }
+}
+
+// Describes the times that a vehicle arrives at and departs from stops for each updated trip
+message StopTime {
+  // Order of stops for a particular trip. The values must increase along the trip but do not need to be consecutive.
+  required uint32 stop_sequence = 1;
+  // Arrival time at a specific stop for a specific trip on a route.
+  required uint64 arrival_time = 2;
+  // Departure time at a specific stop for a specific trip on a route.
+  required uint64 departure_time = 3;
+  // Identifies the serviced stop.
+  required string stop_id = 4;
+  // Text that appears on signage identifying the trip's destination to riders.
+  optional TranslatedString stop_headsign = 5;
+  // Indicates pickup method.
+  optional PickupType pickup_type = 6 [default = REGULAR_PICKUP];
+  // Indicates drop off method.
+  optional DropOffType drop_off_type = 7 [default = REGULAR_DROP_OFF];
+  // Actual distance traveled along the associated shape, from the first stop to the stop specified in this record.
+  optional float shape_dist_traveled = 8;
+
+  // Valid options for pickup_type:
+  // 0 or empty - Regularly scheduled pickup.
+  // 1 - No pickup available.
+  // 2 - Must phone agency to arrange pickup.
+  // 3 - Must coordinate with driver to arrange pickup.
+  enum PickupType {
+    REGULAR_PICKUP = 0;
+    NO_PICKUP = 1;
+    MUST_PHONE_AGENCY_PICKUP = 2;
+    MUST_ASK_DRIVER_PICK_UP = 3;
+  }
+
+  // Valid options for drop_off_type:
+  // 0 or empty - Regularly scheduled drop off.
+  // 1 - No drop off available.
+  // 2 - Must phone agency to arrange drop off.
+  // 3 - Must coordinate with driver to arrange drop off.
+  enum DropOffType {
+    REGULAR_DROP_OFF = 0;
+    NO_DROP_OFF = 1;
+    MUST_PHONE_AGENCY_DROP_OFF = 2;
+    MUST_ASK_DRIVER_DROP_OFF = 3;
+  }
+}
+
+// Defines a shape for a trip that has been updated.
+message Shape {
+  // Identifier of the shape. Must be different than any shape_id defined in the GTFS.
+  required string shape_id = 1;
+  // Points in the shape. A shape must contain at least two shape points. The shape points order in this field defines their order in the shape.
+  repeated ShapePoint shape_point = 2;
+}
+
+// Defines the geographical representation of a point in a shape.
+message ShapePoint {
+  // Latitude of a shape point. Each record in shapes.txt represents a shape point used to define the shape.
+  required float shape_pt_lat = 1;
+  // Longitude of a shape point.
+  required float shape_pt_lon = 2;
+  // Actual distance traveled along the shape from the first shape point to the point specified in this record.
+  optional float shape_dist_traveled = 3;
+}
+
+// Describes new routes. A route is a group of trips that are displayed to riders as a single service.
+message Route {
+  //  Identifier of the route. Must be different than any route_id defined in the GTFS.
+  required string route_id = 1;
+  // Identifies a transit brand which is often synonymous with a transit agency.
+  required string agency_id = 2;
+  // Short name of a route.
+  optional TranslatedString route_short_name = 3;
+  // Full name of a route. This name is generally more descriptive than the route_short_name and often includes the route's destination or stop.
+  optional TranslatedString route_long_name = 4;
+  // Description of a route that provides useful, quality information. Do not simply duplicate the name of the route.
+  optional TranslatedString route_desc = 5;
+  // Indicates the type of transportation used on a route.
+  required RouteType route_type = 6;
+  // URL of a web page about the particular route. Should be different from the agency.agency_url value.
+  optional TranslatedString route_url = 7;
+  // Route color designation that matches public facing material. D
+  optional string route_color = 8;
+  // Legible color to use for text drawn against a background of route_color.
+  optional string route_text_color = 9;
+  // Orders the routes in a way which is ideal for presentation to customers. Routes with smaller route_sort_order values should be displayed first.
+  optional uint32 route_sort_order = 10;
+
+  // Valid options for route_type:
+  // 0 - Tram, Streetcar, Light rail. Any light rail or street level system within a metropolitan area.
+  // 1 - Subway, Metro. Any underground rail system within a metropolitan area.
+  // 2 - Rail. Used for intercity or long-distance travel.
+  // 3 - Bus. Used for short- and long-distance bus routes.
+  // 4 - Ferry. Used for short- and long-distance boat service.
+  // 5 - Cable car. Used for street-level cable cars where the cable runs beneath the car.
+  // 6 - Gondola, Suspended cable car. Typically used for aerial cable cars where the car is suspended from the cable.
+  // 7 - Funicular. Any rail system designed for steep inclines.
+  enum RouteType {
+    LIGHT_RAIL = 0;
+    SUBWAY = 1;
+    RAIL = 2;
+    BUS = 3;
+    FERRY = 4;
+    CABLE_CAR = 5;
+    GONDOLA = 6;
+    FUNICULAR = 7;
+  }
+}
+
+// Describes new stops where vehicles pick up or drop off riders.
+message Stop {
+  //  Identifier of the stop. Must be different than any stop_id defines in the GTFS.
+  required string stop_id = 1;
+  // Short text or a number that identifies the location for riders. These codes are often used in phone-based transit
+  // information systems or printed on signage to make it easier for riders to get information for a particular location.
+  optional TranslatedString stop_code = 2;
+  // Name of the location. Use a name that people will understand in the local and tourist vernacular.
+  required TranslatedString stop_name = 3;
+  // Description of the location that provides useful, quality information.
+  optional TranslatedString stop_desc = 4;
+  // Latitude of the location.
+  required float stop_lat = 5;
+  // Longitude of the location.
+  required float stop_lon = 6;
+  // Identifies the fare zone for a stop.
+  optional string zone_id = 7;
+  // URL of a web page about the location.
+  optional TranslatedString stop_url = 8;
+  // Defines hierarchy between the different locations defined in stops.txt.
+  optional string parent_station = 9;
+  // Timezone of the location. If the location has a parent station, it inherits the parent station’s timezone instead of applying its own.
+  optional string stop_timezone = 10;
+  // Indicates whether wheelchair boardings are possible from the location.
+  optional WheelchairBoardingStatus wheelchair_boarding = 11 [default = UNKNOWN_WHEELCHAIR_BOARDING];
+  // Level of the location.
+  optional string level_id = 12;
+  // Platform identifier for a platform stop.
+  optional string platform_code = 13;
+
+  // Valid options for wheelchair_boarding:
+  enum WheelchairBoardingStatus {
+    UNKNOWN_WHEELCHAIR_BOARDING = 0;
+    WHEELCHAIR_ACCESSIBLE = 1;
+    NOT_WHEELCHAIR_ACCESSIBLE = 2;
+  }
 }
