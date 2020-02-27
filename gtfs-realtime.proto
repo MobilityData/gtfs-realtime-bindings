@@ -305,8 +305,6 @@ message TripUpdate {
   optional TripProperties trip_properties = 6;
   optional VehicleProperties vehicle_properties = 7;
 
-
-
   // The extensions namespace allows 3rd-party developers to extend the
   // GTFS Realtime Specification in order to add and evaluate new features and
   // modifications to the spec.
@@ -736,11 +734,11 @@ message TranslatedString {
 // Provides the updated properties for the trip.
 message TripProperties {
   // Identifies a trip.
-  required string trip_id = 1;
+  optional string trip_id = 1;
   // Dates on which the trip will be run in YYYYMMDD format.
-  required string start_date = 2;
+  optional string start_date = 2;
   // Departure start time of the trip when it’s duplicated.
-  required string start_time = 3;
+  optional string start_time = 3;
   // Refers to a route defined in the GTFS.
   optional string route_id = 4;
   // Text that appears on signage identifying the trip's destination to riders.
@@ -762,7 +760,7 @@ message VehicleProperties {
   optional BikesAllowedStatus biked_allowed = 2 [default = UNKNOWN_BIKES_ALLOWANCE];
 
   // Options for wheelchair_accessible:
-  // 0 or empty - No accessibility information for the trip.
+  // 0 - No accessibility information for the trip.
   // 1 - Vehicle being used on this particular trip can accommodate at least one rider in a wheelchair.
   // 2 - No riders in wheelchairs can be accommodated on this trip.
   enum WheelchairAccessibleStatus {
@@ -772,9 +770,9 @@ message VehicleProperties {
   }
 
   // Options for biked_allowed:
-  //0 or empty - No bike information for the trip.
-  //1 - Vehicle being used on this particular trip can accommodate at least one bicycle.
-  //2 - No bicycles are allowed on this trip.
+  // 0 - No bike information for the trip.
+  // 1 - Vehicle being used on this particular trip can accommodate at least one bicycle.
+  // 2 - No bicycles are allowed on this trip.
   enum BikesAllowedStatus {
     UNKNOWN_BIKES_ALLOWANCE = 0;
     BIKES_ALLOWED = 1;
@@ -821,11 +819,11 @@ message Trip {
   // Identifies a route.
   optional string route_id = 2;
   // Text that appears on signage identifying the trip's destination to riders.
-  required TranslatedString trip_headsign = 3 ;
+  required TranslatedString trip_headsign = 3;
   // Public facing text used to identify the trip to riders, for instance, to identify train numbers for commuter rail trip
   required string trip_short_name = 4;
   // Indicates the direction of travel for a trip.
-  optional int64 direction_id = 5;
+  optional uint32 direction_id = 5;
   // Identifies the block to which the trip belongs.
   optional string block_id = 6;
   // Identifies a geospatial shape describing the vehicle travel path for a trip.
@@ -838,7 +836,7 @@ message Trip {
   repeated string replaces_trip_id = 10;
 
   // Options for wheelchair_accessible:
-  // 0 or empty - No accessibility information for the trip.
+  // 0 - No accessibility information for the trip.
   // 1 - Vehicle being used on this particular trip can accommodate at least one rider in a wheelchair.
   // 2 - No riders in wheelchairs can be accommodated on this trip.
   enum WheelchairAccessibleStatus {
@@ -848,7 +846,7 @@ message Trip {
   }
 
   // Options for biked_allowed:
-  // 0 or empty - No bike information for the trip.
+  // 0 - No bike information for the trip.
   // 1 - Vehicle being used on this particular trip can accommodate at least one bicycle.
   // 2 - No bicycles are allowed on this trip.
   enum BikesAllowedStatus {
@@ -863,9 +861,11 @@ message StopTime {
   // Order of stops for a particular trip. The values must increase along the trip but do not need to be consecutive.
   required uint32 stop_sequence = 1;
   // Arrival time at a specific stop for a specific trip on a route.
-  required uint64 arrival_time = 2;
+  // This field must be in the format of HH:MM:SS.
+  required string arrival_time = 2;
   // Departure time at a specific stop for a specific trip on a route.
-  required uint64 departure_time = 3;
+  // This field must be in the format of HH:MM:SS.
+  required string departure_time = 3;
   // Identifies the serviced stop.
   required string stop_id = 4;
   // Text that appears on signage identifying the trip's destination to riders.
@@ -878,7 +878,7 @@ message StopTime {
   optional float shape_dist_traveled = 8;
 
   // Valid options for pickup_type:
-  // 0 or empty - Regularly scheduled pickup.
+  // 0 - Regularly scheduled pickup.
   // 1 - No pickup available.
   // 2 - Must phone agency to arrange pickup.
   // 3 - Must coordinate with driver to arrange pickup.
@@ -886,11 +886,11 @@ message StopTime {
     REGULAR_PICKUP = 0;
     NO_PICKUP = 1;
     MUST_PHONE_AGENCY_PICKUP = 2;
-    MUST_ASK_DRIVER_PICK_UP = 3;
+    MUST_ASK_DRIVER_PICKUP = 3;
   }
 
   // Valid options for drop_off_type:
-  // 0 or empty - Regularly scheduled drop off.
+  // 0 - Regularly scheduled drop off.
   // 1 - No drop off available.
   // 2 - Must phone agency to arrange drop off.
   // 3 - Must coordinate with driver to arrange drop off.

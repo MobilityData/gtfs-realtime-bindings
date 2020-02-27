@@ -25090,7 +25090,7 @@ public final class GtfsRealtime {
      * Identifies a trip.
      * </pre>
      *
-     * <code>required string trip_id = 1;</code>
+     * <code>optional string trip_id = 1;</code>
      */
     boolean hasTripId();
     /**
@@ -25098,7 +25098,7 @@ public final class GtfsRealtime {
      * Identifies a trip.
      * </pre>
      *
-     * <code>required string trip_id = 1;</code>
+     * <code>optional string trip_id = 1;</code>
      */
     java.lang.String getTripId();
     /**
@@ -25106,7 +25106,7 @@ public final class GtfsRealtime {
      * Identifies a trip.
      * </pre>
      *
-     * <code>required string trip_id = 1;</code>
+     * <code>optional string trip_id = 1;</code>
      */
     com.google.protobuf.ByteString
         getTripIdBytes();
@@ -25116,7 +25116,7 @@ public final class GtfsRealtime {
      * Dates on which the trip will be run in YYYYMMDD format.
      * </pre>
      *
-     * <code>required string start_date = 2;</code>
+     * <code>optional string start_date = 2;</code>
      */
     boolean hasStartDate();
     /**
@@ -25124,7 +25124,7 @@ public final class GtfsRealtime {
      * Dates on which the trip will be run in YYYYMMDD format.
      * </pre>
      *
-     * <code>required string start_date = 2;</code>
+     * <code>optional string start_date = 2;</code>
      */
     java.lang.String getStartDate();
     /**
@@ -25132,7 +25132,7 @@ public final class GtfsRealtime {
      * Dates on which the trip will be run in YYYYMMDD format.
      * </pre>
      *
-     * <code>required string start_date = 2;</code>
+     * <code>optional string start_date = 2;</code>
      */
     com.google.protobuf.ByteString
         getStartDateBytes();
@@ -25142,7 +25142,7 @@ public final class GtfsRealtime {
      * Departure start time of the trip when it’s duplicated.
      * </pre>
      *
-     * <code>required string start_time = 3;</code>
+     * <code>optional string start_time = 3;</code>
      */
     boolean hasStartTime();
     /**
@@ -25150,7 +25150,7 @@ public final class GtfsRealtime {
      * Departure start time of the trip when it’s duplicated.
      * </pre>
      *
-     * <code>required string start_time = 3;</code>
+     * <code>optional string start_time = 3;</code>
      */
     java.lang.String getStartTime();
     /**
@@ -25158,7 +25158,7 @@ public final class GtfsRealtime {
      * Departure start time of the trip when it’s duplicated.
      * </pre>
      *
-     * <code>required string start_time = 3;</code>
+     * <code>optional string start_time = 3;</code>
      */
     com.google.protobuf.ByteString
         getStartTimeBytes();
@@ -25442,7 +25442,7 @@ public final class GtfsRealtime {
      * Identifies a trip.
      * </pre>
      *
-     * <code>required string trip_id = 1;</code>
+     * <code>optional string trip_id = 1;</code>
      */
     public boolean hasTripId() {
       return ((bitField0_ & 0x00000001) != 0);
@@ -25452,7 +25452,7 @@ public final class GtfsRealtime {
      * Identifies a trip.
      * </pre>
      *
-     * <code>required string trip_id = 1;</code>
+     * <code>optional string trip_id = 1;</code>
      */
     public java.lang.String getTripId() {
       java.lang.Object ref = tripId_;
@@ -25473,7 +25473,7 @@ public final class GtfsRealtime {
      * Identifies a trip.
      * </pre>
      *
-     * <code>required string trip_id = 1;</code>
+     * <code>optional string trip_id = 1;</code>
      */
     public com.google.protobuf.ByteString
         getTripIdBytes() {
@@ -25496,7 +25496,7 @@ public final class GtfsRealtime {
      * Dates on which the trip will be run in YYYYMMDD format.
      * </pre>
      *
-     * <code>required string start_date = 2;</code>
+     * <code>optional string start_date = 2;</code>
      */
     public boolean hasStartDate() {
       return ((bitField0_ & 0x00000002) != 0);
@@ -25506,7 +25506,7 @@ public final class GtfsRealtime {
      * Dates on which the trip will be run in YYYYMMDD format.
      * </pre>
      *
-     * <code>required string start_date = 2;</code>
+     * <code>optional string start_date = 2;</code>
      */
     public java.lang.String getStartDate() {
       java.lang.Object ref = startDate_;
@@ -25527,7 +25527,7 @@ public final class GtfsRealtime {
      * Dates on which the trip will be run in YYYYMMDD format.
      * </pre>
      *
-     * <code>required string start_date = 2;</code>
+     * <code>optional string start_date = 2;</code>
      */
     public com.google.protobuf.ByteString
         getStartDateBytes() {
@@ -25550,7 +25550,7 @@ public final class GtfsRealtime {
      * Departure start time of the trip when it’s duplicated.
      * </pre>
      *
-     * <code>required string start_time = 3;</code>
+     * <code>optional string start_time = 3;</code>
      */
     public boolean hasStartTime() {
       return ((bitField0_ & 0x00000004) != 0);
@@ -25560,7 +25560,7 @@ public final class GtfsRealtime {
      * Departure start time of the trip when it’s duplicated.
      * </pre>
      *
-     * <code>required string start_time = 3;</code>
+     * <code>optional string start_time = 3;</code>
      */
     public java.lang.String getStartTime() {
       java.lang.Object ref = startTime_;
@@ -25581,7 +25581,7 @@ public final class GtfsRealtime {
      * Departure start time of the trip when it’s duplicated.
      * </pre>
      *
-     * <code>required string start_time = 3;</code>
+     * <code>optional string start_time = 3;</code>
      */
     public com.google.protobuf.ByteString
         getStartTimeBytes() {
@@ -25832,18 +25832,6 @@ public final class GtfsRealtime {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasTripId()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasStartDate()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasStartTime()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       if (hasTripHeadsign()) {
         if (!getTripHeadsign().isInitialized()) {
           memoizedIsInitialized = 0;
@@ -26343,15 +26331,6 @@ public final class GtfsRealtime {
 
       @java.lang.Override
       public final boolean isInitialized() {
-        if (!hasTripId()) {
-          return false;
-        }
-        if (!hasStartDate()) {
-          return false;
-        }
-        if (!hasStartTime()) {
-          return false;
-        }
         if (hasTripHeadsign()) {
           if (!getTripHeadsign().isInitialized()) {
             return false;
@@ -26391,7 +26370,7 @@ public final class GtfsRealtime {
        * Identifies a trip.
        * </pre>
        *
-       * <code>required string trip_id = 1;</code>
+       * <code>optional string trip_id = 1;</code>
        */
       public boolean hasTripId() {
         return ((bitField0_ & 0x00000001) != 0);
@@ -26401,7 +26380,7 @@ public final class GtfsRealtime {
        * Identifies a trip.
        * </pre>
        *
-       * <code>required string trip_id = 1;</code>
+       * <code>optional string trip_id = 1;</code>
        */
       public java.lang.String getTripId() {
         java.lang.Object ref = tripId_;
@@ -26422,7 +26401,7 @@ public final class GtfsRealtime {
        * Identifies a trip.
        * </pre>
        *
-       * <code>required string trip_id = 1;</code>
+       * <code>optional string trip_id = 1;</code>
        */
       public com.google.protobuf.ByteString
           getTripIdBytes() {
@@ -26442,7 +26421,7 @@ public final class GtfsRealtime {
        * Identifies a trip.
        * </pre>
        *
-       * <code>required string trip_id = 1;</code>
+       * <code>optional string trip_id = 1;</code>
        */
       public Builder setTripId(
           java.lang.String value) {
@@ -26459,7 +26438,7 @@ public final class GtfsRealtime {
        * Identifies a trip.
        * </pre>
        *
-       * <code>required string trip_id = 1;</code>
+       * <code>optional string trip_id = 1;</code>
        */
       public Builder clearTripId() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -26472,7 +26451,7 @@ public final class GtfsRealtime {
        * Identifies a trip.
        * </pre>
        *
-       * <code>required string trip_id = 1;</code>
+       * <code>optional string trip_id = 1;</code>
        */
       public Builder setTripIdBytes(
           com.google.protobuf.ByteString value) {
@@ -26491,7 +26470,7 @@ public final class GtfsRealtime {
        * Dates on which the trip will be run in YYYYMMDD format.
        * </pre>
        *
-       * <code>required string start_date = 2;</code>
+       * <code>optional string start_date = 2;</code>
        */
       public boolean hasStartDate() {
         return ((bitField0_ & 0x00000002) != 0);
@@ -26501,7 +26480,7 @@ public final class GtfsRealtime {
        * Dates on which the trip will be run in YYYYMMDD format.
        * </pre>
        *
-       * <code>required string start_date = 2;</code>
+       * <code>optional string start_date = 2;</code>
        */
       public java.lang.String getStartDate() {
         java.lang.Object ref = startDate_;
@@ -26522,7 +26501,7 @@ public final class GtfsRealtime {
        * Dates on which the trip will be run in YYYYMMDD format.
        * </pre>
        *
-       * <code>required string start_date = 2;</code>
+       * <code>optional string start_date = 2;</code>
        */
       public com.google.protobuf.ByteString
           getStartDateBytes() {
@@ -26542,7 +26521,7 @@ public final class GtfsRealtime {
        * Dates on which the trip will be run in YYYYMMDD format.
        * </pre>
        *
-       * <code>required string start_date = 2;</code>
+       * <code>optional string start_date = 2;</code>
        */
       public Builder setStartDate(
           java.lang.String value) {
@@ -26559,7 +26538,7 @@ public final class GtfsRealtime {
        * Dates on which the trip will be run in YYYYMMDD format.
        * </pre>
        *
-       * <code>required string start_date = 2;</code>
+       * <code>optional string start_date = 2;</code>
        */
       public Builder clearStartDate() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -26572,7 +26551,7 @@ public final class GtfsRealtime {
        * Dates on which the trip will be run in YYYYMMDD format.
        * </pre>
        *
-       * <code>required string start_date = 2;</code>
+       * <code>optional string start_date = 2;</code>
        */
       public Builder setStartDateBytes(
           com.google.protobuf.ByteString value) {
@@ -26591,7 +26570,7 @@ public final class GtfsRealtime {
        * Departure start time of the trip when it’s duplicated.
        * </pre>
        *
-       * <code>required string start_time = 3;</code>
+       * <code>optional string start_time = 3;</code>
        */
       public boolean hasStartTime() {
         return ((bitField0_ & 0x00000004) != 0);
@@ -26601,7 +26580,7 @@ public final class GtfsRealtime {
        * Departure start time of the trip when it’s duplicated.
        * </pre>
        *
-       * <code>required string start_time = 3;</code>
+       * <code>optional string start_time = 3;</code>
        */
       public java.lang.String getStartTime() {
         java.lang.Object ref = startTime_;
@@ -26622,7 +26601,7 @@ public final class GtfsRealtime {
        * Departure start time of the trip when it’s duplicated.
        * </pre>
        *
-       * <code>required string start_time = 3;</code>
+       * <code>optional string start_time = 3;</code>
        */
       public com.google.protobuf.ByteString
           getStartTimeBytes() {
@@ -26642,7 +26621,7 @@ public final class GtfsRealtime {
        * Departure start time of the trip when it’s duplicated.
        * </pre>
        *
-       * <code>required string start_time = 3;</code>
+       * <code>optional string start_time = 3;</code>
        */
       public Builder setStartTime(
           java.lang.String value) {
@@ -26659,7 +26638,7 @@ public final class GtfsRealtime {
        * Departure start time of the trip when it’s duplicated.
        * </pre>
        *
-       * <code>required string start_time = 3;</code>
+       * <code>optional string start_time = 3;</code>
        */
       public Builder clearStartTime() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -26672,7 +26651,7 @@ public final class GtfsRealtime {
        * Departure start time of the trip when it’s duplicated.
        * </pre>
        *
-       * <code>required string start_time = 3;</code>
+       * <code>optional string start_time = 3;</code>
        */
       public Builder setStartTimeBytes(
           com.google.protobuf.ByteString value) {
@@ -27487,7 +27466,7 @@ public final class GtfsRealtime {
     /**
      * <pre>
      * Options for wheelchair_accessible:
-     * 0 or empty - No accessibility information for the trip.
+     * 0 - No accessibility information for the trip.
      * 1 - Vehicle being used on this particular trip can accommodate at least one rider in a wheelchair.
      * 2 - No riders in wheelchairs can be accommodated on this trip.
      * </pre>
@@ -27593,9 +27572,9 @@ public final class GtfsRealtime {
     /**
      * <pre>
      * Options for biked_allowed:
-     *0 or empty - No bike information for the trip.
-     *1 - Vehicle being used on this particular trip can accommodate at least one bicycle.
-     *2 - No bicycles are allowed on this trip.
+     * 0 - No bike information for the trip.
+     * 1 - Vehicle being used on this particular trip can accommodate at least one bicycle.
+     * 2 - No bicycles are allowed on this trip.
      * </pre>
      *
      * Protobuf enum {@code transit_realtime.VehicleProperties.BikesAllowedStatus}
@@ -30087,7 +30066,7 @@ public final class GtfsRealtime {
      * Indicates the direction of travel for a trip.
      * </pre>
      *
-     * <code>optional int64 direction_id = 5;</code>
+     * <code>optional uint32 direction_id = 5;</code>
      */
     boolean hasDirectionId();
     /**
@@ -30095,9 +30074,9 @@ public final class GtfsRealtime {
      * Indicates the direction of travel for a trip.
      * </pre>
      *
-     * <code>optional int64 direction_id = 5;</code>
+     * <code>optional uint32 direction_id = 5;</code>
      */
-    long getDirectionId();
+    int getDirectionId();
 
     /**
      * <pre>
@@ -30304,7 +30283,7 @@ public final class GtfsRealtime {
             }
             case 40: {
               bitField0_ |= 0x00000010;
-              directionId_ = input.readInt64();
+              directionId_ = input.readUInt32();
               break;
             }
             case 50: {
@@ -30390,7 +30369,7 @@ public final class GtfsRealtime {
     /**
      * <pre>
      * Options for wheelchair_accessible:
-     * 0 or empty - No accessibility information for the trip.
+     * 0 - No accessibility information for the trip.
      * 1 - Vehicle being used on this particular trip can accommodate at least one rider in a wheelchair.
      * 2 - No riders in wheelchairs can be accommodated on this trip.
      * </pre>
@@ -30496,7 +30475,7 @@ public final class GtfsRealtime {
     /**
      * <pre>
      * Options for biked_allowed:
-     * 0 or empty - No bike information for the trip.
+     * 0 - No bike information for the trip.
      * 1 - Vehicle being used on this particular trip can accommodate at least one bicycle.
      * 2 - No bicycles are allowed on this trip.
      * </pre>
@@ -30796,13 +30775,13 @@ public final class GtfsRealtime {
     }
 
     public static final int DIRECTION_ID_FIELD_NUMBER = 5;
-    private long directionId_;
+    private int directionId_;
     /**
      * <pre>
      * Indicates the direction of travel for a trip.
      * </pre>
      *
-     * <code>optional int64 direction_id = 5;</code>
+     * <code>optional uint32 direction_id = 5;</code>
      */
     public boolean hasDirectionId() {
       return ((bitField0_ & 0x00000010) != 0);
@@ -30812,9 +30791,9 @@ public final class GtfsRealtime {
      * Indicates the direction of travel for a trip.
      * </pre>
      *
-     * <code>optional int64 direction_id = 5;</code>
+     * <code>optional uint32 direction_id = 5;</code>
      */
-    public long getDirectionId() {
+    public int getDirectionId() {
       return directionId_;
     }
 
@@ -31064,7 +31043,7 @@ public final class GtfsRealtime {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, tripShortName_);
       }
       if (((bitField0_ & 0x00000010) != 0)) {
-        output.writeInt64(5, directionId_);
+        output.writeUInt32(5, directionId_);
       }
       if (((bitField0_ & 0x00000020) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, blockId_);
@@ -31105,7 +31084,7 @@ public final class GtfsRealtime {
       }
       if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(5, directionId_);
+          .computeUInt32Size(5, directionId_);
       }
       if (((bitField0_ & 0x00000020) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, blockId_);
@@ -31218,8 +31197,7 @@ public final class GtfsRealtime {
       }
       if (hasDirectionId()) {
         hash = (37 * hash) + DIRECTION_ID_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getDirectionId());
+        hash = (53 * hash) + getDirectionId();
       }
       if (hasBlockId()) {
         hash = (37 * hash) + BLOCK_ID_FIELD_NUMBER;
@@ -31391,7 +31369,7 @@ public final class GtfsRealtime {
         bitField0_ = (bitField0_ & ~0x00000004);
         tripShortName_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
-        directionId_ = 0L;
+        directionId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000010);
         blockId_ = "";
         bitField0_ = (bitField0_ & ~0x00000020);
@@ -32068,13 +32046,13 @@ public final class GtfsRealtime {
         return this;
       }
 
-      private long directionId_ ;
+      private int directionId_ ;
       /**
        * <pre>
        * Indicates the direction of travel for a trip.
        * </pre>
        *
-       * <code>optional int64 direction_id = 5;</code>
+       * <code>optional uint32 direction_id = 5;</code>
        */
       public boolean hasDirectionId() {
         return ((bitField0_ & 0x00000010) != 0);
@@ -32084,9 +32062,9 @@ public final class GtfsRealtime {
        * Indicates the direction of travel for a trip.
        * </pre>
        *
-       * <code>optional int64 direction_id = 5;</code>
+       * <code>optional uint32 direction_id = 5;</code>
        */
-      public long getDirectionId() {
+      public int getDirectionId() {
         return directionId_;
       }
       /**
@@ -32094,9 +32072,9 @@ public final class GtfsRealtime {
        * Indicates the direction of travel for a trip.
        * </pre>
        *
-       * <code>optional int64 direction_id = 5;</code>
+       * <code>optional uint32 direction_id = 5;</code>
        */
-      public Builder setDirectionId(long value) {
+      public Builder setDirectionId(int value) {
         bitField0_ |= 0x00000010;
         directionId_ = value;
         onChanged();
@@ -32107,11 +32085,11 @@ public final class GtfsRealtime {
        * Indicates the direction of travel for a trip.
        * </pre>
        *
-       * <code>optional int64 direction_id = 5;</code>
+       * <code>optional uint32 direction_id = 5;</code>
        */
       public Builder clearDirectionId() {
         bitField0_ = (bitField0_ & ~0x00000010);
-        directionId_ = 0L;
+        directionId_ = 0;
         onChanged();
         return this;
       }
@@ -32627,36 +32605,60 @@ public final class GtfsRealtime {
     /**
      * <pre>
      * Arrival time at a specific stop for a specific trip on a route.
+     * This field must be in the format of HH:MM:SS.
      * </pre>
      *
-     * <code>required uint64 arrival_time = 2;</code>
+     * <code>required string arrival_time = 2;</code>
      */
     boolean hasArrivalTime();
     /**
      * <pre>
      * Arrival time at a specific stop for a specific trip on a route.
+     * This field must be in the format of HH:MM:SS.
      * </pre>
      *
-     * <code>required uint64 arrival_time = 2;</code>
+     * <code>required string arrival_time = 2;</code>
      */
-    long getArrivalTime();
+    java.lang.String getArrivalTime();
+    /**
+     * <pre>
+     * Arrival time at a specific stop for a specific trip on a route.
+     * This field must be in the format of HH:MM:SS.
+     * </pre>
+     *
+     * <code>required string arrival_time = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getArrivalTimeBytes();
 
     /**
      * <pre>
      * Departure time at a specific stop for a specific trip on a route.
+     * This field must be in the format of HH:MM:SS.
      * </pre>
      *
-     * <code>required uint64 departure_time = 3;</code>
+     * <code>required string departure_time = 3;</code>
      */
     boolean hasDepartureTime();
     /**
      * <pre>
      * Departure time at a specific stop for a specific trip on a route.
+     * This field must be in the format of HH:MM:SS.
      * </pre>
      *
-     * <code>required uint64 departure_time = 3;</code>
+     * <code>required string departure_time = 3;</code>
      */
-    long getDepartureTime();
+    java.lang.String getDepartureTime();
+    /**
+     * <pre>
+     * Departure time at a specific stop for a specific trip on a route.
+     * This field must be in the format of HH:MM:SS.
+     * </pre>
+     *
+     * <code>required string departure_time = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getDepartureTimeBytes();
 
     /**
      * <pre>
@@ -32777,6 +32779,8 @@ public final class GtfsRealtime {
       super(builder);
     }
     private StopTime() {
+      arrivalTime_ = "";
+      departureTime_ = "";
       stopId_ = "";
       pickupType_ = 0;
       dropOffType_ = 0;
@@ -32811,14 +32815,16 @@ public final class GtfsRealtime {
               stopSequence_ = input.readUInt32();
               break;
             }
-            case 16: {
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              arrivalTime_ = input.readUInt64();
+              arrivalTime_ = bs;
               break;
             }
-            case 24: {
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              departureTime_ = input.readUInt64();
+              departureTime_ = bs;
               break;
             }
             case 34: {
@@ -32904,7 +32910,7 @@ public final class GtfsRealtime {
     /**
      * <pre>
      * Valid options for pickup_type:
-     * 0 or empty - Regularly scheduled pickup.
+     * 0 - Regularly scheduled pickup.
      * 1 - No pickup available.
      * 2 - Must phone agency to arrange pickup.
      * 3 - Must coordinate with driver to arrange pickup.
@@ -32927,9 +32933,9 @@ public final class GtfsRealtime {
        */
       MUST_PHONE_AGENCY_PICKUP(2),
       /**
-       * <code>MUST_ASK_DRIVER_PICK_UP = 3;</code>
+       * <code>MUST_ASK_DRIVER_PICKUP = 3;</code>
        */
-      MUST_ASK_DRIVER_PICK_UP(3),
+      MUST_ASK_DRIVER_PICKUP(3),
       ;
 
       /**
@@ -32945,9 +32951,9 @@ public final class GtfsRealtime {
        */
       public static final int MUST_PHONE_AGENCY_PICKUP_VALUE = 2;
       /**
-       * <code>MUST_ASK_DRIVER_PICK_UP = 3;</code>
+       * <code>MUST_ASK_DRIVER_PICKUP = 3;</code>
        */
-      public static final int MUST_ASK_DRIVER_PICK_UP_VALUE = 3;
+      public static final int MUST_ASK_DRIVER_PICKUP_VALUE = 3;
 
 
       public final int getNumber() {
@@ -32967,7 +32973,7 @@ public final class GtfsRealtime {
           case 0: return REGULAR_PICKUP;
           case 1: return NO_PICKUP;
           case 2: return MUST_PHONE_AGENCY_PICKUP;
-          case 3: return MUST_ASK_DRIVER_PICK_UP;
+          case 3: return MUST_ASK_DRIVER_PICKUP;
           default: return null;
         }
       }
@@ -33020,7 +33026,7 @@ public final class GtfsRealtime {
     /**
      * <pre>
      * Valid options for drop_off_type:
-     * 0 or empty - Regularly scheduled drop off.
+     * 0 - Regularly scheduled drop off.
      * 1 - No drop off available.
      * 2 - Must phone agency to arrange drop off.
      * 3 - Must coordinate with driver to arrange drop off.
@@ -33158,13 +33164,14 @@ public final class GtfsRealtime {
     }
 
     public static final int ARRIVAL_TIME_FIELD_NUMBER = 2;
-    private long arrivalTime_;
+    private volatile java.lang.Object arrivalTime_;
     /**
      * <pre>
      * Arrival time at a specific stop for a specific trip on a route.
+     * This field must be in the format of HH:MM:SS.
      * </pre>
      *
-     * <code>required uint64 arrival_time = 2;</code>
+     * <code>required string arrival_time = 2;</code>
      */
     public boolean hasArrivalTime() {
       return ((bitField0_ & 0x00000002) != 0);
@@ -33172,22 +33179,56 @@ public final class GtfsRealtime {
     /**
      * <pre>
      * Arrival time at a specific stop for a specific trip on a route.
+     * This field must be in the format of HH:MM:SS.
      * </pre>
      *
-     * <code>required uint64 arrival_time = 2;</code>
+     * <code>required string arrival_time = 2;</code>
      */
-    public long getArrivalTime() {
-      return arrivalTime_;
+    public java.lang.String getArrivalTime() {
+      java.lang.Object ref = arrivalTime_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          arrivalTime_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Arrival time at a specific stop for a specific trip on a route.
+     * This field must be in the format of HH:MM:SS.
+     * </pre>
+     *
+     * <code>required string arrival_time = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getArrivalTimeBytes() {
+      java.lang.Object ref = arrivalTime_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        arrivalTime_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int DEPARTURE_TIME_FIELD_NUMBER = 3;
-    private long departureTime_;
+    private volatile java.lang.Object departureTime_;
     /**
      * <pre>
      * Departure time at a specific stop for a specific trip on a route.
+     * This field must be in the format of HH:MM:SS.
      * </pre>
      *
-     * <code>required uint64 departure_time = 3;</code>
+     * <code>required string departure_time = 3;</code>
      */
     public boolean hasDepartureTime() {
       return ((bitField0_ & 0x00000004) != 0);
@@ -33195,12 +33236,45 @@ public final class GtfsRealtime {
     /**
      * <pre>
      * Departure time at a specific stop for a specific trip on a route.
+     * This field must be in the format of HH:MM:SS.
      * </pre>
      *
-     * <code>required uint64 departure_time = 3;</code>
+     * <code>required string departure_time = 3;</code>
      */
-    public long getDepartureTime() {
-      return departureTime_;
+    public java.lang.String getDepartureTime() {
+      java.lang.Object ref = departureTime_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          departureTime_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Departure time at a specific stop for a specific trip on a route.
+     * This field must be in the format of HH:MM:SS.
+     * </pre>
+     *
+     * <code>required string departure_time = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDepartureTimeBytes() {
+      java.lang.Object ref = departureTime_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        departureTime_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int STOP_ID_FIELD_NUMBER = 4;
@@ -33403,10 +33477,10 @@ public final class GtfsRealtime {
         output.writeUInt32(1, stopSequence_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeUInt64(2, arrivalTime_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, arrivalTime_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeUInt64(3, departureTime_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, departureTime_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, stopId_);
@@ -33437,12 +33511,10 @@ public final class GtfsRealtime {
           .computeUInt32Size(1, stopSequence_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(2, arrivalTime_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, arrivalTime_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(3, departureTime_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, departureTime_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, stopId_);
@@ -33485,13 +33557,13 @@ public final class GtfsRealtime {
       }
       if (hasArrivalTime() != other.hasArrivalTime()) return false;
       if (hasArrivalTime()) {
-        if (getArrivalTime()
-            != other.getArrivalTime()) return false;
+        if (!getArrivalTime()
+            .equals(other.getArrivalTime())) return false;
       }
       if (hasDepartureTime() != other.hasDepartureTime()) return false;
       if (hasDepartureTime()) {
-        if (getDepartureTime()
-            != other.getDepartureTime()) return false;
+        if (!getDepartureTime()
+            .equals(other.getDepartureTime())) return false;
       }
       if (hasStopId() != other.hasStopId()) return false;
       if (hasStopId()) {
@@ -33534,13 +33606,11 @@ public final class GtfsRealtime {
       }
       if (hasArrivalTime()) {
         hash = (37 * hash) + ARRIVAL_TIME_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getArrivalTime());
+        hash = (53 * hash) + getArrivalTime().hashCode();
       }
       if (hasDepartureTime()) {
         hash = (37 * hash) + DEPARTURE_TIME_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getDepartureTime());
+        hash = (53 * hash) + getDepartureTime().hashCode();
       }
       if (hasStopId()) {
         hash = (37 * hash) + STOP_ID_FIELD_NUMBER;
@@ -33703,9 +33773,9 @@ public final class GtfsRealtime {
         super.clear();
         stopSequence_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        arrivalTime_ = 0L;
+        arrivalTime_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        departureTime_ = 0L;
+        departureTime_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
         stopId_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -33754,13 +33824,13 @@ public final class GtfsRealtime {
           to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.arrivalTime_ = arrivalTime_;
           to_bitField0_ |= 0x00000002;
         }
+        result.arrivalTime_ = arrivalTime_;
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.departureTime_ = departureTime_;
           to_bitField0_ |= 0x00000004;
         }
+        result.departureTime_ = departureTime_;
         if (((from_bitField0_ & 0x00000008) != 0)) {
           to_bitField0_ |= 0x00000008;
         }
@@ -33838,10 +33908,14 @@ public final class GtfsRealtime {
           setStopSequence(other.getStopSequence());
         }
         if (other.hasArrivalTime()) {
-          setArrivalTime(other.getArrivalTime());
+          bitField0_ |= 0x00000002;
+          arrivalTime_ = other.arrivalTime_;
+          onChanged();
         }
         if (other.hasDepartureTime()) {
-          setDepartureTime(other.getDepartureTime());
+          bitField0_ |= 0x00000004;
+          departureTime_ = other.departureTime_;
+          onChanged();
         }
         if (other.hasStopId()) {
           bitField0_ |= 0x00000008;
@@ -33955,13 +34029,14 @@ public final class GtfsRealtime {
         return this;
       }
 
-      private long arrivalTime_ ;
+      private java.lang.Object arrivalTime_ = "";
       /**
        * <pre>
        * Arrival time at a specific stop for a specific trip on a route.
+       * This field must be in the format of HH:MM:SS.
        * </pre>
        *
-       * <code>required uint64 arrival_time = 2;</code>
+       * <code>required string arrival_time = 2;</code>
        */
       public boolean hasArrivalTime() {
         return ((bitField0_ & 0x00000002) != 0);
@@ -33969,22 +34044,60 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Arrival time at a specific stop for a specific trip on a route.
+       * This field must be in the format of HH:MM:SS.
        * </pre>
        *
-       * <code>required uint64 arrival_time = 2;</code>
+       * <code>required string arrival_time = 2;</code>
        */
-      public long getArrivalTime() {
-        return arrivalTime_;
+      public java.lang.String getArrivalTime() {
+        java.lang.Object ref = arrivalTime_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            arrivalTime_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
        * <pre>
        * Arrival time at a specific stop for a specific trip on a route.
+       * This field must be in the format of HH:MM:SS.
        * </pre>
        *
-       * <code>required uint64 arrival_time = 2;</code>
+       * <code>required string arrival_time = 2;</code>
        */
-      public Builder setArrivalTime(long value) {
-        bitField0_ |= 0x00000002;
+      public com.google.protobuf.ByteString
+          getArrivalTimeBytes() {
+        java.lang.Object ref = arrivalTime_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          arrivalTime_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Arrival time at a specific stop for a specific trip on a route.
+       * This field must be in the format of HH:MM:SS.
+       * </pre>
+       *
+       * <code>required string arrival_time = 2;</code>
+       */
+      public Builder setArrivalTime(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         arrivalTime_ = value;
         onChanged();
         return this;
@@ -33992,24 +34105,44 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Arrival time at a specific stop for a specific trip on a route.
+       * This field must be in the format of HH:MM:SS.
        * </pre>
        *
-       * <code>required uint64 arrival_time = 2;</code>
+       * <code>required string arrival_time = 2;</code>
        */
       public Builder clearArrivalTime() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        arrivalTime_ = 0L;
+        arrivalTime_ = getDefaultInstance().getArrivalTime();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Arrival time at a specific stop for a specific trip on a route.
+       * This field must be in the format of HH:MM:SS.
+       * </pre>
+       *
+       * <code>required string arrival_time = 2;</code>
+       */
+      public Builder setArrivalTimeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        arrivalTime_ = value;
         onChanged();
         return this;
       }
 
-      private long departureTime_ ;
+      private java.lang.Object departureTime_ = "";
       /**
        * <pre>
        * Departure time at a specific stop for a specific trip on a route.
+       * This field must be in the format of HH:MM:SS.
        * </pre>
        *
-       * <code>required uint64 departure_time = 3;</code>
+       * <code>required string departure_time = 3;</code>
        */
       public boolean hasDepartureTime() {
         return ((bitField0_ & 0x00000004) != 0);
@@ -34017,22 +34150,60 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Departure time at a specific stop for a specific trip on a route.
+       * This field must be in the format of HH:MM:SS.
        * </pre>
        *
-       * <code>required uint64 departure_time = 3;</code>
+       * <code>required string departure_time = 3;</code>
        */
-      public long getDepartureTime() {
-        return departureTime_;
+      public java.lang.String getDepartureTime() {
+        java.lang.Object ref = departureTime_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            departureTime_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
        * <pre>
        * Departure time at a specific stop for a specific trip on a route.
+       * This field must be in the format of HH:MM:SS.
        * </pre>
        *
-       * <code>required uint64 departure_time = 3;</code>
+       * <code>required string departure_time = 3;</code>
        */
-      public Builder setDepartureTime(long value) {
-        bitField0_ |= 0x00000004;
+      public com.google.protobuf.ByteString
+          getDepartureTimeBytes() {
+        java.lang.Object ref = departureTime_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          departureTime_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Departure time at a specific stop for a specific trip on a route.
+       * This field must be in the format of HH:MM:SS.
+       * </pre>
+       *
+       * <code>required string departure_time = 3;</code>
+       */
+      public Builder setDepartureTime(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
         departureTime_ = value;
         onChanged();
         return this;
@@ -34040,13 +34211,32 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Departure time at a specific stop for a specific trip on a route.
+       * This field must be in the format of HH:MM:SS.
        * </pre>
        *
-       * <code>required uint64 departure_time = 3;</code>
+       * <code>required string departure_time = 3;</code>
        */
       public Builder clearDepartureTime() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        departureTime_ = 0L;
+        departureTime_ = getDefaultInstance().getDepartureTime();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Departure time at a specific stop for a specific trip on a route.
+       * This field must be in the format of HH:MM:SS.
+       * </pre>
+       *
+       * <code>required string departure_time = 3;</code>
+       */
+      public Builder setDepartureTimeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        departureTime_ = value;
         onChanged();
         return this;
       }
@@ -42772,8 +42962,8 @@ public final class GtfsRealtime {
       ".Translation\032=\n\013Translation\022\014\n\004text\030\001 \002(" +
       "\t\022\020\n\010language\030\002 \001(\t*\006\010\350\007\020\320\017*\006\010\250F\020\220N*\006\010\350\007" +
       "\020\320\017*\006\010\250F\020\220N\"\367\001\n\016TripProperties\022\017\n\007trip_i" +
-      "d\030\001 \002(\t\022\022\n\nstart_date\030\002 \002(\t\022\022\n\nstart_tim" +
-      "e\030\003 \002(\t\022\020\n\010route_id\030\004 \001(\t\0229\n\rtrip_headsi" +
+      "d\030\001 \001(\t\022\022\n\nstart_date\030\002 \001(\t\022\022\n\nstart_tim" +
+      "e\030\003 \001(\t\022\020\n\010route_id\030\004 \001(\t\0229\n\rtrip_headsi" +
       "gn\030\005 \001(\0132\".transit_realtime.TranslatedSt" +
       "ring\022;\n\017trip_short_name\030\006 \001(\0132\".transit_" +
       "realtime.TranslatedString\022\020\n\010block_id\030\007 " +
@@ -42806,7 +42996,7 @@ public final class GtfsRealtime {
       "FF\020\003\"\373\004\n\004Trip\022\017\n\007trip_id\030\001 \002(\t\022\020\n\010route_" +
       "id\030\002 \001(\t\0229\n\rtrip_headsign\030\003 \002(\0132\".transi" +
       "t_realtime.TranslatedString\022\027\n\017trip_shor" +
-      "t_name\030\004 \002(\t\022\024\n\014direction_id\030\005 \001(\003\022\020\n\010bl" +
+      "t_name\030\004 \002(\t\022\024\n\014direction_id\030\005 \001(\r\022\020\n\010bl" +
       "ock_id\030\006 \001(\t\022\020\n\010shape_id\030\007 \001(\t\022r\n\025wheelc" +
       "hair_accessible\030\010 \001(\01621.transit_realtime" +
       ".Trip.WheelchairAccessibleStatus: UNKNOW" +
@@ -42819,54 +43009,54 @@ public final class GtfsRealtime {
       "\n\031NOT_WHEELCHAIR_ACCESSIBLE\020\002\"[\n\022BikesAl" +
       "lowedStatus\022\033\n\027UNKNOWN_BIKES_ALLOWANCE\020\000" +
       "\022\021\n\rBIKES_ALLOWED\020\001\022\025\n\021BIKES_NOT_ALLOWED" +
-      "\020\002\"\265\004\n\010StopTime\022\025\n\rstop_sequence\030\001 \002(\r\022\024" +
-      "\n\014arrival_time\030\002 \002(\004\022\026\n\016departure_time\030\003" +
-      " \002(\004\022\017\n\007stop_id\030\004 \002(\t\0229\n\rstop_headsign\030\005" +
+      "\020\002\"\264\004\n\010StopTime\022\025\n\rstop_sequence\030\001 \002(\r\022\024" +
+      "\n\014arrival_time\030\002 \002(\t\022\026\n\016departure_time\030\003" +
+      " \002(\t\022\017\n\007stop_id\030\004 \002(\t\0229\n\rstop_headsign\030\005" +
       " \001(\0132\".transit_realtime.TranslatedString" +
       "\022J\n\013pickup_type\030\006 \001(\0162%.transit_realtime" +
       ".StopTime.PickupType:\016REGULAR_PICKUP\022O\n\r" +
       "drop_off_type\030\007 \001(\0162&.transit_realtime.S" +
       "topTime.DropOffType:\020REGULAR_DROP_OFF\022\033\n" +
-      "\023shape_dist_traveled\030\010 \001(\002\"j\n\nPickupType" +
+      "\023shape_dist_traveled\030\010 \001(\002\"i\n\nPickupType" +
       "\022\022\n\016REGULAR_PICKUP\020\000\022\r\n\tNO_PICKUP\020\001\022\034\n\030M" +
-      "UST_PHONE_AGENCY_PICKUP\020\002\022\033\n\027MUST_ASK_DR" +
-      "IVER_PICK_UP\020\003\"r\n\013DropOffType\022\024\n\020REGULAR" +
-      "_DROP_OFF\020\000\022\017\n\013NO_DROP_OFF\020\001\022\036\n\032MUST_PHO" +
-      "NE_AGENCY_DROP_OFF\020\002\022\034\n\030MUST_ASK_DRIVER_" +
-      "DROP_OFF\020\003\"L\n\005Shape\022\020\n\010shape_id\030\001 \002(\t\0221\n" +
-      "\013shape_point\030\002 \003(\0132\034.transit_realtime.Sh" +
-      "apePoint\"U\n\nShapePoint\022\024\n\014shape_pt_lat\030\001" +
-      " \002(\002\022\024\n\014shape_pt_lon\030\002 \002(\002\022\033\n\023shape_dist" +
-      "_traveled\030\003 \001(\002\"\210\004\n\005Route\022\020\n\010route_id\030\001 " +
-      "\002(\t\022\021\n\tagency_id\030\002 \002(\t\022<\n\020route_short_na" +
-      "me\030\003 \001(\0132\".transit_realtime.TranslatedSt" +
-      "ring\022;\n\017route_long_name\030\004 \001(\0132\".transit_" +
-      "realtime.TranslatedString\0226\n\nroute_desc\030" +
-      "\005 \001(\0132\".transit_realtime.TranslatedStrin" +
-      "g\0225\n\nroute_type\030\006 \002(\0162!.transit_realtime" +
-      ".Route.RouteType\0225\n\troute_url\030\007 \001(\0132\".tr" +
-      "ansit_realtime.TranslatedString\022\023\n\013route" +
-      "_color\030\010 \001(\t\022\030\n\020route_text_color\030\t \001(\t\022\030" +
-      "\n\020route_sort_order\030\n \001(\r\"p\n\tRouteType\022\016\n" +
-      "\nLIGHT_RAIL\020\000\022\n\n\006SUBWAY\020\001\022\010\n\004RAIL\020\002\022\007\n\003B" +
-      "US\020\003\022\t\n\005FERRY\020\004\022\r\n\tCABLE_CAR\020\005\022\013\n\007GONDOL" +
-      "A\020\006\022\r\n\tFUNICULAR\020\007\"\341\004\n\004Stop\022\017\n\007stop_id\030\001" +
-      " \002(\t\0225\n\tstop_code\030\002 \001(\0132\".transit_realti" +
-      "me.TranslatedString\0225\n\tstop_name\030\003 \002(\0132\"" +
-      ".transit_realtime.TranslatedString\0225\n\tst" +
-      "op_desc\030\004 \001(\0132\".transit_realtime.Transla" +
-      "tedString\022\020\n\010stop_lat\030\005 \002(\002\022\020\n\010stop_lon\030" +
-      "\006 \002(\002\022\017\n\007zone_id\030\007 \001(\t\0224\n\010stop_url\030\010 \001(\013" +
-      "2\".transit_realtime.TranslatedString\022\026\n\016" +
-      "parent_station\030\t \001(\t\022\025\n\rstop_timezone\030\n " +
-      "\001(\t\022i\n\023wheelchair_boarding\030\013 \001(\0162/.trans" +
-      "it_realtime.Stop.WheelchairBoardingStatu" +
-      "s:\033UNKNOWN_WHEELCHAIR_BOARDING\022\020\n\010level_" +
-      "id\030\014 \001(\t\022\025\n\rplatform_code\030\r \001(\t\"u\n\030Wheel" +
-      "chairBoardingStatus\022\037\n\033UNKNOWN_WHEELCHAI" +
-      "R_BOARDING\020\000\022\031\n\025WHEELCHAIR_ACCESSIBLE\020\001\022" +
-      "\035\n\031NOT_WHEELCHAIR_ACCESSIBLE\020\002B\035\n\033com.go" +
-      "ogle.transit.realtime"
+      "UST_PHONE_AGENCY_PICKUP\020\002\022\032\n\026MUST_ASK_DR" +
+      "IVER_PICKUP\020\003\"r\n\013DropOffType\022\024\n\020REGULAR_" +
+      "DROP_OFF\020\000\022\017\n\013NO_DROP_OFF\020\001\022\036\n\032MUST_PHON" +
+      "E_AGENCY_DROP_OFF\020\002\022\034\n\030MUST_ASK_DRIVER_D" +
+      "ROP_OFF\020\003\"L\n\005Shape\022\020\n\010shape_id\030\001 \002(\t\0221\n\013" +
+      "shape_point\030\002 \003(\0132\034.transit_realtime.Sha" +
+      "pePoint\"U\n\nShapePoint\022\024\n\014shape_pt_lat\030\001 " +
+      "\002(\002\022\024\n\014shape_pt_lon\030\002 \002(\002\022\033\n\023shape_dist_" +
+      "traveled\030\003 \001(\002\"\210\004\n\005Route\022\020\n\010route_id\030\001 \002" +
+      "(\t\022\021\n\tagency_id\030\002 \002(\t\022<\n\020route_short_nam" +
+      "e\030\003 \001(\0132\".transit_realtime.TranslatedStr" +
+      "ing\022;\n\017route_long_name\030\004 \001(\0132\".transit_r" +
+      "ealtime.TranslatedString\0226\n\nroute_desc\030\005" +
+      " \001(\0132\".transit_realtime.TranslatedString" +
+      "\0225\n\nroute_type\030\006 \002(\0162!.transit_realtime." +
+      "Route.RouteType\0225\n\troute_url\030\007 \001(\0132\".tra" +
+      "nsit_realtime.TranslatedString\022\023\n\013route_" +
+      "color\030\010 \001(\t\022\030\n\020route_text_color\030\t \001(\t\022\030\n" +
+      "\020route_sort_order\030\n \001(\r\"p\n\tRouteType\022\016\n\n" +
+      "LIGHT_RAIL\020\000\022\n\n\006SUBWAY\020\001\022\010\n\004RAIL\020\002\022\007\n\003BU" +
+      "S\020\003\022\t\n\005FERRY\020\004\022\r\n\tCABLE_CAR\020\005\022\013\n\007GONDOLA" +
+      "\020\006\022\r\n\tFUNICULAR\020\007\"\341\004\n\004Stop\022\017\n\007stop_id\030\001 " +
+      "\002(\t\0225\n\tstop_code\030\002 \001(\0132\".transit_realtim" +
+      "e.TranslatedString\0225\n\tstop_name\030\003 \002(\0132\"." +
+      "transit_realtime.TranslatedString\0225\n\tsto" +
+      "p_desc\030\004 \001(\0132\".transit_realtime.Translat" +
+      "edString\022\020\n\010stop_lat\030\005 \002(\002\022\020\n\010stop_lon\030\006" +
+      " \002(\002\022\017\n\007zone_id\030\007 \001(\t\0224\n\010stop_url\030\010 \001(\0132" +
+      "\".transit_realtime.TranslatedString\022\026\n\016p" +
+      "arent_station\030\t \001(\t\022\025\n\rstop_timezone\030\n \001" +
+      "(\t\022i\n\023wheelchair_boarding\030\013 \001(\0162/.transi" +
+      "t_realtime.Stop.WheelchairBoardingStatus" +
+      ":\033UNKNOWN_WHEELCHAIR_BOARDING\022\020\n\010level_i" +
+      "d\030\014 \001(\t\022\025\n\rplatform_code\030\r \001(\t\"u\n\030Wheelc" +
+      "hairBoardingStatus\022\037\n\033UNKNOWN_WHEELCHAIR" +
+      "_BOARDING\020\000\022\031\n\025WHEELCHAIR_ACCESSIBLE\020\001\022\035" +
+      "\n\031NOT_WHEELCHAIR_ACCESSIBLE\020\002B\035\n\033com.goo" +
+      "gle.transit.realtime"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
