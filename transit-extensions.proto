@@ -10,6 +10,9 @@ import "gtfs-spec/gtfs-realtime/proto/gtfs-realtime.proto";
 message TransitAlertExtension {
     // Create time of the alerts, in POSIX time
     required uint64 created_at = 1;
+
+    // Transit's source name for that alert's agency
+    optional string source_name = 2;
 }
 
 extend transit_realtime.Alert {
@@ -25,9 +28,6 @@ message TransitInformedEntityExtension {
 
     // Transit's stable stop id related to the stopId
     optional int32 stable_stop_id = 3;
-
-    // Transit's source name for that alert's agency
-    optional string source_name = 4;
 }
 
 extend transit_realtime.EntitySelector {

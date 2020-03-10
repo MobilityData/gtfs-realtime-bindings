@@ -16,6 +16,7 @@ $root.TransitAlertExtension = (function() {
      * @exports ITransitAlertExtension
      * @interface ITransitAlertExtension
      * @property {number|Long} createdAt TransitAlertExtension createdAt
+     * @property {string|null} [sourceName] TransitAlertExtension sourceName
      */
 
     /**
@@ -42,6 +43,14 @@ $root.TransitAlertExtension = (function() {
     TransitAlertExtension.prototype.createdAt = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
     /**
+     * TransitAlertExtension sourceName.
+     * @member {string} sourceName
+     * @memberof TransitAlertExtension
+     * @instance
+     */
+    TransitAlertExtension.prototype.sourceName = "";
+
+    /**
      * Creates a new TransitAlertExtension instance using the specified properties.
      * @function create
      * @memberof TransitAlertExtension
@@ -66,6 +75,8 @@ $root.TransitAlertExtension = (function() {
         if (!writer)
             writer = $Writer.create();
         writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.createdAt);
+        if (message.sourceName != null && message.hasOwnProperty("sourceName"))
+            writer.uint32(/* id 2, wireType 2 =*/18).string(message.sourceName);
         return writer;
     };
 
@@ -102,6 +113,9 @@ $root.TransitAlertExtension = (function() {
             switch (tag >>> 3) {
             case 1:
                 message.createdAt = reader.uint64();
+                break;
+            case 2:
+                message.sourceName = reader.string();
                 break;
             default:
                 reader.skipType(tag & 7);
@@ -142,6 +156,9 @@ $root.TransitAlertExtension = (function() {
             return "object expected";
         if (!$util.isInteger(message.createdAt) && !(message.createdAt && $util.isInteger(message.createdAt.low) && $util.isInteger(message.createdAt.high)))
             return "createdAt: integer|Long expected";
+        if (message.sourceName != null && message.hasOwnProperty("sourceName"))
+            if (!$util.isString(message.sourceName))
+                return "sourceName: string expected";
         return null;
     };
 
@@ -166,6 +183,8 @@ $root.TransitAlertExtension = (function() {
                 message.createdAt = object.createdAt;
             else if (typeof object.createdAt === "object")
                 message.createdAt = new $util.LongBits(object.createdAt.low >>> 0, object.createdAt.high >>> 0).toNumber(true);
+        if (object.sourceName != null)
+            message.sourceName = String(object.sourceName);
         return message;
     };
 
@@ -182,17 +201,21 @@ $root.TransitAlertExtension = (function() {
         if (!options)
             options = {};
         var object = {};
-        if (options.defaults)
+        if (options.defaults) {
             if ($util.Long) {
                 var long = new $util.Long(0, 0, true);
                 object.createdAt = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
             } else
                 object.createdAt = options.longs === String ? "0" : 0;
+            object.sourceName = "";
+        }
         if (message.createdAt != null && message.hasOwnProperty("createdAt"))
             if (typeof message.createdAt === "number")
                 object.createdAt = options.longs === String ? String(message.createdAt) : message.createdAt;
             else
                 object.createdAt = options.longs === String ? $util.Long.prototype.toString.call(message.createdAt) : options.longs === Number ? new $util.LongBits(message.createdAt.low >>> 0, message.createdAt.high >>> 0).toNumber(true) : message.createdAt;
+        if (message.sourceName != null && message.hasOwnProperty("sourceName"))
+            object.sourceName = message.sourceName;
         return object;
     };
 
@@ -219,7 +242,6 @@ $root.TransitInformedEntityExtension = (function() {
      * @property {number|null} [feedId] TransitInformedEntityExtension feedId
      * @property {number|null} [globalRouteId] TransitInformedEntityExtension globalRouteId
      * @property {number|null} [stableStopId] TransitInformedEntityExtension stableStopId
-     * @property {string|null} [sourceName] TransitInformedEntityExtension sourceName
      */
 
     /**
@@ -262,14 +284,6 @@ $root.TransitInformedEntityExtension = (function() {
     TransitInformedEntityExtension.prototype.stableStopId = 0;
 
     /**
-     * TransitInformedEntityExtension sourceName.
-     * @member {string} sourceName
-     * @memberof TransitInformedEntityExtension
-     * @instance
-     */
-    TransitInformedEntityExtension.prototype.sourceName = "";
-
-    /**
      * Creates a new TransitInformedEntityExtension instance using the specified properties.
      * @function create
      * @memberof TransitInformedEntityExtension
@@ -299,8 +313,6 @@ $root.TransitInformedEntityExtension = (function() {
             writer.uint32(/* id 2, wireType 0 =*/16).int32(message.globalRouteId);
         if (message.stableStopId != null && message.hasOwnProperty("stableStopId"))
             writer.uint32(/* id 3, wireType 0 =*/24).int32(message.stableStopId);
-        if (message.sourceName != null && message.hasOwnProperty("sourceName"))
-            writer.uint32(/* id 4, wireType 2 =*/34).string(message.sourceName);
         return writer;
     };
 
@@ -343,9 +355,6 @@ $root.TransitInformedEntityExtension = (function() {
                 break;
             case 3:
                 message.stableStopId = reader.int32();
-                break;
-            case 4:
-                message.sourceName = reader.string();
                 break;
             default:
                 reader.skipType(tag & 7);
@@ -391,9 +400,6 @@ $root.TransitInformedEntityExtension = (function() {
         if (message.stableStopId != null && message.hasOwnProperty("stableStopId"))
             if (!$util.isInteger(message.stableStopId))
                 return "stableStopId: integer expected";
-        if (message.sourceName != null && message.hasOwnProperty("sourceName"))
-            if (!$util.isString(message.sourceName))
-                return "sourceName: string expected";
         return null;
     };
 
@@ -415,8 +421,6 @@ $root.TransitInformedEntityExtension = (function() {
             message.globalRouteId = object.globalRouteId | 0;
         if (object.stableStopId != null)
             message.stableStopId = object.stableStopId | 0;
-        if (object.sourceName != null)
-            message.sourceName = String(object.sourceName);
         return message;
     };
 
@@ -437,7 +441,6 @@ $root.TransitInformedEntityExtension = (function() {
             object.feedId = 0;
             object.globalRouteId = 0;
             object.stableStopId = 0;
-            object.sourceName = "";
         }
         if (message.feedId != null && message.hasOwnProperty("feedId"))
             object.feedId = message.feedId;
@@ -445,8 +448,6 @@ $root.TransitInformedEntityExtension = (function() {
             object.globalRouteId = message.globalRouteId;
         if (message.stableStopId != null && message.hasOwnProperty("stableStopId"))
             object.stableStopId = message.stableStopId;
-        if (message.sourceName != null && message.hasOwnProperty("sourceName"))
-            object.sourceName = message.sourceName;
         return object;
     };
 
