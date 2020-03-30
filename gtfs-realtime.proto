@@ -107,7 +107,6 @@ message FeedEntity {
   optional Shape shape = 7;
   optional Route route = 8;
   optional Stop stop = 9;
-  optional StopTime stop_time = 10;
 
   // The extensions namespace allows 3rd-party developers to extend the
   // GTFS Realtime Specification in order to add and evaluate new features and
@@ -836,6 +835,8 @@ message Trip {
   optional BikesAllowedStatus biked_allowed = 9 [default = UNKNOWN_BIKES_ALLOWANCE];
   //  Defines which trips are being replaced by this trip.
   repeated string replaces_trip_id = 10;
+  // The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
+  repeated StopTime stop_time = 11;
 
   // Options for wheelchair_accessible:
   // 0 - No accessibility information for the trip.
