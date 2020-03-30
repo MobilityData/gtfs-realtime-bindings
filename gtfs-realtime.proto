@@ -107,6 +107,8 @@ message FeedEntity {
   optional Shape shape = 7;
   optional Route route = 8;
   optional Stop stop = 9;
+  optional StopTime stop_time = 10;
+
   // The extensions namespace allows 3rd-party developers to extend the
   // GTFS Realtime Specification in order to add and evaluate new features and
   // modifications to the spec.
