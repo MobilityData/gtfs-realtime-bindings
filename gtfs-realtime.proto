@@ -920,6 +920,8 @@ message ShapePoint {
   required float shape_pt_lon = 2;
   // Actual distance traveled along the shape from the first shape point to the point specified in this record.
   optional float shape_dist_traveled = 3;
+  // Sequence in which the shape points connect to form the shape. Values must increase along the trip but do not need to be consecutive.
+  required uint32 shape_pt_sequence = 4;
 }
 
 // Describes new routes. A route is a group of trips that are displayed to riders as a single service.

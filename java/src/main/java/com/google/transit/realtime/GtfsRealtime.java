@@ -36100,6 +36100,23 @@ public final class GtfsRealtime {
      * <code>optional float shape_dist_traveled = 3;</code>
      */
     float getShapeDistTraveled();
+
+    /**
+     * <pre>
+     * Sequence in which the shape points connect to form the shape. Values must increase along the trip but do not need to be consecutive.
+     * </pre>
+     *
+     * <code>required uint32 shape_pt_sequence = 4;</code>
+     */
+    boolean hasShapePtSequence();
+    /**
+     * <pre>
+     * Sequence in which the shape points connect to form the shape. Values must increase along the trip but do not need to be consecutive.
+     * </pre>
+     *
+     * <code>required uint32 shape_pt_sequence = 4;</code>
+     */
+    int getShapePtSequence();
   }
   /**
    * <pre>
@@ -36157,6 +36174,11 @@ public final class GtfsRealtime {
             case 29: {
               bitField0_ |= 0x00000004;
               shapeDistTraveled_ = input.readFloat();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              shapePtSequence_ = input.readUInt32();
               break;
             }
             default: {
@@ -36261,6 +36283,29 @@ public final class GtfsRealtime {
       return shapeDistTraveled_;
     }
 
+    public static final int SHAPE_PT_SEQUENCE_FIELD_NUMBER = 4;
+    private int shapePtSequence_;
+    /**
+     * <pre>
+     * Sequence in which the shape points connect to form the shape. Values must increase along the trip but do not need to be consecutive.
+     * </pre>
+     *
+     * <code>required uint32 shape_pt_sequence = 4;</code>
+     */
+    public boolean hasShapePtSequence() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <pre>
+     * Sequence in which the shape points connect to form the shape. Values must increase along the trip but do not need to be consecutive.
+     * </pre>
+     *
+     * <code>required uint32 shape_pt_sequence = 4;</code>
+     */
+    public int getShapePtSequence() {
+      return shapePtSequence_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -36273,6 +36318,10 @@ public final class GtfsRealtime {
         return false;
       }
       if (!hasShapePtLon()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasShapePtSequence()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -36291,6 +36340,9 @@ public final class GtfsRealtime {
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         output.writeFloat(3, shapeDistTraveled_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeUInt32(4, shapePtSequence_);
       }
       unknownFields.writeTo(output);
     }
@@ -36312,6 +36364,10 @@ public final class GtfsRealtime {
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(3, shapeDistTraveled_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(4, shapePtSequence_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -36346,6 +36402,11 @@ public final class GtfsRealtime {
             != java.lang.Float.floatToIntBits(
                 other.getShapeDistTraveled())) return false;
       }
+      if (hasShapePtSequence() != other.hasShapePtSequence()) return false;
+      if (hasShapePtSequence()) {
+        if (getShapePtSequence()
+            != other.getShapePtSequence()) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -36371,6 +36432,10 @@ public final class GtfsRealtime {
         hash = (37 * hash) + SHAPE_DIST_TRAVELED_FIELD_NUMBER;
         hash = (53 * hash) + java.lang.Float.floatToIntBits(
             getShapeDistTraveled());
+      }
+      if (hasShapePtSequence()) {
+        hash = (37 * hash) + SHAPE_PT_SEQUENCE_FIELD_NUMBER;
+        hash = (53 * hash) + getShapePtSequence();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -36515,6 +36580,8 @@ public final class GtfsRealtime {
         bitField0_ = (bitField0_ & ~0x00000002);
         shapeDistTraveled_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000004);
+        shapePtSequence_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -36554,6 +36621,10 @@ public final class GtfsRealtime {
         if (((from_bitField0_ & 0x00000004) != 0)) {
           result.shapeDistTraveled_ = shapeDistTraveled_;
           to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.shapePtSequence_ = shapePtSequence_;
+          to_bitField0_ |= 0x00000008;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -36613,6 +36684,9 @@ public final class GtfsRealtime {
         if (other.hasShapeDistTraveled()) {
           setShapeDistTraveled(other.getShapeDistTraveled());
         }
+        if (other.hasShapePtSequence()) {
+          setShapePtSequence(other.getShapePtSequence());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -36624,6 +36698,9 @@ public final class GtfsRealtime {
           return false;
         }
         if (!hasShapePtLon()) {
+          return false;
+        }
+        if (!hasShapePtSequence()) {
           return false;
         }
         return true;
@@ -36789,6 +36866,54 @@ public final class GtfsRealtime {
       public Builder clearShapeDistTraveled() {
         bitField0_ = (bitField0_ & ~0x00000004);
         shapeDistTraveled_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private int shapePtSequence_ ;
+      /**
+       * <pre>
+       * Sequence in which the shape points connect to form the shape. Values must increase along the trip but do not need to be consecutive.
+       * </pre>
+       *
+       * <code>required uint32 shape_pt_sequence = 4;</code>
+       */
+      public boolean hasShapePtSequence() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <pre>
+       * Sequence in which the shape points connect to form the shape. Values must increase along the trip but do not need to be consecutive.
+       * </pre>
+       *
+       * <code>required uint32 shape_pt_sequence = 4;</code>
+       */
+      public int getShapePtSequence() {
+        return shapePtSequence_;
+      }
+      /**
+       * <pre>
+       * Sequence in which the shape points connect to form the shape. Values must increase along the trip but do not need to be consecutive.
+       * </pre>
+       *
+       * <code>required uint32 shape_pt_sequence = 4;</code>
+       */
+      public Builder setShapePtSequence(int value) {
+        bitField0_ |= 0x00000008;
+        shapePtSequence_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Sequence in which the shape points connect to form the shape. Values must increase along the trip but do not need to be consecutive.
+       * </pre>
+       *
+       * <code>required uint32 shape_pt_sequence = 4;</code>
+       */
+      public Builder clearShapePtSequence() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        shapePtSequence_ = 0;
         onChanged();
         return this;
       }
@@ -43236,38 +43361,39 @@ public final class GtfsRealtime {
       "ST_PHONE_AGENCY_DROP_OFF\020\002\022\034\n\030MUST_ASK_D" +
       "RIVER_DROP_OFF\020\003\"L\n\005Shape\022\020\n\010shape_id\030\001 " +
       "\002(\t\0221\n\013shape_point\030\002 \003(\0132\034.transit_realt" +
-      "ime.ShapePoint\"U\n\nShapePoint\022\024\n\014shape_pt" +
+      "ime.ShapePoint\"p\n\nShapePoint\022\024\n\014shape_pt" +
       "_lat\030\001 \002(\002\022\024\n\014shape_pt_lon\030\002 \002(\002\022\033\n\023shap" +
-      "e_dist_traveled\030\003 \001(\002\"\210\004\n\005Route\022\020\n\010route" +
-      "_id\030\001 \002(\t\022\021\n\tagency_id\030\002 \002(\t\022<\n\020route_sh" +
-      "ort_name\030\003 \001(\0132\".transit_realtime.Transl" +
-      "atedString\022;\n\017route_long_name\030\004 \001(\0132\".tr" +
-      "ansit_realtime.TranslatedString\0226\n\nroute" +
-      "_desc\030\005 \001(\0132\".transit_realtime.Translate" +
-      "dString\0225\n\nroute_type\030\006 \002(\0162!.transit_re" +
-      "altime.Route.RouteType\0225\n\troute_url\030\007 \001(" +
-      "\0132\".transit_realtime.TranslatedString\022\023\n" +
-      "\013route_color\030\010 \001(\t\022\030\n\020route_text_color\030\t" +
-      " \001(\t\022\030\n\020route_sort_order\030\n \001(\r\"p\n\tRouteT" +
-      "ype\022\016\n\nLIGHT_RAIL\020\000\022\n\n\006SUBWAY\020\001\022\010\n\004RAIL\020" +
-      "\002\022\007\n\003BUS\020\003\022\t\n\005FERRY\020\004\022\r\n\tCABLE_CAR\020\005\022\013\n\007" +
-      "GONDOLA\020\006\022\r\n\tFUNICULAR\020\007\"\341\004\n\004Stop\022\017\n\007sto" +
-      "p_id\030\001 \002(\t\0225\n\tstop_code\030\002 \001(\0132\".transit_" +
-      "realtime.TranslatedString\0225\n\tstop_name\030\003" +
-      " \002(\0132\".transit_realtime.TranslatedString" +
-      "\0225\n\tstop_desc\030\004 \001(\0132\".transit_realtime.T" +
-      "ranslatedString\022\020\n\010stop_lat\030\005 \002(\002\022\020\n\010sto" +
-      "p_lon\030\006 \002(\002\022\017\n\007zone_id\030\007 \001(\t\0224\n\010stop_url" +
-      "\030\010 \001(\0132\".transit_realtime.TranslatedStri" +
-      "ng\022\026\n\016parent_station\030\t \001(\t\022\025\n\rstop_timez" +
-      "one\030\n \001(\t\022i\n\023wheelchair_boarding\030\013 \001(\0162/" +
-      ".transit_realtime.Stop.WheelchairBoardin" +
-      "gStatus:\033UNKNOWN_WHEELCHAIR_BOARDING\022\020\n\010" +
-      "level_id\030\014 \001(\t\022\025\n\rplatform_code\030\r \001(\t\"u\n" +
-      "\030WheelchairBoardingStatus\022\037\n\033UNKNOWN_WHE" +
-      "ELCHAIR_BOARDING\020\000\022\031\n\025WHEELCHAIR_ACCESSI" +
-      "BLE\020\001\022\035\n\031NOT_WHEELCHAIR_ACCESSIBLE\020\002B\035\n\033" +
-      "com.google.transit.realtime"
+      "e_dist_traveled\030\003 \001(\002\022\031\n\021shape_pt_sequen" +
+      "ce\030\004 \002(\r\"\210\004\n\005Route\022\020\n\010route_id\030\001 \002(\t\022\021\n\t" +
+      "agency_id\030\002 \002(\t\022<\n\020route_short_name\030\003 \001(" +
+      "\0132\".transit_realtime.TranslatedString\022;\n" +
+      "\017route_long_name\030\004 \001(\0132\".transit_realtim" +
+      "e.TranslatedString\0226\n\nroute_desc\030\005 \001(\0132\"" +
+      ".transit_realtime.TranslatedString\0225\n\nro" +
+      "ute_type\030\006 \002(\0162!.transit_realtime.Route." +
+      "RouteType\0225\n\troute_url\030\007 \001(\0132\".transit_r" +
+      "ealtime.TranslatedString\022\023\n\013route_color\030" +
+      "\010 \001(\t\022\030\n\020route_text_color\030\t \001(\t\022\030\n\020route" +
+      "_sort_order\030\n \001(\r\"p\n\tRouteType\022\016\n\nLIGHT_" +
+      "RAIL\020\000\022\n\n\006SUBWAY\020\001\022\010\n\004RAIL\020\002\022\007\n\003BUS\020\003\022\t\n" +
+      "\005FERRY\020\004\022\r\n\tCABLE_CAR\020\005\022\013\n\007GONDOLA\020\006\022\r\n\t" +
+      "FUNICULAR\020\007\"\341\004\n\004Stop\022\017\n\007stop_id\030\001 \002(\t\0225\n" +
+      "\tstop_code\030\002 \001(\0132\".transit_realtime.Tran" +
+      "slatedString\0225\n\tstop_name\030\003 \002(\0132\".transi" +
+      "t_realtime.TranslatedString\0225\n\tstop_desc" +
+      "\030\004 \001(\0132\".transit_realtime.TranslatedStri" +
+      "ng\022\020\n\010stop_lat\030\005 \002(\002\022\020\n\010stop_lon\030\006 \002(\002\022\017" +
+      "\n\007zone_id\030\007 \001(\t\0224\n\010stop_url\030\010 \001(\0132\".tran" +
+      "sit_realtime.TranslatedString\022\026\n\016parent_" +
+      "station\030\t \001(\t\022\025\n\rstop_timezone\030\n \001(\t\022i\n\023" +
+      "wheelchair_boarding\030\013 \001(\0162/.transit_real" +
+      "time.Stop.WheelchairBoardingStatus:\033UNKN" +
+      "OWN_WHEELCHAIR_BOARDING\022\020\n\010level_id\030\014 \001(" +
+      "\t\022\025\n\rplatform_code\030\r \001(\t\"u\n\030WheelchairBo" +
+      "ardingStatus\022\037\n\033UNKNOWN_WHEELCHAIR_BOARD" +
+      "ING\020\000\022\031\n\025WHEELCHAIR_ACCESSIBLE\020\001\022\035\n\031NOT_" +
+      "WHEELCHAIR_ACCESSIBLE\020\002B\035\n\033com.google.tr" +
+      "ansit.realtime"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -43412,7 +43538,7 @@ public final class GtfsRealtime {
     internal_static_transit_realtime_ShapePoint_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_transit_realtime_ShapePoint_descriptor,
-        new java.lang.String[] { "ShapePtLat", "ShapePtLon", "ShapeDistTraveled", });
+        new java.lang.String[] { "ShapePtLat", "ShapePtLon", "ShapeDistTraveled", "ShapePtSequence", });
     internal_static_transit_realtime_Route_descriptor =
       getDescriptor().getMessageTypes().get(19);
     internal_static_transit_realtime_Route_fieldAccessorTable = new
