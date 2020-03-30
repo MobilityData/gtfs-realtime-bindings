@@ -2478,6 +2478,19 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.Stop stop = 9;</code>
      */
     com.google.transit.realtime.GtfsRealtime.StopOrBuilder getStopOrBuilder();
+
+    /**
+     * <code>optional .transit_realtime.StopTime stop_time = 10;</code>
+     */
+    boolean hasStopTime();
+    /**
+     * <code>optional .transit_realtime.StopTime stop_time = 10;</code>
+     */
+    com.google.transit.realtime.GtfsRealtime.StopTime getStopTime();
+    /**
+     * <code>optional .transit_realtime.StopTime stop_time = 10;</code>
+     */
+    com.google.transit.realtime.GtfsRealtime.StopTimeOrBuilder getStopTimeOrBuilder();
   }
   /**
    * <pre>
@@ -2624,6 +2637,19 @@ public final class GtfsRealtime {
                 stop_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000100;
+              break;
+            }
+            case 82: {
+              com.google.transit.realtime.GtfsRealtime.StopTime.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000200) != 0)) {
+                subBuilder = stopTime_.toBuilder();
+              }
+              stopTime_ = input.readMessage(com.google.transit.realtime.GtfsRealtime.StopTime.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(stopTime_);
+                stopTime_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000200;
               break;
             }
             default: {
@@ -2921,6 +2947,27 @@ public final class GtfsRealtime {
       return stop_ == null ? com.google.transit.realtime.GtfsRealtime.Stop.getDefaultInstance() : stop_;
     }
 
+    public static final int STOP_TIME_FIELD_NUMBER = 10;
+    private com.google.transit.realtime.GtfsRealtime.StopTime stopTime_;
+    /**
+     * <code>optional .transit_realtime.StopTime stop_time = 10;</code>
+     */
+    public boolean hasStopTime() {
+      return ((bitField0_ & 0x00000200) != 0);
+    }
+    /**
+     * <code>optional .transit_realtime.StopTime stop_time = 10;</code>
+     */
+    public com.google.transit.realtime.GtfsRealtime.StopTime getStopTime() {
+      return stopTime_ == null ? com.google.transit.realtime.GtfsRealtime.StopTime.getDefaultInstance() : stopTime_;
+    }
+    /**
+     * <code>optional .transit_realtime.StopTime stop_time = 10;</code>
+     */
+    public com.google.transit.realtime.GtfsRealtime.StopTimeOrBuilder getStopTimeOrBuilder() {
+      return stopTime_ == null ? com.google.transit.realtime.GtfsRealtime.StopTime.getDefaultInstance() : stopTime_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2974,6 +3021,12 @@ public final class GtfsRealtime {
           return false;
         }
       }
+      if (hasStopTime()) {
+        if (!getStopTime().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       if (!extensionsAreInitialized()) {
         memoizedIsInitialized = 0;
         return false;
@@ -3014,6 +3067,9 @@ public final class GtfsRealtime {
       }
       if (((bitField0_ & 0x00000100) != 0)) {
         output.writeMessage(9, getStop());
+      }
+      if (((bitField0_ & 0x00000200) != 0)) {
+        output.writeMessage(10, getStopTime());
       }
       extensionWriter.writeUntil(2000, output);
       extensionWriter.writeUntil(10000, output);
@@ -3060,6 +3116,10 @@ public final class GtfsRealtime {
       if (((bitField0_ & 0x00000100) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(9, getStop());
+      }
+      if (((bitField0_ & 0x00000200) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, getStopTime());
       }
       size += extensionsSerializedSize();
       size += unknownFields.getSerializedSize();
@@ -3122,6 +3182,11 @@ public final class GtfsRealtime {
         if (!getStop()
             .equals(other.getStop())) return false;
       }
+      if (hasStopTime() != other.hasStopTime()) return false;
+      if (hasStopTime()) {
+        if (!getStopTime()
+            .equals(other.getStopTime())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       if (!getExtensionFields().equals(other.getExtensionFields()))
         return false;
@@ -3171,6 +3236,10 @@ public final class GtfsRealtime {
       if (hasStop()) {
         hash = (37 * hash) + STOP_FIELD_NUMBER;
         hash = (53 * hash) + getStop().hashCode();
+      }
+      if (hasStopTime()) {
+        hash = (37 * hash) + STOP_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getStopTime().hashCode();
       }
       hash = hashFields(hash, getExtensionFields());
       hash = (29 * hash) + unknownFields.hashCode();
@@ -3313,6 +3382,7 @@ public final class GtfsRealtime {
           getShapeFieldBuilder();
           getRouteFieldBuilder();
           getStopFieldBuilder();
+          getStopTimeFieldBuilder();
         }
       }
       @java.lang.Override
@@ -3364,6 +3434,12 @@ public final class GtfsRealtime {
           stopBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000100);
+        if (stopTimeBuilder_ == null) {
+          stopTime_ = null;
+        } else {
+          stopTimeBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000200);
         return this;
       }
 
@@ -3455,6 +3531,14 @@ public final class GtfsRealtime {
             result.stop_ = stopBuilder_.build();
           }
           to_bitField0_ |= 0x00000100;
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          if (stopTimeBuilder_ == null) {
+            result.stopTime_ = stopTime_;
+          } else {
+            result.stopTime_ = stopTimeBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000200;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -3561,6 +3645,9 @@ public final class GtfsRealtime {
         if (other.hasStop()) {
           mergeStop(other.getStop());
         }
+        if (other.hasStopTime()) {
+          mergeStopTime(other.getStopTime());
+        }
         this.mergeExtensionFields(other);
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3604,6 +3691,11 @@ public final class GtfsRealtime {
         }
         if (hasStop()) {
           if (!getStop().isInitialized()) {
+            return false;
+          }
+        }
+        if (hasStopTime()) {
+          if (!getStopTime().isInitialized()) {
             return false;
           }
         }
@@ -4696,6 +4788,124 @@ public final class GtfsRealtime {
           stop_ = null;
         }
         return stopBuilder_;
+      }
+
+      private com.google.transit.realtime.GtfsRealtime.StopTime stopTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.transit.realtime.GtfsRealtime.StopTime, com.google.transit.realtime.GtfsRealtime.StopTime.Builder, com.google.transit.realtime.GtfsRealtime.StopTimeOrBuilder> stopTimeBuilder_;
+      /**
+       * <code>optional .transit_realtime.StopTime stop_time = 10;</code>
+       */
+      public boolean hasStopTime() {
+        return ((bitField0_ & 0x00000200) != 0);
+      }
+      /**
+       * <code>optional .transit_realtime.StopTime stop_time = 10;</code>
+       */
+      public com.google.transit.realtime.GtfsRealtime.StopTime getStopTime() {
+        if (stopTimeBuilder_ == null) {
+          return stopTime_ == null ? com.google.transit.realtime.GtfsRealtime.StopTime.getDefaultInstance() : stopTime_;
+        } else {
+          return stopTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .transit_realtime.StopTime stop_time = 10;</code>
+       */
+      public Builder setStopTime(com.google.transit.realtime.GtfsRealtime.StopTime value) {
+        if (stopTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          stopTime_ = value;
+          onChanged();
+        } else {
+          stopTimeBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000200;
+        return this;
+      }
+      /**
+       * <code>optional .transit_realtime.StopTime stop_time = 10;</code>
+       */
+      public Builder setStopTime(
+          com.google.transit.realtime.GtfsRealtime.StopTime.Builder builderForValue) {
+        if (stopTimeBuilder_ == null) {
+          stopTime_ = builderForValue.build();
+          onChanged();
+        } else {
+          stopTimeBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000200;
+        return this;
+      }
+      /**
+       * <code>optional .transit_realtime.StopTime stop_time = 10;</code>
+       */
+      public Builder mergeStopTime(com.google.transit.realtime.GtfsRealtime.StopTime value) {
+        if (stopTimeBuilder_ == null) {
+          if (((bitField0_ & 0x00000200) != 0) &&
+              stopTime_ != null &&
+              stopTime_ != com.google.transit.realtime.GtfsRealtime.StopTime.getDefaultInstance()) {
+            stopTime_ =
+              com.google.transit.realtime.GtfsRealtime.StopTime.newBuilder(stopTime_).mergeFrom(value).buildPartial();
+          } else {
+            stopTime_ = value;
+          }
+          onChanged();
+        } else {
+          stopTimeBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000200;
+        return this;
+      }
+      /**
+       * <code>optional .transit_realtime.StopTime stop_time = 10;</code>
+       */
+      public Builder clearStopTime() {
+        if (stopTimeBuilder_ == null) {
+          stopTime_ = null;
+          onChanged();
+        } else {
+          stopTimeBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000200);
+        return this;
+      }
+      /**
+       * <code>optional .transit_realtime.StopTime stop_time = 10;</code>
+       */
+      public com.google.transit.realtime.GtfsRealtime.StopTime.Builder getStopTimeBuilder() {
+        bitField0_ |= 0x00000200;
+        onChanged();
+        return getStopTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .transit_realtime.StopTime stop_time = 10;</code>
+       */
+      public com.google.transit.realtime.GtfsRealtime.StopTimeOrBuilder getStopTimeOrBuilder() {
+        if (stopTimeBuilder_ != null) {
+          return stopTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return stopTime_ == null ?
+              com.google.transit.realtime.GtfsRealtime.StopTime.getDefaultInstance() : stopTime_;
+        }
+      }
+      /**
+       * <code>optional .transit_realtime.StopTime stop_time = 10;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.transit.realtime.GtfsRealtime.StopTime, com.google.transit.realtime.GtfsRealtime.StopTime.Builder, com.google.transit.realtime.GtfsRealtime.StopTimeOrBuilder> 
+          getStopTimeFieldBuilder() {
+        if (stopTimeBuilder_ == null) {
+          stopTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.transit.realtime.GtfsRealtime.StopTime, com.google.transit.realtime.GtfsRealtime.StopTime.Builder, com.google.transit.realtime.GtfsRealtime.StopTimeOrBuilder>(
+                  getStopTime(),
+                  getParentForChildren(),
+                  isClean());
+          stopTime_ = null;
+        }
+        return stopTimeBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -42854,7 +43064,7 @@ public final class GtfsRealtime {
       "it_realtime.FeedHeader.Incrementality:\014F" +
       "ULL_DATASET\022\021\n\ttimestamp\030\003 \001(\004\"4\n\016Increm" +
       "entality\022\020\n\014FULL_DATASET\020\000\022\020\n\014DIFFERENTI" +
-      "AL\020\001*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\356\002\n\nFeedEntity\022\n\n\002i" +
+      "AL\020\001*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\235\003\n\nFeedEntity\022\n\n\002i" +
       "d\030\001 \002(\t\022\031\n\nis_deleted\030\002 \001(\010:\005false\0221\n\013tr" +
       "ip_update\030\003 \001(\0132\034.transit_realtime.TripU" +
       "pdate\0222\n\007vehicle\030\004 \001(\0132!.transit_realtim" +
@@ -42863,200 +43073,201 @@ public final class GtfsRealtime {
       "t_realtime.Trip\022&\n\005shape\030\007 \001(\0132\027.transit" +
       "_realtime.Shape\022&\n\005route\030\010 \001(\0132\027.transit" +
       "_realtime.Route\022$\n\004stop\030\t \001(\0132\026.transit_" +
-      "realtime.Stop*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\232\007\n\nTripUp" +
-      "date\022.\n\004trip\030\001 \002(\0132 .transit_realtime.Tr" +
-      "ipDescriptor\0224\n\007vehicle\030\003 \001(\0132#.transit_" +
-      "realtime.VehicleDescriptor\022E\n\020stop_time_" +
-      "update\030\002 \003(\0132+.transit_realtime.TripUpda" +
-      "te.StopTimeUpdate\022\021\n\ttimestamp\030\004 \001(\004\022\r\n\005" +
-      "delay\030\005 \001(\005\0229\n\017trip_properties\030\006 \001(\0132 .t" +
-      "ransit_realtime.TripProperties\022?\n\022vehicl" +
-      "e_properties\030\007 \001(\0132#.transit_realtime.Ve" +
-      "hicleProperties\032h\n\rStopTimeEvent\022\r\n\005dela" +
-      "y\030\001 \001(\005\022\014\n\004time\030\002 \001(\003\022\023\n\013uncertainty\030\003 \001" +
-      "(\005\022\025\n\rschedule_time\030\004 \001(\003*\006\010\350\007\020\320\017*\006\010\250F\020\220" +
-      "N\032\306\003\n\016StopTimeUpdate\022\025\n\rstop_sequence\030\001 " +
-      "\001(\r\022\017\n\007stop_id\030\004 \001(\t\022;\n\007arrival\030\002 \001(\0132*." +
-      "transit_realtime.TripUpdate.StopTimeEven" +
-      "t\022=\n\tdeparture\030\003 \001(\0132*.transit_realtime." +
-      "TripUpdate.StopTimeEvent\022j\n\025schedule_rel" +
-      "ationship\030\005 \001(\0162@.transit_realtime.TripU" +
-      "pdate.StopTimeUpdate.ScheduleRelationshi" +
-      "p:\tSCHEDULED\022B\n\024stop_time_properties\030\006 \001" +
-      "(\0132$.transit_realtime.StopTimeProperties" +
-      "\"P\n\024ScheduleRelationship\022\r\n\tSCHEDULED\020\000\022" +
-      "\013\n\007SKIPPED\020\001\022\013\n\007NO_DATA\020\002\022\017\n\013UNSCHEDULED" +
-      "\020\003*\006\010\350\007\020\320\017*\006\010\250F\020\220N*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\350\006\n\017V" +
-      "ehiclePosition\022.\n\004trip\030\001 \001(\0132 .transit_r" +
-      "ealtime.TripDescriptor\0224\n\007vehicle\030\010 \001(\0132" +
-      "#.transit_realtime.VehicleDescriptor\022,\n\010" +
-      "position\030\002 \001(\0132\032.transit_realtime.Positi" +
-      "on\022\035\n\025current_stop_sequence\030\003 \001(\r\022\017\n\007sto" +
-      "p_id\030\007 \001(\t\022Z\n\016current_status\030\004 \001(\01623.tra" +
-      "nsit_realtime.VehiclePosition.VehicleSto" +
-      "pStatus:\rIN_TRANSIT_TO\022\021\n\ttimestamp\030\005 \001(" +
-      "\004\022K\n\020congestion_level\030\006 \001(\01621.transit_re" +
-      "altime.VehiclePosition.CongestionLevel\022K" +
-      "\n\020occupancy_status\030\t \001(\01621.transit_realt" +
-      "ime.VehiclePosition.OccupancyStatus\"G\n\021V" +
-      "ehicleStopStatus\022\017\n\013INCOMING_AT\020\000\022\016\n\nSTO" +
-      "PPED_AT\020\001\022\021\n\rIN_TRANSIT_TO\020\002\"}\n\017Congesti" +
-      "onLevel\022\034\n\030UNKNOWN_CONGESTION_LEVEL\020\000\022\024\n" +
-      "\020RUNNING_SMOOTHLY\020\001\022\017\n\013STOP_AND_GO\020\002\022\016\n\n" +
-      "CONGESTION\020\003\022\025\n\021SEVERE_CONGESTION\020\004\"\257\001\n\017" +
-      "OccupancyStatus\022\t\n\005EMPTY\020\000\022\030\n\024MANY_SEATS" +
-      "_AVAILABLE\020\001\022\027\n\023FEW_SEATS_AVAILABLE\020\002\022\026\n" +
-      "\022STANDING_ROOM_ONLY\020\003\022\036\n\032CRUSHED_STANDIN" +
-      "G_ROOM_ONLY\020\004\022\010\n\004FULL\020\005\022\034\n\030NOT_ACCEPTING" +
-      "_PASSENGERS\020\006*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\200\t\n\005Alert\022" +
-      "2\n\ractive_period\030\001 \003(\0132\033.transit_realtim" +
-      "e.TimeRange\0229\n\017informed_entity\030\005 \003(\0132 .t" +
-      "ransit_realtime.EntitySelector\022;\n\005cause\030" +
-      "\006 \001(\0162\035.transit_realtime.Alert.Cause:\rUN" +
-      "KNOWN_CAUSE\022>\n\006effect\030\007 \001(\0162\036.transit_re" +
-      "altime.Alert.Effect:\016UNKNOWN_EFFECT\022/\n\003u" +
-      "rl\030\010 \001(\0132\".transit_realtime.TranslatedSt" +
-      "ring\0227\n\013header_text\030\n \001(\0132\".transit_real" +
-      "time.TranslatedString\022<\n\020description_tex" +
-      "t\030\013 \001(\0132\".transit_realtime.TranslatedStr" +
-      "ing\022;\n\017tts_header_text\030\014 \001(\0132\".transit_r" +
-      "ealtime.TranslatedString\022@\n\024tts_descript" +
-      "ion_text\030\r \001(\0132\".transit_realtime.Transl" +
-      "atedString\022O\n\016severity_level\030\016 \001(\0162%.tra" +
-      "nsit_realtime.Alert.SeverityLevel:\020UNKNO" +
-      "WN_SEVERITY\"\330\001\n\005Cause\022\021\n\rUNKNOWN_CAUSE\020\001" +
-      "\022\017\n\013OTHER_CAUSE\020\002\022\025\n\021TECHNICAL_PROBLEM\020\003" +
-      "\022\n\n\006STRIKE\020\004\022\021\n\rDEMONSTRATION\020\005\022\014\n\010ACCID" +
-      "ENT\020\006\022\013\n\007HOLIDAY\020\007\022\013\n\007WEATHER\020\010\022\017\n\013MAINT" +
-      "ENANCE\020\t\022\020\n\014CONSTRUCTION\020\n\022\023\n\017POLICE_ACT" +
-      "IVITY\020\013\022\025\n\021MEDICAL_EMERGENCY\020\014\"\335\001\n\006Effec" +
-      "t\022\016\n\nNO_SERVICE\020\001\022\023\n\017REDUCED_SERVICE\020\002\022\026" +
-      "\n\022SIGNIFICANT_DELAYS\020\003\022\n\n\006DETOUR\020\004\022\026\n\022AD" +
-      "DITIONAL_SERVICE\020\005\022\024\n\020MODIFIED_SERVICE\020\006" +
-      "\022\020\n\014OTHER_EFFECT\020\007\022\022\n\016UNKNOWN_EFFECT\020\010\022\016" +
-      "\n\nSTOP_MOVED\020\t\022\r\n\tNO_EFFECT\020\n\022\027\n\023ACCESSI" +
-      "BILITY_ISSUE\020\013\"H\n\rSeverityLevel\022\024\n\020UNKNO" +
-      "WN_SEVERITY\020\001\022\010\n\004INFO\020\002\022\013\n\007WARNING\020\003\022\n\n\006" +
-      "SEVERE\020\004*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"7\n\tTimeRange\022\r\n" +
-      "\005start\030\001 \001(\004\022\013\n\003end\030\002 \001(\004*\006\010\350\007\020\320\017*\006\010\250F\020\220" +
-      "N\"q\n\010Position\022\020\n\010latitude\030\001 \002(\002\022\021\n\tlongi" +
-      "tude\030\002 \002(\002\022\017\n\007bearing\030\003 \001(\002\022\020\n\010odometer\030" +
-      "\004 \001(\001\022\r\n\005speed\030\005 \001(\002*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\321\002\n" +
-      "\016TripDescriptor\022\017\n\007trip_id\030\001 \001(\t\022\020\n\010rout" +
-      "e_id\030\005 \001(\t\022\024\n\014direction_id\030\006 \001(\r\022\022\n\nstar" +
-      "t_time\030\002 \001(\t\022\022\n\nstart_date\030\003 \001(\t\022T\n\025sche" +
-      "dule_relationship\030\004 \001(\01625.transit_realti" +
-      "me.TripDescriptor.ScheduleRelationship\"x" +
-      "\n\024ScheduleRelationship\022\r\n\tSCHEDULED\020\000\022\r\n" +
-      "\005ADDED\020\001\032\002\010\001\022\017\n\013UNSCHEDULED\020\002\022\014\n\010CANCELE" +
-      "D\020\003\022\023\n\013REPLACEMENT\020\005\032\002\010\001\022\016\n\nDUPLICATED\020\006" +
-      "*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"U\n\021VehicleDescriptor\022\n\n" +
-      "\002id\030\001 \001(\t\022\r\n\005label\030\002 \001(\t\022\025\n\rlicense_plat" +
-      "e\030\003 \001(\t*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\260\001\n\016EntitySelect" +
-      "or\022\021\n\tagency_id\030\001 \001(\t\022\020\n\010route_id\030\002 \001(\t\022" +
-      "\022\n\nroute_type\030\003 \001(\005\022.\n\004trip\030\004 \001(\0132 .tran" +
-      "sit_realtime.TripDescriptor\022\017\n\007stop_id\030\005" +
-      " \001(\t\022\024\n\014direction_id\030\006 \001(\r*\006\010\350\007\020\320\017*\006\010\250F\020" +
-      "\220N\"\246\001\n\020TranslatedString\022C\n\013translation\030\001" +
-      " \003(\0132..transit_realtime.TranslatedString" +
-      ".Translation\032=\n\013Translation\022\014\n\004text\030\001 \002(" +
-      "\t\022\020\n\010language\030\002 \001(\t*\006\010\350\007\020\320\017*\006\010\250F\020\220N*\006\010\350\007" +
-      "\020\320\017*\006\010\250F\020\220N\"\367\001\n\016TripProperties\022\017\n\007trip_i" +
-      "d\030\001 \001(\t\022\022\n\nstart_date\030\002 \001(\t\022\022\n\nstart_tim" +
-      "e\030\003 \001(\t\022\020\n\010route_id\030\004 \001(\t\0229\n\rtrip_headsi" +
-      "gn\030\005 \001(\0132\".transit_realtime.TranslatedSt" +
-      "ring\022;\n\017trip_short_name\030\006 \001(\0132\".transit_" +
-      "realtime.TranslatedString\022\020\n\010block_id\030\007 " +
-      "\001(\t\022\020\n\010shape_id\030\010 \001(\t\"\327\003\n\021VehiclePropert" +
-      "ies\022\177\n\025wheelchair_accessible\030\001 \001(\0162>.tra" +
-      "nsit_realtime.VehicleProperties.Wheelcha" +
-      "irAccessibleStatus: UNKNOWN_WHEELCHAIR_A" +
-      "CCESSIBILITY\022f\n\rbiked_allowed\030\002 \001(\01626.tr" +
-      "ansit_realtime.VehicleProperties.BikesAl" +
-      "lowedStatus:\027UNKNOWN_BIKES_ALLOWANCE\"|\n\032" +
-      "WheelchairAccessibleStatus\022$\n UNKNOWN_WH" +
-      "EELCHAIR_ACCESSIBILITY\020\000\022\031\n\025WHEELCHAIR_A" +
-      "CCESSIBLE\020\001\022\035\n\031NOT_WHEELCHAIR_ACCESSIBLE" +
-      "\020\002\"[\n\022BikesAllowedStatus\022\033\n\027UNKNOWN_BIKE" +
-      "S_ALLOWANCE\020\000\022\021\n\rBIKES_ALLOWED\020\001\022\025\n\021BIKE" +
-      "S_NOT_ALLOWED\020\002\"\242\004\n\022StopTimeProperties\022\023" +
-      "\n\013platform_id\030\001 \001(\t\0229\n\rstop_headsign\030\002 \001" +
-      "(\0132\".transit_realtime.TranslatedString\022T" +
-      "\n\013pickup_type\030\003 \001(\0162/.transit_realtime.S" +
-      "topTimeProperties.PickupType:\016REGULAR_PI" +
-      "CKUP\022Y\n\rdrop_off_type\030\004 \001(\01620.transit_re" +
-      "altime.StopTimeProperties.DropOffType:\020R" +
-      "EGULAR_DROP_OFF\022\033\n\023shape_dist_traveled\030\005" +
-      " \001(\002\022\017\n\007stop_id\030\006 \001(\t\"i\n\nPickupType\022\022\n\016R" +
-      "EGULAR_PICKUP\020\000\022\r\n\tNO_PICKUP\020\001\022\034\n\030MUST_P" +
-      "HONE_AGENCY_PICKUP\020\002\022\032\n\026MUST_ASK_DRIVER_" +
-      "PICKUP\020\003\"r\n\013DropOffType\022\024\n\020REGULAR_DROP_" +
-      "OFF\020\000\022\017\n\013NO_DROP_OFF\020\001\022\036\n\032MUST_PHONE_AGE" +
-      "NCY_DROP_OFF\020\002\022\034\n\030MUST_ASK_DRIVER_DROP_O" +
-      "FF\020\003\"\373\004\n\004Trip\022\017\n\007trip_id\030\001 \002(\t\022\020\n\010route_" +
-      "id\030\002 \001(\t\0229\n\rtrip_headsign\030\003 \002(\0132\".transi" +
-      "t_realtime.TranslatedString\022\027\n\017trip_shor" +
-      "t_name\030\004 \002(\t\022\024\n\014direction_id\030\005 \001(\r\022\020\n\010bl" +
-      "ock_id\030\006 \001(\t\022\020\n\010shape_id\030\007 \001(\t\022r\n\025wheelc" +
-      "hair_accessible\030\010 \001(\01621.transit_realtime" +
-      ".Trip.WheelchairAccessibleStatus: UNKNOW" +
-      "N_WHEELCHAIR_ACCESSIBILITY\022Y\n\rbiked_allo" +
-      "wed\030\t \001(\0162).transit_realtime.Trip.BikesA" +
-      "llowedStatus:\027UNKNOWN_BIKES_ALLOWANCE\022\030\n" +
-      "\020replaces_trip_id\030\n \003(\t\"|\n\032WheelchairAcc" +
-      "essibleStatus\022$\n UNKNOWN_WHEELCHAIR_ACCE" +
-      "SSIBILITY\020\000\022\031\n\025WHEELCHAIR_ACCESSIBLE\020\001\022\035" +
-      "\n\031NOT_WHEELCHAIR_ACCESSIBLE\020\002\"[\n\022BikesAl" +
-      "lowedStatus\022\033\n\027UNKNOWN_BIKES_ALLOWANCE\020\000" +
-      "\022\021\n\rBIKES_ALLOWED\020\001\022\025\n\021BIKES_NOT_ALLOWED" +
-      "\020\002\"\264\004\n\010StopTime\022\025\n\rstop_sequence\030\001 \002(\r\022\024" +
-      "\n\014arrival_time\030\002 \002(\t\022\026\n\016departure_time\030\003" +
-      " \002(\t\022\017\n\007stop_id\030\004 \002(\t\0229\n\rstop_headsign\030\005" +
-      " \001(\0132\".transit_realtime.TranslatedString" +
-      "\022J\n\013pickup_type\030\006 \001(\0162%.transit_realtime" +
-      ".StopTime.PickupType:\016REGULAR_PICKUP\022O\n\r" +
-      "drop_off_type\030\007 \001(\0162&.transit_realtime.S" +
-      "topTime.DropOffType:\020REGULAR_DROP_OFF\022\033\n" +
-      "\023shape_dist_traveled\030\010 \001(\002\"i\n\nPickupType" +
-      "\022\022\n\016REGULAR_PICKUP\020\000\022\r\n\tNO_PICKUP\020\001\022\034\n\030M" +
-      "UST_PHONE_AGENCY_PICKUP\020\002\022\032\n\026MUST_ASK_DR" +
-      "IVER_PICKUP\020\003\"r\n\013DropOffType\022\024\n\020REGULAR_" +
-      "DROP_OFF\020\000\022\017\n\013NO_DROP_OFF\020\001\022\036\n\032MUST_PHON" +
-      "E_AGENCY_DROP_OFF\020\002\022\034\n\030MUST_ASK_DRIVER_D" +
-      "ROP_OFF\020\003\"L\n\005Shape\022\020\n\010shape_id\030\001 \002(\t\0221\n\013" +
-      "shape_point\030\002 \003(\0132\034.transit_realtime.Sha" +
-      "pePoint\"U\n\nShapePoint\022\024\n\014shape_pt_lat\030\001 " +
-      "\002(\002\022\024\n\014shape_pt_lon\030\002 \002(\002\022\033\n\023shape_dist_" +
-      "traveled\030\003 \001(\002\"\210\004\n\005Route\022\020\n\010route_id\030\001 \002" +
-      "(\t\022\021\n\tagency_id\030\002 \002(\t\022<\n\020route_short_nam" +
-      "e\030\003 \001(\0132\".transit_realtime.TranslatedStr" +
-      "ing\022;\n\017route_long_name\030\004 \001(\0132\".transit_r" +
-      "ealtime.TranslatedString\0226\n\nroute_desc\030\005" +
-      " \001(\0132\".transit_realtime.TranslatedString" +
-      "\0225\n\nroute_type\030\006 \002(\0162!.transit_realtime." +
-      "Route.RouteType\0225\n\troute_url\030\007 \001(\0132\".tra" +
-      "nsit_realtime.TranslatedString\022\023\n\013route_" +
-      "color\030\010 \001(\t\022\030\n\020route_text_color\030\t \001(\t\022\030\n" +
-      "\020route_sort_order\030\n \001(\r\"p\n\tRouteType\022\016\n\n" +
-      "LIGHT_RAIL\020\000\022\n\n\006SUBWAY\020\001\022\010\n\004RAIL\020\002\022\007\n\003BU" +
-      "S\020\003\022\t\n\005FERRY\020\004\022\r\n\tCABLE_CAR\020\005\022\013\n\007GONDOLA" +
-      "\020\006\022\r\n\tFUNICULAR\020\007\"\341\004\n\004Stop\022\017\n\007stop_id\030\001 " +
-      "\002(\t\0225\n\tstop_code\030\002 \001(\0132\".transit_realtim" +
-      "e.TranslatedString\0225\n\tstop_name\030\003 \002(\0132\"." +
-      "transit_realtime.TranslatedString\0225\n\tsto" +
-      "p_desc\030\004 \001(\0132\".transit_realtime.Translat" +
-      "edString\022\020\n\010stop_lat\030\005 \002(\002\022\020\n\010stop_lon\030\006" +
-      " \002(\002\022\017\n\007zone_id\030\007 \001(\t\0224\n\010stop_url\030\010 \001(\0132" +
-      "\".transit_realtime.TranslatedString\022\026\n\016p" +
-      "arent_station\030\t \001(\t\022\025\n\rstop_timezone\030\n \001" +
-      "(\t\022i\n\023wheelchair_boarding\030\013 \001(\0162/.transi" +
-      "t_realtime.Stop.WheelchairBoardingStatus" +
-      ":\033UNKNOWN_WHEELCHAIR_BOARDING\022\020\n\010level_i" +
-      "d\030\014 \001(\t\022\025\n\rplatform_code\030\r \001(\t\"u\n\030Wheelc" +
-      "hairBoardingStatus\022\037\n\033UNKNOWN_WHEELCHAIR" +
-      "_BOARDING\020\000\022\031\n\025WHEELCHAIR_ACCESSIBLE\020\001\022\035" +
-      "\n\031NOT_WHEELCHAIR_ACCESSIBLE\020\002B\035\n\033com.goo" +
-      "gle.transit.realtime"
+      "realtime.Stop\022-\n\tstop_time\030\n \001(\0132\032.trans" +
+      "it_realtime.StopTime*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\232\007\n" +
+      "\nTripUpdate\022.\n\004trip\030\001 \002(\0132 .transit_real" +
+      "time.TripDescriptor\0224\n\007vehicle\030\003 \001(\0132#.t" +
+      "ransit_realtime.VehicleDescriptor\022E\n\020sto" +
+      "p_time_update\030\002 \003(\0132+.transit_realtime.T" +
+      "ripUpdate.StopTimeUpdate\022\021\n\ttimestamp\030\004 " +
+      "\001(\004\022\r\n\005delay\030\005 \001(\005\0229\n\017trip_properties\030\006 " +
+      "\001(\0132 .transit_realtime.TripProperties\022?\n" +
+      "\022vehicle_properties\030\007 \001(\0132#.transit_real" +
+      "time.VehicleProperties\032h\n\rStopTimeEvent\022" +
+      "\r\n\005delay\030\001 \001(\005\022\014\n\004time\030\002 \001(\003\022\023\n\013uncertai" +
+      "nty\030\003 \001(\005\022\025\n\rschedule_time\030\004 \001(\003*\006\010\350\007\020\320\017" +
+      "*\006\010\250F\020\220N\032\306\003\n\016StopTimeUpdate\022\025\n\rstop_sequ" +
+      "ence\030\001 \001(\r\022\017\n\007stop_id\030\004 \001(\t\022;\n\007arrival\030\002" +
+      " \001(\0132*.transit_realtime.TripUpdate.StopT" +
+      "imeEvent\022=\n\tdeparture\030\003 \001(\0132*.transit_re" +
+      "altime.TripUpdate.StopTimeEvent\022j\n\025sched" +
+      "ule_relationship\030\005 \001(\0162@.transit_realtim" +
+      "e.TripUpdate.StopTimeUpdate.ScheduleRela" +
+      "tionship:\tSCHEDULED\022B\n\024stop_time_propert" +
+      "ies\030\006 \001(\0132$.transit_realtime.StopTimePro" +
+      "perties\"P\n\024ScheduleRelationship\022\r\n\tSCHED" +
+      "ULED\020\000\022\013\n\007SKIPPED\020\001\022\013\n\007NO_DATA\020\002\022\017\n\013UNSC" +
+      "HEDULED\020\003*\006\010\350\007\020\320\017*\006\010\250F\020\220N*\006\010\350\007\020\320\017*\006\010\250F\020\220" +
+      "N\"\350\006\n\017VehiclePosition\022.\n\004trip\030\001 \001(\0132 .tr" +
+      "ansit_realtime.TripDescriptor\0224\n\007vehicle" +
+      "\030\010 \001(\0132#.transit_realtime.VehicleDescrip" +
+      "tor\022,\n\010position\030\002 \001(\0132\032.transit_realtime" +
+      ".Position\022\035\n\025current_stop_sequence\030\003 \001(\r" +
+      "\022\017\n\007stop_id\030\007 \001(\t\022Z\n\016current_status\030\004 \001(" +
+      "\01623.transit_realtime.VehiclePosition.Veh" +
+      "icleStopStatus:\rIN_TRANSIT_TO\022\021\n\ttimesta" +
+      "mp\030\005 \001(\004\022K\n\020congestion_level\030\006 \001(\01621.tra" +
+      "nsit_realtime.VehiclePosition.Congestion" +
+      "Level\022K\n\020occupancy_status\030\t \001(\01621.transi" +
+      "t_realtime.VehiclePosition.OccupancyStat" +
+      "us\"G\n\021VehicleStopStatus\022\017\n\013INCOMING_AT\020\000" +
+      "\022\016\n\nSTOPPED_AT\020\001\022\021\n\rIN_TRANSIT_TO\020\002\"}\n\017C" +
+      "ongestionLevel\022\034\n\030UNKNOWN_CONGESTION_LEV" +
+      "EL\020\000\022\024\n\020RUNNING_SMOOTHLY\020\001\022\017\n\013STOP_AND_G" +
+      "O\020\002\022\016\n\nCONGESTION\020\003\022\025\n\021SEVERE_CONGESTION" +
+      "\020\004\"\257\001\n\017OccupancyStatus\022\t\n\005EMPTY\020\000\022\030\n\024MAN" +
+      "Y_SEATS_AVAILABLE\020\001\022\027\n\023FEW_SEATS_AVAILAB" +
+      "LE\020\002\022\026\n\022STANDING_ROOM_ONLY\020\003\022\036\n\032CRUSHED_" +
+      "STANDING_ROOM_ONLY\020\004\022\010\n\004FULL\020\005\022\034\n\030NOT_AC" +
+      "CEPTING_PASSENGERS\020\006*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\200\t\n" +
+      "\005Alert\0222\n\ractive_period\030\001 \003(\0132\033.transit_" +
+      "realtime.TimeRange\0229\n\017informed_entity\030\005 " +
+      "\003(\0132 .transit_realtime.EntitySelector\022;\n" +
+      "\005cause\030\006 \001(\0162\035.transit_realtime.Alert.Ca" +
+      "use:\rUNKNOWN_CAUSE\022>\n\006effect\030\007 \001(\0162\036.tra" +
+      "nsit_realtime.Alert.Effect:\016UNKNOWN_EFFE" +
+      "CT\022/\n\003url\030\010 \001(\0132\".transit_realtime.Trans" +
+      "latedString\0227\n\013header_text\030\n \001(\0132\".trans" +
+      "it_realtime.TranslatedString\022<\n\020descript" +
+      "ion_text\030\013 \001(\0132\".transit_realtime.Transl" +
+      "atedString\022;\n\017tts_header_text\030\014 \001(\0132\".tr" +
+      "ansit_realtime.TranslatedString\022@\n\024tts_d" +
+      "escription_text\030\r \001(\0132\".transit_realtime" +
+      ".TranslatedString\022O\n\016severity_level\030\016 \001(" +
+      "\0162%.transit_realtime.Alert.SeverityLevel" +
+      ":\020UNKNOWN_SEVERITY\"\330\001\n\005Cause\022\021\n\rUNKNOWN_" +
+      "CAUSE\020\001\022\017\n\013OTHER_CAUSE\020\002\022\025\n\021TECHNICAL_PR" +
+      "OBLEM\020\003\022\n\n\006STRIKE\020\004\022\021\n\rDEMONSTRATION\020\005\022\014" +
+      "\n\010ACCIDENT\020\006\022\013\n\007HOLIDAY\020\007\022\013\n\007WEATHER\020\010\022\017" +
+      "\n\013MAINTENANCE\020\t\022\020\n\014CONSTRUCTION\020\n\022\023\n\017POL" +
+      "ICE_ACTIVITY\020\013\022\025\n\021MEDICAL_EMERGENCY\020\014\"\335\001" +
+      "\n\006Effect\022\016\n\nNO_SERVICE\020\001\022\023\n\017REDUCED_SERV" +
+      "ICE\020\002\022\026\n\022SIGNIFICANT_DELAYS\020\003\022\n\n\006DETOUR\020" +
+      "\004\022\026\n\022ADDITIONAL_SERVICE\020\005\022\024\n\020MODIFIED_SE" +
+      "RVICE\020\006\022\020\n\014OTHER_EFFECT\020\007\022\022\n\016UNKNOWN_EFF" +
+      "ECT\020\010\022\016\n\nSTOP_MOVED\020\t\022\r\n\tNO_EFFECT\020\n\022\027\n\023" +
+      "ACCESSIBILITY_ISSUE\020\013\"H\n\rSeverityLevel\022\024" +
+      "\n\020UNKNOWN_SEVERITY\020\001\022\010\n\004INFO\020\002\022\013\n\007WARNIN" +
+      "G\020\003\022\n\n\006SEVERE\020\004*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"7\n\tTimeR" +
+      "ange\022\r\n\005start\030\001 \001(\004\022\013\n\003end\030\002 \001(\004*\006\010\350\007\020\320\017" +
+      "*\006\010\250F\020\220N\"q\n\010Position\022\020\n\010latitude\030\001 \002(\002\022\021" +
+      "\n\tlongitude\030\002 \002(\002\022\017\n\007bearing\030\003 \001(\002\022\020\n\010od" +
+      "ometer\030\004 \001(\001\022\r\n\005speed\030\005 \001(\002*\006\010\350\007\020\320\017*\006\010\250F" +
+      "\020\220N\"\321\002\n\016TripDescriptor\022\017\n\007trip_id\030\001 \001(\t\022" +
+      "\020\n\010route_id\030\005 \001(\t\022\024\n\014direction_id\030\006 \001(\r\022" +
+      "\022\n\nstart_time\030\002 \001(\t\022\022\n\nstart_date\030\003 \001(\t\022" +
+      "T\n\025schedule_relationship\030\004 \001(\01625.transit" +
+      "_realtime.TripDescriptor.ScheduleRelatio" +
+      "nship\"x\n\024ScheduleRelationship\022\r\n\tSCHEDUL" +
+      "ED\020\000\022\r\n\005ADDED\020\001\032\002\010\001\022\017\n\013UNSCHEDULED\020\002\022\014\n\010" +
+      "CANCELED\020\003\022\023\n\013REPLACEMENT\020\005\032\002\010\001\022\016\n\nDUPLI" +
+      "CATED\020\006*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"U\n\021VehicleDescri" +
+      "ptor\022\n\n\002id\030\001 \001(\t\022\r\n\005label\030\002 \001(\t\022\025\n\rlicen" +
+      "se_plate\030\003 \001(\t*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\260\001\n\016Entit" +
+      "ySelector\022\021\n\tagency_id\030\001 \001(\t\022\020\n\010route_id" +
+      "\030\002 \001(\t\022\022\n\nroute_type\030\003 \001(\005\022.\n\004trip\030\004 \001(\013" +
+      "2 .transit_realtime.TripDescriptor\022\017\n\007st" +
+      "op_id\030\005 \001(\t\022\024\n\014direction_id\030\006 \001(\r*\006\010\350\007\020\320" +
+      "\017*\006\010\250F\020\220N\"\246\001\n\020TranslatedString\022C\n\013transl" +
+      "ation\030\001 \003(\0132..transit_realtime.Translate" +
+      "dString.Translation\032=\n\013Translation\022\014\n\004te" +
+      "xt\030\001 \002(\t\022\020\n\010language\030\002 \001(\t*\006\010\350\007\020\320\017*\006\010\250F\020" +
+      "\220N*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\367\001\n\016TripProperties\022\017\n" +
+      "\007trip_id\030\001 \001(\t\022\022\n\nstart_date\030\002 \001(\t\022\022\n\nst" +
+      "art_time\030\003 \001(\t\022\020\n\010route_id\030\004 \001(\t\0229\n\rtrip" +
+      "_headsign\030\005 \001(\0132\".transit_realtime.Trans" +
+      "latedString\022;\n\017trip_short_name\030\006 \001(\0132\".t" +
+      "ransit_realtime.TranslatedString\022\020\n\010bloc" +
+      "k_id\030\007 \001(\t\022\020\n\010shape_id\030\010 \001(\t\"\327\003\n\021Vehicle" +
+      "Properties\022\177\n\025wheelchair_accessible\030\001 \001(" +
+      "\0162>.transit_realtime.VehicleProperties.W" +
+      "heelchairAccessibleStatus: UNKNOWN_WHEEL" +
+      "CHAIR_ACCESSIBILITY\022f\n\rbiked_allowed\030\002 \001" +
+      "(\01626.transit_realtime.VehicleProperties." +
+      "BikesAllowedStatus:\027UNKNOWN_BIKES_ALLOWA" +
+      "NCE\"|\n\032WheelchairAccessibleStatus\022$\n UNK" +
+      "NOWN_WHEELCHAIR_ACCESSIBILITY\020\000\022\031\n\025WHEEL" +
+      "CHAIR_ACCESSIBLE\020\001\022\035\n\031NOT_WHEELCHAIR_ACC" +
+      "ESSIBLE\020\002\"[\n\022BikesAllowedStatus\022\033\n\027UNKNO" +
+      "WN_BIKES_ALLOWANCE\020\000\022\021\n\rBIKES_ALLOWED\020\001\022" +
+      "\025\n\021BIKES_NOT_ALLOWED\020\002\"\242\004\n\022StopTimePrope" +
+      "rties\022\023\n\013platform_id\030\001 \001(\t\0229\n\rstop_heads" +
+      "ign\030\002 \001(\0132\".transit_realtime.TranslatedS" +
+      "tring\022T\n\013pickup_type\030\003 \001(\0162/.transit_rea" +
+      "ltime.StopTimeProperties.PickupType:\016REG" +
+      "ULAR_PICKUP\022Y\n\rdrop_off_type\030\004 \001(\01620.tra" +
+      "nsit_realtime.StopTimeProperties.DropOff" +
+      "Type:\020REGULAR_DROP_OFF\022\033\n\023shape_dist_tra" +
+      "veled\030\005 \001(\002\022\017\n\007stop_id\030\006 \001(\t\"i\n\nPickupTy" +
+      "pe\022\022\n\016REGULAR_PICKUP\020\000\022\r\n\tNO_PICKUP\020\001\022\034\n" +
+      "\030MUST_PHONE_AGENCY_PICKUP\020\002\022\032\n\026MUST_ASK_" +
+      "DRIVER_PICKUP\020\003\"r\n\013DropOffType\022\024\n\020REGULA" +
+      "R_DROP_OFF\020\000\022\017\n\013NO_DROP_OFF\020\001\022\036\n\032MUST_PH" +
+      "ONE_AGENCY_DROP_OFF\020\002\022\034\n\030MUST_ASK_DRIVER" +
+      "_DROP_OFF\020\003\"\373\004\n\004Trip\022\017\n\007trip_id\030\001 \002(\t\022\020\n" +
+      "\010route_id\030\002 \001(\t\0229\n\rtrip_headsign\030\003 \002(\0132\"" +
+      ".transit_realtime.TranslatedString\022\027\n\017tr" +
+      "ip_short_name\030\004 \002(\t\022\024\n\014direction_id\030\005 \001(" +
+      "\r\022\020\n\010block_id\030\006 \001(\t\022\020\n\010shape_id\030\007 \001(\t\022r\n" +
+      "\025wheelchair_accessible\030\010 \001(\01621.transit_r" +
+      "ealtime.Trip.WheelchairAccessibleStatus:" +
+      " UNKNOWN_WHEELCHAIR_ACCESSIBILITY\022Y\n\rbik" +
+      "ed_allowed\030\t \001(\0162).transit_realtime.Trip" +
+      ".BikesAllowedStatus:\027UNKNOWN_BIKES_ALLOW" +
+      "ANCE\022\030\n\020replaces_trip_id\030\n \003(\t\"|\n\032Wheelc" +
+      "hairAccessibleStatus\022$\n UNKNOWN_WHEELCHA" +
+      "IR_ACCESSIBILITY\020\000\022\031\n\025WHEELCHAIR_ACCESSI" +
+      "BLE\020\001\022\035\n\031NOT_WHEELCHAIR_ACCESSIBLE\020\002\"[\n\022" +
+      "BikesAllowedStatus\022\033\n\027UNKNOWN_BIKES_ALLO" +
+      "WANCE\020\000\022\021\n\rBIKES_ALLOWED\020\001\022\025\n\021BIKES_NOT_" +
+      "ALLOWED\020\002\"\264\004\n\010StopTime\022\025\n\rstop_sequence\030" +
+      "\001 \002(\r\022\024\n\014arrival_time\030\002 \002(\t\022\026\n\016departure" +
+      "_time\030\003 \002(\t\022\017\n\007stop_id\030\004 \002(\t\0229\n\rstop_hea" +
+      "dsign\030\005 \001(\0132\".transit_realtime.Translate" +
+      "dString\022J\n\013pickup_type\030\006 \001(\0162%.transit_r" +
+      "ealtime.StopTime.PickupType:\016REGULAR_PIC" +
+      "KUP\022O\n\rdrop_off_type\030\007 \001(\0162&.transit_rea" +
+      "ltime.StopTime.DropOffType:\020REGULAR_DROP" +
+      "_OFF\022\033\n\023shape_dist_traveled\030\010 \001(\002\"i\n\nPic" +
+      "kupType\022\022\n\016REGULAR_PICKUP\020\000\022\r\n\tNO_PICKUP" +
+      "\020\001\022\034\n\030MUST_PHONE_AGENCY_PICKUP\020\002\022\032\n\026MUST" +
+      "_ASK_DRIVER_PICKUP\020\003\"r\n\013DropOffType\022\024\n\020R" +
+      "EGULAR_DROP_OFF\020\000\022\017\n\013NO_DROP_OFF\020\001\022\036\n\032MU" +
+      "ST_PHONE_AGENCY_DROP_OFF\020\002\022\034\n\030MUST_ASK_D" +
+      "RIVER_DROP_OFF\020\003\"L\n\005Shape\022\020\n\010shape_id\030\001 " +
+      "\002(\t\0221\n\013shape_point\030\002 \003(\0132\034.transit_realt" +
+      "ime.ShapePoint\"U\n\nShapePoint\022\024\n\014shape_pt" +
+      "_lat\030\001 \002(\002\022\024\n\014shape_pt_lon\030\002 \002(\002\022\033\n\023shap" +
+      "e_dist_traveled\030\003 \001(\002\"\210\004\n\005Route\022\020\n\010route" +
+      "_id\030\001 \002(\t\022\021\n\tagency_id\030\002 \002(\t\022<\n\020route_sh" +
+      "ort_name\030\003 \001(\0132\".transit_realtime.Transl" +
+      "atedString\022;\n\017route_long_name\030\004 \001(\0132\".tr" +
+      "ansit_realtime.TranslatedString\0226\n\nroute" +
+      "_desc\030\005 \001(\0132\".transit_realtime.Translate" +
+      "dString\0225\n\nroute_type\030\006 \002(\0162!.transit_re" +
+      "altime.Route.RouteType\0225\n\troute_url\030\007 \001(" +
+      "\0132\".transit_realtime.TranslatedString\022\023\n" +
+      "\013route_color\030\010 \001(\t\022\030\n\020route_text_color\030\t" +
+      " \001(\t\022\030\n\020route_sort_order\030\n \001(\r\"p\n\tRouteT" +
+      "ype\022\016\n\nLIGHT_RAIL\020\000\022\n\n\006SUBWAY\020\001\022\010\n\004RAIL\020" +
+      "\002\022\007\n\003BUS\020\003\022\t\n\005FERRY\020\004\022\r\n\tCABLE_CAR\020\005\022\013\n\007" +
+      "GONDOLA\020\006\022\r\n\tFUNICULAR\020\007\"\341\004\n\004Stop\022\017\n\007sto" +
+      "p_id\030\001 \002(\t\0225\n\tstop_code\030\002 \001(\0132\".transit_" +
+      "realtime.TranslatedString\0225\n\tstop_name\030\003" +
+      " \002(\0132\".transit_realtime.TranslatedString" +
+      "\0225\n\tstop_desc\030\004 \001(\0132\".transit_realtime.T" +
+      "ranslatedString\022\020\n\010stop_lat\030\005 \002(\002\022\020\n\010sto" +
+      "p_lon\030\006 \002(\002\022\017\n\007zone_id\030\007 \001(\t\0224\n\010stop_url" +
+      "\030\010 \001(\0132\".transit_realtime.TranslatedStri" +
+      "ng\022\026\n\016parent_station\030\t \001(\t\022\025\n\rstop_timez" +
+      "one\030\n \001(\t\022i\n\023wheelchair_boarding\030\013 \001(\0162/" +
+      ".transit_realtime.Stop.WheelchairBoardin" +
+      "gStatus:\033UNKNOWN_WHEELCHAIR_BOARDING\022\020\n\010" +
+      "level_id\030\014 \001(\t\022\025\n\rplatform_code\030\r \001(\t\"u\n" +
+      "\030WheelchairBoardingStatus\022\037\n\033UNKNOWN_WHE" +
+      "ELCHAIR_BOARDING\020\000\022\031\n\025WHEELCHAIR_ACCESSI" +
+      "BLE\020\001\022\035\n\031NOT_WHEELCHAIR_ACCESSIBLE\020\002B\035\n\033" +
+      "com.google.transit.realtime"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -43087,7 +43298,7 @@ public final class GtfsRealtime {
     internal_static_transit_realtime_FeedEntity_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_transit_realtime_FeedEntity_descriptor,
-        new java.lang.String[] { "Id", "IsDeleted", "TripUpdate", "Vehicle", "Alert", "Trip", "Shape", "Route", "Stop", });
+        new java.lang.String[] { "Id", "IsDeleted", "TripUpdate", "Vehicle", "Alert", "Trip", "Shape", "Route", "Stop", "StopTime", });
     internal_static_transit_realtime_TripUpdate_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_transit_realtime_TripUpdate_fieldAccessorTable = new
