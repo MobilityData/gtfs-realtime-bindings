@@ -28330,32 +28330,6 @@ public final class GtfsRealtime {
      * <code>optional float shape_dist_traveled = 5;</code>
      */
     float getShapeDistTraveled();
-
-    /**
-     * <pre>
-     * Identifies the new serviced stop (defined in the RT-GTFS).
-     * </pre>
-     *
-     * <code>optional string stop_id = 6;</code>
-     */
-    boolean hasStopId();
-    /**
-     * <pre>
-     * Identifies the new serviced stop (defined in the RT-GTFS).
-     * </pre>
-     *
-     * <code>optional string stop_id = 6;</code>
-     */
-    java.lang.String getStopId();
-    /**
-     * <pre>
-     * Identifies the new serviced stop (defined in the RT-GTFS).
-     * </pre>
-     *
-     * <code>optional string stop_id = 6;</code>
-     */
-    com.google.protobuf.ByteString
-        getStopIdBytes();
   }
   /**
    * <pre>
@@ -28377,7 +28351,6 @@ public final class GtfsRealtime {
       platformId_ = "";
       pickupType_ = 0;
       dropOffType_ = 0;
-      stopId_ = "";
     }
 
     @java.lang.Override
@@ -28450,12 +28423,6 @@ public final class GtfsRealtime {
             case 45: {
               bitField0_ |= 0x00000010;
               shapeDistTraveled_ = input.readFloat();
-              break;
-            }
-            case 50: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000020;
-              stopId_ = bs;
               break;
             }
             default: {
@@ -28875,60 +28842,6 @@ public final class GtfsRealtime {
       return shapeDistTraveled_;
     }
 
-    public static final int STOP_ID_FIELD_NUMBER = 6;
-    private volatile java.lang.Object stopId_;
-    /**
-     * <pre>
-     * Identifies the new serviced stop (defined in the RT-GTFS).
-     * </pre>
-     *
-     * <code>optional string stop_id = 6;</code>
-     */
-    public boolean hasStopId() {
-      return ((bitField0_ & 0x00000020) != 0);
-    }
-    /**
-     * <pre>
-     * Identifies the new serviced stop (defined in the RT-GTFS).
-     * </pre>
-     *
-     * <code>optional string stop_id = 6;</code>
-     */
-    public java.lang.String getStopId() {
-      java.lang.Object ref = stopId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          stopId_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * Identifies the new serviced stop (defined in the RT-GTFS).
-     * </pre>
-     *
-     * <code>optional string stop_id = 6;</code>
-     */
-    public com.google.protobuf.ByteString
-        getStopIdBytes() {
-      java.lang.Object ref = stopId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        stopId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -28964,9 +28877,6 @@ public final class GtfsRealtime {
       if (((bitField0_ & 0x00000010) != 0)) {
         output.writeFloat(5, shapeDistTraveled_);
       }
-      if (((bitField0_ & 0x00000020) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, stopId_);
-      }
       unknownFields.writeTo(output);
     }
 
@@ -28994,9 +28904,6 @@ public final class GtfsRealtime {
       if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(5, shapeDistTraveled_);
-      }
-      if (((bitField0_ & 0x00000020) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, stopId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -29037,11 +28944,6 @@ public final class GtfsRealtime {
             != java.lang.Float.floatToIntBits(
                 other.getShapeDistTraveled())) return false;
       }
-      if (hasStopId() != other.hasStopId()) return false;
-      if (hasStopId()) {
-        if (!getStopId()
-            .equals(other.getStopId())) return false;
-      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -29073,10 +28975,6 @@ public final class GtfsRealtime {
         hash = (37 * hash) + SHAPE_DIST_TRAVELED_FIELD_NUMBER;
         hash = (53 * hash) + java.lang.Float.floatToIntBits(
             getShapeDistTraveled());
-      }
-      if (hasStopId()) {
-        hash = (37 * hash) + STOP_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getStopId().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -29230,8 +29128,6 @@ public final class GtfsRealtime {
         bitField0_ = (bitField0_ & ~0x00000008);
         shapeDistTraveled_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000010);
-        stopId_ = "";
-        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -29284,10 +29180,6 @@ public final class GtfsRealtime {
           result.shapeDistTraveled_ = shapeDistTraveled_;
           to_bitField0_ |= 0x00000010;
         }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          to_bitField0_ |= 0x00000020;
-        }
-        result.stopId_ = stopId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -29353,11 +29245,6 @@ public final class GtfsRealtime {
         }
         if (other.hasShapeDistTraveled()) {
           setShapeDistTraveled(other.getShapeDistTraveled());
-        }
-        if (other.hasStopId()) {
-          bitField0_ |= 0x00000020;
-          stopId_ = other.stopId_;
-          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -29798,106 +29685,6 @@ public final class GtfsRealtime {
       public Builder clearShapeDistTraveled() {
         bitField0_ = (bitField0_ & ~0x00000010);
         shapeDistTraveled_ = 0F;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object stopId_ = "";
-      /**
-       * <pre>
-       * Identifies the new serviced stop (defined in the RT-GTFS).
-       * </pre>
-       *
-       * <code>optional string stop_id = 6;</code>
-       */
-      public boolean hasStopId() {
-        return ((bitField0_ & 0x00000020) != 0);
-      }
-      /**
-       * <pre>
-       * Identifies the new serviced stop (defined in the RT-GTFS).
-       * </pre>
-       *
-       * <code>optional string stop_id = 6;</code>
-       */
-      public java.lang.String getStopId() {
-        java.lang.Object ref = stopId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            stopId_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * Identifies the new serviced stop (defined in the RT-GTFS).
-       * </pre>
-       *
-       * <code>optional string stop_id = 6;</code>
-       */
-      public com.google.protobuf.ByteString
-          getStopIdBytes() {
-        java.lang.Object ref = stopId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          stopId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * Identifies the new serviced stop (defined in the RT-GTFS).
-       * </pre>
-       *
-       * <code>optional string stop_id = 6;</code>
-       */
-      public Builder setStopId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
-        stopId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * Identifies the new serviced stop (defined in the RT-GTFS).
-       * </pre>
-       *
-       * <code>optional string stop_id = 6;</code>
-       */
-      public Builder clearStopId() {
-        bitField0_ = (bitField0_ & ~0x00000020);
-        stopId_ = getDefaultInstance().getStopId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * Identifies the new serviced stop (defined in the RT-GTFS).
-       * </pre>
-       *
-       * <code>optional string stop_id = 6;</code>
-       */
-      public Builder setStopIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
-        stopId_ = value;
         onChanged();
         return this;
       }
@@ -37676,6 +37463,8 @@ public final class GtfsRealtime {
      * 5 - Cable car. Used for street-level cable cars where the cable runs beneath the car.
      * 6 - Gondola, Suspended cable car. Typically used for aerial cable cars where the car is suspended from the cable.
      * 7 - Funicular. Any rail system designed for steep inclines.
+     * 11 - TROLLEY_BUS. Electric buses that draw power from overhead wires using poles.
+     * 12 - MONORAIL. Railway in which the track consists of a single rail or a beam.
      * </pre>
      *
      * Protobuf enum {@code transit_realtime.Route.RouteType}
@@ -43612,7 +43401,7 @@ public final class GtfsRealtime {
       "CCESSIBLE\020\001\022\035\n\031NOT_WHEELCHAIR_ACCESSIBLE" +
       "\020\002\"[\n\022BikesAllowedStatus\022\033\n\027UNKNOWN_BIKE" +
       "S_ALLOWANCE\020\000\022\021\n\rBIKES_ALLOWED\020\001\022\025\n\021BIKE" +
-      "S_NOT_ALLOWED\020\002\"\242\004\n\022StopTimeProperties\022\023" +
+      "S_NOT_ALLOWED\020\002\"\221\004\n\022StopTimeProperties\022\023" +
       "\n\013platform_id\030\001 \001(\t\0229\n\rstop_headsign\030\002 \001" +
       "(\0132\".transit_realtime.TranslatedString\022T" +
       "\n\013pickup_type\030\003 \001(\0162/.transit_realtime.S" +
@@ -43620,79 +43409,78 @@ public final class GtfsRealtime {
       "CKUP\022Y\n\rdrop_off_type\030\004 \001(\01620.transit_re" +
       "altime.StopTimeProperties.DropOffType:\020R" +
       "EGULAR_DROP_OFF\022\033\n\023shape_dist_traveled\030\005" +
-      " \001(\002\022\017\n\007stop_id\030\006 \001(\t\"i\n\nPickupType\022\022\n\016R" +
-      "EGULAR_PICKUP\020\000\022\r\n\tNO_PICKUP\020\001\022\034\n\030MUST_P" +
-      "HONE_AGENCY_PICKUP\020\002\022\032\n\026MUST_ASK_DRIVER_" +
-      "PICKUP\020\003\"r\n\013DropOffType\022\024\n\020REGULAR_DROP_" +
-      "OFF\020\000\022\017\n\013NO_DROP_OFF\020\001\022\036\n\032MUST_PHONE_AGE" +
-      "NCY_DROP_OFF\020\002\022\034\n\030MUST_ASK_DRIVER_DROP_O" +
-      "FF\020\003\"\252\005\n\004Trip\022\017\n\007trip_id\030\001 \002(\t\022\020\n\010route_" +
-      "id\030\002 \001(\t\0229\n\rtrip_headsign\030\003 \002(\0132\".transi" +
-      "t_realtime.TranslatedString\022\027\n\017trip_shor" +
-      "t_name\030\004 \002(\t\022\024\n\014direction_id\030\005 \001(\r\022\020\n\010bl" +
-      "ock_id\030\006 \001(\t\022\020\n\010shape_id\030\007 \001(\t\022r\n\025wheelc" +
-      "hair_accessible\030\010 \001(\01621.transit_realtime" +
-      ".Trip.WheelchairAccessibleStatus: UNKNOW" +
-      "N_WHEELCHAIR_ACCESSIBILITY\022Y\n\rbiked_allo" +
-      "wed\030\t \001(\0162).transit_realtime.Trip.BikesA" +
-      "llowedStatus:\027UNKNOWN_BIKES_ALLOWANCE\022\030\n" +
-      "\020replaces_trip_id\030\n \003(\t\022-\n\tstop_time\030\013 \003" +
-      "(\0132\032.transit_realtime.StopTime\"|\n\032Wheelc" +
-      "hairAccessibleStatus\022$\n UNKNOWN_WHEELCHA" +
-      "IR_ACCESSIBILITY\020\000\022\031\n\025WHEELCHAIR_ACCESSI" +
-      "BLE\020\001\022\035\n\031NOT_WHEELCHAIR_ACCESSIBLE\020\002\"[\n\022" +
-      "BikesAllowedStatus\022\033\n\027UNKNOWN_BIKES_ALLO" +
-      "WANCE\020\000\022\021\n\rBIKES_ALLOWED\020\001\022\025\n\021BIKES_NOT_" +
-      "ALLOWED\020\002\"\264\004\n\010StopTime\022\025\n\rstop_sequence\030" +
-      "\001 \002(\r\022\024\n\014arrival_time\030\002 \002(\t\022\026\n\016departure" +
-      "_time\030\003 \002(\t\022\017\n\007stop_id\030\004 \002(\t\0229\n\rstop_hea" +
-      "dsign\030\005 \001(\0132\".transit_realtime.Translate" +
-      "dString\022J\n\013pickup_type\030\006 \001(\0162%.transit_r" +
-      "ealtime.StopTime.PickupType:\016REGULAR_PIC" +
-      "KUP\022O\n\rdrop_off_type\030\007 \001(\0162&.transit_rea" +
-      "ltime.StopTime.DropOffType:\020REGULAR_DROP" +
-      "_OFF\022\033\n\023shape_dist_traveled\030\010 \001(\002\"i\n\nPic" +
-      "kupType\022\022\n\016REGULAR_PICKUP\020\000\022\r\n\tNO_PICKUP" +
-      "\020\001\022\034\n\030MUST_PHONE_AGENCY_PICKUP\020\002\022\032\n\026MUST" +
-      "_ASK_DRIVER_PICKUP\020\003\"r\n\013DropOffType\022\024\n\020R" +
-      "EGULAR_DROP_OFF\020\000\022\017\n\013NO_DROP_OFF\020\001\022\036\n\032MU" +
-      "ST_PHONE_AGENCY_DROP_OFF\020\002\022\034\n\030MUST_ASK_D" +
-      "RIVER_DROP_OFF\020\003\"L\n\005Shape\022\020\n\010shape_id\030\001 " +
-      "\002(\t\0221\n\013shape_point\030\002 \003(\0132\034.transit_realt" +
-      "ime.ShapePoint\"p\n\nShapePoint\022\024\n\014shape_pt" +
-      "_lat\030\001 \002(\002\022\024\n\014shape_pt_lon\030\002 \002(\002\022\033\n\023shap" +
-      "e_dist_traveled\030\003 \001(\002\022\031\n\021shape_pt_sequen" +
-      "ce\030\004 \002(\r\"\250\004\n\005Route\022\020\n\010route_id\030\001 \002(\t\022\021\n\t" +
-      "agency_id\030\002 \002(\t\022<\n\020route_short_name\030\003 \001(" +
-      "\0132\".transit_realtime.TranslatedString\022;\n" +
-      "\017route_long_name\030\004 \001(\0132\".transit_realtim" +
-      "e.TranslatedString\0226\n\nroute_desc\030\005 \001(\0132\"" +
-      ".transit_realtime.TranslatedString\0225\n\nro" +
-      "ute_type\030\006 \002(\0162!.transit_realtime.Route." +
-      "RouteType\0225\n\troute_url\030\007 \001(\0132\".transit_r" +
-      "ealtime.TranslatedString\022\023\n\013route_color\030" +
-      "\010 \001(\t\022\030\n\020route_text_color\030\t \001(\t\022\030\n\020route" +
-      "_sort_order\030\n \001(\r\"\217\001\n\tRouteType\022\016\n\nLIGHT" +
-      "_RAIL\020\000\022\n\n\006SUBWAY\020\001\022\010\n\004RAIL\020\002\022\007\n\003BUS\020\003\022\t" +
-      "\n\005FERRY\020\004\022\r\n\tCABLE_CAR\020\005\022\013\n\007GONDOLA\020\006\022\r\n" +
-      "\tFUNICULAR\020\007\022\017\n\013TROLLEY_BUS\020\013\022\014\n\010MONORAI" +
-      "L\020\014\"\341\004\n\004Stop\022\017\n\007stop_id\030\001 \002(\t\0225\n\tstop_co" +
-      "de\030\002 \001(\0132\".transit_realtime.TranslatedSt" +
-      "ring\0225\n\tstop_name\030\003 \002(\0132\".transit_realti" +
-      "me.TranslatedString\0225\n\tstop_desc\030\004 \001(\0132\"" +
-      ".transit_realtime.TranslatedString\022\020\n\010st" +
-      "op_lat\030\005 \002(\002\022\020\n\010stop_lon\030\006 \002(\002\022\017\n\007zone_i" +
-      "d\030\007 \001(\t\0224\n\010stop_url\030\010 \001(\0132\".transit_real" +
-      "time.TranslatedString\022\026\n\016parent_station\030" +
-      "\t \001(\t\022\025\n\rstop_timezone\030\n \001(\t\022i\n\023wheelcha" +
-      "ir_boarding\030\013 \001(\0162/.transit_realtime.Sto" +
-      "p.WheelchairBoardingStatus:\033UNKNOWN_WHEE" +
-      "LCHAIR_BOARDING\022\020\n\010level_id\030\014 \001(\t\022\025\n\rpla" +
-      "tform_code\030\r \001(\t\"u\n\030WheelchairBoardingSt" +
-      "atus\022\037\n\033UNKNOWN_WHEELCHAIR_BOARDING\020\000\022\031\n" +
-      "\025WHEELCHAIR_ACCESSIBLE\020\001\022\035\n\031NOT_WHEELCHA" +
-      "IR_ACCESSIBLE\020\002B\035\n\033com.google.transit.re" +
-      "altime"
+      " \001(\002\"i\n\nPickupType\022\022\n\016REGULAR_PICKUP\020\000\022\r" +
+      "\n\tNO_PICKUP\020\001\022\034\n\030MUST_PHONE_AGENCY_PICKU" +
+      "P\020\002\022\032\n\026MUST_ASK_DRIVER_PICKUP\020\003\"r\n\013DropO" +
+      "ffType\022\024\n\020REGULAR_DROP_OFF\020\000\022\017\n\013NO_DROP_" +
+      "OFF\020\001\022\036\n\032MUST_PHONE_AGENCY_DROP_OFF\020\002\022\034\n" +
+      "\030MUST_ASK_DRIVER_DROP_OFF\020\003\"\252\005\n\004Trip\022\017\n\007" +
+      "trip_id\030\001 \002(\t\022\020\n\010route_id\030\002 \001(\t\0229\n\rtrip_" +
+      "headsign\030\003 \002(\0132\".transit_realtime.Transl" +
+      "atedString\022\027\n\017trip_short_name\030\004 \002(\t\022\024\n\014d" +
+      "irection_id\030\005 \001(\r\022\020\n\010block_id\030\006 \001(\t\022\020\n\010s" +
+      "hape_id\030\007 \001(\t\022r\n\025wheelchair_accessible\030\010" +
+      " \001(\01621.transit_realtime.Trip.WheelchairA" +
+      "ccessibleStatus: UNKNOWN_WHEELCHAIR_ACCE" +
+      "SSIBILITY\022Y\n\rbiked_allowed\030\t \001(\0162).trans" +
+      "it_realtime.Trip.BikesAllowedStatus:\027UNK" +
+      "NOWN_BIKES_ALLOWANCE\022\030\n\020replaces_trip_id" +
+      "\030\n \003(\t\022-\n\tstop_time\030\013 \003(\0132\032.transit_real" +
+      "time.StopTime\"|\n\032WheelchairAccessibleSta" +
+      "tus\022$\n UNKNOWN_WHEELCHAIR_ACCESSIBILITY\020" +
+      "\000\022\031\n\025WHEELCHAIR_ACCESSIBLE\020\001\022\035\n\031NOT_WHEE" +
+      "LCHAIR_ACCESSIBLE\020\002\"[\n\022BikesAllowedStatu" +
+      "s\022\033\n\027UNKNOWN_BIKES_ALLOWANCE\020\000\022\021\n\rBIKES_" +
+      "ALLOWED\020\001\022\025\n\021BIKES_NOT_ALLOWED\020\002\"\264\004\n\010Sto" +
+      "pTime\022\025\n\rstop_sequence\030\001 \002(\r\022\024\n\014arrival_" +
+      "time\030\002 \002(\t\022\026\n\016departure_time\030\003 \002(\t\022\017\n\007st" +
+      "op_id\030\004 \002(\t\0229\n\rstop_headsign\030\005 \001(\0132\".tra" +
+      "nsit_realtime.TranslatedString\022J\n\013pickup" +
+      "_type\030\006 \001(\0162%.transit_realtime.StopTime." +
+      "PickupType:\016REGULAR_PICKUP\022O\n\rdrop_off_t" +
+      "ype\030\007 \001(\0162&.transit_realtime.StopTime.Dr" +
+      "opOffType:\020REGULAR_DROP_OFF\022\033\n\023shape_dis" +
+      "t_traveled\030\010 \001(\002\"i\n\nPickupType\022\022\n\016REGULA" +
+      "R_PICKUP\020\000\022\r\n\tNO_PICKUP\020\001\022\034\n\030MUST_PHONE_" +
+      "AGENCY_PICKUP\020\002\022\032\n\026MUST_ASK_DRIVER_PICKU" +
+      "P\020\003\"r\n\013DropOffType\022\024\n\020REGULAR_DROP_OFF\020\000" +
+      "\022\017\n\013NO_DROP_OFF\020\001\022\036\n\032MUST_PHONE_AGENCY_D" +
+      "ROP_OFF\020\002\022\034\n\030MUST_ASK_DRIVER_DROP_OFF\020\003\"" +
+      "L\n\005Shape\022\020\n\010shape_id\030\001 \002(\t\0221\n\013shape_poin" +
+      "t\030\002 \003(\0132\034.transit_realtime.ShapePoint\"p\n" +
+      "\nShapePoint\022\024\n\014shape_pt_lat\030\001 \002(\002\022\024\n\014sha" +
+      "pe_pt_lon\030\002 \002(\002\022\033\n\023shape_dist_traveled\030\003" +
+      " \001(\002\022\031\n\021shape_pt_sequence\030\004 \002(\r\"\250\004\n\005Rout" +
+      "e\022\020\n\010route_id\030\001 \002(\t\022\021\n\tagency_id\030\002 \002(\t\022<" +
+      "\n\020route_short_name\030\003 \001(\0132\".transit_realt" +
+      "ime.TranslatedString\022;\n\017route_long_name\030" +
+      "\004 \001(\0132\".transit_realtime.TranslatedStrin" +
+      "g\0226\n\nroute_desc\030\005 \001(\0132\".transit_realtime" +
+      ".TranslatedString\0225\n\nroute_type\030\006 \002(\0162!." +
+      "transit_realtime.Route.RouteType\0225\n\trout" +
+      "e_url\030\007 \001(\0132\".transit_realtime.Translate" +
+      "dString\022\023\n\013route_color\030\010 \001(\t\022\030\n\020route_te" +
+      "xt_color\030\t \001(\t\022\030\n\020route_sort_order\030\n \001(\r" +
+      "\"\217\001\n\tRouteType\022\016\n\nLIGHT_RAIL\020\000\022\n\n\006SUBWAY" +
+      "\020\001\022\010\n\004RAIL\020\002\022\007\n\003BUS\020\003\022\t\n\005FERRY\020\004\022\r\n\tCABL" +
+      "E_CAR\020\005\022\013\n\007GONDOLA\020\006\022\r\n\tFUNICULAR\020\007\022\017\n\013T" +
+      "ROLLEY_BUS\020\013\022\014\n\010MONORAIL\020\014\"\341\004\n\004Stop\022\017\n\007s" +
+      "top_id\030\001 \002(\t\0225\n\tstop_code\030\002 \001(\0132\".transi" +
+      "t_realtime.TranslatedString\0225\n\tstop_name" +
+      "\030\003 \002(\0132\".transit_realtime.TranslatedStri" +
+      "ng\0225\n\tstop_desc\030\004 \001(\0132\".transit_realtime" +
+      ".TranslatedString\022\020\n\010stop_lat\030\005 \002(\002\022\020\n\010s" +
+      "top_lon\030\006 \002(\002\022\017\n\007zone_id\030\007 \001(\t\0224\n\010stop_u" +
+      "rl\030\010 \001(\0132\".transit_realtime.TranslatedSt" +
+      "ring\022\026\n\016parent_station\030\t \001(\t\022\025\n\rstop_tim" +
+      "ezone\030\n \001(\t\022i\n\023wheelchair_boarding\030\013 \001(\016" +
+      "2/.transit_realtime.Stop.WheelchairBoard" +
+      "ingStatus:\033UNKNOWN_WHEELCHAIR_BOARDING\022\020" +
+      "\n\010level_id\030\014 \001(\t\022\025\n\rplatform_code\030\r \001(\t\"" +
+      "u\n\030WheelchairBoardingStatus\022\037\n\033UNKNOWN_W" +
+      "HEELCHAIR_BOARDING\020\000\022\031\n\025WHEELCHAIR_ACCES" +
+      "SIBLE\020\001\022\035\n\031NOT_WHEELCHAIR_ACCESSIBLE\020\002B\035" +
+      "\n\033com.google.transit.realtime"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -43813,7 +43601,7 @@ public final class GtfsRealtime {
     internal_static_transit_realtime_StopTimeProperties_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_transit_realtime_StopTimeProperties_descriptor,
-        new java.lang.String[] { "PlatformId", "StopHeadsign", "PickupType", "DropOffType", "ShapeDistTraveled", "StopId", });
+        new java.lang.String[] { "PlatformId", "StopHeadsign", "PickupType", "DropOffType", "ShapeDistTraveled", });
     internal_static_transit_realtime_Trip_descriptor =
       getDescriptor().getMessageTypes().get(15);
     internal_static_transit_realtime_Trip_fieldAccessorTable = new

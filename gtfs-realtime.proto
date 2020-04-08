@@ -793,8 +793,6 @@ message StopTimeProperties {
   optional DropOffType drop_off_type = 4 [default = REGULAR_DROP_OFF];
   // Actual distance traveled along the associated shape, from the first stop to the stop specified in this record.
   optional float shape_dist_traveled = 5;
-  // Identifies the new serviced stop (defined in the RT-GTFS).
-  optional string stop_id = 6;
 
   // Valid options for pickup_type:
   enum PickupType {
@@ -957,6 +955,8 @@ message Route {
   // 5 - Cable car. Used for street-level cable cars where the cable runs beneath the car.
   // 6 - Gondola, Suspended cable car. Typically used for aerial cable cars where the car is suspended from the cable.
   // 7 - Funicular. Any rail system designed for steep inclines.
+  // 11 - TROLLEY_BUS. Electric buses that draw power from overhead wires using poles.
+  // 12 - MONORAIL. Railway in which the track consists of a single rail or a beam.
   enum RouteType {
     LIGHT_RAIL = 0;
     SUBWAY = 1;
