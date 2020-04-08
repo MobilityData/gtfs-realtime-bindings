@@ -933,6 +933,7 @@ $root.TransitStopTimeUpdateExtension = (function() {
      * @exports ITransitStopTimeUpdateExtension
      * @interface ITransitStopTimeUpdateExtension
      * @property {boolean|null} [shouldNotAssumeVehicleIsPast] TransitStopTimeUpdateExtension shouldNotAssumeVehicleIsPast
+     * @property {TransitStopTimeUpdateExtension.PredictionAlgorithm|null} [predictionAlgorithm] TransitStopTimeUpdateExtension predictionAlgorithm
      */
 
     /**
@@ -957,6 +958,14 @@ $root.TransitStopTimeUpdateExtension = (function() {
      * @instance
      */
     TransitStopTimeUpdateExtension.prototype.shouldNotAssumeVehicleIsPast = false;
+
+    /**
+     * TransitStopTimeUpdateExtension predictionAlgorithm.
+     * @member {TransitStopTimeUpdateExtension.PredictionAlgorithm} predictionAlgorithm
+     * @memberof TransitStopTimeUpdateExtension
+     * @instance
+     */
+    TransitStopTimeUpdateExtension.prototype.predictionAlgorithm = 0;
 
     /**
      * Creates a new TransitStopTimeUpdateExtension instance using the specified properties.
@@ -984,6 +993,8 @@ $root.TransitStopTimeUpdateExtension = (function() {
             writer = $Writer.create();
         if (message.shouldNotAssumeVehicleIsPast != null && message.hasOwnProperty("shouldNotAssumeVehicleIsPast"))
             writer.uint32(/* id 1, wireType 0 =*/8).bool(message.shouldNotAssumeVehicleIsPast);
+        if (message.predictionAlgorithm != null && message.hasOwnProperty("predictionAlgorithm"))
+            writer.uint32(/* id 2, wireType 0 =*/16).int32(message.predictionAlgorithm);
         return writer;
     };
 
@@ -1020,6 +1031,9 @@ $root.TransitStopTimeUpdateExtension = (function() {
             switch (tag >>> 3) {
             case 1:
                 message.shouldNotAssumeVehicleIsPast = reader.bool();
+                break;
+            case 2:
+                message.predictionAlgorithm = reader.int32();
                 break;
             default:
                 reader.skipType(tag & 7);
@@ -1059,6 +1073,16 @@ $root.TransitStopTimeUpdateExtension = (function() {
         if (message.shouldNotAssumeVehicleIsPast != null && message.hasOwnProperty("shouldNotAssumeVehicleIsPast"))
             if (typeof message.shouldNotAssumeVehicleIsPast !== "boolean")
                 return "shouldNotAssumeVehicleIsPast: boolean expected";
+        if (message.predictionAlgorithm != null && message.hasOwnProperty("predictionAlgorithm"))
+            switch (message.predictionAlgorithm) {
+            default:
+                return "predictionAlgorithm: enum value expected";
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+                break;
+            }
         return null;
     };
 
@@ -1076,6 +1100,24 @@ $root.TransitStopTimeUpdateExtension = (function() {
         var message = new $root.TransitStopTimeUpdateExtension();
         if (object.shouldNotAssumeVehicleIsPast != null)
             message.shouldNotAssumeVehicleIsPast = Boolean(object.shouldNotAssumeVehicleIsPast);
+        switch (object.predictionAlgorithm) {
+        case "ML":
+        case 0:
+            message.predictionAlgorithm = 0;
+            break;
+        case "RECENCY":
+        case 1:
+            message.predictionAlgorithm = 1;
+            break;
+        case "DETERMINISTIC":
+        case 2:
+            message.predictionAlgorithm = 2;
+            break;
+        case "PROPAGATION":
+        case 3:
+            message.predictionAlgorithm = 3;
+            break;
+        }
         return message;
     };
 
@@ -1092,10 +1134,14 @@ $root.TransitStopTimeUpdateExtension = (function() {
         if (!options)
             options = {};
         var object = {};
-        if (options.defaults)
+        if (options.defaults) {
             object.shouldNotAssumeVehicleIsPast = false;
+            object.predictionAlgorithm = options.enums === String ? "ML" : 0;
+        }
         if (message.shouldNotAssumeVehicleIsPast != null && message.hasOwnProperty("shouldNotAssumeVehicleIsPast"))
             object.shouldNotAssumeVehicleIsPast = message.shouldNotAssumeVehicleIsPast;
+        if (message.predictionAlgorithm != null && message.hasOwnProperty("predictionAlgorithm"))
+            object.predictionAlgorithm = options.enums === String ? $root.TransitStopTimeUpdateExtension.PredictionAlgorithm[message.predictionAlgorithm] : message.predictionAlgorithm;
         return object;
     };
 
@@ -1109,6 +1155,24 @@ $root.TransitStopTimeUpdateExtension = (function() {
     TransitStopTimeUpdateExtension.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
+
+    /**
+     * PredictionAlgorithm enum.
+     * @name TransitStopTimeUpdateExtension.PredictionAlgorithm
+     * @enum {string}
+     * @property {number} ML=0 ML value
+     * @property {number} RECENCY=1 RECENCY value
+     * @property {number} DETERMINISTIC=2 DETERMINISTIC value
+     * @property {number} PROPAGATION=3 PROPAGATION value
+     */
+    TransitStopTimeUpdateExtension.PredictionAlgorithm = (function() {
+        var valuesById = {}, values = Object.create(valuesById);
+        values[valuesById[0] = "ML"] = 0;
+        values[valuesById[1] = "RECENCY"] = 1;
+        values[valuesById[2] = "DETERMINISTIC"] = 2;
+        values[valuesById[3] = "PROPAGATION"] = 3;
+        return values;
+    })();
 
     return TransitStopTimeUpdateExtension;
 })();

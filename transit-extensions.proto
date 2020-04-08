@@ -67,10 +67,27 @@ extend transit_realtime.TripDescriptor {
 }
 
 message TransitStopTimeUpdateExtension {
+    enum PredictionAlgorithm {
+        // Prediction comes from Machine Learning
+        ML = 0;
+
+        // Prediction comes from Recency
+        RECENCY = 1;
+
+        // Prediction comes from Deterministic logic, like first stop of the trip
+        DETERMINISTIC = 2;
+
+        // Prediction comes from Propagating to the next trip
+        PROPAGATION = 3;
+    }
+
     // If the prediction should be kept in the app until it receives an update from the server saying
     // that the vehicle is past the stop. Should not assume that the vehicle is past the stop until
     // the server says so
     optional bool should_not_assume_vehicle_is_past = 1;
+
+    // What was the algorithm source of the prediction
+    optional PredictionAlgorithm prediction_algorithm = 2;
 }
 
 extend transit_realtime.TripUpdate.StopTimeUpdate {
