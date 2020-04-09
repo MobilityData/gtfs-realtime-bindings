@@ -27350,17 +27350,17 @@ public final class GtfsRealtime {
      * Indicates whether bikes are allowed or not.
      * </pre>
      *
-     * <code>optional .transit_realtime.VehicleProperties.BikesAllowedStatus biked_allowed = 2 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
+     * <code>optional .transit_realtime.VehicleProperties.BikesAllowedStatus bikes_allowed = 2 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
      */
-    boolean hasBikedAllowed();
+    boolean hasBikesAllowed();
     /**
      * <pre>
      * Indicates whether bikes are allowed or not.
      * </pre>
      *
-     * <code>optional .transit_realtime.VehicleProperties.BikesAllowedStatus biked_allowed = 2 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
+     * <code>optional .transit_realtime.VehicleProperties.BikesAllowedStatus bikes_allowed = 2 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
      */
-    com.google.transit.realtime.GtfsRealtime.VehicleProperties.BikesAllowedStatus getBikedAllowed();
+    com.google.transit.realtime.GtfsRealtime.VehicleProperties.BikesAllowedStatus getBikesAllowed();
   }
   /**
    * <pre>
@@ -27380,7 +27380,7 @@ public final class GtfsRealtime {
     }
     private VehicleProperties() {
       wheelchairAccessible_ = 0;
-      bikedAllowed_ = 0;
+      bikesAllowed_ = 0;
     }
 
     @java.lang.Override
@@ -27427,7 +27427,7 @@ public final class GtfsRealtime {
                 unknownFields.mergeVarintField(2, rawValue);
               } else {
                 bitField0_ |= 0x00000002;
-                bikedAllowed_ = rawValue;
+                bikesAllowed_ = rawValue;
               }
               break;
             }
@@ -27571,7 +27571,7 @@ public final class GtfsRealtime {
 
     /**
      * <pre>
-     * Options for biked_allowed:
+     * Options for bikes_allowed:
      * 0 - No bike information for the trip.
      * 1 - Vehicle being used on this particular trip can accommodate at least one bicycle.
      * 2 - No bicycles are allowed on this trip.
@@ -27701,16 +27701,16 @@ public final class GtfsRealtime {
       return result == null ? com.google.transit.realtime.GtfsRealtime.VehicleProperties.WheelchairAccessibleStatus.UNKNOWN_WHEELCHAIR_ACCESSIBILITY : result;
     }
 
-    public static final int BIKED_ALLOWED_FIELD_NUMBER = 2;
-    private int bikedAllowed_;
+    public static final int BIKES_ALLOWED_FIELD_NUMBER = 2;
+    private int bikesAllowed_;
     /**
      * <pre>
      * Indicates whether bikes are allowed or not.
      * </pre>
      *
-     * <code>optional .transit_realtime.VehicleProperties.BikesAllowedStatus biked_allowed = 2 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
+     * <code>optional .transit_realtime.VehicleProperties.BikesAllowedStatus bikes_allowed = 2 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
      */
-    public boolean hasBikedAllowed() {
+    public boolean hasBikesAllowed() {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
@@ -27718,11 +27718,11 @@ public final class GtfsRealtime {
      * Indicates whether bikes are allowed or not.
      * </pre>
      *
-     * <code>optional .transit_realtime.VehicleProperties.BikesAllowedStatus biked_allowed = 2 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
+     * <code>optional .transit_realtime.VehicleProperties.BikesAllowedStatus bikes_allowed = 2 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
      */
-    public com.google.transit.realtime.GtfsRealtime.VehicleProperties.BikesAllowedStatus getBikedAllowed() {
+    public com.google.transit.realtime.GtfsRealtime.VehicleProperties.BikesAllowedStatus getBikesAllowed() {
       @SuppressWarnings("deprecation")
-      com.google.transit.realtime.GtfsRealtime.VehicleProperties.BikesAllowedStatus result = com.google.transit.realtime.GtfsRealtime.VehicleProperties.BikesAllowedStatus.valueOf(bikedAllowed_);
+      com.google.transit.realtime.GtfsRealtime.VehicleProperties.BikesAllowedStatus result = com.google.transit.realtime.GtfsRealtime.VehicleProperties.BikesAllowedStatus.valueOf(bikesAllowed_);
       return result == null ? com.google.transit.realtime.GtfsRealtime.VehicleProperties.BikesAllowedStatus.UNKNOWN_BIKES_ALLOWANCE : result;
     }
 
@@ -27744,7 +27744,7 @@ public final class GtfsRealtime {
         output.writeEnum(1, wheelchairAccessible_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeEnum(2, bikedAllowed_);
+        output.writeEnum(2, bikesAllowed_);
       }
       unknownFields.writeTo(output);
     }
@@ -27761,7 +27761,7 @@ public final class GtfsRealtime {
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(2, bikedAllowed_);
+          .computeEnumSize(2, bikesAllowed_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -27782,9 +27782,9 @@ public final class GtfsRealtime {
       if (hasWheelchairAccessible()) {
         if (wheelchairAccessible_ != other.wheelchairAccessible_) return false;
       }
-      if (hasBikedAllowed() != other.hasBikedAllowed()) return false;
-      if (hasBikedAllowed()) {
-        if (bikedAllowed_ != other.bikedAllowed_) return false;
+      if (hasBikesAllowed() != other.hasBikesAllowed()) return false;
+      if (hasBikesAllowed()) {
+        if (bikesAllowed_ != other.bikesAllowed_) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -27801,9 +27801,9 @@ public final class GtfsRealtime {
         hash = (37 * hash) + WHEELCHAIR_ACCESSIBLE_FIELD_NUMBER;
         hash = (53 * hash) + wheelchairAccessible_;
       }
-      if (hasBikedAllowed()) {
-        hash = (37 * hash) + BIKED_ALLOWED_FIELD_NUMBER;
-        hash = (53 * hash) + bikedAllowed_;
+      if (hasBikesAllowed()) {
+        hash = (37 * hash) + BIKES_ALLOWED_FIELD_NUMBER;
+        hash = (53 * hash) + bikesAllowed_;
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -27944,7 +27944,7 @@ public final class GtfsRealtime {
         super.clear();
         wheelchairAccessible_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        bikedAllowed_ = 0;
+        bikesAllowed_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
@@ -27981,7 +27981,7 @@ public final class GtfsRealtime {
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.bikedAllowed_ = bikedAllowed_;
+        result.bikesAllowed_ = bikesAllowed_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -28034,8 +28034,8 @@ public final class GtfsRealtime {
         if (other.hasWheelchairAccessible()) {
           setWheelchairAccessible(other.getWheelchairAccessible());
         }
-        if (other.hasBikedAllowed()) {
-          setBikedAllowed(other.getBikedAllowed());
+        if (other.hasBikesAllowed()) {
+          setBikesAllowed(other.getBikesAllowed());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -28120,15 +28120,15 @@ public final class GtfsRealtime {
         return this;
       }
 
-      private int bikedAllowed_ = 0;
+      private int bikesAllowed_ = 0;
       /**
        * <pre>
        * Indicates whether bikes are allowed or not.
        * </pre>
        *
-       * <code>optional .transit_realtime.VehicleProperties.BikesAllowedStatus biked_allowed = 2 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
+       * <code>optional .transit_realtime.VehicleProperties.BikesAllowedStatus bikes_allowed = 2 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
        */
-      public boolean hasBikedAllowed() {
+      public boolean hasBikesAllowed() {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
@@ -28136,11 +28136,11 @@ public final class GtfsRealtime {
        * Indicates whether bikes are allowed or not.
        * </pre>
        *
-       * <code>optional .transit_realtime.VehicleProperties.BikesAllowedStatus biked_allowed = 2 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
+       * <code>optional .transit_realtime.VehicleProperties.BikesAllowedStatus bikes_allowed = 2 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
        */
-      public com.google.transit.realtime.GtfsRealtime.VehicleProperties.BikesAllowedStatus getBikedAllowed() {
+      public com.google.transit.realtime.GtfsRealtime.VehicleProperties.BikesAllowedStatus getBikesAllowed() {
         @SuppressWarnings("deprecation")
-        com.google.transit.realtime.GtfsRealtime.VehicleProperties.BikesAllowedStatus result = com.google.transit.realtime.GtfsRealtime.VehicleProperties.BikesAllowedStatus.valueOf(bikedAllowed_);
+        com.google.transit.realtime.GtfsRealtime.VehicleProperties.BikesAllowedStatus result = com.google.transit.realtime.GtfsRealtime.VehicleProperties.BikesAllowedStatus.valueOf(bikesAllowed_);
         return result == null ? com.google.transit.realtime.GtfsRealtime.VehicleProperties.BikesAllowedStatus.UNKNOWN_BIKES_ALLOWANCE : result;
       }
       /**
@@ -28148,14 +28148,14 @@ public final class GtfsRealtime {
        * Indicates whether bikes are allowed or not.
        * </pre>
        *
-       * <code>optional .transit_realtime.VehicleProperties.BikesAllowedStatus biked_allowed = 2 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
+       * <code>optional .transit_realtime.VehicleProperties.BikesAllowedStatus bikes_allowed = 2 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
        */
-      public Builder setBikedAllowed(com.google.transit.realtime.GtfsRealtime.VehicleProperties.BikesAllowedStatus value) {
+      public Builder setBikesAllowed(com.google.transit.realtime.GtfsRealtime.VehicleProperties.BikesAllowedStatus value) {
         if (value == null) {
           throw new NullPointerException();
         }
         bitField0_ |= 0x00000002;
-        bikedAllowed_ = value.getNumber();
+        bikesAllowed_ = value.getNumber();
         onChanged();
         return this;
       }
@@ -28164,11 +28164,11 @@ public final class GtfsRealtime {
        * Indicates whether bikes are allowed or not.
        * </pre>
        *
-       * <code>optional .transit_realtime.VehicleProperties.BikesAllowedStatus biked_allowed = 2 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
+       * <code>optional .transit_realtime.VehicleProperties.BikesAllowedStatus bikes_allowed = 2 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
        */
-      public Builder clearBikedAllowed() {
+      public Builder clearBikesAllowed() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        bikedAllowed_ = 0;
+        bikesAllowed_ = 0;
         onChanged();
         return this;
       }
@@ -29939,17 +29939,17 @@ public final class GtfsRealtime {
      * Indicates whether bikes are allowed or not.
      * </pre>
      *
-     * <code>optional .transit_realtime.Trip.BikesAllowedStatus biked_allowed = 9 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
+     * <code>optional .transit_realtime.Trip.BikesAllowedStatus bikes_allowed = 9 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
      */
-    boolean hasBikedAllowed();
+    boolean hasBikesAllowed();
     /**
      * <pre>
      * Indicates whether bikes are allowed or not.
      * </pre>
      *
-     * <code>optional .transit_realtime.Trip.BikesAllowedStatus biked_allowed = 9 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
+     * <code>optional .transit_realtime.Trip.BikesAllowedStatus bikes_allowed = 9 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
      */
-    com.google.transit.realtime.GtfsRealtime.Trip.BikesAllowedStatus getBikedAllowed();
+    com.google.transit.realtime.GtfsRealtime.Trip.BikesAllowedStatus getBikesAllowed();
 
     /**
      * <pre>
@@ -30079,7 +30079,7 @@ public final class GtfsRealtime {
       blockId_ = "";
       shapeId_ = "";
       wheelchairAccessible_ = 0;
-      bikedAllowed_ = 0;
+      bikesAllowed_ = 0;
       replacesTripId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       stopTime_ = java.util.Collections.emptyList();
       startDate_ = "";
@@ -30177,7 +30177,7 @@ public final class GtfsRealtime {
                 unknownFields.mergeVarintField(9, rawValue);
               } else {
                 bitField0_ |= 0x00000100;
-                bikedAllowed_ = rawValue;
+                bikesAllowed_ = rawValue;
               }
               break;
             }
@@ -30351,7 +30351,7 @@ public final class GtfsRealtime {
 
     /**
      * <pre>
-     * Options for biked_allowed:
+     * Options for bikes_allowed:
      * 0 - No bike information for the trip.
      * 1 - Vehicle being used on this particular trip can accommodate at least one bicycle.
      * 2 - No bicycles are allowed on this trip.
@@ -30807,16 +30807,16 @@ public final class GtfsRealtime {
       return result == null ? com.google.transit.realtime.GtfsRealtime.Trip.WheelchairAccessibleStatus.UNKNOWN_WHEELCHAIR_ACCESSIBILITY : result;
     }
 
-    public static final int BIKED_ALLOWED_FIELD_NUMBER = 9;
-    private int bikedAllowed_;
+    public static final int BIKES_ALLOWED_FIELD_NUMBER = 9;
+    private int bikesAllowed_;
     /**
      * <pre>
      * Indicates whether bikes are allowed or not.
      * </pre>
      *
-     * <code>optional .transit_realtime.Trip.BikesAllowedStatus biked_allowed = 9 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
+     * <code>optional .transit_realtime.Trip.BikesAllowedStatus bikes_allowed = 9 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
      */
-    public boolean hasBikedAllowed() {
+    public boolean hasBikesAllowed() {
       return ((bitField0_ & 0x00000100) != 0);
     }
     /**
@@ -30824,11 +30824,11 @@ public final class GtfsRealtime {
      * Indicates whether bikes are allowed or not.
      * </pre>
      *
-     * <code>optional .transit_realtime.Trip.BikesAllowedStatus biked_allowed = 9 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
+     * <code>optional .transit_realtime.Trip.BikesAllowedStatus bikes_allowed = 9 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
      */
-    public com.google.transit.realtime.GtfsRealtime.Trip.BikesAllowedStatus getBikedAllowed() {
+    public com.google.transit.realtime.GtfsRealtime.Trip.BikesAllowedStatus getBikesAllowed() {
       @SuppressWarnings("deprecation")
-      com.google.transit.realtime.GtfsRealtime.Trip.BikesAllowedStatus result = com.google.transit.realtime.GtfsRealtime.Trip.BikesAllowedStatus.valueOf(bikedAllowed_);
+      com.google.transit.realtime.GtfsRealtime.Trip.BikesAllowedStatus result = com.google.transit.realtime.GtfsRealtime.Trip.BikesAllowedStatus.valueOf(bikesAllowed_);
       return result == null ? com.google.transit.realtime.GtfsRealtime.Trip.BikesAllowedStatus.UNKNOWN_BIKES_ALLOWANCE : result;
     }
 
@@ -31051,7 +31051,7 @@ public final class GtfsRealtime {
         output.writeEnum(8, wheelchairAccessible_);
       }
       if (((bitField0_ & 0x00000100) != 0)) {
-        output.writeEnum(9, bikedAllowed_);
+        output.writeEnum(9, bikesAllowed_);
       }
       for (int i = 0; i < replacesTripId_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 10, replacesTripId_.getRaw(i));
@@ -31100,7 +31100,7 @@ public final class GtfsRealtime {
       }
       if (((bitField0_ & 0x00000100) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(9, bikedAllowed_);
+          .computeEnumSize(9, bikesAllowed_);
       }
       {
         int dataSize = 0;
@@ -31171,9 +31171,9 @@ public final class GtfsRealtime {
       if (hasWheelchairAccessible()) {
         if (wheelchairAccessible_ != other.wheelchairAccessible_) return false;
       }
-      if (hasBikedAllowed() != other.hasBikedAllowed()) return false;
-      if (hasBikedAllowed()) {
-        if (bikedAllowed_ != other.bikedAllowed_) return false;
+      if (hasBikesAllowed() != other.hasBikesAllowed()) return false;
+      if (hasBikesAllowed()) {
+        if (bikesAllowed_ != other.bikesAllowed_) return false;
       }
       if (!getReplacesTripIdList()
           .equals(other.getReplacesTripIdList())) return false;
@@ -31227,9 +31227,9 @@ public final class GtfsRealtime {
         hash = (37 * hash) + WHEELCHAIR_ACCESSIBLE_FIELD_NUMBER;
         hash = (53 * hash) + wheelchairAccessible_;
       }
-      if (hasBikedAllowed()) {
-        hash = (37 * hash) + BIKED_ALLOWED_FIELD_NUMBER;
-        hash = (53 * hash) + bikedAllowed_;
+      if (hasBikesAllowed()) {
+        hash = (37 * hash) + BIKES_ALLOWED_FIELD_NUMBER;
+        hash = (53 * hash) + bikesAllowed_;
       }
       if (getReplacesTripIdCount() > 0) {
         hash = (37 * hash) + REPLACES_TRIP_ID_FIELD_NUMBER;
@@ -31402,7 +31402,7 @@ public final class GtfsRealtime {
         bitField0_ = (bitField0_ & ~0x00000040);
         wheelchairAccessible_ = 0;
         bitField0_ = (bitField0_ & ~0x00000080);
-        bikedAllowed_ = 0;
+        bikesAllowed_ = 0;
         bitField0_ = (bitField0_ & ~0x00000100);
         replacesTripId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000200);
@@ -31481,7 +31481,7 @@ public final class GtfsRealtime {
         if (((from_bitField0_ & 0x00000100) != 0)) {
           to_bitField0_ |= 0x00000100;
         }
-        result.bikedAllowed_ = bikedAllowed_;
+        result.bikesAllowed_ = bikesAllowed_;
         if (((bitField0_ & 0x00000200) != 0)) {
           replacesTripId_ = replacesTripId_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000200);
@@ -31583,8 +31583,8 @@ public final class GtfsRealtime {
         if (other.hasWheelchairAccessible()) {
           setWheelchairAccessible(other.getWheelchairAccessible());
         }
-        if (other.hasBikedAllowed()) {
-          setBikedAllowed(other.getBikedAllowed());
+        if (other.hasBikesAllowed()) {
+          setBikesAllowed(other.getBikesAllowed());
         }
         if (!other.replacesTripId_.isEmpty()) {
           if (replacesTripId_.isEmpty()) {
@@ -32432,15 +32432,15 @@ public final class GtfsRealtime {
         return this;
       }
 
-      private int bikedAllowed_ = 0;
+      private int bikesAllowed_ = 0;
       /**
        * <pre>
        * Indicates whether bikes are allowed or not.
        * </pre>
        *
-       * <code>optional .transit_realtime.Trip.BikesAllowedStatus biked_allowed = 9 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
+       * <code>optional .transit_realtime.Trip.BikesAllowedStatus bikes_allowed = 9 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
        */
-      public boolean hasBikedAllowed() {
+      public boolean hasBikesAllowed() {
         return ((bitField0_ & 0x00000100) != 0);
       }
       /**
@@ -32448,11 +32448,11 @@ public final class GtfsRealtime {
        * Indicates whether bikes are allowed or not.
        * </pre>
        *
-       * <code>optional .transit_realtime.Trip.BikesAllowedStatus biked_allowed = 9 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
+       * <code>optional .transit_realtime.Trip.BikesAllowedStatus bikes_allowed = 9 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
        */
-      public com.google.transit.realtime.GtfsRealtime.Trip.BikesAllowedStatus getBikedAllowed() {
+      public com.google.transit.realtime.GtfsRealtime.Trip.BikesAllowedStatus getBikesAllowed() {
         @SuppressWarnings("deprecation")
-        com.google.transit.realtime.GtfsRealtime.Trip.BikesAllowedStatus result = com.google.transit.realtime.GtfsRealtime.Trip.BikesAllowedStatus.valueOf(bikedAllowed_);
+        com.google.transit.realtime.GtfsRealtime.Trip.BikesAllowedStatus result = com.google.transit.realtime.GtfsRealtime.Trip.BikesAllowedStatus.valueOf(bikesAllowed_);
         return result == null ? com.google.transit.realtime.GtfsRealtime.Trip.BikesAllowedStatus.UNKNOWN_BIKES_ALLOWANCE : result;
       }
       /**
@@ -32460,14 +32460,14 @@ public final class GtfsRealtime {
        * Indicates whether bikes are allowed or not.
        * </pre>
        *
-       * <code>optional .transit_realtime.Trip.BikesAllowedStatus biked_allowed = 9 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
+       * <code>optional .transit_realtime.Trip.BikesAllowedStatus bikes_allowed = 9 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
        */
-      public Builder setBikedAllowed(com.google.transit.realtime.GtfsRealtime.Trip.BikesAllowedStatus value) {
+      public Builder setBikesAllowed(com.google.transit.realtime.GtfsRealtime.Trip.BikesAllowedStatus value) {
         if (value == null) {
           throw new NullPointerException();
         }
         bitField0_ |= 0x00000100;
-        bikedAllowed_ = value.getNumber();
+        bikesAllowed_ = value.getNumber();
         onChanged();
         return this;
       }
@@ -32476,11 +32476,11 @@ public final class GtfsRealtime {
        * Indicates whether bikes are allowed or not.
        * </pre>
        *
-       * <code>optional .transit_realtime.Trip.BikesAllowedStatus biked_allowed = 9 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
+       * <code>optional .transit_realtime.Trip.BikesAllowedStatus bikes_allowed = 9 [default = UNKNOWN_BIKES_ALLOWANCE];</code>
        */
-      public Builder clearBikedAllowed() {
+      public Builder clearBikesAllowed() {
         bitField0_ = (bitField0_ & ~0x00000100);
-        bikedAllowed_ = 0;
+        bikesAllowed_ = 0;
         onChanged();
         return this;
       }
@@ -43613,7 +43613,7 @@ public final class GtfsRealtime {
       "ies\022\177\n\025wheelchair_accessible\030\001 \001(\0162>.tra" +
       "nsit_realtime.VehicleProperties.Wheelcha" +
       "irAccessibleStatus: UNKNOWN_WHEELCHAIR_A" +
-      "CCESSIBILITY\022f\n\rbiked_allowed\030\002 \001(\01626.tr" +
+      "CCESSIBILITY\022f\n\rbikes_allowed\030\002 \001(\01626.tr" +
       "ansit_realtime.VehicleProperties.BikesAl" +
       "lowedStatus:\027UNKNOWN_BIKES_ALLOWANCE\"|\n\032" +
       "WheelchairAccessibleStatus\022$\n UNKNOWN_WH" +
@@ -43642,7 +43642,7 @@ public final class GtfsRealtime {
       "hape_id\030\007 \001(\t\022r\n\025wheelchair_accessible\030\010" +
       " \001(\01621.transit_realtime.Trip.WheelchairA" +
       "ccessibleStatus: UNKNOWN_WHEELCHAIR_ACCE" +
-      "SSIBILITY\022Y\n\rbiked_allowed\030\t \001(\0162).trans" +
+      "SSIBILITY\022Y\n\rbikes_allowed\030\t \001(\0162).trans" +
       "it_realtime.Trip.BikesAllowedStatus:\027UNK" +
       "NOWN_BIKES_ALLOWANCE\022\030\n\020replaces_trip_id" +
       "\030\n \003(\t\022-\n\tstop_time\030\013 \003(\0132\032.transit_real" +
@@ -43816,7 +43816,7 @@ public final class GtfsRealtime {
     internal_static_transit_realtime_VehicleProperties_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_transit_realtime_VehicleProperties_descriptor,
-        new java.lang.String[] { "WheelchairAccessible", "BikedAllowed", });
+        new java.lang.String[] { "WheelchairAccessible", "BikesAllowed", });
     internal_static_transit_realtime_StopTimeProperties_descriptor =
       getDescriptor().getMessageTypes().get(14);
     internal_static_transit_realtime_StopTimeProperties_fieldAccessorTable = new
@@ -43828,7 +43828,7 @@ public final class GtfsRealtime {
     internal_static_transit_realtime_Trip_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_transit_realtime_Trip_descriptor,
-        new java.lang.String[] { "TripId", "RouteId", "TripHeadsign", "TripShortName", "DirectionId", "BlockId", "ShapeId", "WheelchairAccessible", "BikedAllowed", "ReplacesTripId", "StopTime", "StartDate", });
+        new java.lang.String[] { "TripId", "RouteId", "TripHeadsign", "TripShortName", "DirectionId", "BlockId", "ShapeId", "WheelchairAccessible", "BikesAllowed", "ReplacesTripId", "StopTime", "StartDate", });
     internal_static_transit_realtime_StopTime_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_transit_realtime_StopTime_fieldAccessorTable = new
