@@ -30029,6 +30029,32 @@ public final class GtfsRealtime {
      */
     com.google.transit.realtime.GtfsRealtime.StopTimeOrBuilder getStopTimeOrBuilder(
         int index);
+
+    /**
+     * <pre>
+     * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+     * </pre>
+     *
+     * <code>required string start_date = 12;</code>
+     */
+    boolean hasStartDate();
+    /**
+     * <pre>
+     * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+     * </pre>
+     *
+     * <code>required string start_date = 12;</code>
+     */
+    java.lang.String getStartDate();
+    /**
+     * <pre>
+     * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+     * </pre>
+     *
+     * <code>required string start_date = 12;</code>
+     */
+    com.google.protobuf.ByteString
+        getStartDateBytes();
   }
   /**
    * <pre>
@@ -30056,6 +30082,7 @@ public final class GtfsRealtime {
       bikedAllowed_ = 0;
       replacesTripId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       stopTime_ = java.util.Collections.emptyList();
+      startDate_ = "";
     }
 
     @java.lang.Override
@@ -30170,6 +30197,12 @@ public final class GtfsRealtime {
               }
               stopTime_.add(
                   input.readMessage(com.google.transit.realtime.GtfsRealtime.StopTime.PARSER, extensionRegistry));
+              break;
+            }
+            case 98: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000200;
+              startDate_ = bs;
               break;
             }
             default: {
@@ -30899,6 +30932,60 @@ public final class GtfsRealtime {
       return stopTime_.get(index);
     }
 
+    public static final int START_DATE_FIELD_NUMBER = 12;
+    private volatile java.lang.Object startDate_;
+    /**
+     * <pre>
+     * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+     * </pre>
+     *
+     * <code>required string start_date = 12;</code>
+     */
+    public boolean hasStartDate() {
+      return ((bitField0_ & 0x00000200) != 0);
+    }
+    /**
+     * <pre>
+     * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+     * </pre>
+     *
+     * <code>required string start_date = 12;</code>
+     */
+    public java.lang.String getStartDate() {
+      java.lang.Object ref = startDate_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          startDate_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+     * </pre>
+     *
+     * <code>required string start_date = 12;</code>
+     */
+    public com.google.protobuf.ByteString
+        getStartDateBytes() {
+      java.lang.Object ref = startDate_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        startDate_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -30915,6 +31002,10 @@ public final class GtfsRealtime {
         return false;
       }
       if (!hasTripShortName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasStartDate()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -30968,6 +31059,9 @@ public final class GtfsRealtime {
       for (int i = 0; i < stopTime_.size(); i++) {
         output.writeMessage(11, stopTime_.get(i));
       }
+      if (((bitField0_ & 0x00000200) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, startDate_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -31019,6 +31113,9 @@ public final class GtfsRealtime {
       for (int i = 0; i < stopTime_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(11, stopTime_.get(i));
+      }
+      if (((bitField0_ & 0x00000200) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, startDate_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -31082,6 +31179,11 @@ public final class GtfsRealtime {
           .equals(other.getReplacesTripIdList())) return false;
       if (!getStopTimeList()
           .equals(other.getStopTimeList())) return false;
+      if (hasStartDate() != other.hasStartDate()) return false;
+      if (hasStartDate()) {
+        if (!getStartDate()
+            .equals(other.getStartDate())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -31136,6 +31238,10 @@ public final class GtfsRealtime {
       if (getStopTimeCount() > 0) {
         hash = (37 * hash) + STOP_TIME_FIELD_NUMBER;
         hash = (53 * hash) + getStopTimeList().hashCode();
+      }
+      if (hasStartDate()) {
+        hash = (37 * hash) + START_DATE_FIELD_NUMBER;
+        hash = (53 * hash) + getStartDate().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -31306,6 +31412,8 @@ public final class GtfsRealtime {
         } else {
           stopTimeBuilder_.clear();
         }
+        startDate_ = "";
+        bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
 
@@ -31388,6 +31496,10 @@ public final class GtfsRealtime {
         } else {
           result.stopTime_ = stopTimeBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          to_bitField0_ |= 0x00000200;
+        }
+        result.startDate_ = startDate_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -31510,6 +31622,11 @@ public final class GtfsRealtime {
             }
           }
         }
+        if (other.hasStartDate()) {
+          bitField0_ |= 0x00000800;
+          startDate_ = other.startDate_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -31524,6 +31641,9 @@ public final class GtfsRealtime {
           return false;
         }
         if (!hasTripShortName()) {
+          return false;
+        }
+        if (!hasStartDate()) {
           return false;
         }
         if (!getTripHeadsign().isInitialized()) {
@@ -32804,6 +32924,106 @@ public final class GtfsRealtime {
           stopTime_ = null;
         }
         return stopTimeBuilder_;
+      }
+
+      private java.lang.Object startDate_ = "";
+      /**
+       * <pre>
+       * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+       * </pre>
+       *
+       * <code>required string start_date = 12;</code>
+       */
+      public boolean hasStartDate() {
+        return ((bitField0_ & 0x00000800) != 0);
+      }
+      /**
+       * <pre>
+       * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+       * </pre>
+       *
+       * <code>required string start_date = 12;</code>
+       */
+      public java.lang.String getStartDate() {
+        java.lang.Object ref = startDate_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            startDate_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+       * </pre>
+       *
+       * <code>required string start_date = 12;</code>
+       */
+      public com.google.protobuf.ByteString
+          getStartDateBytes() {
+        java.lang.Object ref = startDate_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          startDate_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+       * </pre>
+       *
+       * <code>required string start_date = 12;</code>
+       */
+      public Builder setStartDate(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000800;
+        startDate_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+       * </pre>
+       *
+       * <code>required string start_date = 12;</code>
+       */
+      public Builder clearStartDate() {
+        bitField0_ = (bitField0_ & ~0x00000800);
+        startDate_ = getDefaultInstance().getStartDate();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+       * </pre>
+       *
+       * <code>required string start_date = 12;</code>
+       */
+      public Builder setStartDateBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000800;
+        startDate_ = value;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -43414,7 +43634,7 @@ public final class GtfsRealtime {
       "P\020\002\022\032\n\026MUST_ASK_DRIVER_PICKUP\020\003\"r\n\013DropO" +
       "ffType\022\024\n\020REGULAR_DROP_OFF\020\000\022\017\n\013NO_DROP_" +
       "OFF\020\001\022\036\n\032MUST_PHONE_AGENCY_DROP_OFF\020\002\022\034\n" +
-      "\030MUST_ASK_DRIVER_DROP_OFF\020\003\"\252\005\n\004Trip\022\017\n\007" +
+      "\030MUST_ASK_DRIVER_DROP_OFF\020\003\"\276\005\n\004Trip\022\017\n\007" +
       "trip_id\030\001 \002(\t\022\020\n\010route_id\030\002 \001(\t\0229\n\rtrip_" +
       "headsign\030\003 \002(\0132\".transit_realtime.Transl" +
       "atedString\022\027\n\017trip_short_name\030\004 \002(\t\022\024\n\014d" +
@@ -43426,61 +43646,62 @@ public final class GtfsRealtime {
       "it_realtime.Trip.BikesAllowedStatus:\027UNK" +
       "NOWN_BIKES_ALLOWANCE\022\030\n\020replaces_trip_id" +
       "\030\n \003(\t\022-\n\tstop_time\030\013 \003(\0132\032.transit_real" +
-      "time.StopTime\"|\n\032WheelchairAccessibleSta" +
-      "tus\022$\n UNKNOWN_WHEELCHAIR_ACCESSIBILITY\020" +
-      "\000\022\031\n\025WHEELCHAIR_ACCESSIBLE\020\001\022\035\n\031NOT_WHEE" +
-      "LCHAIR_ACCESSIBLE\020\002\"[\n\022BikesAllowedStatu" +
-      "s\022\033\n\027UNKNOWN_BIKES_ALLOWANCE\020\000\022\021\n\rBIKES_" +
-      "ALLOWED\020\001\022\025\n\021BIKES_NOT_ALLOWED\020\002\"\264\004\n\010Sto" +
-      "pTime\022\025\n\rstop_sequence\030\001 \002(\r\022\024\n\014arrival_" +
-      "time\030\002 \002(\t\022\026\n\016departure_time\030\003 \002(\t\022\017\n\007st" +
-      "op_id\030\004 \002(\t\0229\n\rstop_headsign\030\005 \001(\0132\".tra" +
-      "nsit_realtime.TranslatedString\022J\n\013pickup" +
-      "_type\030\006 \001(\0162%.transit_realtime.StopTime." +
-      "PickupType:\016REGULAR_PICKUP\022O\n\rdrop_off_t" +
-      "ype\030\007 \001(\0162&.transit_realtime.StopTime.Dr" +
-      "opOffType:\020REGULAR_DROP_OFF\022\033\n\023shape_dis" +
-      "t_traveled\030\010 \001(\002\"i\n\nPickupType\022\022\n\016REGULA" +
-      "R_PICKUP\020\000\022\r\n\tNO_PICKUP\020\001\022\034\n\030MUST_PHONE_" +
-      "AGENCY_PICKUP\020\002\022\032\n\026MUST_ASK_DRIVER_PICKU" +
-      "P\020\003\"r\n\013DropOffType\022\024\n\020REGULAR_DROP_OFF\020\000" +
-      "\022\017\n\013NO_DROP_OFF\020\001\022\036\n\032MUST_PHONE_AGENCY_D" +
-      "ROP_OFF\020\002\022\034\n\030MUST_ASK_DRIVER_DROP_OFF\020\003\"" +
-      "L\n\005Shape\022\020\n\010shape_id\030\001 \002(\t\0221\n\013shape_poin" +
-      "t\030\002 \003(\0132\034.transit_realtime.ShapePoint\"p\n" +
-      "\nShapePoint\022\024\n\014shape_pt_lat\030\001 \002(\002\022\024\n\014sha" +
-      "pe_pt_lon\030\002 \002(\002\022\033\n\023shape_dist_traveled\030\003" +
-      " \001(\002\022\031\n\021shape_pt_sequence\030\004 \002(\r\"\250\004\n\005Rout" +
-      "e\022\020\n\010route_id\030\001 \002(\t\022\021\n\tagency_id\030\002 \002(\t\022<" +
-      "\n\020route_short_name\030\003 \001(\0132\".transit_realt" +
-      "ime.TranslatedString\022;\n\017route_long_name\030" +
-      "\004 \001(\0132\".transit_realtime.TranslatedStrin" +
-      "g\0226\n\nroute_desc\030\005 \001(\0132\".transit_realtime" +
-      ".TranslatedString\0225\n\nroute_type\030\006 \002(\0162!." +
-      "transit_realtime.Route.RouteType\0225\n\trout" +
-      "e_url\030\007 \001(\0132\".transit_realtime.Translate" +
-      "dString\022\023\n\013route_color\030\010 \001(\t\022\030\n\020route_te" +
-      "xt_color\030\t \001(\t\022\030\n\020route_sort_order\030\n \001(\r" +
-      "\"\217\001\n\tRouteType\022\016\n\nLIGHT_RAIL\020\000\022\n\n\006SUBWAY" +
-      "\020\001\022\010\n\004RAIL\020\002\022\007\n\003BUS\020\003\022\t\n\005FERRY\020\004\022\r\n\tCABL" +
-      "E_CAR\020\005\022\013\n\007GONDOLA\020\006\022\r\n\tFUNICULAR\020\007\022\017\n\013T" +
-      "ROLLEY_BUS\020\013\022\014\n\010MONORAIL\020\014\"\341\004\n\004Stop\022\017\n\007s" +
-      "top_id\030\001 \002(\t\0225\n\tstop_code\030\002 \001(\0132\".transi" +
-      "t_realtime.TranslatedString\0225\n\tstop_name" +
-      "\030\003 \002(\0132\".transit_realtime.TranslatedStri" +
-      "ng\0225\n\tstop_desc\030\004 \001(\0132\".transit_realtime" +
-      ".TranslatedString\022\020\n\010stop_lat\030\005 \002(\002\022\020\n\010s" +
-      "top_lon\030\006 \002(\002\022\017\n\007zone_id\030\007 \001(\t\0224\n\010stop_u" +
-      "rl\030\010 \001(\0132\".transit_realtime.TranslatedSt" +
-      "ring\022\026\n\016parent_station\030\t \001(\t\022\025\n\rstop_tim" +
-      "ezone\030\n \001(\t\022i\n\023wheelchair_boarding\030\013 \001(\016" +
-      "2/.transit_realtime.Stop.WheelchairBoard" +
-      "ingStatus:\033UNKNOWN_WHEELCHAIR_BOARDING\022\020" +
-      "\n\010level_id\030\014 \001(\t\022\025\n\rplatform_code\030\r \001(\t\"" +
-      "u\n\030WheelchairBoardingStatus\022\037\n\033UNKNOWN_W" +
-      "HEELCHAIR_BOARDING\020\000\022\031\n\025WHEELCHAIR_ACCES" +
-      "SIBLE\020\001\022\035\n\031NOT_WHEELCHAIR_ACCESSIBLE\020\002B\035" +
-      "\n\033com.google.transit.realtime"
+      "time.StopTime\022\022\n\nstart_date\030\014 \002(\t\"|\n\032Whe" +
+      "elchairAccessibleStatus\022$\n UNKNOWN_WHEEL" +
+      "CHAIR_ACCESSIBILITY\020\000\022\031\n\025WHEELCHAIR_ACCE" +
+      "SSIBLE\020\001\022\035\n\031NOT_WHEELCHAIR_ACCESSIBLE\020\002\"" +
+      "[\n\022BikesAllowedStatus\022\033\n\027UNKNOWN_BIKES_A" +
+      "LLOWANCE\020\000\022\021\n\rBIKES_ALLOWED\020\001\022\025\n\021BIKES_N" +
+      "OT_ALLOWED\020\002\"\264\004\n\010StopTime\022\025\n\rstop_sequen" +
+      "ce\030\001 \002(\r\022\024\n\014arrival_time\030\002 \002(\t\022\026\n\016depart" +
+      "ure_time\030\003 \002(\t\022\017\n\007stop_id\030\004 \002(\t\0229\n\rstop_" +
+      "headsign\030\005 \001(\0132\".transit_realtime.Transl" +
+      "atedString\022J\n\013pickup_type\030\006 \001(\0162%.transi" +
+      "t_realtime.StopTime.PickupType:\016REGULAR_" +
+      "PICKUP\022O\n\rdrop_off_type\030\007 \001(\0162&.transit_" +
+      "realtime.StopTime.DropOffType:\020REGULAR_D" +
+      "ROP_OFF\022\033\n\023shape_dist_traveled\030\010 \001(\002\"i\n\n" +
+      "PickupType\022\022\n\016REGULAR_PICKUP\020\000\022\r\n\tNO_PIC" +
+      "KUP\020\001\022\034\n\030MUST_PHONE_AGENCY_PICKUP\020\002\022\032\n\026M" +
+      "UST_ASK_DRIVER_PICKUP\020\003\"r\n\013DropOffType\022\024" +
+      "\n\020REGULAR_DROP_OFF\020\000\022\017\n\013NO_DROP_OFF\020\001\022\036\n" +
+      "\032MUST_PHONE_AGENCY_DROP_OFF\020\002\022\034\n\030MUST_AS" +
+      "K_DRIVER_DROP_OFF\020\003\"L\n\005Shape\022\020\n\010shape_id" +
+      "\030\001 \002(\t\0221\n\013shape_point\030\002 \003(\0132\034.transit_re" +
+      "altime.ShapePoint\"p\n\nShapePoint\022\024\n\014shape" +
+      "_pt_lat\030\001 \002(\002\022\024\n\014shape_pt_lon\030\002 \002(\002\022\033\n\023s" +
+      "hape_dist_traveled\030\003 \001(\002\022\031\n\021shape_pt_seq" +
+      "uence\030\004 \002(\r\"\250\004\n\005Route\022\020\n\010route_id\030\001 \002(\t\022" +
+      "\021\n\tagency_id\030\002 \002(\t\022<\n\020route_short_name\030\003" +
+      " \001(\0132\".transit_realtime.TranslatedString" +
+      "\022;\n\017route_long_name\030\004 \001(\0132\".transit_real" +
+      "time.TranslatedString\0226\n\nroute_desc\030\005 \001(" +
+      "\0132\".transit_realtime.TranslatedString\0225\n" +
+      "\nroute_type\030\006 \002(\0162!.transit_realtime.Rou" +
+      "te.RouteType\0225\n\troute_url\030\007 \001(\0132\".transi" +
+      "t_realtime.TranslatedString\022\023\n\013route_col" +
+      "or\030\010 \001(\t\022\030\n\020route_text_color\030\t \001(\t\022\030\n\020ro" +
+      "ute_sort_order\030\n \001(\r\"\217\001\n\tRouteType\022\016\n\nLI" +
+      "GHT_RAIL\020\000\022\n\n\006SUBWAY\020\001\022\010\n\004RAIL\020\002\022\007\n\003BUS\020" +
+      "\003\022\t\n\005FERRY\020\004\022\r\n\tCABLE_CAR\020\005\022\013\n\007GONDOLA\020\006" +
+      "\022\r\n\tFUNICULAR\020\007\022\017\n\013TROLLEY_BUS\020\013\022\014\n\010MONO" +
+      "RAIL\020\014\"\341\004\n\004Stop\022\017\n\007stop_id\030\001 \002(\t\0225\n\tstop" +
+      "_code\030\002 \001(\0132\".transit_realtime.Translate" +
+      "dString\0225\n\tstop_name\030\003 \002(\0132\".transit_rea" +
+      "ltime.TranslatedString\0225\n\tstop_desc\030\004 \001(" +
+      "\0132\".transit_realtime.TranslatedString\022\020\n" +
+      "\010stop_lat\030\005 \002(\002\022\020\n\010stop_lon\030\006 \002(\002\022\017\n\007zon" +
+      "e_id\030\007 \001(\t\0224\n\010stop_url\030\010 \001(\0132\".transit_r" +
+      "ealtime.TranslatedString\022\026\n\016parent_stati" +
+      "on\030\t \001(\t\022\025\n\rstop_timezone\030\n \001(\t\022i\n\023wheel" +
+      "chair_boarding\030\013 \001(\0162/.transit_realtime." +
+      "Stop.WheelchairBoardingStatus:\033UNKNOWN_W" +
+      "HEELCHAIR_BOARDING\022\020\n\010level_id\030\014 \001(\t\022\025\n\r" +
+      "platform_code\030\r \001(\t\"u\n\030WheelchairBoardin" +
+      "gStatus\022\037\n\033UNKNOWN_WHEELCHAIR_BOARDING\020\000" +
+      "\022\031\n\025WHEELCHAIR_ACCESSIBLE\020\001\022\035\n\031NOT_WHEEL" +
+      "CHAIR_ACCESSIBLE\020\002B\035\n\033com.google.transit" +
+      ".realtime"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -43607,7 +43828,7 @@ public final class GtfsRealtime {
     internal_static_transit_realtime_Trip_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_transit_realtime_Trip_descriptor,
-        new java.lang.String[] { "TripId", "RouteId", "TripHeadsign", "TripShortName", "DirectionId", "BlockId", "ShapeId", "WheelchairAccessible", "BikedAllowed", "ReplacesTripId", "StopTime", });
+        new java.lang.String[] { "TripId", "RouteId", "TripHeadsign", "TripShortName", "DirectionId", "BlockId", "ShapeId", "WheelchairAccessible", "BikedAllowed", "ReplacesTripId", "StopTime", "StartDate", });
     internal_static_transit_realtime_StopTime_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_transit_realtime_StopTime_fieldAccessorTable = new

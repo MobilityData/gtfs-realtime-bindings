@@ -835,6 +835,8 @@ message Trip {
   repeated string replaces_trip_id = 10;
   // The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
   repeated StopTime stop_time = 11;
+  // Date on which the trip will be run. Must be provided in YYYYMMDD format.
+  required string start_date = 12;
 
   // Options for wheelchair_accessible:
   // 0 - No accessibility information for the trip.
