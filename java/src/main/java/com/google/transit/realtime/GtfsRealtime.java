@@ -37712,13 +37712,13 @@ public final class GtfsRealtime {
        */
       FERRY(4),
       /**
-       * <code>CABLE_CAR = 5;</code>
+       * <code>CABLE_TRAM = 5;</code>
        */
-      CABLE_CAR(5),
+      CABLE_TRAM(5),
       /**
-       * <code>GONDOLA = 6;</code>
+       * <code>AERIAL_LIFT = 6;</code>
        */
-      GONDOLA(6),
+      AERIAL_LIFT(6),
       /**
        * <code>FUNICULAR = 7;</code>
        */
@@ -37754,13 +37754,13 @@ public final class GtfsRealtime {
        */
       public static final int FERRY_VALUE = 4;
       /**
-       * <code>CABLE_CAR = 5;</code>
+       * <code>CABLE_TRAM = 5;</code>
        */
-      public static final int CABLE_CAR_VALUE = 5;
+      public static final int CABLE_TRAM_VALUE = 5;
       /**
-       * <code>GONDOLA = 6;</code>
+       * <code>AERIAL_LIFT = 6;</code>
        */
-      public static final int GONDOLA_VALUE = 6;
+      public static final int AERIAL_LIFT_VALUE = 6;
       /**
        * <code>FUNICULAR = 7;</code>
        */
@@ -37794,8 +37794,8 @@ public final class GtfsRealtime {
           case 2: return RAIL;
           case 3: return BUS;
           case 4: return FERRY;
-          case 5: return CABLE_CAR;
-          case 6: return GONDOLA;
+          case 5: return CABLE_TRAM;
+          case 6: return AERIAL_LIFT;
           case 7: return FUNICULAR;
           case 11: return TROLLEY_BUS;
           case 12: return MONORAIL;
@@ -43671,7 +43671,7 @@ public final class GtfsRealtime {
       "altime.ShapePoint\"p\n\nShapePoint\022\024\n\014shape" +
       "_pt_lat\030\001 \002(\002\022\024\n\014shape_pt_lon\030\002 \002(\002\022\033\n\023s" +
       "hape_dist_traveled\030\003 \001(\002\022\031\n\021shape_pt_seq" +
-      "uence\030\004 \002(\r\"\250\004\n\005Route\022\020\n\010route_id\030\001 \002(\t\022" +
+      "uence\030\004 \002(\r\"\255\004\n\005Route\022\020\n\010route_id\030\001 \002(\t\022" +
       "\021\n\tagency_id\030\002 \002(\t\022<\n\020route_short_name\030\003" +
       " \001(\0132\".transit_realtime.TranslatedString" +
       "\022;\n\017route_long_name\030\004 \001(\0132\".transit_real" +
@@ -43681,27 +43681,27 @@ public final class GtfsRealtime {
       "te.RouteType\0225\n\troute_url\030\007 \001(\0132\".transi" +
       "t_realtime.TranslatedString\022\023\n\013route_col" +
       "or\030\010 \001(\t\022\030\n\020route_text_color\030\t \001(\t\022\030\n\020ro" +
-      "ute_sort_order\030\n \001(\r\"\217\001\n\tRouteType\022\016\n\nLI" +
+      "ute_sort_order\030\n \001(\r\"\224\001\n\tRouteType\022\016\n\nLI" +
       "GHT_RAIL\020\000\022\n\n\006SUBWAY\020\001\022\010\n\004RAIL\020\002\022\007\n\003BUS\020" +
-      "\003\022\t\n\005FERRY\020\004\022\r\n\tCABLE_CAR\020\005\022\013\n\007GONDOLA\020\006" +
-      "\022\r\n\tFUNICULAR\020\007\022\017\n\013TROLLEY_BUS\020\013\022\014\n\010MONO" +
-      "RAIL\020\014\"\341\004\n\004Stop\022\017\n\007stop_id\030\001 \002(\t\0225\n\tstop" +
-      "_code\030\002 \001(\0132\".transit_realtime.Translate" +
-      "dString\0225\n\tstop_name\030\003 \002(\0132\".transit_rea" +
-      "ltime.TranslatedString\0225\n\tstop_desc\030\004 \001(" +
-      "\0132\".transit_realtime.TranslatedString\022\020\n" +
-      "\010stop_lat\030\005 \002(\002\022\020\n\010stop_lon\030\006 \002(\002\022\017\n\007zon" +
-      "e_id\030\007 \001(\t\0224\n\010stop_url\030\010 \001(\0132\".transit_r" +
-      "ealtime.TranslatedString\022\026\n\016parent_stati" +
-      "on\030\t \001(\t\022\025\n\rstop_timezone\030\n \001(\t\022i\n\023wheel" +
-      "chair_boarding\030\013 \001(\0162/.transit_realtime." +
-      "Stop.WheelchairBoardingStatus:\033UNKNOWN_W" +
-      "HEELCHAIR_BOARDING\022\020\n\010level_id\030\014 \001(\t\022\025\n\r" +
-      "platform_code\030\r \001(\t\"u\n\030WheelchairBoardin" +
-      "gStatus\022\037\n\033UNKNOWN_WHEELCHAIR_BOARDING\020\000" +
-      "\022\031\n\025WHEELCHAIR_ACCESSIBLE\020\001\022\035\n\031NOT_WHEEL" +
-      "CHAIR_ACCESSIBLE\020\002B\035\n\033com.google.transit" +
-      ".realtime"
+      "\003\022\t\n\005FERRY\020\004\022\016\n\nCABLE_TRAM\020\005\022\017\n\013AERIAL_L" +
+      "IFT\020\006\022\r\n\tFUNICULAR\020\007\022\017\n\013TROLLEY_BUS\020\013\022\014\n" +
+      "\010MONORAIL\020\014\"\341\004\n\004Stop\022\017\n\007stop_id\030\001 \002(\t\0225\n" +
+      "\tstop_code\030\002 \001(\0132\".transit_realtime.Tran" +
+      "slatedString\0225\n\tstop_name\030\003 \002(\0132\".transi" +
+      "t_realtime.TranslatedString\0225\n\tstop_desc" +
+      "\030\004 \001(\0132\".transit_realtime.TranslatedStri" +
+      "ng\022\020\n\010stop_lat\030\005 \002(\002\022\020\n\010stop_lon\030\006 \002(\002\022\017" +
+      "\n\007zone_id\030\007 \001(\t\0224\n\010stop_url\030\010 \001(\0132\".tran" +
+      "sit_realtime.TranslatedString\022\026\n\016parent_" +
+      "station\030\t \001(\t\022\025\n\rstop_timezone\030\n \001(\t\022i\n\023" +
+      "wheelchair_boarding\030\013 \001(\0162/.transit_real" +
+      "time.Stop.WheelchairBoardingStatus:\033UNKN" +
+      "OWN_WHEELCHAIR_BOARDING\022\020\n\010level_id\030\014 \001(" +
+      "\t\022\025\n\rplatform_code\030\r \001(\t\"u\n\030WheelchairBo" +
+      "ardingStatus\022\037\n\033UNKNOWN_WHEELCHAIR_BOARD" +
+      "ING\020\000\022\031\n\025WHEELCHAIR_ACCESSIBLE\020\001\022\035\n\031NOT_" +
+      "WHEELCHAIR_ACCESSIBLE\020\002B\035\n\033com.google.tr" +
+      "ansit.realtime"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
