@@ -305,6 +305,10 @@ message TripUpdate {
   optional int32 delay = 5;
   optional TripProperties trip_properties = 6;
   optional VehicleProperties vehicle_properties = 7;
+  // Defines which trip_ids (defined via GTFS-NewTrips) are replacing this trip.
+  // This is for information only and doesn’t cancel the original trip. If this
+  // field is populated, schedule_relationship for this trip must be CANCELED.
+  repeated string replaced_by_trip_id = 8;
 
   // The extensions namespace allows 3rd-party developers to extend the
   // GTFS Realtime Specification in order to add and evaluate new features and
@@ -736,7 +740,7 @@ message TranslatedString {
 message TripProperties {
   // Identifies a trip.
   optional string trip_id = 1;
-  // Dates on which the trip will be run in YYYYMMDD format.
+  // Service date on which the trip will be run in YYYYMMDD format.
   optional string start_date = 2;
   // Departure start time of the trip when it’s duplicated.
   optional string start_time = 3;
@@ -831,12 +835,10 @@ message Trip {
   optional WheelchairAccessibleStatus wheelchair_accessible = 8 [default = UNKNOWN_WHEELCHAIR_ACCESSIBILITY];
   // Indicates whether bikes are allowed or not.
   optional BikesAllowedStatus bikes_allowed = 9 [default = UNKNOWN_BIKES_ALLOWANCE];
-  //  Defines which trips are being replaced by this trip.
-  repeated string replaces_trip_id = 10;
   // The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
-  repeated StopTime stop_time = 11;
-  // Date on which the trip will be run. Must be provided in YYYYMMDD format.
-  required string start_date = 12;
+  repeated StopTime stop_time = 10;
+  // Service date(s) on which the trip will be run. Must be provided in YYYYMMDD format.
+  repeated string start_date = 11;
 
   // Options for wheelchair_accessible:
   // 0 - No accessibility information for the trip.

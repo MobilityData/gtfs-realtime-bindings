@@ -5025,6 +5025,49 @@ public final class GtfsRealtime {
      * <code>optional .transit_realtime.VehicleProperties vehicle_properties = 7;</code>
      */
     com.google.transit.realtime.GtfsRealtime.VehiclePropertiesOrBuilder getVehiclePropertiesOrBuilder();
+
+    /**
+     * <pre>
+     * Defines which trip_ids (defined via GTFS-NewTrips) are replacing this trip.
+     * This is for information only and doesn’t cancel the original trip. If this
+     * field is populated, schedule_relationship for this trip must be CANCELED.
+     * </pre>
+     *
+     * <code>repeated string replaced_by_trip_id = 8;</code>
+     */
+    java.util.List<java.lang.String>
+        getReplacedByTripIdList();
+    /**
+     * <pre>
+     * Defines which trip_ids (defined via GTFS-NewTrips) are replacing this trip.
+     * This is for information only and doesn’t cancel the original trip. If this
+     * field is populated, schedule_relationship for this trip must be CANCELED.
+     * </pre>
+     *
+     * <code>repeated string replaced_by_trip_id = 8;</code>
+     */
+    int getReplacedByTripIdCount();
+    /**
+     * <pre>
+     * Defines which trip_ids (defined via GTFS-NewTrips) are replacing this trip.
+     * This is for information only and doesn’t cancel the original trip. If this
+     * field is populated, schedule_relationship for this trip must be CANCELED.
+     * </pre>
+     *
+     * <code>repeated string replaced_by_trip_id = 8;</code>
+     */
+    java.lang.String getReplacedByTripId(int index);
+    /**
+     * <pre>
+     * Defines which trip_ids (defined via GTFS-NewTrips) are replacing this trip.
+     * This is for information only and doesn’t cancel the original trip. If this
+     * field is populated, schedule_relationship for this trip must be CANCELED.
+     * </pre>
+     *
+     * <code>repeated string replaced_by_trip_id = 8;</code>
+     */
+    com.google.protobuf.ByteString
+        getReplacedByTripIdBytes(int index);
   }
   /**
    * <pre>
@@ -5068,6 +5111,7 @@ public final class GtfsRealtime {
     }
     private TripUpdate() {
       stopTimeUpdate_ = java.util.Collections.emptyList();
+      replacedByTripId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -5165,6 +5209,15 @@ public final class GtfsRealtime {
               bitField0_ |= 0x00000020;
               break;
             }
+            case 66: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000080) != 0)) {
+                replacedByTripId_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000080;
+              }
+              replacedByTripId_.add(bs);
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -5182,6 +5235,9 @@ public final class GtfsRealtime {
       } finally {
         if (((mutable_bitField0_ & 0x00000004) != 0)) {
           stopTimeUpdate_ = java.util.Collections.unmodifiableList(stopTimeUpdate_);
+        }
+        if (((mutable_bitField0_ & 0x00000080) != 0)) {
+          replacedByTripId_ = replacedByTripId_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -8234,6 +8290,59 @@ public final class GtfsRealtime {
       return vehicleProperties_ == null ? com.google.transit.realtime.GtfsRealtime.VehicleProperties.getDefaultInstance() : vehicleProperties_;
     }
 
+    public static final int REPLACED_BY_TRIP_ID_FIELD_NUMBER = 8;
+    private com.google.protobuf.LazyStringList replacedByTripId_;
+    /**
+     * <pre>
+     * Defines which trip_ids (defined via GTFS-NewTrips) are replacing this trip.
+     * This is for information only and doesn’t cancel the original trip. If this
+     * field is populated, schedule_relationship for this trip must be CANCELED.
+     * </pre>
+     *
+     * <code>repeated string replaced_by_trip_id = 8;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getReplacedByTripIdList() {
+      return replacedByTripId_;
+    }
+    /**
+     * <pre>
+     * Defines which trip_ids (defined via GTFS-NewTrips) are replacing this trip.
+     * This is for information only and doesn’t cancel the original trip. If this
+     * field is populated, schedule_relationship for this trip must be CANCELED.
+     * </pre>
+     *
+     * <code>repeated string replaced_by_trip_id = 8;</code>
+     */
+    public int getReplacedByTripIdCount() {
+      return replacedByTripId_.size();
+    }
+    /**
+     * <pre>
+     * Defines which trip_ids (defined via GTFS-NewTrips) are replacing this trip.
+     * This is for information only and doesn’t cancel the original trip. If this
+     * field is populated, schedule_relationship for this trip must be CANCELED.
+     * </pre>
+     *
+     * <code>repeated string replaced_by_trip_id = 8;</code>
+     */
+    public java.lang.String getReplacedByTripId(int index) {
+      return replacedByTripId_.get(index);
+    }
+    /**
+     * <pre>
+     * Defines which trip_ids (defined via GTFS-NewTrips) are replacing this trip.
+     * This is for information only and doesn’t cancel the original trip. If this
+     * field is populated, schedule_relationship for this trip must be CANCELED.
+     * </pre>
+     *
+     * <code>repeated string replaced_by_trip_id = 8;</code>
+     */
+    public com.google.protobuf.ByteString
+        getReplacedByTripIdBytes(int index) {
+      return replacedByTripId_.getByteString(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -8302,6 +8411,9 @@ public final class GtfsRealtime {
       if (((bitField0_ & 0x00000020) != 0)) {
         output.writeMessage(7, getVehicleProperties());
       }
+      for (int i = 0; i < replacedByTripId_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, replacedByTripId_.getRaw(i));
+      }
       extensionWriter.writeUntil(2000, output);
       extensionWriter.writeUntil(10000, output);
       unknownFields.writeTo(output);
@@ -8340,6 +8452,14 @@ public final class GtfsRealtime {
       if (((bitField0_ & 0x00000020) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, getVehicleProperties());
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < replacedByTripId_.size(); i++) {
+          dataSize += computeStringSizeNoTag(replacedByTripId_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getReplacedByTripIdList().size();
       }
       size += extensionsSerializedSize();
       size += unknownFields.getSerializedSize();
@@ -8389,6 +8509,8 @@ public final class GtfsRealtime {
         if (!getVehicleProperties()
             .equals(other.getVehicleProperties())) return false;
       }
+      if (!getReplacedByTripIdList()
+          .equals(other.getReplacedByTripIdList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       if (!getExtensionFields().equals(other.getExtensionFields()))
         return false;
@@ -8430,6 +8552,10 @@ public final class GtfsRealtime {
       if (hasVehicleProperties()) {
         hash = (37 * hash) + VEHICLE_PROPERTIES_FIELD_NUMBER;
         hash = (53 * hash) + getVehicleProperties().hashCode();
+      }
+      if (getReplacedByTripIdCount() > 0) {
+        hash = (37 * hash) + REPLACED_BY_TRIP_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getReplacedByTripIdList().hashCode();
       }
       hash = hashFields(hash, getExtensionFields());
       hash = (29 * hash) + unknownFields.hashCode();
@@ -8632,6 +8758,8 @@ public final class GtfsRealtime {
           vehiclePropertiesBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000040);
+        replacedByTripId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
@@ -8709,6 +8837,11 @@ public final class GtfsRealtime {
           }
           to_bitField0_ |= 0x00000020;
         }
+        if (((bitField0_ & 0x00000080) != 0)) {
+          replacedByTripId_ = replacedByTripId_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000080);
+        }
+        result.replacedByTripId_ = replacedByTripId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -8828,6 +8961,16 @@ public final class GtfsRealtime {
         }
         if (other.hasVehicleProperties()) {
           mergeVehicleProperties(other.getVehicleProperties());
+        }
+        if (!other.replacedByTripId_.isEmpty()) {
+          if (replacedByTripId_.isEmpty()) {
+            replacedByTripId_ = other.replacedByTripId_;
+            bitField0_ = (bitField0_ & ~0x00000080);
+          } else {
+            ensureReplacedByTripIdIsMutable();
+            replacedByTripId_.addAll(other.replacedByTripId_);
+          }
+          onChanged();
         }
         this.mergeExtensionFields(other);
         this.mergeUnknownFields(other.unknownFields);
@@ -10205,6 +10348,153 @@ public final class GtfsRealtime {
           vehicleProperties_ = null;
         }
         return vehiclePropertiesBuilder_;
+      }
+
+      private com.google.protobuf.LazyStringList replacedByTripId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureReplacedByTripIdIsMutable() {
+        if (!((bitField0_ & 0x00000080) != 0)) {
+          replacedByTripId_ = new com.google.protobuf.LazyStringArrayList(replacedByTripId_);
+          bitField0_ |= 0x00000080;
+         }
+      }
+      /**
+       * <pre>
+       * Defines which trip_ids (defined via GTFS-NewTrips) are replacing this trip.
+       * This is for information only and doesn’t cancel the original trip. If this
+       * field is populated, schedule_relationship for this trip must be CANCELED.
+       * </pre>
+       *
+       * <code>repeated string replaced_by_trip_id = 8;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getReplacedByTripIdList() {
+        return replacedByTripId_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * Defines which trip_ids (defined via GTFS-NewTrips) are replacing this trip.
+       * This is for information only and doesn’t cancel the original trip. If this
+       * field is populated, schedule_relationship for this trip must be CANCELED.
+       * </pre>
+       *
+       * <code>repeated string replaced_by_trip_id = 8;</code>
+       */
+      public int getReplacedByTripIdCount() {
+        return replacedByTripId_.size();
+      }
+      /**
+       * <pre>
+       * Defines which trip_ids (defined via GTFS-NewTrips) are replacing this trip.
+       * This is for information only and doesn’t cancel the original trip. If this
+       * field is populated, schedule_relationship for this trip must be CANCELED.
+       * </pre>
+       *
+       * <code>repeated string replaced_by_trip_id = 8;</code>
+       */
+      public java.lang.String getReplacedByTripId(int index) {
+        return replacedByTripId_.get(index);
+      }
+      /**
+       * <pre>
+       * Defines which trip_ids (defined via GTFS-NewTrips) are replacing this trip.
+       * This is for information only and doesn’t cancel the original trip. If this
+       * field is populated, schedule_relationship for this trip must be CANCELED.
+       * </pre>
+       *
+       * <code>repeated string replaced_by_trip_id = 8;</code>
+       */
+      public com.google.protobuf.ByteString
+          getReplacedByTripIdBytes(int index) {
+        return replacedByTripId_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * Defines which trip_ids (defined via GTFS-NewTrips) are replacing this trip.
+       * This is for information only and doesn’t cancel the original trip. If this
+       * field is populated, schedule_relationship for this trip must be CANCELED.
+       * </pre>
+       *
+       * <code>repeated string replaced_by_trip_id = 8;</code>
+       */
+      public Builder setReplacedByTripId(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureReplacedByTripIdIsMutable();
+        replacedByTripId_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Defines which trip_ids (defined via GTFS-NewTrips) are replacing this trip.
+       * This is for information only and doesn’t cancel the original trip. If this
+       * field is populated, schedule_relationship for this trip must be CANCELED.
+       * </pre>
+       *
+       * <code>repeated string replaced_by_trip_id = 8;</code>
+       */
+      public Builder addReplacedByTripId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureReplacedByTripIdIsMutable();
+        replacedByTripId_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Defines which trip_ids (defined via GTFS-NewTrips) are replacing this trip.
+       * This is for information only and doesn’t cancel the original trip. If this
+       * field is populated, schedule_relationship for this trip must be CANCELED.
+       * </pre>
+       *
+       * <code>repeated string replaced_by_trip_id = 8;</code>
+       */
+      public Builder addAllReplacedByTripId(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureReplacedByTripIdIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, replacedByTripId_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Defines which trip_ids (defined via GTFS-NewTrips) are replacing this trip.
+       * This is for information only and doesn’t cancel the original trip. If this
+       * field is populated, schedule_relationship for this trip must be CANCELED.
+       * </pre>
+       *
+       * <code>repeated string replaced_by_trip_id = 8;</code>
+       */
+      public Builder clearReplacedByTripId() {
+        replacedByTripId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Defines which trip_ids (defined via GTFS-NewTrips) are replacing this trip.
+       * This is for information only and doesn’t cancel the original trip. If this
+       * field is populated, schedule_relationship for this trip must be CANCELED.
+       * </pre>
+       *
+       * <code>repeated string replaced_by_trip_id = 8;</code>
+       */
+      public Builder addReplacedByTripIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureReplacedByTripIdIsMutable();
+        replacedByTripId_.add(value);
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -25113,7 +25403,7 @@ public final class GtfsRealtime {
 
     /**
      * <pre>
-     * Dates on which the trip will be run in YYYYMMDD format.
+     * Service date on which the trip will be run in YYYYMMDD format.
      * </pre>
      *
      * <code>optional string start_date = 2;</code>
@@ -25121,7 +25411,7 @@ public final class GtfsRealtime {
     boolean hasStartDate();
     /**
      * <pre>
-     * Dates on which the trip will be run in YYYYMMDD format.
+     * Service date on which the trip will be run in YYYYMMDD format.
      * </pre>
      *
      * <code>optional string start_date = 2;</code>
@@ -25129,7 +25419,7 @@ public final class GtfsRealtime {
     java.lang.String getStartDate();
     /**
      * <pre>
-     * Dates on which the trip will be run in YYYYMMDD format.
+     * Service date on which the trip will be run in YYYYMMDD format.
      * </pre>
      *
      * <code>optional string start_date = 2;</code>
@@ -25493,7 +25783,7 @@ public final class GtfsRealtime {
     private volatile java.lang.Object startDate_;
     /**
      * <pre>
-     * Dates on which the trip will be run in YYYYMMDD format.
+     * Service date on which the trip will be run in YYYYMMDD format.
      * </pre>
      *
      * <code>optional string start_date = 2;</code>
@@ -25503,7 +25793,7 @@ public final class GtfsRealtime {
     }
     /**
      * <pre>
-     * Dates on which the trip will be run in YYYYMMDD format.
+     * Service date on which the trip will be run in YYYYMMDD format.
      * </pre>
      *
      * <code>optional string start_date = 2;</code>
@@ -25524,7 +25814,7 @@ public final class GtfsRealtime {
     }
     /**
      * <pre>
-     * Dates on which the trip will be run in YYYYMMDD format.
+     * Service date on which the trip will be run in YYYYMMDD format.
      * </pre>
      *
      * <code>optional string start_date = 2;</code>
@@ -26467,7 +26757,7 @@ public final class GtfsRealtime {
       private java.lang.Object startDate_ = "";
       /**
        * <pre>
-       * Dates on which the trip will be run in YYYYMMDD format.
+       * Service date on which the trip will be run in YYYYMMDD format.
        * </pre>
        *
        * <code>optional string start_date = 2;</code>
@@ -26477,7 +26767,7 @@ public final class GtfsRealtime {
       }
       /**
        * <pre>
-       * Dates on which the trip will be run in YYYYMMDD format.
+       * Service date on which the trip will be run in YYYYMMDD format.
        * </pre>
        *
        * <code>optional string start_date = 2;</code>
@@ -26498,7 +26788,7 @@ public final class GtfsRealtime {
       }
       /**
        * <pre>
-       * Dates on which the trip will be run in YYYYMMDD format.
+       * Service date on which the trip will be run in YYYYMMDD format.
        * </pre>
        *
        * <code>optional string start_date = 2;</code>
@@ -26518,7 +26808,7 @@ public final class GtfsRealtime {
       }
       /**
        * <pre>
-       * Dates on which the trip will be run in YYYYMMDD format.
+       * Service date on which the trip will be run in YYYYMMDD format.
        * </pre>
        *
        * <code>optional string start_date = 2;</code>
@@ -26535,7 +26825,7 @@ public final class GtfsRealtime {
       }
       /**
        * <pre>
-       * Dates on which the trip will be run in YYYYMMDD format.
+       * Service date on which the trip will be run in YYYYMMDD format.
        * </pre>
        *
        * <code>optional string start_date = 2;</code>
@@ -26548,7 +26838,7 @@ public final class GtfsRealtime {
       }
       /**
        * <pre>
-       * Dates on which the trip will be run in YYYYMMDD format.
+       * Service date on which the trip will be run in YYYYMMDD format.
        * </pre>
        *
        * <code>optional string start_date = 2;</code>
@@ -29953,45 +30243,10 @@ public final class GtfsRealtime {
 
     /**
      * <pre>
-     *  Defines which trips are being replaced by this trip.
-     * </pre>
-     *
-     * <code>repeated string replaces_trip_id = 10;</code>
-     */
-    java.util.List<java.lang.String>
-        getReplacesTripIdList();
-    /**
-     * <pre>
-     *  Defines which trips are being replaced by this trip.
-     * </pre>
-     *
-     * <code>repeated string replaces_trip_id = 10;</code>
-     */
-    int getReplacesTripIdCount();
-    /**
-     * <pre>
-     *  Defines which trips are being replaced by this trip.
-     * </pre>
-     *
-     * <code>repeated string replaces_trip_id = 10;</code>
-     */
-    java.lang.String getReplacesTripId(int index);
-    /**
-     * <pre>
-     *  Defines which trips are being replaced by this trip.
-     * </pre>
-     *
-     * <code>repeated string replaces_trip_id = 10;</code>
-     */
-    com.google.protobuf.ByteString
-        getReplacesTripIdBytes(int index);
-
-    /**
-     * <pre>
      * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
      * </pre>
      *
-     * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+     * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
      */
     java.util.List<com.google.transit.realtime.GtfsRealtime.StopTime> 
         getStopTimeList();
@@ -30000,7 +30255,7 @@ public final class GtfsRealtime {
      * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
      * </pre>
      *
-     * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+     * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
      */
     com.google.transit.realtime.GtfsRealtime.StopTime getStopTime(int index);
     /**
@@ -30008,7 +30263,7 @@ public final class GtfsRealtime {
      * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
      * </pre>
      *
-     * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+     * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
      */
     int getStopTimeCount();
     /**
@@ -30016,7 +30271,7 @@ public final class GtfsRealtime {
      * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
      * </pre>
      *
-     * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+     * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
      */
     java.util.List<? extends com.google.transit.realtime.GtfsRealtime.StopTimeOrBuilder> 
         getStopTimeOrBuilderList();
@@ -30025,36 +30280,45 @@ public final class GtfsRealtime {
      * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
      * </pre>
      *
-     * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+     * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
      */
     com.google.transit.realtime.GtfsRealtime.StopTimeOrBuilder getStopTimeOrBuilder(
         int index);
 
     /**
      * <pre>
-     * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+     * Service date(s) on which the trip will be run. Must be provided in YYYYMMDD format.
      * </pre>
      *
-     * <code>required string start_date = 12;</code>
+     * <code>repeated string start_date = 11;</code>
      */
-    boolean hasStartDate();
+    java.util.List<java.lang.String>
+        getStartDateList();
     /**
      * <pre>
-     * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+     * Service date(s) on which the trip will be run. Must be provided in YYYYMMDD format.
      * </pre>
      *
-     * <code>required string start_date = 12;</code>
+     * <code>repeated string start_date = 11;</code>
      */
-    java.lang.String getStartDate();
+    int getStartDateCount();
     /**
      * <pre>
-     * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+     * Service date(s) on which the trip will be run. Must be provided in YYYYMMDD format.
      * </pre>
      *
-     * <code>required string start_date = 12;</code>
+     * <code>repeated string start_date = 11;</code>
+     */
+    java.lang.String getStartDate(int index);
+    /**
+     * <pre>
+     * Service date(s) on which the trip will be run. Must be provided in YYYYMMDD format.
+     * </pre>
+     *
+     * <code>repeated string start_date = 11;</code>
      */
     com.google.protobuf.ByteString
-        getStartDateBytes();
+        getStartDateBytes(int index);
   }
   /**
    * <pre>
@@ -30080,9 +30344,8 @@ public final class GtfsRealtime {
       shapeId_ = "";
       wheelchairAccessible_ = 0;
       bikesAllowed_ = 0;
-      replacesTripId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       stopTime_ = java.util.Collections.emptyList();
-      startDate_ = "";
+      startDate_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -30182,27 +30445,21 @@ public final class GtfsRealtime {
               break;
             }
             case 82: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               if (!((mutable_bitField0_ & 0x00000200) != 0)) {
-                replacesTripId_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000200;
-              }
-              replacesTripId_.add(bs);
-              break;
-            }
-            case 90: {
-              if (!((mutable_bitField0_ & 0x00000400) != 0)) {
                 stopTime_ = new java.util.ArrayList<com.google.transit.realtime.GtfsRealtime.StopTime>();
-                mutable_bitField0_ |= 0x00000400;
+                mutable_bitField0_ |= 0x00000200;
               }
               stopTime_.add(
                   input.readMessage(com.google.transit.realtime.GtfsRealtime.StopTime.PARSER, extensionRegistry));
               break;
             }
-            case 98: {
+            case 90: {
               com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000200;
-              startDate_ = bs;
+              if (!((mutable_bitField0_ & 0x00000400) != 0)) {
+                startDate_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000400;
+              }
+              startDate_.add(bs);
               break;
             }
             default: {
@@ -30221,10 +30478,10 @@ public final class GtfsRealtime {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000200) != 0)) {
-          replacesTripId_ = replacesTripId_.getUnmodifiableView();
+          stopTime_ = java.util.Collections.unmodifiableList(stopTime_);
         }
         if (((mutable_bitField0_ & 0x00000400) != 0)) {
-          stopTime_ = java.util.Collections.unmodifiableList(stopTime_);
+          startDate_ = startDate_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -30832,59 +31089,14 @@ public final class GtfsRealtime {
       return result == null ? com.google.transit.realtime.GtfsRealtime.Trip.BikesAllowedStatus.UNKNOWN_BIKES_ALLOWANCE : result;
     }
 
-    public static final int REPLACES_TRIP_ID_FIELD_NUMBER = 10;
-    private com.google.protobuf.LazyStringList replacesTripId_;
-    /**
-     * <pre>
-     *  Defines which trips are being replaced by this trip.
-     * </pre>
-     *
-     * <code>repeated string replaces_trip_id = 10;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getReplacesTripIdList() {
-      return replacesTripId_;
-    }
-    /**
-     * <pre>
-     *  Defines which trips are being replaced by this trip.
-     * </pre>
-     *
-     * <code>repeated string replaces_trip_id = 10;</code>
-     */
-    public int getReplacesTripIdCount() {
-      return replacesTripId_.size();
-    }
-    /**
-     * <pre>
-     *  Defines which trips are being replaced by this trip.
-     * </pre>
-     *
-     * <code>repeated string replaces_trip_id = 10;</code>
-     */
-    public java.lang.String getReplacesTripId(int index) {
-      return replacesTripId_.get(index);
-    }
-    /**
-     * <pre>
-     *  Defines which trips are being replaced by this trip.
-     * </pre>
-     *
-     * <code>repeated string replaces_trip_id = 10;</code>
-     */
-    public com.google.protobuf.ByteString
-        getReplacesTripIdBytes(int index) {
-      return replacesTripId_.getByteString(index);
-    }
-
-    public static final int STOP_TIME_FIELD_NUMBER = 11;
+    public static final int STOP_TIME_FIELD_NUMBER = 10;
     private java.util.List<com.google.transit.realtime.GtfsRealtime.StopTime> stopTime_;
     /**
      * <pre>
      * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
      * </pre>
      *
-     * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+     * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
      */
     public java.util.List<com.google.transit.realtime.GtfsRealtime.StopTime> getStopTimeList() {
       return stopTime_;
@@ -30894,7 +31106,7 @@ public final class GtfsRealtime {
      * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
      * </pre>
      *
-     * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+     * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
      */
     public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.StopTimeOrBuilder> 
         getStopTimeOrBuilderList() {
@@ -30905,7 +31117,7 @@ public final class GtfsRealtime {
      * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
      * </pre>
      *
-     * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+     * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
      */
     public int getStopTimeCount() {
       return stopTime_.size();
@@ -30915,7 +31127,7 @@ public final class GtfsRealtime {
      * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
      * </pre>
      *
-     * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+     * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
      */
     public com.google.transit.realtime.GtfsRealtime.StopTime getStopTime(int index) {
       return stopTime_.get(index);
@@ -30925,65 +31137,56 @@ public final class GtfsRealtime {
      * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
      * </pre>
      *
-     * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+     * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
      */
     public com.google.transit.realtime.GtfsRealtime.StopTimeOrBuilder getStopTimeOrBuilder(
         int index) {
       return stopTime_.get(index);
     }
 
-    public static final int START_DATE_FIELD_NUMBER = 12;
-    private volatile java.lang.Object startDate_;
+    public static final int START_DATE_FIELD_NUMBER = 11;
+    private com.google.protobuf.LazyStringList startDate_;
     /**
      * <pre>
-     * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+     * Service date(s) on which the trip will be run. Must be provided in YYYYMMDD format.
      * </pre>
      *
-     * <code>required string start_date = 12;</code>
+     * <code>repeated string start_date = 11;</code>
      */
-    public boolean hasStartDate() {
-      return ((bitField0_ & 0x00000200) != 0);
+    public com.google.protobuf.ProtocolStringList
+        getStartDateList() {
+      return startDate_;
     }
     /**
      * <pre>
-     * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+     * Service date(s) on which the trip will be run. Must be provided in YYYYMMDD format.
      * </pre>
      *
-     * <code>required string start_date = 12;</code>
+     * <code>repeated string start_date = 11;</code>
      */
-    public java.lang.String getStartDate() {
-      java.lang.Object ref = startDate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          startDate_ = s;
-        }
-        return s;
-      }
+    public int getStartDateCount() {
+      return startDate_.size();
     }
     /**
      * <pre>
-     * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+     * Service date(s) on which the trip will be run. Must be provided in YYYYMMDD format.
      * </pre>
      *
-     * <code>required string start_date = 12;</code>
+     * <code>repeated string start_date = 11;</code>
+     */
+    public java.lang.String getStartDate(int index) {
+      return startDate_.get(index);
+    }
+    /**
+     * <pre>
+     * Service date(s) on which the trip will be run. Must be provided in YYYYMMDD format.
+     * </pre>
+     *
+     * <code>repeated string start_date = 11;</code>
      */
     public com.google.protobuf.ByteString
-        getStartDateBytes() {
-      java.lang.Object ref = startDate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        startDate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+        getStartDateBytes(int index) {
+      return startDate_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -31002,10 +31205,6 @@ public final class GtfsRealtime {
         return false;
       }
       if (!hasTripShortName()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasStartDate()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -31053,14 +31252,11 @@ public final class GtfsRealtime {
       if (((bitField0_ & 0x00000100) != 0)) {
         output.writeEnum(9, bikesAllowed_);
       }
-      for (int i = 0; i < replacesTripId_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, replacesTripId_.getRaw(i));
-      }
       for (int i = 0; i < stopTime_.size(); i++) {
-        output.writeMessage(11, stopTime_.get(i));
+        output.writeMessage(10, stopTime_.get(i));
       }
-      if (((bitField0_ & 0x00000200) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, startDate_);
+      for (int i = 0; i < startDate_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, startDate_.getRaw(i));
       }
       unknownFields.writeTo(output);
     }
@@ -31102,20 +31298,17 @@ public final class GtfsRealtime {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(9, bikesAllowed_);
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < replacesTripId_.size(); i++) {
-          dataSize += computeStringSizeNoTag(replacesTripId_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getReplacesTripIdList().size();
-      }
       for (int i = 0; i < stopTime_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(11, stopTime_.get(i));
+          .computeMessageSize(10, stopTime_.get(i));
       }
-      if (((bitField0_ & 0x00000200) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, startDate_);
+      {
+        int dataSize = 0;
+        for (int i = 0; i < startDate_.size(); i++) {
+          dataSize += computeStringSizeNoTag(startDate_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getStartDateList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -31175,15 +31368,10 @@ public final class GtfsRealtime {
       if (hasBikesAllowed()) {
         if (bikesAllowed_ != other.bikesAllowed_) return false;
       }
-      if (!getReplacesTripIdList()
-          .equals(other.getReplacesTripIdList())) return false;
       if (!getStopTimeList()
           .equals(other.getStopTimeList())) return false;
-      if (hasStartDate() != other.hasStartDate()) return false;
-      if (hasStartDate()) {
-        if (!getStartDate()
-            .equals(other.getStartDate())) return false;
-      }
+      if (!getStartDateList()
+          .equals(other.getStartDateList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -31231,17 +31419,13 @@ public final class GtfsRealtime {
         hash = (37 * hash) + BIKES_ALLOWED_FIELD_NUMBER;
         hash = (53 * hash) + bikesAllowed_;
       }
-      if (getReplacesTripIdCount() > 0) {
-        hash = (37 * hash) + REPLACES_TRIP_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getReplacesTripIdList().hashCode();
-      }
       if (getStopTimeCount() > 0) {
         hash = (37 * hash) + STOP_TIME_FIELD_NUMBER;
         hash = (53 * hash) + getStopTimeList().hashCode();
       }
-      if (hasStartDate()) {
+      if (getStartDateCount() > 0) {
         hash = (37 * hash) + START_DATE_FIELD_NUMBER;
-        hash = (53 * hash) + getStartDate().hashCode();
+        hash = (53 * hash) + getStartDateList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -31404,16 +31588,14 @@ public final class GtfsRealtime {
         bitField0_ = (bitField0_ & ~0x00000080);
         bikesAllowed_ = 0;
         bitField0_ = (bitField0_ & ~0x00000100);
-        replacesTripId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000200);
         if (stopTimeBuilder_ == null) {
           stopTime_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000400);
+          bitField0_ = (bitField0_ & ~0x00000200);
         } else {
           stopTimeBuilder_.clear();
         }
-        startDate_ = "";
-        bitField0_ = (bitField0_ & ~0x00000800);
+        startDate_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000400);
         return this;
       }
 
@@ -31482,22 +31664,18 @@ public final class GtfsRealtime {
           to_bitField0_ |= 0x00000100;
         }
         result.bikesAllowed_ = bikesAllowed_;
-        if (((bitField0_ & 0x00000200) != 0)) {
-          replacesTripId_ = replacesTripId_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000200);
-        }
-        result.replacesTripId_ = replacesTripId_;
         if (stopTimeBuilder_ == null) {
-          if (((bitField0_ & 0x00000400) != 0)) {
+          if (((bitField0_ & 0x00000200) != 0)) {
             stopTime_ = java.util.Collections.unmodifiableList(stopTime_);
-            bitField0_ = (bitField0_ & ~0x00000400);
+            bitField0_ = (bitField0_ & ~0x00000200);
           }
           result.stopTime_ = stopTime_;
         } else {
           result.stopTime_ = stopTimeBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000800) != 0)) {
-          to_bitField0_ |= 0x00000200;
+        if (((bitField0_ & 0x00000400) != 0)) {
+          startDate_ = startDate_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000400);
         }
         result.startDate_ = startDate_;
         result.bitField0_ = to_bitField0_;
@@ -31586,21 +31764,11 @@ public final class GtfsRealtime {
         if (other.hasBikesAllowed()) {
           setBikesAllowed(other.getBikesAllowed());
         }
-        if (!other.replacesTripId_.isEmpty()) {
-          if (replacesTripId_.isEmpty()) {
-            replacesTripId_ = other.replacesTripId_;
-            bitField0_ = (bitField0_ & ~0x00000200);
-          } else {
-            ensureReplacesTripIdIsMutable();
-            replacesTripId_.addAll(other.replacesTripId_);
-          }
-          onChanged();
-        }
         if (stopTimeBuilder_ == null) {
           if (!other.stopTime_.isEmpty()) {
             if (stopTime_.isEmpty()) {
               stopTime_ = other.stopTime_;
-              bitField0_ = (bitField0_ & ~0x00000400);
+              bitField0_ = (bitField0_ & ~0x00000200);
             } else {
               ensureStopTimeIsMutable();
               stopTime_.addAll(other.stopTime_);
@@ -31613,7 +31781,7 @@ public final class GtfsRealtime {
               stopTimeBuilder_.dispose();
               stopTimeBuilder_ = null;
               stopTime_ = other.stopTime_;
-              bitField0_ = (bitField0_ & ~0x00000400);
+              bitField0_ = (bitField0_ & ~0x00000200);
               stopTimeBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getStopTimeFieldBuilder() : null;
@@ -31622,9 +31790,14 @@ public final class GtfsRealtime {
             }
           }
         }
-        if (other.hasStartDate()) {
-          bitField0_ |= 0x00000800;
-          startDate_ = other.startDate_;
+        if (!other.startDate_.isEmpty()) {
+          if (startDate_.isEmpty()) {
+            startDate_ = other.startDate_;
+            bitField0_ = (bitField0_ & ~0x00000400);
+          } else {
+            ensureStartDateIsMutable();
+            startDate_.addAll(other.startDate_);
+          }
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -31641,9 +31814,6 @@ public final class GtfsRealtime {
           return false;
         }
         if (!hasTripShortName()) {
-          return false;
-        }
-        if (!hasStartDate()) {
           return false;
         }
         if (!getTripHeadsign().isInitialized()) {
@@ -32485,141 +32655,12 @@ public final class GtfsRealtime {
         return this;
       }
 
-      private com.google.protobuf.LazyStringList replacesTripId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureReplacesTripIdIsMutable() {
-        if (!((bitField0_ & 0x00000200) != 0)) {
-          replacesTripId_ = new com.google.protobuf.LazyStringArrayList(replacesTripId_);
-          bitField0_ |= 0x00000200;
-         }
-      }
-      /**
-       * <pre>
-       *  Defines which trips are being replaced by this trip.
-       * </pre>
-       *
-       * <code>repeated string replaces_trip_id = 10;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getReplacesTripIdList() {
-        return replacesTripId_.getUnmodifiableView();
-      }
-      /**
-       * <pre>
-       *  Defines which trips are being replaced by this trip.
-       * </pre>
-       *
-       * <code>repeated string replaces_trip_id = 10;</code>
-       */
-      public int getReplacesTripIdCount() {
-        return replacesTripId_.size();
-      }
-      /**
-       * <pre>
-       *  Defines which trips are being replaced by this trip.
-       * </pre>
-       *
-       * <code>repeated string replaces_trip_id = 10;</code>
-       */
-      public java.lang.String getReplacesTripId(int index) {
-        return replacesTripId_.get(index);
-      }
-      /**
-       * <pre>
-       *  Defines which trips are being replaced by this trip.
-       * </pre>
-       *
-       * <code>repeated string replaces_trip_id = 10;</code>
-       */
-      public com.google.protobuf.ByteString
-          getReplacesTripIdBytes(int index) {
-        return replacesTripId_.getByteString(index);
-      }
-      /**
-       * <pre>
-       *  Defines which trips are being replaced by this trip.
-       * </pre>
-       *
-       * <code>repeated string replaces_trip_id = 10;</code>
-       */
-      public Builder setReplacesTripId(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureReplacesTripIdIsMutable();
-        replacesTripId_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *  Defines which trips are being replaced by this trip.
-       * </pre>
-       *
-       * <code>repeated string replaces_trip_id = 10;</code>
-       */
-      public Builder addReplacesTripId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureReplacesTripIdIsMutable();
-        replacesTripId_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *  Defines which trips are being replaced by this trip.
-       * </pre>
-       *
-       * <code>repeated string replaces_trip_id = 10;</code>
-       */
-      public Builder addAllReplacesTripId(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureReplacesTripIdIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, replacesTripId_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *  Defines which trips are being replaced by this trip.
-       * </pre>
-       *
-       * <code>repeated string replaces_trip_id = 10;</code>
-       */
-      public Builder clearReplacesTripId() {
-        replacesTripId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000200);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *  Defines which trips are being replaced by this trip.
-       * </pre>
-       *
-       * <code>repeated string replaces_trip_id = 10;</code>
-       */
-      public Builder addReplacesTripIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureReplacesTripIdIsMutable();
-        replacesTripId_.add(value);
-        onChanged();
-        return this;
-      }
-
       private java.util.List<com.google.transit.realtime.GtfsRealtime.StopTime> stopTime_ =
         java.util.Collections.emptyList();
       private void ensureStopTimeIsMutable() {
-        if (!((bitField0_ & 0x00000400) != 0)) {
+        if (!((bitField0_ & 0x00000200) != 0)) {
           stopTime_ = new java.util.ArrayList<com.google.transit.realtime.GtfsRealtime.StopTime>(stopTime_);
-          bitField0_ |= 0x00000400;
+          bitField0_ |= 0x00000200;
          }
       }
 
@@ -32631,7 +32672,7 @@ public final class GtfsRealtime {
        * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
        * </pre>
        *
-       * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+       * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
        */
       public java.util.List<com.google.transit.realtime.GtfsRealtime.StopTime> getStopTimeList() {
         if (stopTimeBuilder_ == null) {
@@ -32645,7 +32686,7 @@ public final class GtfsRealtime {
        * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
        * </pre>
        *
-       * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+       * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
        */
       public int getStopTimeCount() {
         if (stopTimeBuilder_ == null) {
@@ -32659,7 +32700,7 @@ public final class GtfsRealtime {
        * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
        * </pre>
        *
-       * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+       * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
        */
       public com.google.transit.realtime.GtfsRealtime.StopTime getStopTime(int index) {
         if (stopTimeBuilder_ == null) {
@@ -32673,7 +32714,7 @@ public final class GtfsRealtime {
        * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
        * </pre>
        *
-       * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+       * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
        */
       public Builder setStopTime(
           int index, com.google.transit.realtime.GtfsRealtime.StopTime value) {
@@ -32694,7 +32735,7 @@ public final class GtfsRealtime {
        * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
        * </pre>
        *
-       * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+       * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
        */
       public Builder setStopTime(
           int index, com.google.transit.realtime.GtfsRealtime.StopTime.Builder builderForValue) {
@@ -32712,7 +32753,7 @@ public final class GtfsRealtime {
        * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
        * </pre>
        *
-       * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+       * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
        */
       public Builder addStopTime(com.google.transit.realtime.GtfsRealtime.StopTime value) {
         if (stopTimeBuilder_ == null) {
@@ -32732,7 +32773,7 @@ public final class GtfsRealtime {
        * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
        * </pre>
        *
-       * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+       * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
        */
       public Builder addStopTime(
           int index, com.google.transit.realtime.GtfsRealtime.StopTime value) {
@@ -32753,7 +32794,7 @@ public final class GtfsRealtime {
        * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
        * </pre>
        *
-       * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+       * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
        */
       public Builder addStopTime(
           com.google.transit.realtime.GtfsRealtime.StopTime.Builder builderForValue) {
@@ -32771,7 +32812,7 @@ public final class GtfsRealtime {
        * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
        * </pre>
        *
-       * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+       * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
        */
       public Builder addStopTime(
           int index, com.google.transit.realtime.GtfsRealtime.StopTime.Builder builderForValue) {
@@ -32789,7 +32830,7 @@ public final class GtfsRealtime {
        * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
        * </pre>
        *
-       * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+       * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
        */
       public Builder addAllStopTime(
           java.lang.Iterable<? extends com.google.transit.realtime.GtfsRealtime.StopTime> values) {
@@ -32808,12 +32849,12 @@ public final class GtfsRealtime {
        * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
        * </pre>
        *
-       * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+       * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
        */
       public Builder clearStopTime() {
         if (stopTimeBuilder_ == null) {
           stopTime_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000400);
+          bitField0_ = (bitField0_ & ~0x00000200);
           onChanged();
         } else {
           stopTimeBuilder_.clear();
@@ -32825,7 +32866,7 @@ public final class GtfsRealtime {
        * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
        * </pre>
        *
-       * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+       * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
        */
       public Builder removeStopTime(int index) {
         if (stopTimeBuilder_ == null) {
@@ -32842,7 +32883,7 @@ public final class GtfsRealtime {
        * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
        * </pre>
        *
-       * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+       * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
        */
       public com.google.transit.realtime.GtfsRealtime.StopTime.Builder getStopTimeBuilder(
           int index) {
@@ -32853,7 +32894,7 @@ public final class GtfsRealtime {
        * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
        * </pre>
        *
-       * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+       * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
        */
       public com.google.transit.realtime.GtfsRealtime.StopTimeOrBuilder getStopTimeOrBuilder(
           int index) {
@@ -32867,7 +32908,7 @@ public final class GtfsRealtime {
        * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
        * </pre>
        *
-       * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+       * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
        */
       public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.StopTimeOrBuilder> 
            getStopTimeOrBuilderList() {
@@ -32882,7 +32923,7 @@ public final class GtfsRealtime {
        * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
        * </pre>
        *
-       * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+       * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
        */
       public com.google.transit.realtime.GtfsRealtime.StopTime.Builder addStopTimeBuilder() {
         return getStopTimeFieldBuilder().addBuilder(
@@ -32893,7 +32934,7 @@ public final class GtfsRealtime {
        * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
        * </pre>
        *
-       * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+       * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
        */
       public com.google.transit.realtime.GtfsRealtime.StopTime.Builder addStopTimeBuilder(
           int index) {
@@ -32905,7 +32946,7 @@ public final class GtfsRealtime {
        * The arrival and departure times for this trip. Entities must be ordered by stop_sequence.
        * </pre>
        *
-       * <code>repeated .transit_realtime.StopTime stop_time = 11;</code>
+       * <code>repeated .transit_realtime.StopTime stop_time = 10;</code>
        */
       public java.util.List<com.google.transit.realtime.GtfsRealtime.StopTime.Builder> 
            getStopTimeBuilderList() {
@@ -32918,7 +32959,7 @@ public final class GtfsRealtime {
           stopTimeBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.transit.realtime.GtfsRealtime.StopTime, com.google.transit.realtime.GtfsRealtime.StopTime.Builder, com.google.transit.realtime.GtfsRealtime.StopTimeOrBuilder>(
                   stopTime_,
-                  ((bitField0_ & 0x00000400) != 0),
+                  ((bitField0_ & 0x00000200) != 0),
                   getParentForChildren(),
                   isClean());
           stopTime_ = null;
@@ -32926,102 +32967,131 @@ public final class GtfsRealtime {
         return stopTimeBuilder_;
       }
 
-      private java.lang.Object startDate_ = "";
-      /**
-       * <pre>
-       * Date on which the trip will be run. Must be provided in YYYYMMDD format.
-       * </pre>
-       *
-       * <code>required string start_date = 12;</code>
-       */
-      public boolean hasStartDate() {
-        return ((bitField0_ & 0x00000800) != 0);
+      private com.google.protobuf.LazyStringList startDate_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureStartDateIsMutable() {
+        if (!((bitField0_ & 0x00000400) != 0)) {
+          startDate_ = new com.google.protobuf.LazyStringArrayList(startDate_);
+          bitField0_ |= 0x00000400;
+         }
       }
       /**
        * <pre>
-       * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+       * Service date(s) on which the trip will be run. Must be provided in YYYYMMDD format.
        * </pre>
        *
-       * <code>required string start_date = 12;</code>
+       * <code>repeated string start_date = 11;</code>
        */
-      public java.lang.String getStartDate() {
-        java.lang.Object ref = startDate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            startDate_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public com.google.protobuf.ProtocolStringList
+          getStartDateList() {
+        return startDate_.getUnmodifiableView();
       }
       /**
        * <pre>
-       * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+       * Service date(s) on which the trip will be run. Must be provided in YYYYMMDD format.
        * </pre>
        *
-       * <code>required string start_date = 12;</code>
+       * <code>repeated string start_date = 11;</code>
+       */
+      public int getStartDateCount() {
+        return startDate_.size();
+      }
+      /**
+       * <pre>
+       * Service date(s) on which the trip will be run. Must be provided in YYYYMMDD format.
+       * </pre>
+       *
+       * <code>repeated string start_date = 11;</code>
+       */
+      public java.lang.String getStartDate(int index) {
+        return startDate_.get(index);
+      }
+      /**
+       * <pre>
+       * Service date(s) on which the trip will be run. Must be provided in YYYYMMDD format.
+       * </pre>
+       *
+       * <code>repeated string start_date = 11;</code>
        */
       public com.google.protobuf.ByteString
-          getStartDateBytes() {
-        java.lang.Object ref = startDate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          startDate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+          getStartDateBytes(int index) {
+        return startDate_.getByteString(index);
       }
       /**
        * <pre>
-       * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+       * Service date(s) on which the trip will be run. Must be provided in YYYYMMDD format.
        * </pre>
        *
-       * <code>required string start_date = 12;</code>
+       * <code>repeated string start_date = 11;</code>
        */
       public Builder setStartDate(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureStartDateIsMutable();
+        startDate_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Service date(s) on which the trip will be run. Must be provided in YYYYMMDD format.
+       * </pre>
+       *
+       * <code>repeated string start_date = 11;</code>
+       */
+      public Builder addStartDate(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000800;
-        startDate_ = value;
+  ensureStartDateIsMutable();
+        startDate_.add(value);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+       * Service date(s) on which the trip will be run. Must be provided in YYYYMMDD format.
        * </pre>
        *
-       * <code>required string start_date = 12;</code>
+       * <code>repeated string start_date = 11;</code>
+       */
+      public Builder addAllStartDate(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureStartDateIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, startDate_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Service date(s) on which the trip will be run. Must be provided in YYYYMMDD format.
+       * </pre>
+       *
+       * <code>repeated string start_date = 11;</code>
        */
       public Builder clearStartDate() {
-        bitField0_ = (bitField0_ & ~0x00000800);
-        startDate_ = getDefaultInstance().getStartDate();
+        startDate_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000400);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Date on which the trip will be run. Must be provided in YYYYMMDD format.
+       * Service date(s) on which the trip will be run. Must be provided in YYYYMMDD format.
        * </pre>
        *
-       * <code>required string start_date = 12;</code>
+       * <code>repeated string start_date = 11;</code>
        */
-      public Builder setStartDateBytes(
+      public Builder addStartDateBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000800;
-        startDate_ = value;
+  ensureStartDateIsMutable();
+        startDate_.add(value);
         onChanged();
         return this;
       }
@@ -43505,7 +43575,7 @@ public final class GtfsRealtime {
       "t_realtime.Trip\022&\n\005shape\030\007 \001(\0132\027.transit" +
       "_realtime.Shape\022&\n\005route\030\010 \001(\0132\027.transit" +
       "_realtime.Route\022$\n\004stop\030\t \001(\0132\026.transit_" +
-      "realtime.Stop*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\232\007\n\nTripUp" +
+      "realtime.Stop*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\267\007\n\nTripUp" +
       "date\022.\n\004trip\030\001 \002(\0132 .transit_realtime.Tr" +
       "ipDescriptor\0224\n\007vehicle\030\003 \001(\0132#.transit_" +
       "realtime.VehicleDescriptor\022E\n\020stop_time_" +
@@ -43514,194 +43584,194 @@ public final class GtfsRealtime {
       "delay\030\005 \001(\005\0229\n\017trip_properties\030\006 \001(\0132 .t" +
       "ransit_realtime.TripProperties\022?\n\022vehicl" +
       "e_properties\030\007 \001(\0132#.transit_realtime.Ve" +
-      "hicleProperties\032h\n\rStopTimeEvent\022\r\n\005dela" +
-      "y\030\001 \001(\005\022\014\n\004time\030\002 \001(\003\022\023\n\013uncertainty\030\003 \001" +
-      "(\005\022\025\n\rschedule_time\030\004 \001(\003*\006\010\350\007\020\320\017*\006\010\250F\020\220" +
-      "N\032\306\003\n\016StopTimeUpdate\022\025\n\rstop_sequence\030\001 " +
-      "\001(\r\022\017\n\007stop_id\030\004 \001(\t\022;\n\007arrival\030\002 \001(\0132*." +
-      "transit_realtime.TripUpdate.StopTimeEven" +
-      "t\022=\n\tdeparture\030\003 \001(\0132*.transit_realtime." +
-      "TripUpdate.StopTimeEvent\022j\n\025schedule_rel" +
-      "ationship\030\005 \001(\0162@.transit_realtime.TripU" +
-      "pdate.StopTimeUpdate.ScheduleRelationshi" +
-      "p:\tSCHEDULED\022B\n\024stop_time_properties\030\006 \001" +
-      "(\0132$.transit_realtime.StopTimeProperties" +
-      "\"P\n\024ScheduleRelationship\022\r\n\tSCHEDULED\020\000\022" +
-      "\013\n\007SKIPPED\020\001\022\013\n\007NO_DATA\020\002\022\017\n\013UNSCHEDULED" +
-      "\020\003*\006\010\350\007\020\320\017*\006\010\250F\020\220N*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\350\006\n\017V" +
-      "ehiclePosition\022.\n\004trip\030\001 \001(\0132 .transit_r" +
-      "ealtime.TripDescriptor\0224\n\007vehicle\030\010 \001(\0132" +
-      "#.transit_realtime.VehicleDescriptor\022,\n\010" +
-      "position\030\002 \001(\0132\032.transit_realtime.Positi" +
-      "on\022\035\n\025current_stop_sequence\030\003 \001(\r\022\017\n\007sto" +
-      "p_id\030\007 \001(\t\022Z\n\016current_status\030\004 \001(\01623.tra" +
-      "nsit_realtime.VehiclePosition.VehicleSto" +
-      "pStatus:\rIN_TRANSIT_TO\022\021\n\ttimestamp\030\005 \001(" +
-      "\004\022K\n\020congestion_level\030\006 \001(\01621.transit_re" +
-      "altime.VehiclePosition.CongestionLevel\022K" +
-      "\n\020occupancy_status\030\t \001(\01621.transit_realt" +
-      "ime.VehiclePosition.OccupancyStatus\"G\n\021V" +
-      "ehicleStopStatus\022\017\n\013INCOMING_AT\020\000\022\016\n\nSTO" +
-      "PPED_AT\020\001\022\021\n\rIN_TRANSIT_TO\020\002\"}\n\017Congesti" +
-      "onLevel\022\034\n\030UNKNOWN_CONGESTION_LEVEL\020\000\022\024\n" +
-      "\020RUNNING_SMOOTHLY\020\001\022\017\n\013STOP_AND_GO\020\002\022\016\n\n" +
-      "CONGESTION\020\003\022\025\n\021SEVERE_CONGESTION\020\004\"\257\001\n\017" +
-      "OccupancyStatus\022\t\n\005EMPTY\020\000\022\030\n\024MANY_SEATS" +
-      "_AVAILABLE\020\001\022\027\n\023FEW_SEATS_AVAILABLE\020\002\022\026\n" +
-      "\022STANDING_ROOM_ONLY\020\003\022\036\n\032CRUSHED_STANDIN" +
-      "G_ROOM_ONLY\020\004\022\010\n\004FULL\020\005\022\034\n\030NOT_ACCEPTING" +
-      "_PASSENGERS\020\006*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\200\t\n\005Alert\022" +
-      "2\n\ractive_period\030\001 \003(\0132\033.transit_realtim" +
-      "e.TimeRange\0229\n\017informed_entity\030\005 \003(\0132 .t" +
-      "ransit_realtime.EntitySelector\022;\n\005cause\030" +
-      "\006 \001(\0162\035.transit_realtime.Alert.Cause:\rUN" +
-      "KNOWN_CAUSE\022>\n\006effect\030\007 \001(\0162\036.transit_re" +
-      "altime.Alert.Effect:\016UNKNOWN_EFFECT\022/\n\003u" +
-      "rl\030\010 \001(\0132\".transit_realtime.TranslatedSt" +
-      "ring\0227\n\013header_text\030\n \001(\0132\".transit_real" +
-      "time.TranslatedString\022<\n\020description_tex" +
-      "t\030\013 \001(\0132\".transit_realtime.TranslatedStr" +
-      "ing\022;\n\017tts_header_text\030\014 \001(\0132\".transit_r" +
-      "ealtime.TranslatedString\022@\n\024tts_descript" +
-      "ion_text\030\r \001(\0132\".transit_realtime.Transl" +
-      "atedString\022O\n\016severity_level\030\016 \001(\0162%.tra" +
-      "nsit_realtime.Alert.SeverityLevel:\020UNKNO" +
-      "WN_SEVERITY\"\330\001\n\005Cause\022\021\n\rUNKNOWN_CAUSE\020\001" +
-      "\022\017\n\013OTHER_CAUSE\020\002\022\025\n\021TECHNICAL_PROBLEM\020\003" +
-      "\022\n\n\006STRIKE\020\004\022\021\n\rDEMONSTRATION\020\005\022\014\n\010ACCID" +
-      "ENT\020\006\022\013\n\007HOLIDAY\020\007\022\013\n\007WEATHER\020\010\022\017\n\013MAINT" +
-      "ENANCE\020\t\022\020\n\014CONSTRUCTION\020\n\022\023\n\017POLICE_ACT" +
-      "IVITY\020\013\022\025\n\021MEDICAL_EMERGENCY\020\014\"\335\001\n\006Effec" +
-      "t\022\016\n\nNO_SERVICE\020\001\022\023\n\017REDUCED_SERVICE\020\002\022\026" +
-      "\n\022SIGNIFICANT_DELAYS\020\003\022\n\n\006DETOUR\020\004\022\026\n\022AD" +
-      "DITIONAL_SERVICE\020\005\022\024\n\020MODIFIED_SERVICE\020\006" +
-      "\022\020\n\014OTHER_EFFECT\020\007\022\022\n\016UNKNOWN_EFFECT\020\010\022\016" +
-      "\n\nSTOP_MOVED\020\t\022\r\n\tNO_EFFECT\020\n\022\027\n\023ACCESSI" +
-      "BILITY_ISSUE\020\013\"H\n\rSeverityLevel\022\024\n\020UNKNO" +
-      "WN_SEVERITY\020\001\022\010\n\004INFO\020\002\022\013\n\007WARNING\020\003\022\n\n\006" +
-      "SEVERE\020\004*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"7\n\tTimeRange\022\r\n" +
-      "\005start\030\001 \001(\004\022\013\n\003end\030\002 \001(\004*\006\010\350\007\020\320\017*\006\010\250F\020\220" +
-      "N\"q\n\010Position\022\020\n\010latitude\030\001 \002(\002\022\021\n\tlongi" +
-      "tude\030\002 \002(\002\022\017\n\007bearing\030\003 \001(\002\022\020\n\010odometer\030" +
-      "\004 \001(\001\022\r\n\005speed\030\005 \001(\002*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\321\002\n" +
-      "\016TripDescriptor\022\017\n\007trip_id\030\001 \001(\t\022\020\n\010rout" +
-      "e_id\030\005 \001(\t\022\024\n\014direction_id\030\006 \001(\r\022\022\n\nstar" +
-      "t_time\030\002 \001(\t\022\022\n\nstart_date\030\003 \001(\t\022T\n\025sche" +
-      "dule_relationship\030\004 \001(\01625.transit_realti" +
-      "me.TripDescriptor.ScheduleRelationship\"x" +
-      "\n\024ScheduleRelationship\022\r\n\tSCHEDULED\020\000\022\r\n" +
-      "\005ADDED\020\001\032\002\010\001\022\017\n\013UNSCHEDULED\020\002\022\014\n\010CANCELE" +
-      "D\020\003\022\023\n\013REPLACEMENT\020\005\032\002\010\001\022\016\n\nDUPLICATED\020\006" +
-      "*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"U\n\021VehicleDescriptor\022\n\n" +
-      "\002id\030\001 \001(\t\022\r\n\005label\030\002 \001(\t\022\025\n\rlicense_plat" +
-      "e\030\003 \001(\t*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\260\001\n\016EntitySelect" +
-      "or\022\021\n\tagency_id\030\001 \001(\t\022\020\n\010route_id\030\002 \001(\t\022" +
-      "\022\n\nroute_type\030\003 \001(\005\022.\n\004trip\030\004 \001(\0132 .tran" +
-      "sit_realtime.TripDescriptor\022\017\n\007stop_id\030\005" +
-      " \001(\t\022\024\n\014direction_id\030\006 \001(\r*\006\010\350\007\020\320\017*\006\010\250F\020" +
-      "\220N\"\246\001\n\020TranslatedString\022C\n\013translation\030\001" +
-      " \003(\0132..transit_realtime.TranslatedString" +
-      ".Translation\032=\n\013Translation\022\014\n\004text\030\001 \002(" +
-      "\t\022\020\n\010language\030\002 \001(\t*\006\010\350\007\020\320\017*\006\010\250F\020\220N*\006\010\350\007" +
-      "\020\320\017*\006\010\250F\020\220N\"\367\001\n\016TripProperties\022\017\n\007trip_i" +
-      "d\030\001 \001(\t\022\022\n\nstart_date\030\002 \001(\t\022\022\n\nstart_tim" +
-      "e\030\003 \001(\t\022\020\n\010route_id\030\004 \001(\t\0229\n\rtrip_headsi" +
-      "gn\030\005 \001(\0132\".transit_realtime.TranslatedSt" +
-      "ring\022;\n\017trip_short_name\030\006 \001(\0132\".transit_" +
-      "realtime.TranslatedString\022\020\n\010block_id\030\007 " +
-      "\001(\t\022\020\n\010shape_id\030\010 \001(\t\"\327\003\n\021VehiclePropert" +
-      "ies\022\177\n\025wheelchair_accessible\030\001 \001(\0162>.tra" +
-      "nsit_realtime.VehicleProperties.Wheelcha" +
-      "irAccessibleStatus: UNKNOWN_WHEELCHAIR_A" +
-      "CCESSIBILITY\022f\n\rbikes_allowed\030\002 \001(\01626.tr" +
-      "ansit_realtime.VehicleProperties.BikesAl" +
-      "lowedStatus:\027UNKNOWN_BIKES_ALLOWANCE\"|\n\032" +
+      "hicleProperties\022\033\n\023replaced_by_trip_id\030\010" +
+      " \003(\t\032h\n\rStopTimeEvent\022\r\n\005delay\030\001 \001(\005\022\014\n\004" +
+      "time\030\002 \001(\003\022\023\n\013uncertainty\030\003 \001(\005\022\025\n\rsched" +
+      "ule_time\030\004 \001(\003*\006\010\350\007\020\320\017*\006\010\250F\020\220N\032\306\003\n\016StopT" +
+      "imeUpdate\022\025\n\rstop_sequence\030\001 \001(\r\022\017\n\007stop" +
+      "_id\030\004 \001(\t\022;\n\007arrival\030\002 \001(\0132*.transit_rea" +
+      "ltime.TripUpdate.StopTimeEvent\022=\n\tdepart" +
+      "ure\030\003 \001(\0132*.transit_realtime.TripUpdate." +
+      "StopTimeEvent\022j\n\025schedule_relationship\030\005" +
+      " \001(\0162@.transit_realtime.TripUpdate.StopT" +
+      "imeUpdate.ScheduleRelationship:\tSCHEDULE" +
+      "D\022B\n\024stop_time_properties\030\006 \001(\0132$.transi" +
+      "t_realtime.StopTimeProperties\"P\n\024Schedul" +
+      "eRelationship\022\r\n\tSCHEDULED\020\000\022\013\n\007SKIPPED\020" +
+      "\001\022\013\n\007NO_DATA\020\002\022\017\n\013UNSCHEDULED\020\003*\006\010\350\007\020\320\017*" +
+      "\006\010\250F\020\220N*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\350\006\n\017VehiclePosit" +
+      "ion\022.\n\004trip\030\001 \001(\0132 .transit_realtime.Tri" +
+      "pDescriptor\0224\n\007vehicle\030\010 \001(\0132#.transit_r" +
+      "ealtime.VehicleDescriptor\022,\n\010position\030\002 " +
+      "\001(\0132\032.transit_realtime.Position\022\035\n\025curre" +
+      "nt_stop_sequence\030\003 \001(\r\022\017\n\007stop_id\030\007 \001(\t\022" +
+      "Z\n\016current_status\030\004 \001(\01623.transit_realti" +
+      "me.VehiclePosition.VehicleStopStatus:\rIN" +
+      "_TRANSIT_TO\022\021\n\ttimestamp\030\005 \001(\004\022K\n\020conges" +
+      "tion_level\030\006 \001(\01621.transit_realtime.Vehi" +
+      "clePosition.CongestionLevel\022K\n\020occupancy" +
+      "_status\030\t \001(\01621.transit_realtime.Vehicle" +
+      "Position.OccupancyStatus\"G\n\021VehicleStopS" +
+      "tatus\022\017\n\013INCOMING_AT\020\000\022\016\n\nSTOPPED_AT\020\001\022\021" +
+      "\n\rIN_TRANSIT_TO\020\002\"}\n\017CongestionLevel\022\034\n\030" +
+      "UNKNOWN_CONGESTION_LEVEL\020\000\022\024\n\020RUNNING_SM" +
+      "OOTHLY\020\001\022\017\n\013STOP_AND_GO\020\002\022\016\n\nCONGESTION\020" +
+      "\003\022\025\n\021SEVERE_CONGESTION\020\004\"\257\001\n\017OccupancySt" +
+      "atus\022\t\n\005EMPTY\020\000\022\030\n\024MANY_SEATS_AVAILABLE\020" +
+      "\001\022\027\n\023FEW_SEATS_AVAILABLE\020\002\022\026\n\022STANDING_R" +
+      "OOM_ONLY\020\003\022\036\n\032CRUSHED_STANDING_ROOM_ONLY" +
+      "\020\004\022\010\n\004FULL\020\005\022\034\n\030NOT_ACCEPTING_PASSENGERS" +
+      "\020\006*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\200\t\n\005Alert\0222\n\ractive_p" +
+      "eriod\030\001 \003(\0132\033.transit_realtime.TimeRange" +
+      "\0229\n\017informed_entity\030\005 \003(\0132 .transit_real" +
+      "time.EntitySelector\022;\n\005cause\030\006 \001(\0162\035.tra" +
+      "nsit_realtime.Alert.Cause:\rUNKNOWN_CAUSE" +
+      "\022>\n\006effect\030\007 \001(\0162\036.transit_realtime.Aler" +
+      "t.Effect:\016UNKNOWN_EFFECT\022/\n\003url\030\010 \001(\0132\"." +
+      "transit_realtime.TranslatedString\0227\n\013hea" +
+      "der_text\030\n \001(\0132\".transit_realtime.Transl" +
+      "atedString\022<\n\020description_text\030\013 \001(\0132\".t" +
+      "ransit_realtime.TranslatedString\022;\n\017tts_" +
+      "header_text\030\014 \001(\0132\".transit_realtime.Tra" +
+      "nslatedString\022@\n\024tts_description_text\030\r " +
+      "\001(\0132\".transit_realtime.TranslatedString\022" +
+      "O\n\016severity_level\030\016 \001(\0162%.transit_realti" +
+      "me.Alert.SeverityLevel:\020UNKNOWN_SEVERITY" +
+      "\"\330\001\n\005Cause\022\021\n\rUNKNOWN_CAUSE\020\001\022\017\n\013OTHER_C" +
+      "AUSE\020\002\022\025\n\021TECHNICAL_PROBLEM\020\003\022\n\n\006STRIKE\020" +
+      "\004\022\021\n\rDEMONSTRATION\020\005\022\014\n\010ACCIDENT\020\006\022\013\n\007HO" +
+      "LIDAY\020\007\022\013\n\007WEATHER\020\010\022\017\n\013MAINTENANCE\020\t\022\020\n" +
+      "\014CONSTRUCTION\020\n\022\023\n\017POLICE_ACTIVITY\020\013\022\025\n\021" +
+      "MEDICAL_EMERGENCY\020\014\"\335\001\n\006Effect\022\016\n\nNO_SER" +
+      "VICE\020\001\022\023\n\017REDUCED_SERVICE\020\002\022\026\n\022SIGNIFICA" +
+      "NT_DELAYS\020\003\022\n\n\006DETOUR\020\004\022\026\n\022ADDITIONAL_SE" +
+      "RVICE\020\005\022\024\n\020MODIFIED_SERVICE\020\006\022\020\n\014OTHER_E" +
+      "FFECT\020\007\022\022\n\016UNKNOWN_EFFECT\020\010\022\016\n\nSTOP_MOVE" +
+      "D\020\t\022\r\n\tNO_EFFECT\020\n\022\027\n\023ACCESSIBILITY_ISSU" +
+      "E\020\013\"H\n\rSeverityLevel\022\024\n\020UNKNOWN_SEVERITY" +
+      "\020\001\022\010\n\004INFO\020\002\022\013\n\007WARNING\020\003\022\n\n\006SEVERE\020\004*\006\010" +
+      "\350\007\020\320\017*\006\010\250F\020\220N\"7\n\tTimeRange\022\r\n\005start\030\001 \001(" +
+      "\004\022\013\n\003end\030\002 \001(\004*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"q\n\010Positi" +
+      "on\022\020\n\010latitude\030\001 \002(\002\022\021\n\tlongitude\030\002 \002(\002\022" +
+      "\017\n\007bearing\030\003 \001(\002\022\020\n\010odometer\030\004 \001(\001\022\r\n\005sp" +
+      "eed\030\005 \001(\002*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\321\002\n\016TripDescri" +
+      "ptor\022\017\n\007trip_id\030\001 \001(\t\022\020\n\010route_id\030\005 \001(\t\022" +
+      "\024\n\014direction_id\030\006 \001(\r\022\022\n\nstart_time\030\002 \001(" +
+      "\t\022\022\n\nstart_date\030\003 \001(\t\022T\n\025schedule_relati" +
+      "onship\030\004 \001(\01625.transit_realtime.TripDesc" +
+      "riptor.ScheduleRelationship\"x\n\024ScheduleR" +
+      "elationship\022\r\n\tSCHEDULED\020\000\022\r\n\005ADDED\020\001\032\002\010" +
+      "\001\022\017\n\013UNSCHEDULED\020\002\022\014\n\010CANCELED\020\003\022\023\n\013REPL" +
+      "ACEMENT\020\005\032\002\010\001\022\016\n\nDUPLICATED\020\006*\006\010\350\007\020\320\017*\006\010" +
+      "\250F\020\220N\"U\n\021VehicleDescriptor\022\n\n\002id\030\001 \001(\t\022\r" +
+      "\n\005label\030\002 \001(\t\022\025\n\rlicense_plate\030\003 \001(\t*\006\010\350" +
+      "\007\020\320\017*\006\010\250F\020\220N\"\260\001\n\016EntitySelector\022\021\n\tagenc" +
+      "y_id\030\001 \001(\t\022\020\n\010route_id\030\002 \001(\t\022\022\n\nroute_ty" +
+      "pe\030\003 \001(\005\022.\n\004trip\030\004 \001(\0132 .transit_realtim" +
+      "e.TripDescriptor\022\017\n\007stop_id\030\005 \001(\t\022\024\n\014dir" +
+      "ection_id\030\006 \001(\r*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\246\001\n\020Tran" +
+      "slatedString\022C\n\013translation\030\001 \003(\0132..tran" +
+      "sit_realtime.TranslatedString.Translatio" +
+      "n\032=\n\013Translation\022\014\n\004text\030\001 \002(\t\022\020\n\010langua" +
+      "ge\030\002 \001(\t*\006\010\350\007\020\320\017*\006\010\250F\020\220N*\006\010\350\007\020\320\017*\006\010\250F\020\220N" +
+      "\"\367\001\n\016TripProperties\022\017\n\007trip_id\030\001 \001(\t\022\022\n\n" +
+      "start_date\030\002 \001(\t\022\022\n\nstart_time\030\003 \001(\t\022\020\n\010" +
+      "route_id\030\004 \001(\t\0229\n\rtrip_headsign\030\005 \001(\0132\"." +
+      "transit_realtime.TranslatedString\022;\n\017tri" +
+      "p_short_name\030\006 \001(\0132\".transit_realtime.Tr" +
+      "anslatedString\022\020\n\010block_id\030\007 \001(\t\022\020\n\010shap" +
+      "e_id\030\010 \001(\t\"\327\003\n\021VehicleProperties\022\177\n\025whee" +
+      "lchair_accessible\030\001 \001(\0162>.transit_realti" +
+      "me.VehicleProperties.WheelchairAccessibl" +
+      "eStatus: UNKNOWN_WHEELCHAIR_ACCESSIBILIT" +
+      "Y\022f\n\rbikes_allowed\030\002 \001(\01626.transit_realt" +
+      "ime.VehicleProperties.BikesAllowedStatus" +
+      ":\027UNKNOWN_BIKES_ALLOWANCE\"|\n\032WheelchairA" +
+      "ccessibleStatus\022$\n UNKNOWN_WHEELCHAIR_AC" +
+      "CESSIBILITY\020\000\022\031\n\025WHEELCHAIR_ACCESSIBLE\020\001" +
+      "\022\035\n\031NOT_WHEELCHAIR_ACCESSIBLE\020\002\"[\n\022Bikes" +
+      "AllowedStatus\022\033\n\027UNKNOWN_BIKES_ALLOWANCE" +
+      "\020\000\022\021\n\rBIKES_ALLOWED\020\001\022\025\n\021BIKES_NOT_ALLOW" +
+      "ED\020\002\"\221\004\n\022StopTimeProperties\022\023\n\013platform_" +
+      "id\030\001 \001(\t\0229\n\rstop_headsign\030\002 \001(\0132\".transi" +
+      "t_realtime.TranslatedString\022T\n\013pickup_ty" +
+      "pe\030\003 \001(\0162/.transit_realtime.StopTimeProp" +
+      "erties.PickupType:\016REGULAR_PICKUP\022Y\n\rdro" +
+      "p_off_type\030\004 \001(\01620.transit_realtime.Stop" +
+      "TimeProperties.DropOffType:\020REGULAR_DROP" +
+      "_OFF\022\033\n\023shape_dist_traveled\030\005 \001(\002\"i\n\nPic" +
+      "kupType\022\022\n\016REGULAR_PICKUP\020\000\022\r\n\tNO_PICKUP" +
+      "\020\001\022\034\n\030MUST_PHONE_AGENCY_PICKUP\020\002\022\032\n\026MUST" +
+      "_ASK_DRIVER_PICKUP\020\003\"r\n\013DropOffType\022\024\n\020R" +
+      "EGULAR_DROP_OFF\020\000\022\017\n\013NO_DROP_OFF\020\001\022\036\n\032MU" +
+      "ST_PHONE_AGENCY_DROP_OFF\020\002\022\034\n\030MUST_ASK_D" +
+      "RIVER_DROP_OFF\020\003\"\244\005\n\004Trip\022\017\n\007trip_id\030\001 \002" +
+      "(\t\022\020\n\010route_id\030\002 \001(\t\0229\n\rtrip_headsign\030\003 " +
+      "\002(\0132\".transit_realtime.TranslatedString\022" +
+      "\027\n\017trip_short_name\030\004 \002(\t\022\024\n\014direction_id" +
+      "\030\005 \001(\r\022\020\n\010block_id\030\006 \001(\t\022\020\n\010shape_id\030\007 \001" +
+      "(\t\022r\n\025wheelchair_accessible\030\010 \001(\01621.tran" +
+      "sit_realtime.Trip.WheelchairAccessibleSt" +
+      "atus: UNKNOWN_WHEELCHAIR_ACCESSIBILITY\022Y" +
+      "\n\rbikes_allowed\030\t \001(\0162).transit_realtime" +
+      ".Trip.BikesAllowedStatus:\027UNKNOWN_BIKES_" +
+      "ALLOWANCE\022-\n\tstop_time\030\n \003(\0132\032.transit_r" +
+      "ealtime.StopTime\022\022\n\nstart_date\030\013 \003(\t\"|\n\032" +
       "WheelchairAccessibleStatus\022$\n UNKNOWN_WH" +
       "EELCHAIR_ACCESSIBILITY\020\000\022\031\n\025WHEELCHAIR_A" +
       "CCESSIBLE\020\001\022\035\n\031NOT_WHEELCHAIR_ACCESSIBLE" +
       "\020\002\"[\n\022BikesAllowedStatus\022\033\n\027UNKNOWN_BIKE" +
       "S_ALLOWANCE\020\000\022\021\n\rBIKES_ALLOWED\020\001\022\025\n\021BIKE" +
-      "S_NOT_ALLOWED\020\002\"\221\004\n\022StopTimeProperties\022\023" +
-      "\n\013platform_id\030\001 \001(\t\0229\n\rstop_headsign\030\002 \001" +
-      "(\0132\".transit_realtime.TranslatedString\022T" +
-      "\n\013pickup_type\030\003 \001(\0162/.transit_realtime.S" +
-      "topTimeProperties.PickupType:\016REGULAR_PI" +
-      "CKUP\022Y\n\rdrop_off_type\030\004 \001(\01620.transit_re" +
-      "altime.StopTimeProperties.DropOffType:\020R" +
-      "EGULAR_DROP_OFF\022\033\n\023shape_dist_traveled\030\005" +
-      " \001(\002\"i\n\nPickupType\022\022\n\016REGULAR_PICKUP\020\000\022\r" +
-      "\n\tNO_PICKUP\020\001\022\034\n\030MUST_PHONE_AGENCY_PICKU" +
-      "P\020\002\022\032\n\026MUST_ASK_DRIVER_PICKUP\020\003\"r\n\013DropO" +
-      "ffType\022\024\n\020REGULAR_DROP_OFF\020\000\022\017\n\013NO_DROP_" +
-      "OFF\020\001\022\036\n\032MUST_PHONE_AGENCY_DROP_OFF\020\002\022\034\n" +
-      "\030MUST_ASK_DRIVER_DROP_OFF\020\003\"\276\005\n\004Trip\022\017\n\007" +
-      "trip_id\030\001 \002(\t\022\020\n\010route_id\030\002 \001(\t\0229\n\rtrip_" +
-      "headsign\030\003 \002(\0132\".transit_realtime.Transl" +
-      "atedString\022\027\n\017trip_short_name\030\004 \002(\t\022\024\n\014d" +
-      "irection_id\030\005 \001(\r\022\020\n\010block_id\030\006 \001(\t\022\020\n\010s" +
-      "hape_id\030\007 \001(\t\022r\n\025wheelchair_accessible\030\010" +
-      " \001(\01621.transit_realtime.Trip.WheelchairA" +
-      "ccessibleStatus: UNKNOWN_WHEELCHAIR_ACCE" +
-      "SSIBILITY\022Y\n\rbikes_allowed\030\t \001(\0162).trans" +
-      "it_realtime.Trip.BikesAllowedStatus:\027UNK" +
-      "NOWN_BIKES_ALLOWANCE\022\030\n\020replaces_trip_id" +
-      "\030\n \003(\t\022-\n\tstop_time\030\013 \003(\0132\032.transit_real" +
-      "time.StopTime\022\022\n\nstart_date\030\014 \002(\t\"|\n\032Whe" +
-      "elchairAccessibleStatus\022$\n UNKNOWN_WHEEL" +
-      "CHAIR_ACCESSIBILITY\020\000\022\031\n\025WHEELCHAIR_ACCE" +
-      "SSIBLE\020\001\022\035\n\031NOT_WHEELCHAIR_ACCESSIBLE\020\002\"" +
-      "[\n\022BikesAllowedStatus\022\033\n\027UNKNOWN_BIKES_A" +
-      "LLOWANCE\020\000\022\021\n\rBIKES_ALLOWED\020\001\022\025\n\021BIKES_N" +
-      "OT_ALLOWED\020\002\"\264\004\n\010StopTime\022\025\n\rstop_sequen" +
-      "ce\030\001 \002(\r\022\024\n\014arrival_time\030\002 \002(\t\022\026\n\016depart" +
-      "ure_time\030\003 \002(\t\022\017\n\007stop_id\030\004 \002(\t\0229\n\rstop_" +
-      "headsign\030\005 \001(\0132\".transit_realtime.Transl" +
-      "atedString\022J\n\013pickup_type\030\006 \001(\0162%.transi" +
-      "t_realtime.StopTime.PickupType:\016REGULAR_" +
-      "PICKUP\022O\n\rdrop_off_type\030\007 \001(\0162&.transit_" +
-      "realtime.StopTime.DropOffType:\020REGULAR_D" +
-      "ROP_OFF\022\033\n\023shape_dist_traveled\030\010 \001(\002\"i\n\n" +
-      "PickupType\022\022\n\016REGULAR_PICKUP\020\000\022\r\n\tNO_PIC" +
-      "KUP\020\001\022\034\n\030MUST_PHONE_AGENCY_PICKUP\020\002\022\032\n\026M" +
-      "UST_ASK_DRIVER_PICKUP\020\003\"r\n\013DropOffType\022\024" +
-      "\n\020REGULAR_DROP_OFF\020\000\022\017\n\013NO_DROP_OFF\020\001\022\036\n" +
-      "\032MUST_PHONE_AGENCY_DROP_OFF\020\002\022\034\n\030MUST_AS" +
-      "K_DRIVER_DROP_OFF\020\003\"L\n\005Shape\022\020\n\010shape_id" +
-      "\030\001 \002(\t\0221\n\013shape_point\030\002 \003(\0132\034.transit_re" +
-      "altime.ShapePoint\"p\n\nShapePoint\022\024\n\014shape" +
-      "_pt_lat\030\001 \002(\002\022\024\n\014shape_pt_lon\030\002 \002(\002\022\033\n\023s" +
-      "hape_dist_traveled\030\003 \001(\002\022\031\n\021shape_pt_seq" +
-      "uence\030\004 \002(\r\"\255\004\n\005Route\022\020\n\010route_id\030\001 \002(\t\022" +
-      "\021\n\tagency_id\030\002 \002(\t\022<\n\020route_short_name\030\003" +
+      "S_NOT_ALLOWED\020\002\"\264\004\n\010StopTime\022\025\n\rstop_seq" +
+      "uence\030\001 \002(\r\022\024\n\014arrival_time\030\002 \002(\t\022\026\n\016dep" +
+      "arture_time\030\003 \002(\t\022\017\n\007stop_id\030\004 \002(\t\0229\n\rst" +
+      "op_headsign\030\005 \001(\0132\".transit_realtime.Tra" +
+      "nslatedString\022J\n\013pickup_type\030\006 \001(\0162%.tra" +
+      "nsit_realtime.StopTime.PickupType:\016REGUL" +
+      "AR_PICKUP\022O\n\rdrop_off_type\030\007 \001(\0162&.trans" +
+      "it_realtime.StopTime.DropOffType:\020REGULA" +
+      "R_DROP_OFF\022\033\n\023shape_dist_traveled\030\010 \001(\002\"" +
+      "i\n\nPickupType\022\022\n\016REGULAR_PICKUP\020\000\022\r\n\tNO_" +
+      "PICKUP\020\001\022\034\n\030MUST_PHONE_AGENCY_PICKUP\020\002\022\032" +
+      "\n\026MUST_ASK_DRIVER_PICKUP\020\003\"r\n\013DropOffTyp" +
+      "e\022\024\n\020REGULAR_DROP_OFF\020\000\022\017\n\013NO_DROP_OFF\020\001" +
+      "\022\036\n\032MUST_PHONE_AGENCY_DROP_OFF\020\002\022\034\n\030MUST" +
+      "_ASK_DRIVER_DROP_OFF\020\003\"L\n\005Shape\022\020\n\010shape" +
+      "_id\030\001 \002(\t\0221\n\013shape_point\030\002 \003(\0132\034.transit" +
+      "_realtime.ShapePoint\"p\n\nShapePoint\022\024\n\014sh" +
+      "ape_pt_lat\030\001 \002(\002\022\024\n\014shape_pt_lon\030\002 \002(\002\022\033" +
+      "\n\023shape_dist_traveled\030\003 \001(\002\022\031\n\021shape_pt_" +
+      "sequence\030\004 \002(\r\"\255\004\n\005Route\022\020\n\010route_id\030\001 \002" +
+      "(\t\022\021\n\tagency_id\030\002 \002(\t\022<\n\020route_short_nam" +
+      "e\030\003 \001(\0132\".transit_realtime.TranslatedStr" +
+      "ing\022;\n\017route_long_name\030\004 \001(\0132\".transit_r" +
+      "ealtime.TranslatedString\0226\n\nroute_desc\030\005" +
       " \001(\0132\".transit_realtime.TranslatedString" +
-      "\022;\n\017route_long_name\030\004 \001(\0132\".transit_real" +
-      "time.TranslatedString\0226\n\nroute_desc\030\005 \001(" +
-      "\0132\".transit_realtime.TranslatedString\0225\n" +
-      "\nroute_type\030\006 \002(\0162!.transit_realtime.Rou" +
-      "te.RouteType\0225\n\troute_url\030\007 \001(\0132\".transi" +
-      "t_realtime.TranslatedString\022\023\n\013route_col" +
-      "or\030\010 \001(\t\022\030\n\020route_text_color\030\t \001(\t\022\030\n\020ro" +
-      "ute_sort_order\030\n \001(\r\"\224\001\n\tRouteType\022\016\n\nLI" +
-      "GHT_RAIL\020\000\022\n\n\006SUBWAY\020\001\022\010\n\004RAIL\020\002\022\007\n\003BUS\020" +
-      "\003\022\t\n\005FERRY\020\004\022\016\n\nCABLE_TRAM\020\005\022\017\n\013AERIAL_L" +
-      "IFT\020\006\022\r\n\tFUNICULAR\020\007\022\017\n\013TROLLEY_BUS\020\013\022\014\n" +
-      "\010MONORAIL\020\014\"\341\004\n\004Stop\022\017\n\007stop_id\030\001 \002(\t\0225\n" +
-      "\tstop_code\030\002 \001(\0132\".transit_realtime.Tran" +
-      "slatedString\0225\n\tstop_name\030\003 \002(\0132\".transi" +
-      "t_realtime.TranslatedString\0225\n\tstop_desc" +
-      "\030\004 \001(\0132\".transit_realtime.TranslatedStri" +
-      "ng\022\020\n\010stop_lat\030\005 \002(\002\022\020\n\010stop_lon\030\006 \002(\002\022\017" +
-      "\n\007zone_id\030\007 \001(\t\0224\n\010stop_url\030\010 \001(\0132\".tran" +
-      "sit_realtime.TranslatedString\022\026\n\016parent_" +
-      "station\030\t \001(\t\022\025\n\rstop_timezone\030\n \001(\t\022i\n\023" +
-      "wheelchair_boarding\030\013 \001(\0162/.transit_real" +
-      "time.Stop.WheelchairBoardingStatus:\033UNKN" +
-      "OWN_WHEELCHAIR_BOARDING\022\020\n\010level_id\030\014 \001(" +
-      "\t\022\025\n\rplatform_code\030\r \001(\t\"u\n\030WheelchairBo" +
-      "ardingStatus\022\037\n\033UNKNOWN_WHEELCHAIR_BOARD" +
-      "ING\020\000\022\031\n\025WHEELCHAIR_ACCESSIBLE\020\001\022\035\n\031NOT_" +
-      "WHEELCHAIR_ACCESSIBLE\020\002B\035\n\033com.google.tr" +
-      "ansit.realtime"
+      "\0225\n\nroute_type\030\006 \002(\0162!.transit_realtime." +
+      "Route.RouteType\0225\n\troute_url\030\007 \001(\0132\".tra" +
+      "nsit_realtime.TranslatedString\022\023\n\013route_" +
+      "color\030\010 \001(\t\022\030\n\020route_text_color\030\t \001(\t\022\030\n" +
+      "\020route_sort_order\030\n \001(\r\"\224\001\n\tRouteType\022\016\n" +
+      "\nLIGHT_RAIL\020\000\022\n\n\006SUBWAY\020\001\022\010\n\004RAIL\020\002\022\007\n\003B" +
+      "US\020\003\022\t\n\005FERRY\020\004\022\016\n\nCABLE_TRAM\020\005\022\017\n\013AERIA" +
+      "L_LIFT\020\006\022\r\n\tFUNICULAR\020\007\022\017\n\013TROLLEY_BUS\020\013" +
+      "\022\014\n\010MONORAIL\020\014\"\341\004\n\004Stop\022\017\n\007stop_id\030\001 \002(\t" +
+      "\0225\n\tstop_code\030\002 \001(\0132\".transit_realtime.T" +
+      "ranslatedString\0225\n\tstop_name\030\003 \002(\0132\".tra" +
+      "nsit_realtime.TranslatedString\0225\n\tstop_d" +
+      "esc\030\004 \001(\0132\".transit_realtime.TranslatedS" +
+      "tring\022\020\n\010stop_lat\030\005 \002(\002\022\020\n\010stop_lon\030\006 \002(" +
+      "\002\022\017\n\007zone_id\030\007 \001(\t\0224\n\010stop_url\030\010 \001(\0132\".t" +
+      "ransit_realtime.TranslatedString\022\026\n\016pare" +
+      "nt_station\030\t \001(\t\022\025\n\rstop_timezone\030\n \001(\t\022" +
+      "i\n\023wheelchair_boarding\030\013 \001(\0162/.transit_r" +
+      "ealtime.Stop.WheelchairBoardingStatus:\033U" +
+      "NKNOWN_WHEELCHAIR_BOARDING\022\020\n\010level_id\030\014" +
+      " \001(\t\022\025\n\rplatform_code\030\r \001(\t\"u\n\030Wheelchai" +
+      "rBoardingStatus\022\037\n\033UNKNOWN_WHEELCHAIR_BO" +
+      "ARDING\020\000\022\031\n\025WHEELCHAIR_ACCESSIBLE\020\001\022\035\n\031N" +
+      "OT_WHEELCHAIR_ACCESSIBLE\020\002B\035\n\033com.google" +
+      ".transit.realtime"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -43738,7 +43808,7 @@ public final class GtfsRealtime {
     internal_static_transit_realtime_TripUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_transit_realtime_TripUpdate_descriptor,
-        new java.lang.String[] { "Trip", "Vehicle", "StopTimeUpdate", "Timestamp", "Delay", "TripProperties", "VehicleProperties", });
+        new java.lang.String[] { "Trip", "Vehicle", "StopTimeUpdate", "Timestamp", "Delay", "TripProperties", "VehicleProperties", "ReplacedByTripId", });
     internal_static_transit_realtime_TripUpdate_StopTimeEvent_descriptor =
       internal_static_transit_realtime_TripUpdate_descriptor.getNestedTypes().get(0);
     internal_static_transit_realtime_TripUpdate_StopTimeEvent_fieldAccessorTable = new
@@ -43828,7 +43898,7 @@ public final class GtfsRealtime {
     internal_static_transit_realtime_Trip_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_transit_realtime_Trip_descriptor,
-        new java.lang.String[] { "TripId", "RouteId", "TripHeadsign", "TripShortName", "DirectionId", "BlockId", "ShapeId", "WheelchairAccessible", "BikesAllowed", "ReplacesTripId", "StopTime", "StartDate", });
+        new java.lang.String[] { "TripId", "RouteId", "TripHeadsign", "TripShortName", "DirectionId", "BlockId", "ShapeId", "WheelchairAccessible", "BikesAllowed", "StopTime", "StartDate", });
     internal_static_transit_realtime_StopTime_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_transit_realtime_StopTime_fieldAccessorTable = new
