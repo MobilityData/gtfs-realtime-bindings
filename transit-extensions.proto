@@ -6,6 +6,7 @@
 
 syntax = "proto2";
 import "gtfs-spec/gtfs-realtime/proto/gtfs-realtime.proto";
+import "agency-extensions/tfnsw-vehicle.proto";
 
 message TransitAlertExtension {
     // Create time of the alerts, in POSIX time
@@ -92,4 +93,11 @@ message TransitStopTimeUpdateExtension {
 
 extend transit_realtime.TripUpdate.StopTimeUpdate {
     optional TransitStopTimeUpdateExtension transit_stop_time_update_extension = 9514;
+}
+
+// Include Transport for New South Wales' extension for Air Conditioning
+// and accessibility info.
+
+extend transit_realtime.VehicleDescriptor {
+    optional TfnswVehicleDescriptor tfnsw_vehicle_descriptor = 1999;
 }

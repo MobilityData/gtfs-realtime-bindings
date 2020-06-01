@@ -5054,6 +5054,7 @@ $root.transit_realtime = (function() {
          * @property {string|null} [label] VehicleDescriptor label
          * @property {string|null} [licensePlate] VehicleDescriptor licensePlate
          * @property {ITransitVehicleDescriptorExtension|null} [".transitVehicleDescriptorExtension"] VehicleDescriptor .transitVehicleDescriptorExtension
+         * @property {ITfnswVehicleDescriptor|null} [".tfnswVehicleDescriptor"] VehicleDescriptor .tfnswVehicleDescriptor
          */
 
         /**
@@ -5104,6 +5105,14 @@ $root.transit_realtime = (function() {
         VehicleDescriptor.prototype[".transitVehicleDescriptorExtension"] = null;
 
         /**
+         * VehicleDescriptor .tfnswVehicleDescriptor.
+         * @member {ITfnswVehicleDescriptor|null|undefined} .tfnswVehicleDescriptor
+         * @memberof transit_realtime.VehicleDescriptor
+         * @instance
+         */
+        VehicleDescriptor.prototype[".tfnswVehicleDescriptor"] = null;
+
+        /**
          * Creates a new VehicleDescriptor instance using the specified properties.
          * @function create
          * @memberof transit_realtime.VehicleDescriptor
@@ -5133,6 +5142,8 @@ $root.transit_realtime = (function() {
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.label);
             if (message.licensePlate != null && message.hasOwnProperty("licensePlate"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.licensePlate);
+            if (message[".tfnswVehicleDescriptor"] != null && message.hasOwnProperty(".tfnswVehicleDescriptor"))
+                $root.TfnswVehicleDescriptor.encode(message[".tfnswVehicleDescriptor"], writer.uint32(/* id 1999, wireType 2 =*/15994).fork()).ldelim();
             if (message[".transitVehicleDescriptorExtension"] != null && message.hasOwnProperty(".transitVehicleDescriptorExtension"))
                 $root.TransitVehicleDescriptorExtension.encode(message[".transitVehicleDescriptorExtension"], writer.uint32(/* id 9514, wireType 2 =*/76114).fork()).ldelim();
             return writer;
@@ -5180,6 +5191,9 @@ $root.transit_realtime = (function() {
                     break;
                 case 9514:
                     message[".transitVehicleDescriptorExtension"] = $root.TransitVehicleDescriptorExtension.decode(reader, reader.uint32());
+                    break;
+                case 1999:
+                    message[".tfnswVehicleDescriptor"] = $root.TfnswVehicleDescriptor.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5230,6 +5244,11 @@ $root.transit_realtime = (function() {
                 if (error)
                     return ".transitVehicleDescriptorExtension." + error;
             }
+            if (message[".tfnswVehicleDescriptor"] != null && message.hasOwnProperty(".tfnswVehicleDescriptor")) {
+                var error = $root.TfnswVehicleDescriptor.verify(message[".tfnswVehicleDescriptor"]);
+                if (error)
+                    return ".tfnswVehicleDescriptor." + error;
+            }
             return null;
         };
 
@@ -5256,6 +5275,11 @@ $root.transit_realtime = (function() {
                     throw TypeError(".transit_realtime.VehicleDescriptor..transitVehicleDescriptorExtension: object expected");
                 message[".transitVehicleDescriptorExtension"] = $root.TransitVehicleDescriptorExtension.fromObject(object[".transitVehicleDescriptorExtension"]);
             }
+            if (object[".tfnswVehicleDescriptor"] != null) {
+                if (typeof object[".tfnswVehicleDescriptor"] !== "object")
+                    throw TypeError(".transit_realtime.VehicleDescriptor..tfnswVehicleDescriptor: object expected");
+                message[".tfnswVehicleDescriptor"] = $root.TfnswVehicleDescriptor.fromObject(object[".tfnswVehicleDescriptor"]);
+            }
             return message;
         };
 
@@ -5276,6 +5300,7 @@ $root.transit_realtime = (function() {
                 object.id = "";
                 object.label = "";
                 object.licensePlate = "";
+                object[".tfnswVehicleDescriptor"] = null;
                 object[".transitVehicleDescriptorExtension"] = null;
             }
             if (message.id != null && message.hasOwnProperty("id"))
@@ -5284,6 +5309,8 @@ $root.transit_realtime = (function() {
                 object.label = message.label;
             if (message.licensePlate != null && message.hasOwnProperty("licensePlate"))
                 object.licensePlate = message.licensePlate;
+            if (message[".tfnswVehicleDescriptor"] != null && message.hasOwnProperty(".tfnswVehicleDescriptor"))
+                object[".tfnswVehicleDescriptor"] = $root.TfnswVehicleDescriptor.toObject(message[".tfnswVehicleDescriptor"], options);
             if (message[".transitVehicleDescriptorExtension"] != null && message.hasOwnProperty(".transitVehicleDescriptorExtension"))
                 object[".transitVehicleDescriptorExtension"] = $root.TransitVehicleDescriptorExtension.toObject(message[".transitVehicleDescriptorExtension"], options);
             return object;
@@ -6052,6 +6079,216 @@ $root.transit_realtime = (function() {
     })();
 
     return transit_realtime;
+})();
+
+$root.TfnswVehicleDescriptor = (function() {
+
+    /**
+     * Properties of a TfnswVehicleDescriptor.
+     * @exports ITfnswVehicleDescriptor
+     * @interface ITfnswVehicleDescriptor
+     * @property {boolean|null} [airConditioned] TfnswVehicleDescriptor airConditioned
+     * @property {number|null} [wheelchairAccessible] TfnswVehicleDescriptor wheelchairAccessible
+     */
+
+    /**
+     * Constructs a new TfnswVehicleDescriptor.
+     * @exports TfnswVehicleDescriptor
+     * @classdesc Represents a TfnswVehicleDescriptor.
+     * @implements ITfnswVehicleDescriptor
+     * @constructor
+     * @param {ITfnswVehicleDescriptor=} [properties] Properties to set
+     */
+    function TfnswVehicleDescriptor(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * TfnswVehicleDescriptor airConditioned.
+     * @member {boolean} airConditioned
+     * @memberof TfnswVehicleDescriptor
+     * @instance
+     */
+    TfnswVehicleDescriptor.prototype.airConditioned = true;
+
+    /**
+     * TfnswVehicleDescriptor wheelchairAccessible.
+     * @member {number} wheelchairAccessible
+     * @memberof TfnswVehicleDescriptor
+     * @instance
+     */
+    TfnswVehicleDescriptor.prototype.wheelchairAccessible = 0;
+
+    /**
+     * Creates a new TfnswVehicleDescriptor instance using the specified properties.
+     * @function create
+     * @memberof TfnswVehicleDescriptor
+     * @static
+     * @param {ITfnswVehicleDescriptor=} [properties] Properties to set
+     * @returns {TfnswVehicleDescriptor} TfnswVehicleDescriptor instance
+     */
+    TfnswVehicleDescriptor.create = function create(properties) {
+        return new TfnswVehicleDescriptor(properties);
+    };
+
+    /**
+     * Encodes the specified TfnswVehicleDescriptor message. Does not implicitly {@link TfnswVehicleDescriptor.verify|verify} messages.
+     * @function encode
+     * @memberof TfnswVehicleDescriptor
+     * @static
+     * @param {ITfnswVehicleDescriptor} message TfnswVehicleDescriptor message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    TfnswVehicleDescriptor.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.airConditioned != null && message.hasOwnProperty("airConditioned"))
+            writer.uint32(/* id 1, wireType 0 =*/8).bool(message.airConditioned);
+        if (message.wheelchairAccessible != null && message.hasOwnProperty("wheelchairAccessible"))
+            writer.uint32(/* id 2, wireType 0 =*/16).int32(message.wheelchairAccessible);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified TfnswVehicleDescriptor message, length delimited. Does not implicitly {@link TfnswVehicleDescriptor.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof TfnswVehicleDescriptor
+     * @static
+     * @param {ITfnswVehicleDescriptor} message TfnswVehicleDescriptor message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    TfnswVehicleDescriptor.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a TfnswVehicleDescriptor message from the specified reader or buffer.
+     * @function decode
+     * @memberof TfnswVehicleDescriptor
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {TfnswVehicleDescriptor} TfnswVehicleDescriptor
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    TfnswVehicleDescriptor.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.TfnswVehicleDescriptor();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+            case 1:
+                message.airConditioned = reader.bool();
+                break;
+            case 2:
+                message.wheelchairAccessible = reader.int32();
+                break;
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a TfnswVehicleDescriptor message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof TfnswVehicleDescriptor
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {TfnswVehicleDescriptor} TfnswVehicleDescriptor
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    TfnswVehicleDescriptor.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a TfnswVehicleDescriptor message.
+     * @function verify
+     * @memberof TfnswVehicleDescriptor
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    TfnswVehicleDescriptor.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.airConditioned != null && message.hasOwnProperty("airConditioned"))
+            if (typeof message.airConditioned !== "boolean")
+                return "airConditioned: boolean expected";
+        if (message.wheelchairAccessible != null && message.hasOwnProperty("wheelchairAccessible"))
+            if (!$util.isInteger(message.wheelchairAccessible))
+                return "wheelchairAccessible: integer expected";
+        return null;
+    };
+
+    /**
+     * Creates a TfnswVehicleDescriptor message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof TfnswVehicleDescriptor
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {TfnswVehicleDescriptor} TfnswVehicleDescriptor
+     */
+    TfnswVehicleDescriptor.fromObject = function fromObject(object) {
+        if (object instanceof $root.TfnswVehicleDescriptor)
+            return object;
+        var message = new $root.TfnswVehicleDescriptor();
+        if (object.airConditioned != null)
+            message.airConditioned = Boolean(object.airConditioned);
+        if (object.wheelchairAccessible != null)
+            message.wheelchairAccessible = object.wheelchairAccessible | 0;
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a TfnswVehicleDescriptor message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof TfnswVehicleDescriptor
+     * @static
+     * @param {TfnswVehicleDescriptor} message TfnswVehicleDescriptor
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    TfnswVehicleDescriptor.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.airConditioned = true;
+            object.wheelchairAccessible = 0;
+        }
+        if (message.airConditioned != null && message.hasOwnProperty("airConditioned"))
+            object.airConditioned = message.airConditioned;
+        if (message.wheelchairAccessible != null && message.hasOwnProperty("wheelchairAccessible"))
+            object.wheelchairAccessible = message.wheelchairAccessible;
+        return object;
+    };
+
+    /**
+     * Converts this TfnswVehicleDescriptor to JSON.
+     * @function toJSON
+     * @memberof TfnswVehicleDescriptor
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    TfnswVehicleDescriptor.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    return TfnswVehicleDescriptor;
 })();
 
 module.exports = $root;
