@@ -1,0 +1,7 @@
+message TfnswVehicleDescriptor {
+  // Indicates the availability of air-conditioning on this vehicle, Default is true because the whole fleet is air-conditioned. 
+  optional bool air_conditioned = 1 [default = true];
+
+  // Indicates whether the vehicle is wheelchair accessible or not. It returns 1 if the vehicle is accessible otherwise returns 0
+  optional int32 wheelchair_accessible = 2 [default = 0];
+}
