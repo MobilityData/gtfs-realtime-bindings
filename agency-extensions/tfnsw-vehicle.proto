@@ -1,3 +1,5 @@
+syntax = "proto2";
+
 message TfnswVehicleDescriptor {
   // Indicates the availability of air-conditioning on this vehicle, Default is true because the whole fleet is air-conditioned. 
   optional bool air_conditioned = 1 [default = true];
