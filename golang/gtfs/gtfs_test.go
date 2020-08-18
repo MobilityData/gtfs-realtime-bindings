@@ -1,4 +1,4 @@
-package gtfs
+package transit_realtime
 
 import (
 	proto "github.com/golang/protobuf/proto"
