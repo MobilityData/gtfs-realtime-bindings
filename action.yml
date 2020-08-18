@@ -1,0 +1,5 @@
+name: 'bindings'
+description: 'Build GTFS-RT bindings'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
