@@ -25,6 +25,9 @@ RUN go get -u github.com/golang/protobuf/protoc-gen-go
 
 WORKDIR /usr/src/app
 
+COPY ./nodejs/package.json /usr/src/app/nodejs/package.json
+RUN npm --prefix /usr/src/app/nodejs/ install
+
 COPY --from=protoc /usr/src/protoc/bin/protoc /usr/local/bin/protoc
 COPY . /usr/src/app
 
