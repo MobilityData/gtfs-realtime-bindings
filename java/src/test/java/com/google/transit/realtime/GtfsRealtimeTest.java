@@ -83,6 +83,7 @@ public class GtfsRealtimeTest {
 
     createVehicleEntity();
     vehiclePositionBuilder.setOccupancyStatus(GtfsRealtime.VehiclePosition.OccupancyStatus.FEW_SEATS_AVAILABLE);
+    vehiclePositionBuilder.setOccupancyPercentage(50);
     feedEntityBuilder.setVehicle(vehiclePositionBuilder.build());
     feedMessageBuilder.setEntity(0, feedEntityBuilder.build());
 
@@ -90,6 +91,7 @@ public class GtfsRealtimeTest {
     final byte[] bytes = feedMessageBuilder.build().toByteArray();
     validateParsedFeed(FeedMessage.parseFrom(bytes), true);
     validateFewSeatsOccupancy(FeedMessage.parseFrom(bytes));
+    validate50PercentOccupancy(FeedMessage.parseFrom(bytes));
 
     // Write and read vehicle positions to/from file
     final OutputStream out = new BufferedOutputStream(new FileOutputStream(new File(FILE_NAME)));
@@ -97,6 +99,8 @@ public class GtfsRealtimeTest {
     out.close();
     final FileInputStream fis = new FileInputStream(FILE_NAME);
     validateParsedFeed(FeedMessage.parseFrom(fis), true);
+    validateFewSeatsOccupancy(FeedMessage.parseFrom(bytes));
+    validate50PercentOccupancy(FeedMessage.parseFrom(bytes));
 
     clearAndInitRequiredFeedFields();
   }
@@ -113,8 +117,11 @@ public class GtfsRealtimeTest {
     final byte[] bytes = feedMessageBuilder.build().toByteArray();
     final FeedMessage messageFromBytes = FeedMessage.parseFrom(bytes);
     assertFalse(messageFromBytes.getEntity(0).getVehicle().hasOccupancyStatus());
+    assertFalse(messageFromBytes.getEntity(0).getVehicle().hasOccupancyPercentage());
     // Previous to setting explicit defaults in the .proto, if you ignore hasOccupancyStatus() and get it it will be EMPTY
     assertEquals(GtfsRealtime.VehiclePosition.OccupancyStatus.EMPTY, messageFromBytes.getEntity(0).getVehicle().getOccupancyStatus());
+    // Previous to setting explicit defaults in the .proto, if you ignore hasOccupancyPercentage() and get it it will be 0
+    assertEquals(0, messageFromBytes.getEntity(0).getVehicle().getOccupancyPercentage());
 
     // Write and read vehicle positions to/from file
     final OutputStream out = new BufferedOutputStream(new FileOutputStream(new File(FILE_NAME)));
@@ -135,6 +142,7 @@ public class GtfsRealtimeTest {
 
     final FeedMessage messageFromFile = FeedMessage.parseFrom(in);
     validateParsedFeed(messageFromFile, true);
+    validateFewSeatsOccupancy(messageFromFile);
 
     clearAndInitRequiredFeedFields();
   }
@@ -200,6 +208,12 @@ public class GtfsRealtimeTest {
     FeedEntity entity = feed.getEntity(0);
     assertTrue(entity.getVehicle().hasOccupancyStatus());
     assertTrue(entity.getVehicle().getOccupancyStatus().equals(GtfsRealtime.VehiclePosition.OccupancyStatus.FEW_SEATS_AVAILABLE));
+  }
+
+  private static void validate50PercentOccupancy(FeedMessage feed) {
+    FeedEntity entity = feed.getEntity(0);
+    assertTrue(entity.getVehicle().hasOccupancyPercentage());
+    assertEquals(50, entity.getVehicle().getOccupancyPercentage());
   }
 
   private static void createVehicleEntity() {
