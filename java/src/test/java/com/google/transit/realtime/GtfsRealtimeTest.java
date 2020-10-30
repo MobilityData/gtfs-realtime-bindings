@@ -101,6 +101,34 @@ public class GtfsRealtimeTest {
     clearAndInitRequiredFeedFields();
   }
 
+  @Test
+  public void testWriteAndReadVehiclePositionsWithoutOccupancyPreDefaults() throws IOException {
+    final String FILE_NAME = "vehicle-position-pre-occupancy-defaults-without-occupancy-status.pb";
+
+    createVehicleEntity();
+    feedEntityBuilder.setVehicle(vehiclePositionBuilder.build());
+    feedMessageBuilder.setEntity(0, feedEntityBuilder.build());
+
+    // Write and read vehicle positions to/from byte array
+    final byte[] bytes = feedMessageBuilder.build().toByteArray();
+    final FeedMessage messageFromBytes = FeedMessage.parseFrom(bytes);
+    assertFalse(messageFromBytes.getEntity(0).getVehicle().hasOccupancyStatus());
+    // Previous to setting explicit defaults in the .proto, if you ignore hasOccupancyStatus() and get it it will be EMPTY
+    assertEquals(GtfsRealtime.VehiclePosition.OccupancyStatus.EMPTY, messageFromBytes.getEntity(0).getVehicle().getOccupancyStatus());
+
+    // Write and read vehicle positions to/from file
+    final OutputStream out = new BufferedOutputStream(new FileOutputStream(new File(FILE_NAME)));
+    feedMessageBuilder.build().writeTo(out);
+    out.close();
+    final FileInputStream fis = new FileInputStream(FILE_NAME);
+    final FeedMessage messageFromFile = FeedMessage.parseFrom(fis);
+    assertFalse(messageFromBytes.getEntity(0).getVehicle().hasOccupancyStatus());
+    // Previous to setting explicit defaults in the .proto, if you ignore hasOccupancyStatus() and get it it will be EMPTY
+    assertEquals(GtfsRealtime.VehiclePosition.OccupancyStatus.EMPTY, messageFromFile.getEntity(0).getVehicle().getOccupancyStatus());
+
+    clearAndInitRequiredFeedFields();
+  }
+
   /**
    * Validates the given feed
    * @param feed a parsed GTFS-realtime feed from protobuf format
