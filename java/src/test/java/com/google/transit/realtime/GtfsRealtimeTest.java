@@ -129,6 +129,28 @@ public class GtfsRealtimeTest {
     clearAndInitRequiredFeedFields();
   }
 
+  @Test
+  public void testReadVehiclePositionsWithOccupancyPostDefaults() throws IOException {
+    InputStream in = getClass().getResourceAsStream("vehicle-position-occupancy-defaults-with-occupancy-status.pb");
+
+    final FeedMessage messageFromFile = FeedMessage.parseFrom(in);
+    validateParsedFeed(messageFromFile, true);
+
+    clearAndInitRequiredFeedFields();
+  }
+
+  @Test
+  public void testWriteAndReadVehiclePositionsWithoutOccupancyPostDefaults() throws IOException {
+    InputStream in = getClass().getResourceAsStream("vehicle-position-occupancy-defaults-without-occupancy-status.pb");
+
+    final FeedMessage messageFromFile = FeedMessage.parseFrom(in);
+    assertFalse(messageFromFile.getEntity(0).getVehicle().hasOccupancyStatus());
+    // Previous to setting explicit defaults in the .proto, if you ignore hasOccupancyStatus() and get it it will be EMPTY
+    assertEquals(GtfsRealtime.VehiclePosition.OccupancyStatus.EMPTY, messageFromFile.getEntity(0).getVehicle().getOccupancyStatus());
+
+    clearAndInitRequiredFeedFields();
+  }
+
   /**
    * Validates the given feed
    * @param feed a parsed GTFS-realtime feed from protobuf format
