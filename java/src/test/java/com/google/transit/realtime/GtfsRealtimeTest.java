@@ -138,23 +138,27 @@ public class GtfsRealtimeTest {
 
   @Test
   public void testReadVehiclePositionsWithOccupancyPostDefaults() throws IOException {
-    InputStream in = getClass().getResourceAsStream("vehicle-position-occupancy-defaults-with-occupancy-status.pb");
+    InputStream in = getClass().getResourceAsStream("vehicle-position-occupancy-defaults-with-occupancy-status-and-percent.pb");
 
     final FeedMessage messageFromFile = FeedMessage.parseFrom(in);
     validateParsedFeed(messageFromFile, true);
     validateFewSeatsOccupancy(messageFromFile);
+    validate50PercentOccupancy(messageFromFile);
 
     clearAndInitRequiredFeedFields();
   }
 
   @Test
-  public void testWriteAndReadVehiclePositionsWithoutOccupancyPostDefaults() throws IOException {
-    InputStream in = getClass().getResourceAsStream("vehicle-position-occupancy-defaults-without-occupancy-status.pb");
+  public void testReadVehiclePositionsWithoutOccupancyPostDefaults() throws IOException {
+    InputStream in = getClass().getResourceAsStream("vehicle-position-occupancy-defaults-without-occupancy-status-and-percent.pb");
 
     final FeedMessage messageFromFile = FeedMessage.parseFrom(in);
     assertFalse(messageFromFile.getEntity(0).getVehicle().hasOccupancyStatus());
+    assertFalse(messageFromFile.getEntity(0).getVehicle().hasOccupancyPercentage());
     // Previous to setting explicit defaults in the .proto, if you ignore hasOccupancyStatus() and get it it will be EMPTY
     assertEquals(GtfsRealtime.VehiclePosition.OccupancyStatus.EMPTY, messageFromFile.getEntity(0).getVehicle().getOccupancyStatus());
+    // Previous to setting explicit defaults in the .proto, if you ignore hasOccupancyPercentage() and get it it will be 0
+    assertEquals(0, messageFromFile.getEntity(0).getVehicle().getOccupancyPercentage());
 
     clearAndInitRequiredFeedFields();
   }
