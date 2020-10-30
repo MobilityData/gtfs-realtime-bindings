@@ -44,10 +44,11 @@ public class GtfsRealtimeTest {
 
     feedHeaderBuilder = GtfsRealtime.FeedHeader.newBuilder();
     feedHeaderBuilder.setGtfsRealtimeVersion("2.0");
-    feedMessageBuilder.setHeader(feedHeaderBuilder);
-
     feedEntityBuilder = GtfsRealtime.FeedEntity.newBuilder();
     feedEntityBuilder.setId(ENTITY_ID);
+
+    feedMessageBuilder.setHeader(feedHeaderBuilder);
+    feedMessageBuilder.addEntity(feedEntityBuilder.build());
 
     vehiclePositionBuilder = GtfsRealtime.VehiclePosition.newBuilder();
     tripDescriptorBuilder = GtfsRealtime.TripDescriptor.newBuilder();
@@ -58,34 +59,54 @@ public class GtfsRealtimeTest {
   public void testWriteAndReadVehiclePositions() throws IOException {
     final String FILE_NAME = "test-write-vehicle-position.pb";
 
-    // Write vehicle positions to a file
-    tripDescriptorBuilder.setTripId("A");
-    vehicleDescriptorBuilder.setId("1");
-    GtfsRealtime.Position.Builder positionBuilder = GtfsRealtime.Position.newBuilder();
-    positionBuilder.setLatitude(50.0f);
-    positionBuilder.setLongitude(-60.0f);
-
-    vehiclePositionBuilder.setVehicle(vehicleDescriptorBuilder.build());
-    vehiclePositionBuilder.setTrip(tripDescriptorBuilder.build());
-    vehiclePositionBuilder.setPosition(positionBuilder.build());
+    createVehicleEntity();
     feedEntityBuilder.setVehicle(vehiclePositionBuilder.build());
-    feedMessageBuilder.addEntity(0, feedEntityBuilder.build());
+    feedMessageBuilder.setEntity(0, feedEntityBuilder.build());
 
     // Write and read vehicle positions to/from byte array
-    byte[] bytes = feedMessageBuilder.build().toByteArray();
-    validateParsedFeed(FeedMessage.parseFrom(bytes));
+    final byte[] bytes = feedMessageBuilder.build().toByteArray();
+    validateParsedFeed(FeedMessage.parseFrom(bytes), false);
 
     // Write and read vehicle positions to/from file
-    OutputStream out = new BufferedOutputStream(new FileOutputStream(new File(FILE_NAME)));
+    final OutputStream out = new BufferedOutputStream(new FileOutputStream(new File(FILE_NAME)));
     feedMessageBuilder.build().writeTo(out);
     out.close();
-    FileInputStream fis = new FileInputStream(FILE_NAME);
-    validateParsedFeed(FeedMessage.parseFrom(fis));
+    final FileInputStream fis = new FileInputStream(FILE_NAME);
+    validateParsedFeed(FeedMessage.parseFrom(fis), false);
 
     clearAndInitRequiredFeedFields();
   }
 
-  private static void validateParsedFeed(FeedMessage feed) {
+  @Test
+  public void testWriteAndReadVehiclePositionsWithOccupancyPreDefaults() throws IOException {
+    final String FILE_NAME = "vehicle-position-pre-occupancy-defaults-with-occupancy-status.pb";
+
+    createVehicleEntity();
+    vehiclePositionBuilder.setOccupancyStatus(GtfsRealtime.VehiclePosition.OccupancyStatus.FEW_SEATS_AVAILABLE);
+    feedEntityBuilder.setVehicle(vehiclePositionBuilder.build());
+    feedMessageBuilder.setEntity(0, feedEntityBuilder.build());
+
+    // Write and read vehicle positions to/from byte array
+    final byte[] bytes = feedMessageBuilder.build().toByteArray();
+    validateParsedFeed(FeedMessage.parseFrom(bytes), true);
+    validateFewSeatsOccupancy(FeedMessage.parseFrom(bytes));
+
+    // Write and read vehicle positions to/from file
+    final OutputStream out = new BufferedOutputStream(new FileOutputStream(new File(FILE_NAME)));
+    feedMessageBuilder.build().writeTo(out);
+    out.close();
+    final FileInputStream fis = new FileInputStream(FILE_NAME);
+    validateParsedFeed(FeedMessage.parseFrom(fis), true);
+
+    clearAndInitRequiredFeedFields();
+  }
+
+  /**
+   * Validates the given feed
+   * @param feed a parsed GTFS-realtime feed from protobuf format
+   * @param hasOccupancyStatus true if the feed contains OccupancyStatus information, false if it does not
+   */
+  private static void validateParsedFeed(FeedMessage feed, boolean hasOccupancyStatus) {
     // Header
     assertTrue(feed.hasHeader());
     assertTrue(feed.getHeader().hasGtfsRealtimeVersion());
@@ -112,12 +133,35 @@ public class GtfsRealtimeTest {
     assertFalse(entity.getVehicle().hasCurrentStatus());
     assertFalse(entity.getVehicle().hasTimestamp());
     assertFalse(entity.getVehicle().hasCongestionLevel());
-    assertFalse(entity.getVehicle().hasOccupancyStatus());
+    if (hasOccupancyStatus) {
+      assertTrue(entity.getVehicle().hasOccupancyStatus());
+    } else {
+      assertFalse(entity.getVehicle().hasOccupancyStatus());
+    }
+
     assertFalse(entity.getVehicle().getTrip().hasDirectionId());
     assertFalse(entity.getVehicle().getTrip().hasRouteId());
     assertFalse(entity.getVehicle().getTrip().hasScheduleRelationship());
     assertFalse(entity.getVehicle().getTrip().hasStartDate());
     assertFalse(entity.getVehicle().getTrip().hasStartTime());
+  }
+
+  private static void validateFewSeatsOccupancy(FeedMessage feed) {
+    FeedEntity entity = feed.getEntity(0);
+    assertTrue(entity.getVehicle().hasOccupancyStatus());
+    assertTrue(entity.getVehicle().getOccupancyStatus().equals(GtfsRealtime.VehiclePosition.OccupancyStatus.FEW_SEATS_AVAILABLE));
+  }
+
+  private static void createVehicleEntity() {
+    tripDescriptorBuilder.setTripId("A");
+    vehicleDescriptorBuilder.setId("1");
+    GtfsRealtime.Position.Builder positionBuilder = GtfsRealtime.Position.newBuilder();
+    positionBuilder.setLatitude(50.0f);
+    positionBuilder.setLongitude(-60.0f);
+
+    vehiclePositionBuilder.setVehicle(vehicleDescriptorBuilder.build());
+    vehiclePositionBuilder.setTrip(tripDescriptorBuilder.build());
+    vehiclePositionBuilder.setPosition(positionBuilder.build());
   }
 
   private static void clearAndInitRequiredFeedFields() {
