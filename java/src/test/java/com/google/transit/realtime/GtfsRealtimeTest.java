@@ -163,6 +163,34 @@ public class GtfsRealtimeTest {
     clearAndInitRequiredFeedFields();
   }
 
+  @Test
+  public void testWriteAndReadVehiclePositionsWithOccupancyPercentageNegativeOne() throws IOException {
+    final String FILE_NAME = "vehicle-position-occupancy-pre-defaults-with-occupancy-percentage-negative-one.pb";
+    createVehicleEntity();
+    vehiclePositionBuilder.setOccupancyPercentage(-1);
+    feedEntityBuilder.setVehicle(vehiclePositionBuilder.build());
+    feedMessageBuilder.setEntity(0, feedEntityBuilder.build());
+    final OutputStream out = new BufferedOutputStream(new FileOutputStream(new File(FILE_NAME)));
+    feedMessageBuilder.build().writeTo(out);
+    out.close();
+
+    // Read and validate feed
+    final FileInputStream fis = new FileInputStream(FILE_NAME);
+    final FeedMessage messageFromFile = FeedMessage.parseFrom(fis);
+    validateParsedFeed(messageFromFile, false);
+    validateNegativeOneOcupancy(messageFromFile);
+    fis.close();
+
+    // Read and validate feed with -1 value that was written by new producers with occupancy defaults
+    InputStream in = getClass().getResourceAsStream("vp-occ-defaults-with-occupancy-percentage-negative-one.pb");
+    FeedMessage feed = FeedMessage.parseFrom(in);
+    validateParsedFeed(feed, false);
+    validateNegativeOneOcupancy(feed);
+    in.close();
+
+    clearAndInitRequiredFeedFields();
+  }
+
   /**
    * Validates the given feed
    * @param feed a parsed GTFS-realtime feed from protobuf format
@@ -218,6 +246,12 @@ public class GtfsRealtimeTest {
     FeedEntity entity = feed.getEntity(0);
     assertTrue(entity.getVehicle().hasOccupancyPercentage());
     assertEquals(50, entity.getVehicle().getOccupancyPercentage());
+  }
+
+  private static void validateNegativeOneOcupancy(FeedMessage feed) {
+    FeedEntity entity = feed.getEntity(0);
+    assertTrue(entity.getVehicle().hasOccupancyPercentage());
+    assertEquals(-1, entity.getVehicle().getOccupancyPercentage());
   }
 
   private static void createVehicleEntity() {
