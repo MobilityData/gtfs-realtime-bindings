@@ -26,8 +26,6 @@ Test the generated code:
 mvn verify
 ````
 
-Bump version numbers as appropriate in `pom.xml`
-
 ## Publishing a new release
 
 #### One-Time Setup
@@ -64,7 +62,7 @@ To sign the application (required for publishing to Maven Central) we use Bintra
 
 #### Every release
 
-1. After you've committed any changes, run `mvn release:prepare`.  This will automatically bump the SNAPSHOT version number to the release version, commit this change, and then bump the version number again to the new SNAPSHOT version for the next development cycle and commit this change too. After running `mvn release:prepare` you'll be prompted to enter these version numbers as well as the tag release name - use the following values, where X is the new version to be released (e.g., if current version is `0.0.1-SNAPSHOT`, release would be `0.0.1`):
+1. After you've committed any changes, run `mvn release:prepare -Dresume=false`.  This will automatically bump the SNAPSHOT version number to the release version, commit this change, and then bump the version number again to the new SNAPSHOT version for the next development cycle and commit this change too. After running `mvn release:prepare` you'll be prompted to enter these version numbers as well as the tag release name - use the following values, where X is the new version to be released (e.g., if current version is `0.0.1-SNAPSHOT`, release would be `0.0.1`):
    	
    * `0.0.[X]`
    * `gtfs-realtime-bindings-java-0.0.[X]` (Note the addition of `-java`)
