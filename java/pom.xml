@@ -68,6 +68,7 @@
         <resources>
             <resource>
                 <directory>../</directory>
+                <targetPath>com/google/transit/realtime</targetPath>
                 <includes>
                     <include>gtfs-realtime.proto</include>
                 </includes>
