@@ -16,6 +16,7 @@
 var GtfsRealtimeApi = require('../gtfs-realtime.js');
 var fs = require('fs');
 var should = require('should');
+var assert = require('assert');
 
 describe('GtfsRealtimeApi', function(){
   describe('FeedMessage#decode()', function(){
@@ -28,6 +29,7 @@ describe('GtfsRealtimeApi', function(){
         feed.entity[0].should.have.property('vehicle');
         var vehicle = feed.entity[0].vehicle;
         vehicle.should.have.properties('trip', 'vehicle', 'position');
+        assert.equal(vehicle.trip.tripId, "t0")
         done();
       });
     });
