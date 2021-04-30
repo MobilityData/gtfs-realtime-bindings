@@ -1998,6 +1998,7 @@ $root.transit_realtime = (function() {
          * @property {Array.<transit_realtime.TripUpdate.IStopTimeUpdate>|null} [stopTimeUpdate] TripUpdate stopTimeUpdate
          * @property {number|Long|null} [timestamp] TripUpdate timestamp
          * @property {number|null} [delay] TripUpdate delay
+         * @property {transit_realtime.TripUpdate.ITripProperties|null} [tripProperties] TripUpdate tripProperties
          */
 
         /**
@@ -2057,6 +2058,14 @@ $root.transit_realtime = (function() {
         TripUpdate.prototype.delay = 0;
 
         /**
+         * TripUpdate tripProperties.
+         * @member {transit_realtime.TripUpdate.ITripProperties|null|undefined} tripProperties
+         * @memberof transit_realtime.TripUpdate
+         * @instance
+         */
+        TripUpdate.prototype.tripProperties = null;
+
+        /**
          * Creates a new TripUpdate instance using the specified properties.
          * @function create
          * @memberof transit_realtime.TripUpdate
@@ -2090,6 +2099,8 @@ $root.transit_realtime = (function() {
                 writer.uint32(/* id 4, wireType 0 =*/32).uint64(message.timestamp);
             if (message.delay != null && message.hasOwnProperty("delay"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.delay);
+            if (message.tripProperties != null && message.hasOwnProperty("tripProperties"))
+                $root.transit_realtime.TripUpdate.TripProperties.encode(message.tripProperties, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
             return writer;
         };
 
@@ -2140,6 +2151,9 @@ $root.transit_realtime = (function() {
                     break;
                 case 5:
                     message.delay = reader.int32();
+                    break;
+                case 6:
+                    message.tripProperties = $root.transit_realtime.TripUpdate.TripProperties.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2203,6 +2217,11 @@ $root.transit_realtime = (function() {
             if (message.delay != null && message.hasOwnProperty("delay"))
                 if (!$util.isInteger(message.delay))
                     return "delay: integer expected";
+            if (message.tripProperties != null && message.hasOwnProperty("tripProperties")) {
+                var error = $root.transit_realtime.TripUpdate.TripProperties.verify(message.tripProperties);
+                if (error)
+                    return "tripProperties." + error;
+            }
             return null;
         };
 
@@ -2249,6 +2268,11 @@ $root.transit_realtime = (function() {
                     message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber(true);
             if (object.delay != null)
                 message.delay = object.delay | 0;
+            if (object.tripProperties != null) {
+                if (typeof object.tripProperties !== "object")
+                    throw TypeError(".transit_realtime.TripUpdate.tripProperties: object expected");
+                message.tripProperties = $root.transit_realtime.TripUpdate.TripProperties.fromObject(object.tripProperties);
+            }
             return message;
         };
 
@@ -2276,6 +2300,7 @@ $root.transit_realtime = (function() {
                 } else
                     object.timestamp = options.longs === String ? "0" : 0;
                 object.delay = 0;
+                object.tripProperties = null;
             }
             if (message.trip != null && message.hasOwnProperty("trip"))
                 object.trip = $root.transit_realtime.TripDescriptor.toObject(message.trip, options);
@@ -2293,6 +2318,8 @@ $root.transit_realtime = (function() {
                     object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber(true) : message.timestamp;
             if (message.delay != null && message.hasOwnProperty("delay"))
                 object.delay = message.delay;
+            if (message.tripProperties != null && message.hasOwnProperty("tripProperties"))
+                object.tripProperties = $root.transit_realtime.TripUpdate.TripProperties.toObject(message.tripProperties, options);
             return object;
         };
 
@@ -2563,7 +2590,9 @@ $root.transit_realtime = (function() {
              * @property {string|null} [stopId] StopTimeUpdate stopId
              * @property {transit_realtime.TripUpdate.IStopTimeEvent|null} [arrival] StopTimeUpdate arrival
              * @property {transit_realtime.TripUpdate.IStopTimeEvent|null} [departure] StopTimeUpdate departure
+             * @property {transit_realtime.VehiclePosition.OccupancyStatus|null} [departureOccupancyStatus] StopTimeUpdate departureOccupancyStatus
              * @property {transit_realtime.TripUpdate.StopTimeUpdate.ScheduleRelationship|null} [scheduleRelationship] StopTimeUpdate scheduleRelationship
+             * @property {transit_realtime.TripUpdate.StopTimeUpdate.IStopTimeProperties|null} [stopTimeProperties] StopTimeUpdate stopTimeProperties
              * @property {ITransitStopTimeUpdateExtension|null} [".transitStopTimeUpdateExtension"] StopTimeUpdate .transitStopTimeUpdateExtension
              */
 
@@ -2615,12 +2644,28 @@ $root.transit_realtime = (function() {
             StopTimeUpdate.prototype.departure = null;
 
             /**
+             * StopTimeUpdate departureOccupancyStatus.
+             * @member {transit_realtime.VehiclePosition.OccupancyStatus} departureOccupancyStatus
+             * @memberof transit_realtime.TripUpdate.StopTimeUpdate
+             * @instance
+             */
+            StopTimeUpdate.prototype.departureOccupancyStatus = 0;
+
+            /**
              * StopTimeUpdate scheduleRelationship.
              * @member {transit_realtime.TripUpdate.StopTimeUpdate.ScheduleRelationship} scheduleRelationship
              * @memberof transit_realtime.TripUpdate.StopTimeUpdate
              * @instance
              */
             StopTimeUpdate.prototype.scheduleRelationship = 0;
+
+            /**
+             * StopTimeUpdate stopTimeProperties.
+             * @member {transit_realtime.TripUpdate.StopTimeUpdate.IStopTimeProperties|null|undefined} stopTimeProperties
+             * @memberof transit_realtime.TripUpdate.StopTimeUpdate
+             * @instance
+             */
+            StopTimeUpdate.prototype.stopTimeProperties = null;
 
             /**
              * StopTimeUpdate .transitStopTimeUpdateExtension.
@@ -2664,6 +2709,10 @@ $root.transit_realtime = (function() {
                     writer.uint32(/* id 4, wireType 2 =*/34).string(message.stopId);
                 if (message.scheduleRelationship != null && message.hasOwnProperty("scheduleRelationship"))
                     writer.uint32(/* id 5, wireType 0 =*/40).int32(message.scheduleRelationship);
+                if (message.stopTimeProperties != null && message.hasOwnProperty("stopTimeProperties"))
+                    $root.transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties.encode(message.stopTimeProperties, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
+                if (message.departureOccupancyStatus != null && message.hasOwnProperty("departureOccupancyStatus"))
+                    writer.uint32(/* id 7, wireType 0 =*/56).int32(message.departureOccupancyStatus);
                 if (message[".transitStopTimeUpdateExtension"] != null && message.hasOwnProperty(".transitStopTimeUpdateExtension"))
                     $root.TransitStopTimeUpdateExtension.encode(message[".transitStopTimeUpdateExtension"], writer.uint32(/* id 9514, wireType 2 =*/76114).fork()).ldelim();
                 return writer;
@@ -2712,8 +2761,14 @@ $root.transit_realtime = (function() {
                     case 3:
                         message.departure = $root.transit_realtime.TripUpdate.StopTimeEvent.decode(reader, reader.uint32());
                         break;
+                    case 7:
+                        message.departureOccupancyStatus = reader.int32();
+                        break;
                     case 5:
                         message.scheduleRelationship = reader.int32();
+                        break;
+                    case 6:
+                        message.stopTimeProperties = $root.transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties.decode(reader, reader.uint32());
                         break;
                     case 9514:
                         message[".transitStopTimeUpdateExtension"] = $root.TransitStopTimeUpdateExtension.decode(reader, reader.uint32());
@@ -2769,6 +2824,21 @@ $root.transit_realtime = (function() {
                     if (error)
                         return "departure." + error;
                 }
+                if (message.departureOccupancyStatus != null && message.hasOwnProperty("departureOccupancyStatus"))
+                    switch (message.departureOccupancyStatus) {
+                    default:
+                        return "departureOccupancyStatus: enum value expected";
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        break;
+                    }
                 if (message.scheduleRelationship != null && message.hasOwnProperty("scheduleRelationship"))
                     switch (message.scheduleRelationship) {
                     default:
@@ -2779,6 +2849,11 @@ $root.transit_realtime = (function() {
                     case 3:
                         break;
                     }
+                if (message.stopTimeProperties != null && message.hasOwnProperty("stopTimeProperties")) {
+                    var error = $root.transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties.verify(message.stopTimeProperties);
+                    if (error)
+                        return "stopTimeProperties." + error;
+                }
                 if (message[".transitStopTimeUpdateExtension"] != null && message.hasOwnProperty(".transitStopTimeUpdateExtension")) {
                     var error = $root.TransitStopTimeUpdateExtension.verify(message[".transitStopTimeUpdateExtension"]);
                     if (error)
@@ -2813,6 +2888,44 @@ $root.transit_realtime = (function() {
                         throw TypeError(".transit_realtime.TripUpdate.StopTimeUpdate.departure: object expected");
                     message.departure = $root.transit_realtime.TripUpdate.StopTimeEvent.fromObject(object.departure);
                 }
+                switch (object.departureOccupancyStatus) {
+                case "EMPTY":
+                case 0:
+                    message.departureOccupancyStatus = 0;
+                    break;
+                case "MANY_SEATS_AVAILABLE":
+                case 1:
+                    message.departureOccupancyStatus = 1;
+                    break;
+                case "FEW_SEATS_AVAILABLE":
+                case 2:
+                    message.departureOccupancyStatus = 2;
+                    break;
+                case "STANDING_ROOM_ONLY":
+                case 3:
+                    message.departureOccupancyStatus = 3;
+                    break;
+                case "CRUSHED_STANDING_ROOM_ONLY":
+                case 4:
+                    message.departureOccupancyStatus = 4;
+                    break;
+                case "FULL":
+                case 5:
+                    message.departureOccupancyStatus = 5;
+                    break;
+                case "NOT_ACCEPTING_PASSENGERS":
+                case 6:
+                    message.departureOccupancyStatus = 6;
+                    break;
+                case "NO_DATA_AVAILABLE":
+                case 7:
+                    message.departureOccupancyStatus = 7;
+                    break;
+                case "NOT_BOARDABLE":
+                case 8:
+                    message.departureOccupancyStatus = 8;
+                    break;
+                }
                 switch (object.scheduleRelationship) {
                 case "SCHEDULED":
                 case 0:
@@ -2830,6 +2943,11 @@ $root.transit_realtime = (function() {
                 case 3:
                     message.scheduleRelationship = 3;
                     break;
+                }
+                if (object.stopTimeProperties != null) {
+                    if (typeof object.stopTimeProperties !== "object")
+                        throw TypeError(".transit_realtime.TripUpdate.StopTimeUpdate.stopTimeProperties: object expected");
+                    message.stopTimeProperties = $root.transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties.fromObject(object.stopTimeProperties);
                 }
                 if (object[".transitStopTimeUpdateExtension"] != null) {
                     if (typeof object[".transitStopTimeUpdateExtension"] !== "object")
@@ -2858,6 +2976,8 @@ $root.transit_realtime = (function() {
                     object.departure = null;
                     object.stopId = "";
                     object.scheduleRelationship = options.enums === String ? "SCHEDULED" : 0;
+                    object.stopTimeProperties = null;
+                    object.departureOccupancyStatus = options.enums === String ? "EMPTY" : 0;
                     object[".transitStopTimeUpdateExtension"] = null;
                 }
                 if (message.stopSequence != null && message.hasOwnProperty("stopSequence"))
@@ -2870,6 +2990,10 @@ $root.transit_realtime = (function() {
                     object.stopId = message.stopId;
                 if (message.scheduleRelationship != null && message.hasOwnProperty("scheduleRelationship"))
                     object.scheduleRelationship = options.enums === String ? $root.transit_realtime.TripUpdate.StopTimeUpdate.ScheduleRelationship[message.scheduleRelationship] : message.scheduleRelationship;
+                if (message.stopTimeProperties != null && message.hasOwnProperty("stopTimeProperties"))
+                    object.stopTimeProperties = $root.transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties.toObject(message.stopTimeProperties, options);
+                if (message.departureOccupancyStatus != null && message.hasOwnProperty("departureOccupancyStatus"))
+                    object.departureOccupancyStatus = options.enums === String ? $root.transit_realtime.VehiclePosition.OccupancyStatus[message.departureOccupancyStatus] : message.departureOccupancyStatus;
                 if (message[".transitStopTimeUpdateExtension"] != null && message.hasOwnProperty(".transitStopTimeUpdateExtension"))
                     object[".transitStopTimeUpdateExtension"] = $root.TransitStopTimeUpdateExtension.toObject(message[".transitStopTimeUpdateExtension"], options);
                 return object;
@@ -2904,7 +3028,426 @@ $root.transit_realtime = (function() {
                 return values;
             })();
 
+            StopTimeUpdate.StopTimeProperties = (function() {
+
+                /**
+                 * Properties of a StopTimeProperties.
+                 * @memberof transit_realtime.TripUpdate.StopTimeUpdate
+                 * @interface IStopTimeProperties
+                 * @property {string|null} [assignedStopId] StopTimeProperties assignedStopId
+                 */
+
+                /**
+                 * Constructs a new StopTimeProperties.
+                 * @memberof transit_realtime.TripUpdate.StopTimeUpdate
+                 * @classdesc Represents a StopTimeProperties.
+                 * @implements IStopTimeProperties
+                 * @constructor
+                 * @param {transit_realtime.TripUpdate.StopTimeUpdate.IStopTimeProperties=} [properties] Properties to set
+                 */
+                function StopTimeProperties(properties) {
+                    if (properties)
+                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+
+                /**
+                 * StopTimeProperties assignedStopId.
+                 * @member {string} assignedStopId
+                 * @memberof transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties
+                 * @instance
+                 */
+                StopTimeProperties.prototype.assignedStopId = "";
+
+                /**
+                 * Creates a new StopTimeProperties instance using the specified properties.
+                 * @function create
+                 * @memberof transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties
+                 * @static
+                 * @param {transit_realtime.TripUpdate.StopTimeUpdate.IStopTimeProperties=} [properties] Properties to set
+                 * @returns {transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties} StopTimeProperties instance
+                 */
+                StopTimeProperties.create = function create(properties) {
+                    return new StopTimeProperties(properties);
+                };
+
+                /**
+                 * Encodes the specified StopTimeProperties message. Does not implicitly {@link transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties.verify|verify} messages.
+                 * @function encode
+                 * @memberof transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties
+                 * @static
+                 * @param {transit_realtime.TripUpdate.StopTimeUpdate.IStopTimeProperties} message StopTimeProperties message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                StopTimeProperties.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (message.assignedStopId != null && message.hasOwnProperty("assignedStopId"))
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.assignedStopId);
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified StopTimeProperties message, length delimited. Does not implicitly {@link transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties
+                 * @static
+                 * @param {transit_realtime.TripUpdate.StopTimeUpdate.IStopTimeProperties} message StopTimeProperties message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                StopTimeProperties.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+
+                /**
+                 * Decodes a StopTimeProperties message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties} StopTimeProperties
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                StopTimeProperties.decode = function decode(reader, length) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties();
+                    while (reader.pos < end) {
+                        var tag = reader.uint32();
+                        switch (tag >>> 3) {
+                        case 1:
+                            message.assignedStopId = reader.string();
+                            break;
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    return message;
+                };
+
+                /**
+                 * Decodes a StopTimeProperties message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties} StopTimeProperties
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                StopTimeProperties.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies a StopTimeProperties message.
+                 * @function verify
+                 * @memberof transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                StopTimeProperties.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (message.assignedStopId != null && message.hasOwnProperty("assignedStopId"))
+                        if (!$util.isString(message.assignedStopId))
+                            return "assignedStopId: string expected";
+                    return null;
+                };
+
+                /**
+                 * Creates a StopTimeProperties message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties} StopTimeProperties
+                 */
+                StopTimeProperties.fromObject = function fromObject(object) {
+                    if (object instanceof $root.transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties)
+                        return object;
+                    var message = new $root.transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties();
+                    if (object.assignedStopId != null)
+                        message.assignedStopId = String(object.assignedStopId);
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from a StopTimeProperties message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties
+                 * @static
+                 * @param {transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties} message StopTimeProperties
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                StopTimeProperties.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    var object = {};
+                    if (options.defaults)
+                        object.assignedStopId = "";
+                    if (message.assignedStopId != null && message.hasOwnProperty("assignedStopId"))
+                        object.assignedStopId = message.assignedStopId;
+                    return object;
+                };
+
+                /**
+                 * Converts this StopTimeProperties to JSON.
+                 * @function toJSON
+                 * @memberof transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                StopTimeProperties.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                return StopTimeProperties;
+            })();
+
             return StopTimeUpdate;
+        })();
+
+        TripUpdate.TripProperties = (function() {
+
+            /**
+             * Properties of a TripProperties.
+             * @memberof transit_realtime.TripUpdate
+             * @interface ITripProperties
+             * @property {string|null} [tripId] TripProperties tripId
+             * @property {string|null} [startDate] TripProperties startDate
+             * @property {string|null} [startTime] TripProperties startTime
+             */
+
+            /**
+             * Constructs a new TripProperties.
+             * @memberof transit_realtime.TripUpdate
+             * @classdesc Represents a TripProperties.
+             * @implements ITripProperties
+             * @constructor
+             * @param {transit_realtime.TripUpdate.ITripProperties=} [properties] Properties to set
+             */
+            function TripProperties(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * TripProperties tripId.
+             * @member {string} tripId
+             * @memberof transit_realtime.TripUpdate.TripProperties
+             * @instance
+             */
+            TripProperties.prototype.tripId = "";
+
+            /**
+             * TripProperties startDate.
+             * @member {string} startDate
+             * @memberof transit_realtime.TripUpdate.TripProperties
+             * @instance
+             */
+            TripProperties.prototype.startDate = "";
+
+            /**
+             * TripProperties startTime.
+             * @member {string} startTime
+             * @memberof transit_realtime.TripUpdate.TripProperties
+             * @instance
+             */
+            TripProperties.prototype.startTime = "";
+
+            /**
+             * Creates a new TripProperties instance using the specified properties.
+             * @function create
+             * @memberof transit_realtime.TripUpdate.TripProperties
+             * @static
+             * @param {transit_realtime.TripUpdate.ITripProperties=} [properties] Properties to set
+             * @returns {transit_realtime.TripUpdate.TripProperties} TripProperties instance
+             */
+            TripProperties.create = function create(properties) {
+                return new TripProperties(properties);
+            };
+
+            /**
+             * Encodes the specified TripProperties message. Does not implicitly {@link transit_realtime.TripUpdate.TripProperties.verify|verify} messages.
+             * @function encode
+             * @memberof transit_realtime.TripUpdate.TripProperties
+             * @static
+             * @param {transit_realtime.TripUpdate.ITripProperties} message TripProperties message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            TripProperties.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.tripId != null && message.hasOwnProperty("tripId"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.tripId);
+                if (message.startDate != null && message.hasOwnProperty("startDate"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.startDate);
+                if (message.startTime != null && message.hasOwnProperty("startTime"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.startTime);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified TripProperties message, length delimited. Does not implicitly {@link transit_realtime.TripUpdate.TripProperties.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof transit_realtime.TripUpdate.TripProperties
+             * @static
+             * @param {transit_realtime.TripUpdate.ITripProperties} message TripProperties message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            TripProperties.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a TripProperties message from the specified reader or buffer.
+             * @function decode
+             * @memberof transit_realtime.TripUpdate.TripProperties
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {transit_realtime.TripUpdate.TripProperties} TripProperties
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            TripProperties.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.TripUpdate.TripProperties();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.tripId = reader.string();
+                        break;
+                    case 2:
+                        message.startDate = reader.string();
+                        break;
+                    case 3:
+                        message.startTime = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a TripProperties message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof transit_realtime.TripUpdate.TripProperties
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {transit_realtime.TripUpdate.TripProperties} TripProperties
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            TripProperties.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a TripProperties message.
+             * @function verify
+             * @memberof transit_realtime.TripUpdate.TripProperties
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            TripProperties.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.tripId != null && message.hasOwnProperty("tripId"))
+                    if (!$util.isString(message.tripId))
+                        return "tripId: string expected";
+                if (message.startDate != null && message.hasOwnProperty("startDate"))
+                    if (!$util.isString(message.startDate))
+                        return "startDate: string expected";
+                if (message.startTime != null && message.hasOwnProperty("startTime"))
+                    if (!$util.isString(message.startTime))
+                        return "startTime: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a TripProperties message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof transit_realtime.TripUpdate.TripProperties
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {transit_realtime.TripUpdate.TripProperties} TripProperties
+             */
+            TripProperties.fromObject = function fromObject(object) {
+                if (object instanceof $root.transit_realtime.TripUpdate.TripProperties)
+                    return object;
+                var message = new $root.transit_realtime.TripUpdate.TripProperties();
+                if (object.tripId != null)
+                    message.tripId = String(object.tripId);
+                if (object.startDate != null)
+                    message.startDate = String(object.startDate);
+                if (object.startTime != null)
+                    message.startTime = String(object.startTime);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a TripProperties message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof transit_realtime.TripUpdate.TripProperties
+             * @static
+             * @param {transit_realtime.TripUpdate.TripProperties} message TripProperties
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            TripProperties.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.tripId = "";
+                    object.startDate = "";
+                    object.startTime = "";
+                }
+                if (message.tripId != null && message.hasOwnProperty("tripId"))
+                    object.tripId = message.tripId;
+                if (message.startDate != null && message.hasOwnProperty("startDate"))
+                    object.startDate = message.startDate;
+                if (message.startTime != null && message.hasOwnProperty("startTime"))
+                    object.startTime = message.startTime;
+                return object;
+            };
+
+            /**
+             * Converts this TripProperties to JSON.
+             * @function toJSON
+             * @memberof transit_realtime.TripUpdate.TripProperties
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            TripProperties.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return TripProperties;
         })();
 
         return TripUpdate;
@@ -2925,6 +3468,8 @@ $root.transit_realtime = (function() {
          * @property {number|Long|null} [timestamp] VehiclePosition timestamp
          * @property {transit_realtime.VehiclePosition.CongestionLevel|null} [congestionLevel] VehiclePosition congestionLevel
          * @property {transit_realtime.VehiclePosition.OccupancyStatus|null} [occupancyStatus] VehiclePosition occupancyStatus
+         * @property {number|null} [occupancyPercentage] VehiclePosition occupancyPercentage
+         * @property {Array.<transit_realtime.VehiclePosition.ICarriageDetails>|null} [multiCarriageDetails] VehiclePosition multiCarriageDetails
          */
 
         /**
@@ -2936,6 +3481,7 @@ $root.transit_realtime = (function() {
          * @param {transit_realtime.IVehiclePosition=} [properties] Properties to set
          */
         function VehiclePosition(properties) {
+            this.multiCarriageDetails = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -3015,6 +3561,22 @@ $root.transit_realtime = (function() {
         VehiclePosition.prototype.occupancyStatus = 0;
 
         /**
+         * VehiclePosition occupancyPercentage.
+         * @member {number} occupancyPercentage
+         * @memberof transit_realtime.VehiclePosition
+         * @instance
+         */
+        VehiclePosition.prototype.occupancyPercentage = 0;
+
+        /**
+         * VehiclePosition multiCarriageDetails.
+         * @member {Array.<transit_realtime.VehiclePosition.ICarriageDetails>} multiCarriageDetails
+         * @memberof transit_realtime.VehiclePosition
+         * @instance
+         */
+        VehiclePosition.prototype.multiCarriageDetails = $util.emptyArray;
+
+        /**
          * Creates a new VehiclePosition instance using the specified properties.
          * @function create
          * @memberof transit_realtime.VehiclePosition
@@ -3056,6 +3618,11 @@ $root.transit_realtime = (function() {
                 $root.transit_realtime.VehicleDescriptor.encode(message.vehicle, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
             if (message.occupancyStatus != null && message.hasOwnProperty("occupancyStatus"))
                 writer.uint32(/* id 9, wireType 0 =*/72).int32(message.occupancyStatus);
+            if (message.occupancyPercentage != null && message.hasOwnProperty("occupancyPercentage"))
+                writer.uint32(/* id 10, wireType 0 =*/80).uint32(message.occupancyPercentage);
+            if (message.multiCarriageDetails != null && message.multiCarriageDetails.length)
+                for (var i = 0; i < message.multiCarriageDetails.length; ++i)
+                    $root.transit_realtime.VehiclePosition.CarriageDetails.encode(message.multiCarriageDetails[i], writer.uint32(/* id 11, wireType 2 =*/90).fork()).ldelim();
             return writer;
         };
 
@@ -3116,6 +3683,14 @@ $root.transit_realtime = (function() {
                     break;
                 case 9:
                     message.occupancyStatus = reader.int32();
+                    break;
+                case 10:
+                    message.occupancyPercentage = reader.uint32();
+                    break;
+                case 11:
+                    if (!(message.multiCarriageDetails && message.multiCarriageDetails.length))
+                        message.multiCarriageDetails = [];
+                    message.multiCarriageDetails.push($root.transit_realtime.VehiclePosition.CarriageDetails.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3207,8 +3782,22 @@ $root.transit_realtime = (function() {
                 case 4:
                 case 5:
                 case 6:
+                case 7:
+                case 8:
                     break;
                 }
+            if (message.occupancyPercentage != null && message.hasOwnProperty("occupancyPercentage"))
+                if (!$util.isInteger(message.occupancyPercentage))
+                    return "occupancyPercentage: integer expected";
+            if (message.multiCarriageDetails != null && message.hasOwnProperty("multiCarriageDetails")) {
+                if (!Array.isArray(message.multiCarriageDetails))
+                    return "multiCarriageDetails: array expected";
+                for (var i = 0; i < message.multiCarriageDetails.length; ++i) {
+                    var error = $root.transit_realtime.VehiclePosition.CarriageDetails.verify(message.multiCarriageDetails[i]);
+                    if (error)
+                        return "multiCarriageDetails." + error;
+                }
+            }
             return null;
         };
 
@@ -3317,6 +3906,26 @@ $root.transit_realtime = (function() {
             case 6:
                 message.occupancyStatus = 6;
                 break;
+            case "NO_DATA_AVAILABLE":
+            case 7:
+                message.occupancyStatus = 7;
+                break;
+            case "NOT_BOARDABLE":
+            case 8:
+                message.occupancyStatus = 8;
+                break;
+            }
+            if (object.occupancyPercentage != null)
+                message.occupancyPercentage = object.occupancyPercentage >>> 0;
+            if (object.multiCarriageDetails) {
+                if (!Array.isArray(object.multiCarriageDetails))
+                    throw TypeError(".transit_realtime.VehiclePosition.multiCarriageDetails: array expected");
+                message.multiCarriageDetails = [];
+                for (var i = 0; i < object.multiCarriageDetails.length; ++i) {
+                    if (typeof object.multiCarriageDetails[i] !== "object")
+                        throw TypeError(".transit_realtime.VehiclePosition.multiCarriageDetails: object expected");
+                    message.multiCarriageDetails[i] = $root.transit_realtime.VehiclePosition.CarriageDetails.fromObject(object.multiCarriageDetails[i]);
+                }
             }
             return message;
         };
@@ -3334,6 +3943,8 @@ $root.transit_realtime = (function() {
             if (!options)
                 options = {};
             var object = {};
+            if (options.arrays || options.defaults)
+                object.multiCarriageDetails = [];
             if (options.defaults) {
                 object.trip = null;
                 object.position = null;
@@ -3348,6 +3959,7 @@ $root.transit_realtime = (function() {
                 object.stopId = "";
                 object.vehicle = null;
                 object.occupancyStatus = options.enums === String ? "EMPTY" : 0;
+                object.occupancyPercentage = 0;
             }
             if (message.trip != null && message.hasOwnProperty("trip"))
                 object.trip = $root.transit_realtime.TripDescriptor.toObject(message.trip, options);
@@ -3370,6 +3982,13 @@ $root.transit_realtime = (function() {
                 object.vehicle = $root.transit_realtime.VehicleDescriptor.toObject(message.vehicle, options);
             if (message.occupancyStatus != null && message.hasOwnProperty("occupancyStatus"))
                 object.occupancyStatus = options.enums === String ? $root.transit_realtime.VehiclePosition.OccupancyStatus[message.occupancyStatus] : message.occupancyStatus;
+            if (message.occupancyPercentage != null && message.hasOwnProperty("occupancyPercentage"))
+                object.occupancyPercentage = message.occupancyPercentage;
+            if (message.multiCarriageDetails && message.multiCarriageDetails.length) {
+                object.multiCarriageDetails = [];
+                for (var j = 0; j < message.multiCarriageDetails.length; ++j)
+                    object.multiCarriageDetails[j] = $root.transit_realtime.VehiclePosition.CarriageDetails.toObject(message.multiCarriageDetails[j], options);
+            }
             return object;
         };
 
@@ -3431,6 +4050,8 @@ $root.transit_realtime = (function() {
          * @property {number} CRUSHED_STANDING_ROOM_ONLY=4 CRUSHED_STANDING_ROOM_ONLY value
          * @property {number} FULL=5 FULL value
          * @property {number} NOT_ACCEPTING_PASSENGERS=6 NOT_ACCEPTING_PASSENGERS value
+         * @property {number} NO_DATA_AVAILABLE=7 NO_DATA_AVAILABLE value
+         * @property {number} NOT_BOARDABLE=8 NOT_BOARDABLE value
          */
         VehiclePosition.OccupancyStatus = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -3441,7 +4062,333 @@ $root.transit_realtime = (function() {
             values[valuesById[4] = "CRUSHED_STANDING_ROOM_ONLY"] = 4;
             values[valuesById[5] = "FULL"] = 5;
             values[valuesById[6] = "NOT_ACCEPTING_PASSENGERS"] = 6;
+            values[valuesById[7] = "NO_DATA_AVAILABLE"] = 7;
+            values[valuesById[8] = "NOT_BOARDABLE"] = 8;
             return values;
+        })();
+
+        VehiclePosition.CarriageDetails = (function() {
+
+            /**
+             * Properties of a CarriageDetails.
+             * @memberof transit_realtime.VehiclePosition
+             * @interface ICarriageDetails
+             * @property {string|null} [id] CarriageDetails id
+             * @property {string|null} [label] CarriageDetails label
+             * @property {transit_realtime.VehiclePosition.OccupancyStatus|null} [occupancyStatus] CarriageDetails occupancyStatus
+             * @property {number|null} [occupancyPercentage] CarriageDetails occupancyPercentage
+             * @property {number|null} [carriageSequence] CarriageDetails carriageSequence
+             */
+
+            /**
+             * Constructs a new CarriageDetails.
+             * @memberof transit_realtime.VehiclePosition
+             * @classdesc Represents a CarriageDetails.
+             * @implements ICarriageDetails
+             * @constructor
+             * @param {transit_realtime.VehiclePosition.ICarriageDetails=} [properties] Properties to set
+             */
+            function CarriageDetails(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * CarriageDetails id.
+             * @member {string} id
+             * @memberof transit_realtime.VehiclePosition.CarriageDetails
+             * @instance
+             */
+            CarriageDetails.prototype.id = "";
+
+            /**
+             * CarriageDetails label.
+             * @member {string} label
+             * @memberof transit_realtime.VehiclePosition.CarriageDetails
+             * @instance
+             */
+            CarriageDetails.prototype.label = "";
+
+            /**
+             * CarriageDetails occupancyStatus.
+             * @member {transit_realtime.VehiclePosition.OccupancyStatus} occupancyStatus
+             * @memberof transit_realtime.VehiclePosition.CarriageDetails
+             * @instance
+             */
+            CarriageDetails.prototype.occupancyStatus = 7;
+
+            /**
+             * CarriageDetails occupancyPercentage.
+             * @member {number} occupancyPercentage
+             * @memberof transit_realtime.VehiclePosition.CarriageDetails
+             * @instance
+             */
+            CarriageDetails.prototype.occupancyPercentage = -1;
+
+            /**
+             * CarriageDetails carriageSequence.
+             * @member {number} carriageSequence
+             * @memberof transit_realtime.VehiclePosition.CarriageDetails
+             * @instance
+             */
+            CarriageDetails.prototype.carriageSequence = 0;
+
+            /**
+             * Creates a new CarriageDetails instance using the specified properties.
+             * @function create
+             * @memberof transit_realtime.VehiclePosition.CarriageDetails
+             * @static
+             * @param {transit_realtime.VehiclePosition.ICarriageDetails=} [properties] Properties to set
+             * @returns {transit_realtime.VehiclePosition.CarriageDetails} CarriageDetails instance
+             */
+            CarriageDetails.create = function create(properties) {
+                return new CarriageDetails(properties);
+            };
+
+            /**
+             * Encodes the specified CarriageDetails message. Does not implicitly {@link transit_realtime.VehiclePosition.CarriageDetails.verify|verify} messages.
+             * @function encode
+             * @memberof transit_realtime.VehiclePosition.CarriageDetails
+             * @static
+             * @param {transit_realtime.VehiclePosition.ICarriageDetails} message CarriageDetails message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CarriageDetails.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.id != null && message.hasOwnProperty("id"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                if (message.label != null && message.hasOwnProperty("label"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.label);
+                if (message.occupancyStatus != null && message.hasOwnProperty("occupancyStatus"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).int32(message.occupancyStatus);
+                if (message.occupancyPercentage != null && message.hasOwnProperty("occupancyPercentage"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).int32(message.occupancyPercentage);
+                if (message.carriageSequence != null && message.hasOwnProperty("carriageSequence"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.carriageSequence);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified CarriageDetails message, length delimited. Does not implicitly {@link transit_realtime.VehiclePosition.CarriageDetails.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof transit_realtime.VehiclePosition.CarriageDetails
+             * @static
+             * @param {transit_realtime.VehiclePosition.ICarriageDetails} message CarriageDetails message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CarriageDetails.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a CarriageDetails message from the specified reader or buffer.
+             * @function decode
+             * @memberof transit_realtime.VehiclePosition.CarriageDetails
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {transit_realtime.VehiclePosition.CarriageDetails} CarriageDetails
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CarriageDetails.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.transit_realtime.VehiclePosition.CarriageDetails();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.id = reader.string();
+                        break;
+                    case 2:
+                        message.label = reader.string();
+                        break;
+                    case 3:
+                        message.occupancyStatus = reader.int32();
+                        break;
+                    case 4:
+                        message.occupancyPercentage = reader.int32();
+                        break;
+                    case 5:
+                        message.carriageSequence = reader.uint32();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a CarriageDetails message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof transit_realtime.VehiclePosition.CarriageDetails
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {transit_realtime.VehiclePosition.CarriageDetails} CarriageDetails
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CarriageDetails.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a CarriageDetails message.
+             * @function verify
+             * @memberof transit_realtime.VehiclePosition.CarriageDetails
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            CarriageDetails.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    if (!$util.isString(message.id))
+                        return "id: string expected";
+                if (message.label != null && message.hasOwnProperty("label"))
+                    if (!$util.isString(message.label))
+                        return "label: string expected";
+                if (message.occupancyStatus != null && message.hasOwnProperty("occupancyStatus"))
+                    switch (message.occupancyStatus) {
+                    default:
+                        return "occupancyStatus: enum value expected";
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        break;
+                    }
+                if (message.occupancyPercentage != null && message.hasOwnProperty("occupancyPercentage"))
+                    if (!$util.isInteger(message.occupancyPercentage))
+                        return "occupancyPercentage: integer expected";
+                if (message.carriageSequence != null && message.hasOwnProperty("carriageSequence"))
+                    if (!$util.isInteger(message.carriageSequence))
+                        return "carriageSequence: integer expected";
+                return null;
+            };
+
+            /**
+             * Creates a CarriageDetails message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof transit_realtime.VehiclePosition.CarriageDetails
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {transit_realtime.VehiclePosition.CarriageDetails} CarriageDetails
+             */
+            CarriageDetails.fromObject = function fromObject(object) {
+                if (object instanceof $root.transit_realtime.VehiclePosition.CarriageDetails)
+                    return object;
+                var message = new $root.transit_realtime.VehiclePosition.CarriageDetails();
+                if (object.id != null)
+                    message.id = String(object.id);
+                if (object.label != null)
+                    message.label = String(object.label);
+                switch (object.occupancyStatus) {
+                case "EMPTY":
+                case 0:
+                    message.occupancyStatus = 0;
+                    break;
+                case "MANY_SEATS_AVAILABLE":
+                case 1:
+                    message.occupancyStatus = 1;
+                    break;
+                case "FEW_SEATS_AVAILABLE":
+                case 2:
+                    message.occupancyStatus = 2;
+                    break;
+                case "STANDING_ROOM_ONLY":
+                case 3:
+                    message.occupancyStatus = 3;
+                    break;
+                case "CRUSHED_STANDING_ROOM_ONLY":
+                case 4:
+                    message.occupancyStatus = 4;
+                    break;
+                case "FULL":
+                case 5:
+                    message.occupancyStatus = 5;
+                    break;
+                case "NOT_ACCEPTING_PASSENGERS":
+                case 6:
+                    message.occupancyStatus = 6;
+                    break;
+                case "NO_DATA_AVAILABLE":
+                case 7:
+                    message.occupancyStatus = 7;
+                    break;
+                case "NOT_BOARDABLE":
+                case 8:
+                    message.occupancyStatus = 8;
+                    break;
+                }
+                if (object.occupancyPercentage != null)
+                    message.occupancyPercentage = object.occupancyPercentage | 0;
+                if (object.carriageSequence != null)
+                    message.carriageSequence = object.carriageSequence >>> 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a CarriageDetails message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof transit_realtime.VehiclePosition.CarriageDetails
+             * @static
+             * @param {transit_realtime.VehiclePosition.CarriageDetails} message CarriageDetails
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            CarriageDetails.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.id = "";
+                    object.label = "";
+                    object.occupancyStatus = options.enums === String ? "NO_DATA_AVAILABLE" : 7;
+                    object.occupancyPercentage = -1;
+                    object.carriageSequence = 0;
+                }
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = message.id;
+                if (message.label != null && message.hasOwnProperty("label"))
+                    object.label = message.label;
+                if (message.occupancyStatus != null && message.hasOwnProperty("occupancyStatus"))
+                    object.occupancyStatus = options.enums === String ? $root.transit_realtime.VehiclePosition.OccupancyStatus[message.occupancyStatus] : message.occupancyStatus;
+                if (message.occupancyPercentage != null && message.hasOwnProperty("occupancyPercentage"))
+                    object.occupancyPercentage = message.occupancyPercentage;
+                if (message.carriageSequence != null && message.hasOwnProperty("carriageSequence"))
+                    object.carriageSequence = message.carriageSequence;
+                return object;
+            };
+
+            /**
+             * Converts this CarriageDetails to JSON.
+             * @function toJSON
+             * @memberof transit_realtime.VehiclePosition.CarriageDetails
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            CarriageDetails.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return CarriageDetails;
         })();
 
         return VehiclePosition;
@@ -4909,6 +5856,7 @@ $root.transit_realtime = (function() {
                 case 2:
                 case 3:
                 case 5:
+                case 6:
                     break;
                 }
             if (message[".transitTripDescriptorExtension"] != null && message.hasOwnProperty(".transitTripDescriptorExtension")) {
@@ -4961,6 +5909,10 @@ $root.transit_realtime = (function() {
             case "REPLACEMENT":
             case 5:
                 message.scheduleRelationship = 5;
+                break;
+            case "DUPLICATED":
+            case 6:
+                message.scheduleRelationship = 6;
                 break;
             }
             if (object[".transitTripDescriptorExtension"] != null) {
@@ -5030,6 +5982,7 @@ $root.transit_realtime = (function() {
          * @property {number} UNSCHEDULED=2 UNSCHEDULED value
          * @property {number} CANCELED=3 CANCELED value
          * @property {number} REPLACEMENT=5 REPLACEMENT value
+         * @property {number} DUPLICATED=6 DUPLICATED value
          */
         TripDescriptor.ScheduleRelationship = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -5038,6 +5991,7 @@ $root.transit_realtime = (function() {
             values[valuesById[2] = "UNSCHEDULED"] = 2;
             values[valuesById[3] = "CANCELED"] = 3;
             values[valuesById[5] = "REPLACEMENT"] = 5;
+            values[valuesById[6] = "DUPLICATED"] = 6;
             return values;
         })();
 
