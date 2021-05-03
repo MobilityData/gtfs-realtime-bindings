@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { GtfsRealtimeApi } from "https://taisukef.github.io/gtfs-realtime-bindigns/deno/gtfs-realtime.js";
+import { GtfsRealtimeApi } from "https://taisukef.github.io/gtfs-realtime-bindings/deno/gtfs-realtime.js";
 
 const data = await Deno.readFile("test/vehicle_position.pb");
 const feed = GtfsRealtimeApi.transit_realtime.FeedMessage.decode(data);

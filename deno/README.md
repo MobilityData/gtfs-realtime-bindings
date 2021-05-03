@@ -19,7 +19,7 @@ data feed from a particular URL, parsing it as a FeedMessage (the root type of
 the GTFS-realtime schema), and iterating over the results.
 
 ```javascript
-import { GtfsRealtimeApi } from "https://taisukef.github.io/gtfs-realtime-bindigns/deno/gtfs-realtime.js";
+import { GtfsRealtimeApi } from "https://taisukef.github.io/gtfs-realtime-bindings/deno/gtfs-realtime.js";
 
 const data = await Deno.readFile("test/vehicle_position.pb");
 const feed = GtfsRealtimeApi.transit_realtime.FeedMessage.decode(data);
