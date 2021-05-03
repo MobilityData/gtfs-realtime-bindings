@@ -1,27 +1,16 @@
 # JavaScript GTFS-realtime Language Bindings
 
-[![npm version](https://badge.fury.io/js/gtfs-realtime-bindings.svg)](http://badge.fury.io/js/gtfs-realtime-bindings)
-
 Provides JavaScript classes generated from the
 [GTFS-realtime](https://github.com/google/transit/tree/master/gtfs-realtime) Protocol
 Buffer specification.  These classes will allow you to parse a binary Protocol
 Buffer GTFS-realtime data feed into JavaScript objects.
 
-These bindings are designed to be used in the [Node.js](http://nodejs.org/)
+These bindings are designed to be used in the [Deno](https://deno.land/)
 environment, but with some effort, they can probably be used in other
 JavaScript environments as well.
 
-We use the [ProtBuf.js](https://github.com/dcodeIO/ProtoBuf.js) library for
+We use the [protbuf-es.js](https://github.com/taisukef/protobuf-es.js/) library for
 JavaScript Protocol Buffer support.
-
-## Add the Dependency
-
-To use the `gtfs-realtime-bindings` classes in your own project, you need to
-first install our [Node.js npm package](https://www.npmjs.com/package/gtfs-realtime-bindings):
-
-```
-npm install gtfs-realtime-bindings
-```
 
 ## Example Code
 
@@ -30,27 +19,15 @@ data feed from a particular URL, parsing it as a FeedMessage (the root type of
 the GTFS-realtime schema), and iterating over the results.
 
 ```javascript
-var GtfsRealtimeBindings = require('gtfs-realtime-bindings');
-var request = require('request');
+import { GtfsRealtimeApi } from "https://taisukef.github.io/gtfs-realtime-bindigns/deno/gtfs-realtime.js";
 
-var requestSettings = {
-  method: 'GET',
-  url: 'URL OF YOUR GTFS-REALTIME SOURCE GOES HERE',
-  encoding: null
-};
-request(requestSettings, function (error, response, body) {
-  if (!error && response.statusCode == 200) {
-    var feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(body);
-    feed.entity.forEach(function(entity) {
-      if (entity.trip_update) {
-        console.log(entity.trip_update);
-      }
-    });
-  }
-});
+const data = await Deno.readFile("test/vehicle_position.pb");
+const feed = GtfsRealtimeApi.transit_realtime.FeedMessage.decode(data);
+console.log(feed);
+console.log(feed.entity[0].vehicle);
 ```
 
-For more details on the naming conventions for the Javascript classes generated
+For more details on the naming conventions for the JavaScript classes generated
 from the
 [gtfs-realtime.proto](https://github.com/google/transit/blob/master/gtfs-realtime/proto/gtfs-realtime.proto),
 check out the [ProtoBuf.js project](https://github.com/dcodeIO/ProtoBuf.js/wiki)
