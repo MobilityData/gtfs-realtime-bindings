@@ -3,8 +3,16 @@
 Regenerate the language binding source from gtfs-realtime.proto.
 
 ```
-protoc --python_out=google/transit --proto_path=.. ../gtfs-realtime.proto
+protoc --python_out=google/transit -I=.. ../gtfs-spec/gtfs-realtime/proto/gtfs-realtime.proto ../transit-extensions.proto ../agency-extensions/tfnsw-vehicle.proto
 ```
+
+Switch to relative imports in `transit_extensions_pb2.py` (add the leading period):
+
+```python
+from .gtfs_spec.gtfs_realtime.proto import gtfs_realtime_pb2 as gtfs__spec_dot_gtfs__realtime_dot_proto_dot_gtfs__realtime__pb2
+from .agency_extensions import tfnsw_vehicle_pb2 as agency__extensions_dot_tfnsw__vehicle__pb2
+```
+
 
 Add the license header back to the generated source file.
 
