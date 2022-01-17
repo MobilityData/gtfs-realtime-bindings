@@ -7,6 +7,7 @@
 syntax = "proto2";
 import "gtfs-spec/gtfs-realtime/proto/gtfs-realtime.proto";
 import "agency-extensions/tfnsw-vehicle.proto";
+import "agency-extensions/mtas-realtime.proto";
 
 message TransitAlertExtension {
     // Create time of the alerts, in POSIX time
@@ -104,4 +105,18 @@ extend transit_realtime.TripUpdate.StopTimeUpdate {
 
 extend transit_realtime.VehicleDescriptor {
     optional TfnswVehicleDescriptor tfnsw_vehicle_descriptor = 1999;
+}
+
+// Include MTAS for more detail on the real time feeds
+
+extend transit_realtime.FeedHeader {
+    optional NyctFeedHeader nyct_feed_header = 1001;
+}
+
+extend transit_realtime.TripDescriptor {
+    optional NyctTripDescriptor nyct_trip_descriptor = 1001;
+}
+
+extend transit_realtime.TripUpdate.StopTimeUpdate {
+    optional NyctStopTimeUpdate nyct_stop_time_update = 1001;
 }

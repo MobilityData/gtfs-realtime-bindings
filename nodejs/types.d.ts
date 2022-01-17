@@ -621,6 +621,9 @@ export namespace transit_realtime {
 
         /** FeedHeader timestamp */
         timestamp?: (number|Long|null);
+
+        /** FeedHeader .nyctFeedHeader */
+        ".nyctFeedHeader"?: (INyctFeedHeader|null);
     }
 
     /** Represents a FeedHeader. */
@@ -640,6 +643,9 @@ export namespace transit_realtime {
 
         /** FeedHeader timestamp. */
         public timestamp: (number|Long);
+
+        /** FeedHeader .nyctFeedHeader. */
+        public nyctFeedHeader?: (INyctFeedHeader|null);
 
         /**
          * Creates a new FeedHeader instance using the specified properties.
@@ -738,6 +744,9 @@ export namespace transit_realtime {
 
         /** FeedEntity alert */
         alert?: (transit_realtime.IAlert|null);
+
+        /** FeedEntity shape */
+        shape?: (transit_realtime.IShape|null);
     }
 
     /** Represents a FeedEntity. */
@@ -763,6 +772,9 @@ export namespace transit_realtime {
 
         /** FeedEntity alert. */
         public alert?: (transit_realtime.IAlert|null);
+
+        /** FeedEntity shape. */
+        public shape?: (transit_realtime.IShape|null);
 
         /**
          * Creates a new FeedEntity instance using the specified properties.
@@ -1085,6 +1097,9 @@ export namespace transit_realtime {
 
             /** StopTimeUpdate .transitStopTimeUpdateExtension */
             ".transitStopTimeUpdateExtension"?: (ITransitStopTimeUpdateExtension|null);
+
+            /** StopTimeUpdate .nyctStopTimeUpdate */
+            ".nyctStopTimeUpdate"?: (INyctStopTimeUpdate|null);
         }
 
         /** Represents a StopTimeUpdate. */
@@ -1119,6 +1134,9 @@ export namespace transit_realtime {
 
             /** StopTimeUpdate .transitStopTimeUpdateExtension. */
             public transitStopTimeUpdateExtension?: (ITransitStopTimeUpdateExtension|null);
+
+            /** StopTimeUpdate .nyctStopTimeUpdate. */
+            public nyctStopTimeUpdate?: (INyctStopTimeUpdate|null);
 
             /**
              * Creates a new StopTimeUpdate instance using the specified properties.
@@ -1303,6 +1321,9 @@ export namespace transit_realtime {
 
             /** TripProperties startTime */
             startTime?: (string|null);
+
+            /** TripProperties shapeId */
+            shapeId?: (string|null);
         }
 
         /** Represents a TripProperties. */
@@ -1322,6 +1343,9 @@ export namespace transit_realtime {
 
             /** TripProperties startTime. */
             public startTime: string;
+
+            /** TripProperties shapeId. */
+            public shapeId: string;
 
             /**
              * Creates a new TripProperties instance using the specified properties.
@@ -1724,6 +1748,12 @@ export namespace transit_realtime {
         /** Alert severityLevel */
         severityLevel?: (transit_realtime.Alert.SeverityLevel|null);
 
+        /** Alert image */
+        image?: (transit_realtime.ITranslatedImage|null);
+
+        /** Alert imageAlternativeText */
+        imageAlternativeText?: (transit_realtime.ITranslatedString|null);
+
         /** Alert .transitAlertExtension */
         ".transitAlertExtension"?: (ITransitAlertExtension|null);
     }
@@ -1766,6 +1796,12 @@ export namespace transit_realtime {
 
         /** Alert severityLevel. */
         public severityLevel: transit_realtime.Alert.SeverityLevel;
+
+        /** Alert image. */
+        public image?: (transit_realtime.ITranslatedImage|null);
+
+        /** Alert imageAlternativeText. */
+        public imageAlternativeText?: (transit_realtime.ITranslatedString|null);
 
         /** Alert .transitAlertExtension. */
         public transitAlertExtension?: (ITransitAlertExtension|null);
@@ -2116,6 +2152,9 @@ export namespace transit_realtime {
 
         /** TripDescriptor .transitTripDescriptorExtension */
         ".transitTripDescriptorExtension"?: (ITransitTripDescriptorExtension|null);
+
+        /** TripDescriptor .nyctTripDescriptor */
+        ".nyctTripDescriptor"?: (INyctTripDescriptor|null);
     }
 
     /** Represents a TripDescriptor. */
@@ -2147,6 +2186,9 @@ export namespace transit_realtime {
 
         /** TripDescriptor .transitTripDescriptorExtension. */
         public transitTripDescriptorExtension?: (ITransitTripDescriptorExtension|null);
+
+        /** TripDescriptor .nyctTripDescriptor. */
+        public nyctTripDescriptor?: (INyctTripDescriptor|null);
 
         /**
          * Creates a new TripDescriptor instance using the specified properties.
@@ -2660,6 +2702,297 @@ export namespace transit_realtime {
             public toJSON(): { [k: string]: any };
         }
     }
+
+    /** Properties of a TranslatedImage. */
+    interface ITranslatedImage {
+
+        /** TranslatedImage localizedImage */
+        localizedImage?: (transit_realtime.TranslatedImage.ILocalizedImage[]|null);
+    }
+
+    /** Represents a TranslatedImage. */
+    class TranslatedImage implements ITranslatedImage {
+
+        /**
+         * Constructs a new TranslatedImage.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: transit_realtime.ITranslatedImage);
+
+        /** TranslatedImage localizedImage. */
+        public localizedImage: transit_realtime.TranslatedImage.ILocalizedImage[];
+
+        /**
+         * Creates a new TranslatedImage instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns TranslatedImage instance
+         */
+        public static create(properties?: transit_realtime.ITranslatedImage): transit_realtime.TranslatedImage;
+
+        /**
+         * Encodes the specified TranslatedImage message. Does not implicitly {@link transit_realtime.TranslatedImage.verify|verify} messages.
+         * @param message TranslatedImage message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: transit_realtime.ITranslatedImage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified TranslatedImage message, length delimited. Does not implicitly {@link transit_realtime.TranslatedImage.verify|verify} messages.
+         * @param message TranslatedImage message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: transit_realtime.ITranslatedImage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a TranslatedImage message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns TranslatedImage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): transit_realtime.TranslatedImage;
+
+        /**
+         * Decodes a TranslatedImage message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns TranslatedImage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): transit_realtime.TranslatedImage;
+
+        /**
+         * Verifies a TranslatedImage message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a TranslatedImage message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns TranslatedImage
+         */
+        public static fromObject(object: { [k: string]: any }): transit_realtime.TranslatedImage;
+
+        /**
+         * Creates a plain object from a TranslatedImage message. Also converts values to other types if specified.
+         * @param message TranslatedImage
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: transit_realtime.TranslatedImage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this TranslatedImage to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    namespace TranslatedImage {
+
+        /** Properties of a LocalizedImage. */
+        interface ILocalizedImage {
+
+            /** LocalizedImage url */
+            url: string;
+
+            /** LocalizedImage mediaType */
+            mediaType: string;
+
+            /** LocalizedImage language */
+            language?: (string|null);
+        }
+
+        /** Represents a LocalizedImage. */
+        class LocalizedImage implements ILocalizedImage {
+
+            /**
+             * Constructs a new LocalizedImage.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: transit_realtime.TranslatedImage.ILocalizedImage);
+
+            /** LocalizedImage url. */
+            public url: string;
+
+            /** LocalizedImage mediaType. */
+            public mediaType: string;
+
+            /** LocalizedImage language. */
+            public language: string;
+
+            /**
+             * Creates a new LocalizedImage instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LocalizedImage instance
+             */
+            public static create(properties?: transit_realtime.TranslatedImage.ILocalizedImage): transit_realtime.TranslatedImage.LocalizedImage;
+
+            /**
+             * Encodes the specified LocalizedImage message. Does not implicitly {@link transit_realtime.TranslatedImage.LocalizedImage.verify|verify} messages.
+             * @param message LocalizedImage message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: transit_realtime.TranslatedImage.ILocalizedImage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LocalizedImage message, length delimited. Does not implicitly {@link transit_realtime.TranslatedImage.LocalizedImage.verify|verify} messages.
+             * @param message LocalizedImage message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: transit_realtime.TranslatedImage.ILocalizedImage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LocalizedImage message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LocalizedImage
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): transit_realtime.TranslatedImage.LocalizedImage;
+
+            /**
+             * Decodes a LocalizedImage message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LocalizedImage
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): transit_realtime.TranslatedImage.LocalizedImage;
+
+            /**
+             * Verifies a LocalizedImage message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LocalizedImage message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LocalizedImage
+             */
+            public static fromObject(object: { [k: string]: any }): transit_realtime.TranslatedImage.LocalizedImage;
+
+            /**
+             * Creates a plain object from a LocalizedImage message. Also converts values to other types if specified.
+             * @param message LocalizedImage
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: transit_realtime.TranslatedImage.LocalizedImage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LocalizedImage to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+    }
+
+    /** Properties of a Shape. */
+    interface IShape {
+
+        /** Shape shapeId */
+        shapeId?: (string|null);
+
+        /** Shape encodedPolyline */
+        encodedPolyline?: (string|null);
+    }
+
+    /** Represents a Shape. */
+    class Shape implements IShape {
+
+        /**
+         * Constructs a new Shape.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: transit_realtime.IShape);
+
+        /** Shape shapeId. */
+        public shapeId: string;
+
+        /** Shape encodedPolyline. */
+        public encodedPolyline: string;
+
+        /**
+         * Creates a new Shape instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns Shape instance
+         */
+        public static create(properties?: transit_realtime.IShape): transit_realtime.Shape;
+
+        /**
+         * Encodes the specified Shape message. Does not implicitly {@link transit_realtime.Shape.verify|verify} messages.
+         * @param message Shape message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: transit_realtime.IShape, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified Shape message, length delimited. Does not implicitly {@link transit_realtime.Shape.verify|verify} messages.
+         * @param message Shape message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: transit_realtime.IShape, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a Shape message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns Shape
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): transit_realtime.Shape;
+
+        /**
+         * Decodes a Shape message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns Shape
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): transit_realtime.Shape;
+
+        /**
+         * Verifies a Shape message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a Shape message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns Shape
+         */
+        public static fromObject(object: { [k: string]: any }): transit_realtime.Shape;
+
+        /**
+         * Creates a plain object from a Shape message. Also converts values to other types if specified.
+         * @param message Shape
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: transit_realtime.Shape, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this Shape to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
 }
 
 /** Properties of a TfnswVehicleDescriptor. */
@@ -2753,6 +3086,407 @@ export class TfnswVehicleDescriptor implements ITfnswVehicleDescriptor {
 
     /**
      * Converts this TfnswVehicleDescriptor to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a TripReplacementPeriod. */
+export interface ITripReplacementPeriod {
+
+    /** TripReplacementPeriod routeId */
+    routeId?: (string|null);
+
+    /** TripReplacementPeriod replacementPeriod */
+    replacementPeriod?: (transit_realtime.ITimeRange|null);
+}
+
+/** Represents a TripReplacementPeriod. */
+export class TripReplacementPeriod implements ITripReplacementPeriod {
+
+    /**
+     * Constructs a new TripReplacementPeriod.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: ITripReplacementPeriod);
+
+    /** TripReplacementPeriod routeId. */
+    public routeId: string;
+
+    /** TripReplacementPeriod replacementPeriod. */
+    public replacementPeriod?: (transit_realtime.ITimeRange|null);
+
+    /**
+     * Creates a new TripReplacementPeriod instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns TripReplacementPeriod instance
+     */
+    public static create(properties?: ITripReplacementPeriod): TripReplacementPeriod;
+
+    /**
+     * Encodes the specified TripReplacementPeriod message. Does not implicitly {@link TripReplacementPeriod.verify|verify} messages.
+     * @param message TripReplacementPeriod message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: ITripReplacementPeriod, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified TripReplacementPeriod message, length delimited. Does not implicitly {@link TripReplacementPeriod.verify|verify} messages.
+     * @param message TripReplacementPeriod message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: ITripReplacementPeriod, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a TripReplacementPeriod message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns TripReplacementPeriod
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): TripReplacementPeriod;
+
+    /**
+     * Decodes a TripReplacementPeriod message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns TripReplacementPeriod
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): TripReplacementPeriod;
+
+    /**
+     * Verifies a TripReplacementPeriod message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a TripReplacementPeriod message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns TripReplacementPeriod
+     */
+    public static fromObject(object: { [k: string]: any }): TripReplacementPeriod;
+
+    /**
+     * Creates a plain object from a TripReplacementPeriod message. Also converts values to other types if specified.
+     * @param message TripReplacementPeriod
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: TripReplacementPeriod, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this TripReplacementPeriod to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a NyctFeedHeader. */
+export interface INyctFeedHeader {
+
+    /** NyctFeedHeader nyctSubwayVersion */
+    nyctSubwayVersion: string;
+
+    /** NyctFeedHeader tripReplacementPeriod */
+    tripReplacementPeriod?: (ITripReplacementPeriod[]|null);
+}
+
+/** Represents a NyctFeedHeader. */
+export class NyctFeedHeader implements INyctFeedHeader {
+
+    /**
+     * Constructs a new NyctFeedHeader.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: INyctFeedHeader);
+
+    /** NyctFeedHeader nyctSubwayVersion. */
+    public nyctSubwayVersion: string;
+
+    /** NyctFeedHeader tripReplacementPeriod. */
+    public tripReplacementPeriod: ITripReplacementPeriod[];
+
+    /**
+     * Creates a new NyctFeedHeader instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns NyctFeedHeader instance
+     */
+    public static create(properties?: INyctFeedHeader): NyctFeedHeader;
+
+    /**
+     * Encodes the specified NyctFeedHeader message. Does not implicitly {@link NyctFeedHeader.verify|verify} messages.
+     * @param message NyctFeedHeader message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: INyctFeedHeader, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified NyctFeedHeader message, length delimited. Does not implicitly {@link NyctFeedHeader.verify|verify} messages.
+     * @param message NyctFeedHeader message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: INyctFeedHeader, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a NyctFeedHeader message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns NyctFeedHeader
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): NyctFeedHeader;
+
+    /**
+     * Decodes a NyctFeedHeader message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns NyctFeedHeader
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): NyctFeedHeader;
+
+    /**
+     * Verifies a NyctFeedHeader message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a NyctFeedHeader message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns NyctFeedHeader
+     */
+    public static fromObject(object: { [k: string]: any }): NyctFeedHeader;
+
+    /**
+     * Creates a plain object from a NyctFeedHeader message. Also converts values to other types if specified.
+     * @param message NyctFeedHeader
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: NyctFeedHeader, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this NyctFeedHeader to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a NyctTripDescriptor. */
+export interface INyctTripDescriptor {
+
+    /** NyctTripDescriptor trainId */
+    trainId?: (string|null);
+
+    /** NyctTripDescriptor isAssigned */
+    isAssigned?: (boolean|null);
+
+    /** NyctTripDescriptor direction */
+    direction?: (NyctTripDescriptor.Direction|null);
+}
+
+/** Represents a NyctTripDescriptor. */
+export class NyctTripDescriptor implements INyctTripDescriptor {
+
+    /**
+     * Constructs a new NyctTripDescriptor.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: INyctTripDescriptor);
+
+    /** NyctTripDescriptor trainId. */
+    public trainId: string;
+
+    /** NyctTripDescriptor isAssigned. */
+    public isAssigned: boolean;
+
+    /** NyctTripDescriptor direction. */
+    public direction: NyctTripDescriptor.Direction;
+
+    /**
+     * Creates a new NyctTripDescriptor instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns NyctTripDescriptor instance
+     */
+    public static create(properties?: INyctTripDescriptor): NyctTripDescriptor;
+
+    /**
+     * Encodes the specified NyctTripDescriptor message. Does not implicitly {@link NyctTripDescriptor.verify|verify} messages.
+     * @param message NyctTripDescriptor message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: INyctTripDescriptor, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified NyctTripDescriptor message, length delimited. Does not implicitly {@link NyctTripDescriptor.verify|verify} messages.
+     * @param message NyctTripDescriptor message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: INyctTripDescriptor, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a NyctTripDescriptor message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns NyctTripDescriptor
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): NyctTripDescriptor;
+
+    /**
+     * Decodes a NyctTripDescriptor message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns NyctTripDescriptor
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): NyctTripDescriptor;
+
+    /**
+     * Verifies a NyctTripDescriptor message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a NyctTripDescriptor message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns NyctTripDescriptor
+     */
+    public static fromObject(object: { [k: string]: any }): NyctTripDescriptor;
+
+    /**
+     * Creates a plain object from a NyctTripDescriptor message. Also converts values to other types if specified.
+     * @param message NyctTripDescriptor
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: NyctTripDescriptor, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this NyctTripDescriptor to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+export namespace NyctTripDescriptor {
+
+    /** Direction enum. */
+    enum Direction {
+        NORTH = 1,
+        EAST = 2,
+        SOUTH = 3,
+        WEST = 4
+    }
+}
+
+/** Properties of a NyctStopTimeUpdate. */
+export interface INyctStopTimeUpdate {
+
+    /** NyctStopTimeUpdate scheduledTrack */
+    scheduledTrack?: (string|null);
+
+    /** NyctStopTimeUpdate actualTrack */
+    actualTrack?: (string|null);
+}
+
+/** Represents a NyctStopTimeUpdate. */
+export class NyctStopTimeUpdate implements INyctStopTimeUpdate {
+
+    /**
+     * Constructs a new NyctStopTimeUpdate.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: INyctStopTimeUpdate);
+
+    /** NyctStopTimeUpdate scheduledTrack. */
+    public scheduledTrack: string;
+
+    /** NyctStopTimeUpdate actualTrack. */
+    public actualTrack: string;
+
+    /**
+     * Creates a new NyctStopTimeUpdate instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns NyctStopTimeUpdate instance
+     */
+    public static create(properties?: INyctStopTimeUpdate): NyctStopTimeUpdate;
+
+    /**
+     * Encodes the specified NyctStopTimeUpdate message. Does not implicitly {@link NyctStopTimeUpdate.verify|verify} messages.
+     * @param message NyctStopTimeUpdate message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: INyctStopTimeUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified NyctStopTimeUpdate message, length delimited. Does not implicitly {@link NyctStopTimeUpdate.verify|verify} messages.
+     * @param message NyctStopTimeUpdate message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: INyctStopTimeUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a NyctStopTimeUpdate message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns NyctStopTimeUpdate
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): NyctStopTimeUpdate;
+
+    /**
+     * Decodes a NyctStopTimeUpdate message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns NyctStopTimeUpdate
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): NyctStopTimeUpdate;
+
+    /**
+     * Verifies a NyctStopTimeUpdate message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a NyctStopTimeUpdate message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns NyctStopTimeUpdate
+     */
+    public static fromObject(object: { [k: string]: any }): NyctStopTimeUpdate;
+
+    /**
+     * Creates a plain object from a NyctStopTimeUpdate message. Also converts values to other types if specified.
+     * @param message NyctStopTimeUpdate
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: NyctStopTimeUpdate, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this NyctStopTimeUpdate to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
