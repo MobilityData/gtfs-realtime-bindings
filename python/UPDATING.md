@@ -3,7 +3,7 @@
 Regenerate the language binding source from gtfs-realtime.proto.
 
 ```
-protoc --python_out=google/transit -I=.. ../gtfs-spec/gtfs-realtime/proto/gtfs-realtime.proto ../transit-extensions.proto ../agency-extensions/tfnsw-vehicle.proto
+protoc --python_out=google/transit -I=.. ../gtfs-spec/gtfs-realtime/proto/gtfs-realtime.proto ../transit-extensions.proto ../agency-extensions/tfnsw-vehicle.proto ../agency-extensions/mtas-realtime.proto
 ```
 
 Switch to relative imports in `transit_extensions_pb2.py` (add the leading period):
@@ -11,6 +11,7 @@ Switch to relative imports in `transit_extensions_pb2.py` (add the leading perio
 ```python
 from .gtfs_spec.gtfs_realtime.proto import gtfs_realtime_pb2 as gtfs__spec_dot_gtfs__realtime_dot_proto_dot_gtfs__realtime__pb2
 from .agency_extensions import tfnsw_vehicle_pb2 as agency__extensions_dot_tfnsw__vehicle__pb2
+from .agency_extensions import mtas_realtime_pb2 as agency__extensions_dot_mtas__realtime__pb2
 ```
 
 
