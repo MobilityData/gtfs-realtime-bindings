@@ -36,7 +36,7 @@ response = requests.get('URL OF YOUR GTFS-REALTIME SOURCE GOES HERE')
 feed.ParseFromString(response.content)
 for entity in feed.entity:
   if entity.HasField('trip_update'):
-    print (entity.trip_update)
+    print(entity.trip_update)
 ```
 
 For more details on the naming conventions for the Python classes generated
