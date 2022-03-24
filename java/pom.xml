@@ -22,7 +22,7 @@
         <version>9</version>
     </parent>
 
-    <groupId>io.mobilitydata.transit</groupId>
+    <groupId>org.mobilitydata</groupId>
     <artifactId>gtfs-realtime-bindings</artifactId>
     <version>0.0.8-SNAPSHOT</version>
 
@@ -49,6 +49,16 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+
+    <developers>
+        <developer>
+            <id>maximearmstrong</id>
+            <name>Maxime Armstrong</name>
+            <email>maxime@mobilitydata.org</email>
+            <organization>MobilityData</organization>
+            <organizationUrl>http://www.mobilitydata.org</organizationUrl>
+        </developer>
+    </developers>
 
     <dependencies>
         <dependency>
@@ -123,11 +133,48 @@
             </plugin>
         </plugins>
     </build>
+
     <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>s01.oss.sonatype.org</url>
+        </snapshotRepository>
         <repository>
-            <id>jCenter</id>
-            <url>https://api.bintray.com/maven/mobilitydata/mobilitydata-mvn-repo/gtfs-realtime-bindings/;publish=1
-            </url>
+            <id>ossrh</id>
+            <url>s01.oss.sonatype.org</url>
         </repository>
     </distributionManagement>
+
+    <profiles>
+        <profile>
+            <id>ci-cd</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                                <configuration>
+                                    <!-- Prevent gpg from using pinentry programs. Fixes: gpg: signing
+                                        failed: Inappropriate ioctl for device -->
+                                    <gpgArguments>
+                                        <arg>--pinentry-mode</arg>
+                                        <arg>loopback</arg>
+                                    </gpgArguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
 </project>
