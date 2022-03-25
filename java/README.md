@@ -17,9 +17,9 @@ dependencies section:
 
 ```xml
 <dependency>
-  <groupId>io.mobilitydata.transit</groupId>
+  <groupId>org.mobilitydata</groupId>
   <artifactId>gtfs-realtime-bindings</artifactId>
-  <version>0.0.7</version>
+  <version>0.0.8-SNAPSHOT</version>
 </dependency>
 ```
 
