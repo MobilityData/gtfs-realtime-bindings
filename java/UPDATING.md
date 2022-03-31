@@ -38,20 +38,4 @@ To sign the application (required for publishing to Maven Central) we use a GPG 
 
 #### Every release
 
-1. Create a new branch from the master branch where you will commit your changes.
-   `git checkout -b your/new/branch`
-
-2. After you've committed any changes, run `mvn release:prepare -Dresume=false`.  This will automatically bump the SNAPSHOT version number to the release version, commit this change, and then bump the version number again to the new SNAPSHOT version for the next development cycle and commit this change too. After running `mvn release:prepare` you'll be prompted to enter these version numbers as well as the tag release name - use the following values, where X is the new version to be released (e.g., if current version is `0.0.1-SNAPSHOT`, release would be `0.0.1`):
-   	
-   * `0.0.[X]`
-   * `gtfs-realtime-bindings-java-0.0.[X]` (Note the addition of `-java`)
-   * `0.0.[X+1]-SNAPSHOT`
-   
-3. Open a pull request using your branch and request a review. The release will be automatically published when your pull request is merged in the master branch.
-    
-4. Check out the master branch and pull the changes to continue development:
-   
-   ```
-   git checkout master
-   git pull
-   ``` 
+TODO
