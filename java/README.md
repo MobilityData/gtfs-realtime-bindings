@@ -1,6 +1,6 @@
 # Java GTFS-realtime Language Bindings
 
-![Maven Central Version](https://img.shields.io/maven-central/v/io.mobilitydata.transit/gtfs-realtime-bindings.svg)
+![Maven Central Version](https://img.shields.io/maven-central/v/org.mobilitydata/gtfs-realtime-bindings.svg)
 
 Provides Java classes generated from the [GTFS-realtime](https://github.com/google/transit/tree/master/gtfs-realtime)
 Protocol Buffer specification.  These classes will allow you to parse a binary Protocol Buffer
@@ -17,9 +17,9 @@ dependencies section:
 
 ```xml
 <dependency>
-  <groupId>io.mobilitydata.transit</groupId>
+  <groupId>org.mobilitydata</groupId>
   <artifactId>gtfs-realtime-bindings</artifactId>
-  <version>0.0.7</version>
+  <version>0.0.8-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -27,7 +27,7 @@ For [Gradle](https://www.gradle.org/), add the following to your `build.gradle`
 dependecies section:
 
 ```
-compile group: 'io.mobilitydata.transit', name: 'gtfs-realtime-bindings', version: '0.0.7'
+compile group: 'org.mobilitydata', name: 'gtfs-realtime-bindings', version: '0.0.8-SNAPSHOT'
 ```
 
 Make sure the Maven central repository is referenced by your project.
@@ -61,3 +61,17 @@ For more details on the naming conventions for the Java classes generated from
 the [gtfs-realtime.proto](https://github.com/google/transit/blob/master/gtfs-realtime/proto/gtfs-realtime.proto),
 check out the [Java Generated Code](https://developers.google.com/protocol-buffers/docs/reference/java-generated)
 section of the Protocol Buffers developer site.
+
+## Project History
+
+### `0.0.4` and lower
+This project was originally created by Google. You can download versions `0.0.4` and older under the Group ID `com.google.transit` [here on Maven Central](https://search.maven.org/search?q=g:com.google.transit%20AND%20a:gtfs-realtime-bindings).
+
+### `0.0.5`
+MobilityData started to maintain the project in early 2019 and initially published release artifacts via JCenter. You can download version `0.0.5` under the Group ID `io.mobilitydata.transit` [here on Maven Central](https://search.maven.org/artifact/io.mobilitydata.transit/gtfs-realtime-bindings).
+
+### `0.0.6` and `0.0.7`
+JCenter [shut down](https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/) in 2021. Prior to the shutdown, a synchronization problem prevented versions `0.0.6` and `0.0.7` from being synchronized from JCenter to Maven Central, so direct artifact download is not currently available for these versions. However, you can compile them yourself from the [tags](https://github.com/MobilityData/gtfs-realtime-bindings/tags) using the command `mvn package`.
+
+### `0.0.8` and higher
+In 2022, MobilityData switched to publishing artifacts directly to Maven Central under the Group ID `org.mobilitydata`, which is where versions 0.0.8 and higher are published.

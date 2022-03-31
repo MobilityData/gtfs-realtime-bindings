@@ -26,58 +26,16 @@ Test the generated code:
 mvn verify
 ````
 
-## Publishing a new release
+## Publishing a new release.
 
 #### One-Time Setup
 
-We're hosting releases on JCenter via [Bintray](https://bintray.com/).
+We're hosting releases on the [Maven Central Repository](http://search.maven.org/).
 
-These are the steps for publishing the `gtfs-realtime-bindings` library on `jcenter` repository.
+Note that we are using GitHub actions to publish new releases. These are the [steps](https://dzone.com/articles/how-to-publish-artifacts-to-maven-central) that were followed for publishing the `gtfs-realtime-bindings` library on `ossrh` repository using GitHub actions.
 
-###### 1 - Create an account on [Bintray](https://bintray.com/).
-###### 2 - Setup your pom.xml
-
-We need to specify the URL from which to distribute your project. 
-```
-  <distributionManagement>
-    <repository>
-      <id>jCenter</id>
-      <url>https://api.bintray.com/maven/mobilitydata/mobilitydata-mvn-repo/gtfs-realtime-bindings/;publish=1</url>
-    </repository>
-  </distributionManagement>
-```
-
-###### 3 - Setup your setting.xml
-We need to provide Bintray username and API Key to the Maven `settings.xml` file.  This may be under your Maven installation directory (e.g., `C:\Program Files\Apache Software Foundation\apache-maven-3.2.5\conf`).
-
-```
-<server>
-  <id>jCenter</id>
-  <username>yourjcenteraccount</username>
-  <password>***youraccount-secret-api-key***</password>
-</server>
-```
-
-To sign the application (required for publishing to Maven Central) we use Bintray's automated signing using their internal key as discussed [here](https://www.jfrog.com/confluence/display/BT/Managing+Uploaded+Content#ManagingUploadedContent-SigningwiththeBintrayKey). So, no certificate setup for signing is required.
+To sign the application (required for publishing to Maven Central) we use a GPG key as described [here](https://dzone.com/articles/how-to-publish-artifacts-to-maven-central#:~:text=%3C/servers%3E-,GPG%20Setup,-You%E2%80%99ll%20have%20to).
 
 #### Every release
 
-1. After you've committed any changes, run `mvn release:prepare -Dresume=false`.  This will automatically bump the SNAPSHOT version number to the release version, commit this change, and then bump the version number again to the new SNAPSHOT version for the next development cycle and commit this change too. After running `mvn release:prepare` you'll be prompted to enter these version numbers as well as the tag release name - use the following values, where X is the new version to be released (e.g., if current version is `0.0.1-SNAPSHOT`, release would be `0.0.1`):
-   	
-   * `0.0.[X]`
-   * `gtfs-realtime-bindings-java-0.0.[X]` (Note the addition of `-java`)
-   * `0.0.[X+1]-SNAPSHOT`
-   
-1. Checkout the release commit:
-
-   * `git checkout gtfs-realtime-bindings-java-0.0.[X]`
-
-1. Deploy the artifacts to JCenter (which will automatically sync with Maven Central):
-
-    ```
-    mvn deploy
-    ```
-    
-1. Check out the master branch again to continue development:
-   
-   `git checkout master` 
+TODO
