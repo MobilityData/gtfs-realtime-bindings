@@ -32,10 +32,10 @@ if __name__ == '__main__':
   ext_module_list = []
 
   setup(name = 'gtfs-realtime-bindings',
-        version = '0.0.7',
+        version = '0.0.8',
         packages = ['google', 'google.transit'],
         namespace_packages = ['google'],
-        install_requires = ['setuptools', 'protobuf'],
+        install_requires = ['setuptools', 'protobuf>=3, <4'],
         url = 'https://github.com/MobilityData/gtfs-realtime-bindings',
         maintainer = 'MobilityData',
         maintainer_email = 'gtfs-realtime@googlegroups.com',
