@@ -38,4 +38,7 @@ To sign the application (required for publishing to Maven Central) we use a GPG 
 
 #### Every release
 
-TODO
+1. Create a new branch from the `master` branch and use it to push a commit to change to release version.
+2. Open a PR with this release version and merge it in the `master` branch.
+3. Create a new branch from the `master` branch and use it to push a commit to change to the next snapshot version. 
+4. Open a PR with this snapshot version and merge it in the `master` branch.
