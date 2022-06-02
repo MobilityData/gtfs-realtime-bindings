@@ -38,7 +38,8 @@ To sign the application (required for publishing to Maven Central) we use a GPG 
 
 #### Every release
 
-1. Create a new branch from the `master` branch and use it to push a commit to change to release version.
+1. Create a new branch from the `master` branch and use it to push a commit to change to release version (i.e., without the `-SNAPSHOT`).
 2. Open a PR with this release version and merge it in the `master` branch.
-3. Create a new branch from the `master` branch and use it to push a commit to change to the next snapshot version. 
-4. Open a PR with this snapshot version and merge it in the `master` branch.
+3. Create a tag with the name and release version `gtfs-realtime-bindings-java-[X].[Y].[Z]` (Note the addition of `-java`)
+4. Create a new branch from the `master` branch and use it to push a commit to change to the next snapshot version (e.g., from `0.0.1` to `0.0.2-SNAPSHOT`).
+5. Open a PR with this snapshot version and merge it in the `master` branch.
