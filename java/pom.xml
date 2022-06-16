@@ -24,7 +24,7 @@
 
     <groupId>org.mobilitydata</groupId>
     <artifactId>gtfs-realtime-bindings</artifactId>
-    <version>0.0.8</version>
+    <version>0.0.9-SNAPSHOT</version>
 
     <name>gtfs-realtime-bindings</name>
     <description>Java classes generated from the GTFS-realtime protocol buffer specification.</description>
