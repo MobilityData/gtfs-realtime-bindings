@@ -389,7 +389,7 @@ $root.transit_realtime = (function() {
                     message.incrementality = reader.int32();
                     break;
                 case 3:
-                    message.timestamp = reader.uint64();
+                    message.timestamp = new $util.LongBits(reader.uint64()).toNumber(true);
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -982,7 +982,7 @@ $root.transit_realtime = (function() {
                     message.stopTimeUpdate.push($root.transit_realtime.TripUpdate.StopTimeUpdate.decode(reader, reader.uint32()));
                     break;
                 case 4:
-                    message.timestamp = reader.uint64();
+                    message.timestamp = new $util.LongBits(reader.uint64()).toNumber(true);
                     break;
                 case 5:
                     message.delay = reader.int32();
@@ -1921,7 +1921,7 @@ $root.transit_realtime = (function() {
                     message.currentStatus = reader.int32();
                     break;
                 case 5:
-                    message.timestamp = reader.uint64();
+                    message.timestamp = new $util.LongBits(reader.uint64()).toNumber(true);
                     break;
                 case 6:
                     message.congestionLevel = reader.int32();
@@ -3039,10 +3039,10 @@ $root.transit_realtime = (function() {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.start = reader.uint64();
+                    message.start = new $util.LongBits(reader.uint64()).toNumber(true);
                     break;
                 case 2:
-                    message.end = reader.uint64();
+                    message.end = new $util.LongBits(reader.uint64()).toNumber(true);
                     break;
                 default:
                     reader.skipType(tag & 7);
