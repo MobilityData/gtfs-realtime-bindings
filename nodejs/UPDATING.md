@@ -4,16 +4,25 @@
 
 #### One-Time Setup
 
-1. Download and install [Node.js](https://www.npmjs.com/get-npm) (v10.15.2 LTS has been used)
+1. Download and install [Docker](https://docs.docker.com/get-docker/)
 
-#### Every time `gtfs-realtime.proto` changes
+#### Every time node package dependencies change
 
-1. Run `npm install` from the `nodejs` folder to install the protobuf package
+1. Download and install [Node.js](https://www.npmjs.com/get-npm) (check the `package.json` for `engines` version).
 
-1. Regenerate the language binding source from gtfs-realtime.proto by running the following from the `nodejs` folder:
+1. Edit the dependency versions in `package.json` and run `npm install`.
+
+1. Re-generate the code by following instructions below.
+
+#### Re-generating the code
+
+1. Run the following from the project root folder:
 
     ```
-    npm run buildProto
+    docker build -t gtfs-nodejs -f nodejs/Dockerfile .
+    docker create --name temp gtfs-nodejs
+    docker cp temp:/lib/gtfs-realtime.js $(pwd)/nodejs/gtfs-realtime.js
+    docker rm -f temp
     ```
 
 1. Add the license header back to the generated source file.

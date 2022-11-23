@@ -18,15 +18,15 @@
         "test": "mocha test/*.js",
         "buildProto": "pbjs -t static-module -w commonjs -o gtfs-realtime.js ../gtfs-realtime.proto"
     },
-    "engines": [
-        "node >= 0.10.0"
-    ],
+    "engines": {
+        "node": "18.12.1"
+    },
     "dependencies": {
-        "protobufjs": "6.8.6"
+        "protobufjs": "6.11.3"
     },
     "devDependencies": {
-        "mocha": "1.19.0",
-        "should": "3.3.1"
+        "mocha": "10.1.0",
+        "should": "13.2.3"
     },
     "licenses": [
         {
