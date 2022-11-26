@@ -20,7 +20,9 @@
 
     ```
     docker build -t gtfs-nodejs -f nodejs/Dockerfile .
-    docker run --rm gtfs-nodejs cat /lib/gtfs-realtime.js > nodejs/gtfs-realtime.js
+    # -it to make sure docker run can be killed with ctrl-c
+    # -t uses TTY, which causes linux to include carriage returns, which are stripped using tr
+    docker run -it --rm gtfs-nodejs cat /lib/gtfs-realtime.js | tr -d '\r' > nodejs/gtfs-realtime.js
     ```
 
 1. Add the license header back to the generated source file.
