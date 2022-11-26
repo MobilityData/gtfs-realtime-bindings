@@ -10,7 +10,7 @@
 
 1. Download and install [Node.js](https://www.npmjs.com/get-npm) (check the `package.json` for `engines` version).
 
-1. Edit the dependency versions in `package.json` and run `npm install`.
+1. Edit the dependency versions in using `npm install` and/or `npm remove`.
 
 1. Re-generate the code by following instructions below.
 
@@ -20,9 +20,7 @@
 
     ```
     docker build -t gtfs-nodejs -f nodejs/Dockerfile .
-    docker create --name temp gtfs-nodejs
-    docker cp temp:/lib/gtfs-realtime.js $(pwd)/nodejs/gtfs-realtime.js
-    docker rm -f temp
+    docker run --rm gtfs-nodejs cat /lib/gtfs-realtime.js > nodejs/gtfs-realtime.js
     ```
 
 1. Add the license header back to the generated source file.
