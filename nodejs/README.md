@@ -36,8 +36,9 @@ const https = require("https");
 https
   .get(
     "<GTFS-realtime source URL>",
+    // replace with your GTFS-realtime source's auth token
+    // e.g. x-api-key is the header value used for NY's MTA GTFS APIs
     {
-      // replace with your GTFS-realtime source's auth token
       headers: {
         "x-api-key": "<redacted>",
       },
