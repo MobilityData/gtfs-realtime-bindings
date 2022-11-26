@@ -30,24 +30,42 @@ data feed from a particular URL, parsing it as a FeedMessage (the root type of
 the GTFS-realtime schema), and iterating over the results.
 
 ```javascript
-var GtfsRealtimeBindings = require('gtfs-realtime-bindings');
-var request = require('request');
+const GtfsRealtimeBindings = require("gtfs-realtime-bindings");
+const https = require("https");
 
-var requestSettings = {
-  method: 'GET',
-  url: 'URL OF YOUR GTFS-REALTIME SOURCE GOES HERE',
-  encoding: null
-};
-request(requestSettings, function (error, response, body) {
-  if (!error && response.statusCode == 200) {
-    var feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(body);
-    feed.entity.forEach(function(entity) {
-      if (entity.tripUpdate) {
-        console.log(entity.tripUpdate);
-      }
-    });
-  }
-});
+https
+  .get(
+    "<GTFS-realtime source URL>",
+    {
+      // replace with your GTFS-realtime source's auth token
+      headers: {
+        "x-api-key": "<redacted>",
+      },
+    },
+    (resp) => {
+      const buffers = [];
+
+      // A chunk of data has been received.
+      resp.on("data", (chunk) => {
+        buffers.push(chunk);
+      });
+
+      // The whole response has been received.
+      resp.on("end", () => {
+        const data = Buffer.concat(buffers);
+        const feed =
+          GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(data);
+        feed.entity.forEach(function (entity) {
+          if (entity.tripUpdate) {
+            console.log(JSON.stringify(entity.tripUpdate));
+          }
+        });
+      });
+    }
+  )
+  .on("error", (err) => {
+    console.log("Error: " + err.message);
+  });
 ```
 
 For more details on the naming conventions for the JavaScript classes generated
