@@ -136,14 +136,16 @@ $root.transit_realtime = (function() {
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 1:
-                    message.header = $root.transit_realtime.FeedHeader.decode(reader, reader.uint32());
-                    break;
-                case 2:
-                    if (!(message.entity && message.entity.length))
-                        message.entity = [];
-                    message.entity.push($root.transit_realtime.FeedEntity.decode(reader, reader.uint32()));
-                    break;
+                case 1: {
+                        message.header = $root.transit_realtime.FeedHeader.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 2: {
+                        if (!(message.entity && message.entity.length))
+                            message.entity = [];
+                        message.entity.push($root.transit_realtime.FeedEntity.decode(reader, reader.uint32()));
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -266,6 +268,21 @@ $root.transit_realtime = (function() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
+        /**
+         * Gets the default type url for FeedMessage
+         * @function getTypeUrl
+         * @memberof transit_realtime.FeedMessage
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        FeedMessage.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/transit_realtime.FeedMessage";
+        };
+
         return FeedMessage;
     })();
 
@@ -382,15 +399,18 @@ $root.transit_realtime = (function() {
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 1:
-                    message.gtfsRealtimeVersion = reader.string();
-                    break;
-                case 2:
-                    message.incrementality = reader.int32();
-                    break;
-                case 3:
-                    message.timestamp = reader.uint64();
-                    break;
+                case 1: {
+                        message.gtfsRealtimeVersion = reader.string();
+                        break;
+                    }
+                case 2: {
+                        message.incrementality = reader.int32();
+                        break;
+                    }
+                case 3: {
+                        message.timestamp = reader.uint64();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -459,6 +479,12 @@ $root.transit_realtime = (function() {
             if (object.gtfsRealtimeVersion != null)
                 message.gtfsRealtimeVersion = String(object.gtfsRealtimeVersion);
             switch (object.incrementality) {
+            default:
+                if (typeof object.incrementality === "number") {
+                    message.incrementality = object.incrementality;
+                    break;
+                }
+                break;
             case "FULL_DATASET":
             case 0:
                 message.incrementality = 0;
@@ -505,7 +531,7 @@ $root.transit_realtime = (function() {
             if (message.gtfsRealtimeVersion != null && message.hasOwnProperty("gtfsRealtimeVersion"))
                 object.gtfsRealtimeVersion = message.gtfsRealtimeVersion;
             if (message.incrementality != null && message.hasOwnProperty("incrementality"))
-                object.incrementality = options.enums === String ? $root.transit_realtime.FeedHeader.Incrementality[message.incrementality] : message.incrementality;
+                object.incrementality = options.enums === String ? $root.transit_realtime.FeedHeader.Incrementality[message.incrementality] === undefined ? message.incrementality : $root.transit_realtime.FeedHeader.Incrementality[message.incrementality] : message.incrementality;
             if (message.timestamp != null && message.hasOwnProperty("timestamp"))
                 if (typeof message.timestamp === "number")
                     object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
@@ -523,6 +549,21 @@ $root.transit_realtime = (function() {
          */
         FeedHeader.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for FeedHeader
+         * @function getTypeUrl
+         * @memberof transit_realtime.FeedHeader
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        FeedHeader.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/transit_realtime.FeedHeader";
         };
 
         /**
@@ -677,21 +718,26 @@ $root.transit_realtime = (function() {
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 1:
-                    message.id = reader.string();
-                    break;
-                case 2:
-                    message.isDeleted = reader.bool();
-                    break;
-                case 3:
-                    message.tripUpdate = $root.transit_realtime.TripUpdate.decode(reader, reader.uint32());
-                    break;
-                case 4:
-                    message.vehicle = $root.transit_realtime.VehiclePosition.decode(reader, reader.uint32());
-                    break;
-                case 5:
-                    message.alert = $root.transit_realtime.Alert.decode(reader, reader.uint32());
-                    break;
+                case 1: {
+                        message.id = reader.string();
+                        break;
+                    }
+                case 2: {
+                        message.isDeleted = reader.bool();
+                        break;
+                    }
+                case 3: {
+                        message.tripUpdate = $root.transit_realtime.TripUpdate.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 4: {
+                        message.vehicle = $root.transit_realtime.VehiclePosition.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 5: {
+                        message.alert = $root.transit_realtime.Alert.decode(reader, reader.uint32());
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -828,6 +874,21 @@ $root.transit_realtime = (function() {
          */
         FeedEntity.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for FeedEntity
+         * @function getTypeUrl
+         * @memberof transit_realtime.FeedEntity
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        FeedEntity.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/transit_realtime.FeedEntity";
         };
 
         return FeedEntity;
@@ -981,26 +1042,32 @@ $root.transit_realtime = (function() {
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 1:
-                    message.trip = $root.transit_realtime.TripDescriptor.decode(reader, reader.uint32());
-                    break;
-                case 3:
-                    message.vehicle = $root.transit_realtime.VehicleDescriptor.decode(reader, reader.uint32());
-                    break;
-                case 2:
-                    if (!(message.stopTimeUpdate && message.stopTimeUpdate.length))
-                        message.stopTimeUpdate = [];
-                    message.stopTimeUpdate.push($root.transit_realtime.TripUpdate.StopTimeUpdate.decode(reader, reader.uint32()));
-                    break;
-                case 4:
-                    message.timestamp = reader.uint64();
-                    break;
-                case 5:
-                    message.delay = reader.int32();
-                    break;
-                case 6:
-                    message.tripProperties = $root.transit_realtime.TripUpdate.TripProperties.decode(reader, reader.uint32());
-                    break;
+                case 1: {
+                        message.trip = $root.transit_realtime.TripDescriptor.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 3: {
+                        message.vehicle = $root.transit_realtime.VehicleDescriptor.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 2: {
+                        if (!(message.stopTimeUpdate && message.stopTimeUpdate.length))
+                            message.stopTimeUpdate = [];
+                        message.stopTimeUpdate.push($root.transit_realtime.TripUpdate.StopTimeUpdate.decode(reader, reader.uint32()));
+                        break;
+                    }
+                case 4: {
+                        message.timestamp = reader.uint64();
+                        break;
+                    }
+                case 5: {
+                        message.delay = reader.int32();
+                        break;
+                    }
+                case 6: {
+                        message.tripProperties = $root.transit_realtime.TripUpdate.TripProperties.decode(reader, reader.uint32());
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -1180,6 +1247,21 @@ $root.transit_realtime = (function() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
+        /**
+         * Gets the default type url for TripUpdate
+         * @function getTypeUrl
+         * @memberof transit_realtime.TripUpdate
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        TripUpdate.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/transit_realtime.TripUpdate";
+        };
+
         TripUpdate.StopTimeEvent = (function() {
 
             /**
@@ -1294,15 +1376,18 @@ $root.transit_realtime = (function() {
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
-                    case 1:
-                        message.delay = reader.int32();
-                        break;
-                    case 2:
-                        message.time = reader.int64();
-                        break;
-                    case 3:
-                        message.uncertainty = reader.int32();
-                        break;
+                    case 1: {
+                            message.delay = reader.int32();
+                            break;
+                        }
+                    case 2: {
+                            message.time = reader.int64();
+                            break;
+                        }
+                    case 3: {
+                            message.uncertainty = reader.int32();
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -1421,6 +1506,21 @@ $root.transit_realtime = (function() {
              */
             StopTimeEvent.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for StopTimeEvent
+             * @function getTypeUrl
+             * @memberof transit_realtime.TripUpdate.StopTimeEvent
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            StopTimeEvent.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/transit_realtime.TripUpdate.StopTimeEvent";
             };
 
             return StopTimeEvent;
@@ -1573,24 +1673,30 @@ $root.transit_realtime = (function() {
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
-                    case 1:
-                        message.stopSequence = reader.uint32();
-                        break;
-                    case 4:
-                        message.stopId = reader.string();
-                        break;
-                    case 2:
-                        message.arrival = $root.transit_realtime.TripUpdate.StopTimeEvent.decode(reader, reader.uint32());
-                        break;
-                    case 3:
-                        message.departure = $root.transit_realtime.TripUpdate.StopTimeEvent.decode(reader, reader.uint32());
-                        break;
-                    case 5:
-                        message.scheduleRelationship = reader.int32();
-                        break;
-                    case 6:
-                        message.stopTimeProperties = $root.transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties.decode(reader, reader.uint32());
-                        break;
+                    case 1: {
+                            message.stopSequence = reader.uint32();
+                            break;
+                        }
+                    case 4: {
+                            message.stopId = reader.string();
+                            break;
+                        }
+                    case 2: {
+                            message.arrival = $root.transit_realtime.TripUpdate.StopTimeEvent.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 3: {
+                            message.departure = $root.transit_realtime.TripUpdate.StopTimeEvent.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 5: {
+                            message.scheduleRelationship = reader.int32();
+                            break;
+                        }
+                    case 6: {
+                            message.stopTimeProperties = $root.transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties.decode(reader, reader.uint32());
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -1687,6 +1793,12 @@ $root.transit_realtime = (function() {
                     message.departure = $root.transit_realtime.TripUpdate.StopTimeEvent.fromObject(object.departure);
                 }
                 switch (object.scheduleRelationship) {
+                default:
+                    if (typeof object.scheduleRelationship === "number") {
+                        message.scheduleRelationship = object.scheduleRelationship;
+                        break;
+                    }
+                    break;
                 case "SCHEDULED":
                 case 0:
                     message.scheduleRelationship = 0;
@@ -1742,7 +1854,7 @@ $root.transit_realtime = (function() {
                 if (message.stopId != null && message.hasOwnProperty("stopId"))
                     object.stopId = message.stopId;
                 if (message.scheduleRelationship != null && message.hasOwnProperty("scheduleRelationship"))
-                    object.scheduleRelationship = options.enums === String ? $root.transit_realtime.TripUpdate.StopTimeUpdate.ScheduleRelationship[message.scheduleRelationship] : message.scheduleRelationship;
+                    object.scheduleRelationship = options.enums === String ? $root.transit_realtime.TripUpdate.StopTimeUpdate.ScheduleRelationship[message.scheduleRelationship] === undefined ? message.scheduleRelationship : $root.transit_realtime.TripUpdate.StopTimeUpdate.ScheduleRelationship[message.scheduleRelationship] : message.scheduleRelationship;
                 if (message.stopTimeProperties != null && message.hasOwnProperty("stopTimeProperties"))
                     object.stopTimeProperties = $root.transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties.toObject(message.stopTimeProperties, options);
                 return object;
@@ -1757,6 +1869,21 @@ $root.transit_realtime = (function() {
              */
             StopTimeUpdate.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for StopTimeUpdate
+             * @function getTypeUrl
+             * @memberof transit_realtime.TripUpdate.StopTimeUpdate
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            StopTimeUpdate.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/transit_realtime.TripUpdate.StopTimeUpdate";
             };
 
             /**
@@ -1869,9 +1996,10 @@ $root.transit_realtime = (function() {
                     while (reader.pos < end) {
                         var tag = reader.uint32();
                         switch (tag >>> 3) {
-                        case 1:
-                            message.assignedStopId = reader.string();
-                            break;
+                        case 1: {
+                                message.assignedStopId = reader.string();
+                                break;
+                            }
                         default:
                             reader.skipType(tag & 7);
                             break;
@@ -1959,6 +2087,21 @@ $root.transit_realtime = (function() {
                  */
                 StopTimeProperties.prototype.toJSON = function toJSON() {
                     return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                /**
+                 * Gets the default type url for StopTimeProperties
+                 * @function getTypeUrl
+                 * @memberof transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                StopTimeProperties.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties";
                 };
 
                 return StopTimeProperties;
@@ -2081,15 +2224,18 @@ $root.transit_realtime = (function() {
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
-                    case 1:
-                        message.tripId = reader.string();
-                        break;
-                    case 2:
-                        message.startDate = reader.string();
-                        break;
-                    case 3:
-                        message.startTime = reader.string();
-                        break;
+                    case 1: {
+                            message.tripId = reader.string();
+                            break;
+                        }
+                    case 2: {
+                            message.startDate = reader.string();
+                            break;
+                        }
+                    case 3: {
+                            message.startTime = reader.string();
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -2194,6 +2340,21 @@ $root.transit_realtime = (function() {
              */
             TripProperties.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for TripProperties
+             * @function getTypeUrl
+             * @memberof transit_realtime.TripUpdate.TripProperties
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            TripProperties.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/transit_realtime.TripUpdate.TripProperties";
             };
 
             return TripProperties;
@@ -2406,41 +2567,52 @@ $root.transit_realtime = (function() {
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 1:
-                    message.trip = $root.transit_realtime.TripDescriptor.decode(reader, reader.uint32());
-                    break;
-                case 8:
-                    message.vehicle = $root.transit_realtime.VehicleDescriptor.decode(reader, reader.uint32());
-                    break;
-                case 2:
-                    message.position = $root.transit_realtime.Position.decode(reader, reader.uint32());
-                    break;
-                case 3:
-                    message.currentStopSequence = reader.uint32();
-                    break;
-                case 7:
-                    message.stopId = reader.string();
-                    break;
-                case 4:
-                    message.currentStatus = reader.int32();
-                    break;
-                case 5:
-                    message.timestamp = reader.uint64();
-                    break;
-                case 6:
-                    message.congestionLevel = reader.int32();
-                    break;
-                case 9:
-                    message.occupancyStatus = reader.int32();
-                    break;
-                case 10:
-                    message.occupancyPercentage = reader.uint32();
-                    break;
-                case 11:
-                    if (!(message.multiCarriageDetails && message.multiCarriageDetails.length))
-                        message.multiCarriageDetails = [];
-                    message.multiCarriageDetails.push($root.transit_realtime.VehiclePosition.CarriageDetails.decode(reader, reader.uint32()));
-                    break;
+                case 1: {
+                        message.trip = $root.transit_realtime.TripDescriptor.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 8: {
+                        message.vehicle = $root.transit_realtime.VehicleDescriptor.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 2: {
+                        message.position = $root.transit_realtime.Position.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 3: {
+                        message.currentStopSequence = reader.uint32();
+                        break;
+                    }
+                case 7: {
+                        message.stopId = reader.string();
+                        break;
+                    }
+                case 4: {
+                        message.currentStatus = reader.int32();
+                        break;
+                    }
+                case 5: {
+                        message.timestamp = reader.uint64();
+                        break;
+                    }
+                case 6: {
+                        message.congestionLevel = reader.int32();
+                        break;
+                    }
+                case 9: {
+                        message.occupancyStatus = reader.int32();
+                        break;
+                    }
+                case 10: {
+                        message.occupancyPercentage = reader.uint32();
+                        break;
+                    }
+                case 11: {
+                        if (!(message.multiCarriageDetails && message.multiCarriageDetails.length))
+                            message.multiCarriageDetails = [];
+                        message.multiCarriageDetails.push($root.transit_realtime.VehiclePosition.CarriageDetails.decode(reader, reader.uint32()));
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -2590,6 +2762,12 @@ $root.transit_realtime = (function() {
             case 1:
                 message.currentStatus = 1;
                 break;
+            default:
+                if (typeof object.currentStatus === "number") {
+                    message.currentStatus = object.currentStatus;
+                    break;
+                }
+                break;
             case "IN_TRANSIT_TO":
             case 2:
                 message.currentStatus = 2;
@@ -2605,6 +2783,12 @@ $root.transit_realtime = (function() {
                 else if (typeof object.timestamp === "object")
                     message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber(true);
             switch (object.congestionLevel) {
+            default:
+                if (typeof object.congestionLevel === "number") {
+                    message.congestionLevel = object.congestionLevel;
+                    break;
+                }
+                break;
             case "UNKNOWN_CONGESTION_LEVEL":
             case 0:
                 message.congestionLevel = 0;
@@ -2627,6 +2811,12 @@ $root.transit_realtime = (function() {
                 break;
             }
             switch (object.occupancyStatus) {
+            default:
+                if (typeof object.occupancyStatus === "number") {
+                    message.occupancyStatus = object.occupancyStatus;
+                    break;
+                }
+                break;
             case "EMPTY":
             case 0:
                 message.occupancyStatus = 0;
@@ -2717,20 +2907,20 @@ $root.transit_realtime = (function() {
             if (message.currentStopSequence != null && message.hasOwnProperty("currentStopSequence"))
                 object.currentStopSequence = message.currentStopSequence;
             if (message.currentStatus != null && message.hasOwnProperty("currentStatus"))
-                object.currentStatus = options.enums === String ? $root.transit_realtime.VehiclePosition.VehicleStopStatus[message.currentStatus] : message.currentStatus;
+                object.currentStatus = options.enums === String ? $root.transit_realtime.VehiclePosition.VehicleStopStatus[message.currentStatus] === undefined ? message.currentStatus : $root.transit_realtime.VehiclePosition.VehicleStopStatus[message.currentStatus] : message.currentStatus;
             if (message.timestamp != null && message.hasOwnProperty("timestamp"))
                 if (typeof message.timestamp === "number")
                     object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
                 else
                     object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber(true) : message.timestamp;
             if (message.congestionLevel != null && message.hasOwnProperty("congestionLevel"))
-                object.congestionLevel = options.enums === String ? $root.transit_realtime.VehiclePosition.CongestionLevel[message.congestionLevel] : message.congestionLevel;
+                object.congestionLevel = options.enums === String ? $root.transit_realtime.VehiclePosition.CongestionLevel[message.congestionLevel] === undefined ? message.congestionLevel : $root.transit_realtime.VehiclePosition.CongestionLevel[message.congestionLevel] : message.congestionLevel;
             if (message.stopId != null && message.hasOwnProperty("stopId"))
                 object.stopId = message.stopId;
             if (message.vehicle != null && message.hasOwnProperty("vehicle"))
                 object.vehicle = $root.transit_realtime.VehicleDescriptor.toObject(message.vehicle, options);
             if (message.occupancyStatus != null && message.hasOwnProperty("occupancyStatus"))
-                object.occupancyStatus = options.enums === String ? $root.transit_realtime.VehiclePosition.OccupancyStatus[message.occupancyStatus] : message.occupancyStatus;
+                object.occupancyStatus = options.enums === String ? $root.transit_realtime.VehiclePosition.OccupancyStatus[message.occupancyStatus] === undefined ? message.occupancyStatus : $root.transit_realtime.VehiclePosition.OccupancyStatus[message.occupancyStatus] : message.occupancyStatus;
             if (message.occupancyPercentage != null && message.hasOwnProperty("occupancyPercentage"))
                 object.occupancyPercentage = message.occupancyPercentage;
             if (message.multiCarriageDetails && message.multiCarriageDetails.length) {
@@ -2750,6 +2940,21 @@ $root.transit_realtime = (function() {
          */
         VehiclePosition.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for VehiclePosition
+         * @function getTypeUrl
+         * @memberof transit_realtime.VehiclePosition
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        VehiclePosition.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/transit_realtime.VehiclePosition";
         };
 
         /**
@@ -2952,21 +3157,26 @@ $root.transit_realtime = (function() {
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
-                    case 1:
-                        message.id = reader.string();
-                        break;
-                    case 2:
-                        message.label = reader.string();
-                        break;
-                    case 3:
-                        message.occupancyStatus = reader.int32();
-                        break;
-                    case 4:
-                        message.occupancyPercentage = reader.int32();
-                        break;
-                    case 5:
-                        message.carriageSequence = reader.uint32();
-                        break;
+                    case 1: {
+                            message.id = reader.string();
+                            break;
+                        }
+                    case 2: {
+                            message.label = reader.string();
+                            break;
+                        }
+                    case 3: {
+                            message.occupancyStatus = reader.int32();
+                            break;
+                        }
+                    case 4: {
+                            message.occupancyPercentage = reader.int32();
+                            break;
+                        }
+                    case 5: {
+                            message.carriageSequence = reader.uint32();
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -3077,6 +3287,12 @@ $root.transit_realtime = (function() {
                 case 6:
                     message.occupancyStatus = 6;
                     break;
+                default:
+                    if (typeof object.occupancyStatus === "number") {
+                        message.occupancyStatus = object.occupancyStatus;
+                        break;
+                    }
+                    break;
                 case "NO_DATA_AVAILABLE":
                 case 7:
                     message.occupancyStatus = 7;
@@ -3118,7 +3334,7 @@ $root.transit_realtime = (function() {
                 if (message.label != null && message.hasOwnProperty("label"))
                     object.label = message.label;
                 if (message.occupancyStatus != null && message.hasOwnProperty("occupancyStatus"))
-                    object.occupancyStatus = options.enums === String ? $root.transit_realtime.VehiclePosition.OccupancyStatus[message.occupancyStatus] : message.occupancyStatus;
+                    object.occupancyStatus = options.enums === String ? $root.transit_realtime.VehiclePosition.OccupancyStatus[message.occupancyStatus] === undefined ? message.occupancyStatus : $root.transit_realtime.VehiclePosition.OccupancyStatus[message.occupancyStatus] : message.occupancyStatus;
                 if (message.occupancyPercentage != null && message.hasOwnProperty("occupancyPercentage"))
                     object.occupancyPercentage = message.occupancyPercentage;
                 if (message.carriageSequence != null && message.hasOwnProperty("carriageSequence"))
@@ -3135,6 +3351,21 @@ $root.transit_realtime = (function() {
              */
             CarriageDetails.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for CarriageDetails
+             * @function getTypeUrl
+             * @memberof transit_realtime.VehiclePosition.CarriageDetails
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            CarriageDetails.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/transit_realtime.VehiclePosition.CarriageDetails";
             };
 
             return CarriageDetails;
@@ -3338,40 +3569,50 @@ $root.transit_realtime = (function() {
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 1:
-                    if (!(message.activePeriod && message.activePeriod.length))
-                        message.activePeriod = [];
-                    message.activePeriod.push($root.transit_realtime.TimeRange.decode(reader, reader.uint32()));
-                    break;
-                case 5:
-                    if (!(message.informedEntity && message.informedEntity.length))
-                        message.informedEntity = [];
-                    message.informedEntity.push($root.transit_realtime.EntitySelector.decode(reader, reader.uint32()));
-                    break;
-                case 6:
-                    message.cause = reader.int32();
-                    break;
-                case 7:
-                    message.effect = reader.int32();
-                    break;
-                case 8:
-                    message.url = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
-                    break;
-                case 10:
-                    message.headerText = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
-                    break;
-                case 11:
-                    message.descriptionText = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
-                    break;
-                case 12:
-                    message.ttsHeaderText = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
-                    break;
-                case 13:
-                    message.ttsDescriptionText = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
-                    break;
-                case 14:
-                    message.severityLevel = reader.int32();
-                    break;
+                case 1: {
+                        if (!(message.activePeriod && message.activePeriod.length))
+                            message.activePeriod = [];
+                        message.activePeriod.push($root.transit_realtime.TimeRange.decode(reader, reader.uint32()));
+                        break;
+                    }
+                case 5: {
+                        if (!(message.informedEntity && message.informedEntity.length))
+                            message.informedEntity = [];
+                        message.informedEntity.push($root.transit_realtime.EntitySelector.decode(reader, reader.uint32()));
+                        break;
+                    }
+                case 6: {
+                        message.cause = reader.int32();
+                        break;
+                    }
+                case 7: {
+                        message.effect = reader.int32();
+                        break;
+                    }
+                case 8: {
+                        message.url = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 10: {
+                        message.headerText = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 11: {
+                        message.descriptionText = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 12: {
+                        message.ttsHeaderText = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 13: {
+                        message.ttsDescriptionText = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 14: {
+                        message.severityLevel = reader.int32();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -3531,6 +3772,12 @@ $root.transit_realtime = (function() {
                 }
             }
             switch (object.cause) {
+            default:
+                if (typeof object.cause === "number") {
+                    message.cause = object.cause;
+                    break;
+                }
+                break;
             case "UNKNOWN_CAUSE":
             case 1:
                 message.cause = 1;
@@ -3609,6 +3856,12 @@ $root.transit_realtime = (function() {
             case 7:
                 message.effect = 7;
                 break;
+            default:
+                if (typeof object.effect === "number") {
+                    message.effect = object.effect;
+                    break;
+                }
+                break;
             case "UNKNOWN_EFFECT":
             case 8:
                 message.effect = 8;
@@ -3652,6 +3905,12 @@ $root.transit_realtime = (function() {
                 message.ttsDescriptionText = $root.transit_realtime.TranslatedString.fromObject(object.ttsDescriptionText);
             }
             switch (object.severityLevel) {
+            default:
+                if (typeof object.severityLevel === "number") {
+                    message.severityLevel = object.severityLevel;
+                    break;
+                }
+                break;
             case "UNKNOWN_SEVERITY":
             case 1:
                 message.severityLevel = 1;
@@ -3710,9 +3969,9 @@ $root.transit_realtime = (function() {
                     object.informedEntity[j] = $root.transit_realtime.EntitySelector.toObject(message.informedEntity[j], options);
             }
             if (message.cause != null && message.hasOwnProperty("cause"))
-                object.cause = options.enums === String ? $root.transit_realtime.Alert.Cause[message.cause] : message.cause;
+                object.cause = options.enums === String ? $root.transit_realtime.Alert.Cause[message.cause] === undefined ? message.cause : $root.transit_realtime.Alert.Cause[message.cause] : message.cause;
             if (message.effect != null && message.hasOwnProperty("effect"))
-                object.effect = options.enums === String ? $root.transit_realtime.Alert.Effect[message.effect] : message.effect;
+                object.effect = options.enums === String ? $root.transit_realtime.Alert.Effect[message.effect] === undefined ? message.effect : $root.transit_realtime.Alert.Effect[message.effect] : message.effect;
             if (message.url != null && message.hasOwnProperty("url"))
                 object.url = $root.transit_realtime.TranslatedString.toObject(message.url, options);
             if (message.headerText != null && message.hasOwnProperty("headerText"))
@@ -3724,7 +3983,7 @@ $root.transit_realtime = (function() {
             if (message.ttsDescriptionText != null && message.hasOwnProperty("ttsDescriptionText"))
                 object.ttsDescriptionText = $root.transit_realtime.TranslatedString.toObject(message.ttsDescriptionText, options);
             if (message.severityLevel != null && message.hasOwnProperty("severityLevel"))
-                object.severityLevel = options.enums === String ? $root.transit_realtime.Alert.SeverityLevel[message.severityLevel] : message.severityLevel;
+                object.severityLevel = options.enums === String ? $root.transit_realtime.Alert.SeverityLevel[message.severityLevel] === undefined ? message.severityLevel : $root.transit_realtime.Alert.SeverityLevel[message.severityLevel] : message.severityLevel;
             return object;
         };
 
@@ -3737,6 +3996,21 @@ $root.transit_realtime = (function() {
          */
         Alert.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for Alert
+         * @function getTypeUrl
+         * @memberof transit_realtime.Alert
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        Alert.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/transit_realtime.Alert";
         };
 
         /**
@@ -3929,12 +4203,14 @@ $root.transit_realtime = (function() {
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 1:
-                    message.start = reader.uint64();
-                    break;
-                case 2:
-                    message.end = reader.uint64();
-                    break;
+                case 1: {
+                        message.start = reader.uint64();
+                        break;
+                    }
+                case 2: {
+                        message.end = reader.uint64();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -4059,6 +4335,21 @@ $root.transit_realtime = (function() {
          */
         TimeRange.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for TimeRange
+         * @function getTypeUrl
+         * @memberof transit_realtime.TimeRange
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        TimeRange.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/transit_realtime.TimeRange";
         };
 
         return TimeRange;
@@ -4198,21 +4489,26 @@ $root.transit_realtime = (function() {
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 1:
-                    message.latitude = reader.float();
-                    break;
-                case 2:
-                    message.longitude = reader.float();
-                    break;
-                case 3:
-                    message.bearing = reader.float();
-                    break;
-                case 4:
-                    message.odometer = reader.double();
-                    break;
-                case 5:
-                    message.speed = reader.float();
-                    break;
+                case 1: {
+                        message.latitude = reader.float();
+                        break;
+                    }
+                case 2: {
+                        message.longitude = reader.float();
+                        break;
+                    }
+                case 3: {
+                        message.bearing = reader.float();
+                        break;
+                    }
+                case 4: {
+                        message.odometer = reader.double();
+                        break;
+                    }
+                case 5: {
+                        message.speed = reader.float();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -4335,6 +4631,21 @@ $root.transit_realtime = (function() {
          */
         Position.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for Position
+         * @function getTypeUrl
+         * @memberof transit_realtime.Position
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        Position.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/transit_realtime.Position";
         };
 
         return Position;
@@ -4487,24 +4798,30 @@ $root.transit_realtime = (function() {
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 1:
-                    message.tripId = reader.string();
-                    break;
-                case 5:
-                    message.routeId = reader.string();
-                    break;
-                case 6:
-                    message.directionId = reader.uint32();
-                    break;
-                case 2:
-                    message.startTime = reader.string();
-                    break;
-                case 3:
-                    message.startDate = reader.string();
-                    break;
-                case 4:
-                    message.scheduleRelationship = reader.int32();
-                    break;
+                case 1: {
+                        message.tripId = reader.string();
+                        break;
+                    }
+                case 5: {
+                        message.routeId = reader.string();
+                        break;
+                    }
+                case 6: {
+                        message.directionId = reader.uint32();
+                        break;
+                    }
+                case 2: {
+                        message.startTime = reader.string();
+                        break;
+                    }
+                case 3: {
+                        message.startDate = reader.string();
+                        break;
+                    }
+                case 4: {
+                        message.scheduleRelationship = reader.int32();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -4593,6 +4910,12 @@ $root.transit_realtime = (function() {
             if (object.startDate != null)
                 message.startDate = String(object.startDate);
             switch (object.scheduleRelationship) {
+            default:
+                if (typeof object.scheduleRelationship === "number") {
+                    message.scheduleRelationship = object.scheduleRelationship;
+                    break;
+                }
+                break;
             case "SCHEDULED":
             case 0:
                 message.scheduleRelationship = 0;
@@ -4649,7 +4972,7 @@ $root.transit_realtime = (function() {
             if (message.startDate != null && message.hasOwnProperty("startDate"))
                 object.startDate = message.startDate;
             if (message.scheduleRelationship != null && message.hasOwnProperty("scheduleRelationship"))
-                object.scheduleRelationship = options.enums === String ? $root.transit_realtime.TripDescriptor.ScheduleRelationship[message.scheduleRelationship] : message.scheduleRelationship;
+                object.scheduleRelationship = options.enums === String ? $root.transit_realtime.TripDescriptor.ScheduleRelationship[message.scheduleRelationship] === undefined ? message.scheduleRelationship : $root.transit_realtime.TripDescriptor.ScheduleRelationship[message.scheduleRelationship] : message.scheduleRelationship;
             if (message.routeId != null && message.hasOwnProperty("routeId"))
                 object.routeId = message.routeId;
             if (message.directionId != null && message.hasOwnProperty("directionId"))
@@ -4666,6 +4989,21 @@ $root.transit_realtime = (function() {
          */
         TripDescriptor.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for TripDescriptor
+         * @function getTypeUrl
+         * @memberof transit_realtime.TripDescriptor
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        TripDescriptor.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/transit_realtime.TripDescriptor";
         };
 
         /**
@@ -4807,15 +5145,18 @@ $root.transit_realtime = (function() {
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 1:
-                    message.id = reader.string();
-                    break;
-                case 2:
-                    message.label = reader.string();
-                    break;
-                case 3:
-                    message.licensePlate = reader.string();
-                    break;
+                case 1: {
+                        message.id = reader.string();
+                        break;
+                    }
+                case 2: {
+                        message.label = reader.string();
+                        break;
+                    }
+                case 3: {
+                        message.licensePlate = reader.string();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -4920,6 +5261,21 @@ $root.transit_realtime = (function() {
          */
         VehicleDescriptor.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for VehicleDescriptor
+         * @function getTypeUrl
+         * @memberof transit_realtime.VehicleDescriptor
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        VehicleDescriptor.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/transit_realtime.VehicleDescriptor";
         };
 
         return VehicleDescriptor;
@@ -5072,24 +5428,30 @@ $root.transit_realtime = (function() {
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 1:
-                    message.agencyId = reader.string();
-                    break;
-                case 2:
-                    message.routeId = reader.string();
-                    break;
-                case 3:
-                    message.routeType = reader.int32();
-                    break;
-                case 4:
-                    message.trip = $root.transit_realtime.TripDescriptor.decode(reader, reader.uint32());
-                    break;
-                case 5:
-                    message.stopId = reader.string();
-                    break;
-                case 6:
-                    message.directionId = reader.uint32();
-                    break;
+                case 1: {
+                        message.agencyId = reader.string();
+                        break;
+                    }
+                case 2: {
+                        message.routeId = reader.string();
+                        break;
+                    }
+                case 3: {
+                        message.routeType = reader.int32();
+                        break;
+                    }
+                case 4: {
+                        message.trip = $root.transit_realtime.TripDescriptor.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 5: {
+                        message.stopId = reader.string();
+                        break;
+                    }
+                case 6: {
+                        message.directionId = reader.uint32();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -5225,6 +5587,21 @@ $root.transit_realtime = (function() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
+        /**
+         * Gets the default type url for EntitySelector
+         * @function getTypeUrl
+         * @memberof transit_realtime.EntitySelector
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        EntitySelector.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/transit_realtime.EntitySelector";
+        };
+
         return EntitySelector;
     })();
 
@@ -5322,11 +5699,12 @@ $root.transit_realtime = (function() {
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 1:
-                    if (!(message.translation && message.translation.length))
-                        message.translation = [];
-                    message.translation.push($root.transit_realtime.TranslatedString.Translation.decode(reader, reader.uint32()));
-                    break;
+                case 1: {
+                        if (!(message.translation && message.translation.length))
+                            message.translation = [];
+                        message.translation.push($root.transit_realtime.TranslatedString.Translation.decode(reader, reader.uint32()));
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -5433,6 +5811,21 @@ $root.transit_realtime = (function() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
+        /**
+         * Gets the default type url for TranslatedString
+         * @function getTypeUrl
+         * @memberof transit_realtime.TranslatedString
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        TranslatedString.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/transit_realtime.TranslatedString";
+        };
+
         TranslatedString.Translation = (function() {
 
             /**
@@ -5535,12 +5928,14 @@ $root.transit_realtime = (function() {
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
-                    case 1:
-                        message.text = reader.string();
-                        break;
-                    case 2:
-                        message.language = reader.string();
-                        break;
+                    case 1: {
+                            message.text = reader.string();
+                            break;
+                        }
+                    case 2: {
+                            message.language = reader.string();
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -5638,6 +6033,21 @@ $root.transit_realtime = (function() {
              */
             Translation.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for Translation
+             * @function getTypeUrl
+             * @memberof transit_realtime.TranslatedString.Translation
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            Translation.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/transit_realtime.TranslatedString.Translation";
             };
 
             return Translation;
