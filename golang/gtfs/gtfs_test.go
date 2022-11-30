@@ -1,9 +1,10 @@
 package gtfs
 
 import (
-	proto "github.com/golang/protobuf/proto"
 	"io/ioutil"
 	"testing"
+
+	"google.golang.org/protobuf/proto"
 )
 
 func TestFeedMessage(t *testing.T) {

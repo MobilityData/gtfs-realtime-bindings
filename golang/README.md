@@ -16,7 +16,7 @@ go get github.com/MobilityData/gtfs-realtime-bindings/golang/gtfs
 
 And install the golang protobuf library dependency with:
 ```
-go get github.com/golang/protobuf/proto
+go get google.golang.org/protobuf/proto
 ```
 
 ## Example Code
@@ -30,7 +30,7 @@ package main
 
 import (
     "fmt"
-    proto "github.com/golang/protobuf/proto"
+    "google.golang.org/protobuf/proto"
     "github.com/MobilityData/gtfs-realtime-bindings/golang/gtfs"
     "io/ioutil"
     "log"
