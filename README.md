@@ -31,7 +31,7 @@ published as packages to facilitate their use in other projects.
 
 * [.NET](dotnet/README.md)
 * [Java](java/README.md)
-* [JavaScript / Node.js](nodejs/README.md)
+* [JavaScript / TypeScript / Node.js](nodejs/README.md)
 * [Python](python/README.md)
 * [Golang](golang/README.md)
 * ~~[Ruby](ruby/README.md)~~ *(Deprecated as of early 2019)*
