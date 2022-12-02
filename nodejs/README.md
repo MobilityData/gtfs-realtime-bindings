@@ -30,41 +30,28 @@ data feed from a particular URL, parsing it as a FeedMessage (the root type of
 the GTFS-realtime schema), and iterating over the results.
 
 ```javascript
-const GtfsRealtimeBindings = require("gtfs-realtime-bindings");
-const https = require("https");
+import GtfsRealtimeBindings from "gtfs-realtime-bindings";
+import fetch from "node-fetch";
 
-https
-  .get(
-    "<GTFS-realtime source URL>",
+fetch("<GTFS-realtime source URL>", {
+  headers: {
+    "x-api-key": "<redacted>",
     // replace with your GTFS-realtime source's auth token
     // e.g. x-api-key is the header value used for NY's MTA GTFS APIs
-    {
-      headers: {
-        "x-api-key": "<redacted>",
-      },
-    },
-    (resp) => {
-      const buffers = [];
-
-      // A chunk of data has been received.
-      resp.on("data", (chunk) => {
-        buffers.push(chunk);
-      });
-
-      // The whole response has been received.
-      resp.on("end", () => {
-        const data = Buffer.concat(buffers);
-        const feed =
-          GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(data);
-        feed.entity.forEach(function (entity) {
-          if (entity.tripUpdate) {
-            console.log(JSON.stringify(entity.tripUpdate));
-          }
-        });
-      });
-    }
-  )
-  .on("error", (err) => {
+  },
+})
+  .then((response) => response.arrayBuffer())
+  .then((buffer) => {
+    const feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(
+      new Uint8Array(buffer)
+    );
+    feed.entity.forEach((entity) => {
+      if (entity.tripUpdate) {
+        console.log(entity.tripUpdate);
+      }
+    });
+  })
+  .catch((error) => {
     console.log("Error: " + err.message);
   });
 ```
