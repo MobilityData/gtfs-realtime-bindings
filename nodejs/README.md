@@ -46,7 +46,13 @@ fetch("<GTFS-realtime source URL>", {
     // e.g. x-api-key is the header value used for NY's MTA GTFS APIs
   },
 })
-  .then((response) => response.arrayBuffer())
+  .then((response) => {
+    if (!res.ok) {
+      console.log("Error: " + res.status);
+      process.exit(1);
+    }
+    return response.arrayBuffer();
+  })
   .then((buffer) => {
     const feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(
       new Uint8Array(buffer)
