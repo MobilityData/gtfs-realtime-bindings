@@ -29,6 +29,12 @@ The following Node.js code snippet demonstrates downloading a GTFS-realtime
 data feed from a particular URL, parsing it as a FeedMessage (the root type of
 the GTFS-realtime schema), and iterating over the results.
 
+In order to make this example work, you must first install `node-fetch` with NPM.
+
+_Note: this exemple is using ES modules (`import`/`export` syntax) and is not compatible
+with CommonJS (`require` syntax). You can use CommonJS by converting `import` to `require`
+and installing `node-fetch@2`. Learn more about ES modules [here](https://nodejs.org/api/esm.html)._
+
 ```javascript
 import GtfsRealtimeBindings from "gtfs-realtime-bindings";
 import fetch from "node-fetch";
