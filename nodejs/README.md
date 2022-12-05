@@ -39,23 +39,22 @@ and installing `node-fetch@2`. Learn more about ES modules [here](https://nodejs
 import GtfsRealtimeBindings from "gtfs-realtime-bindings";
 import fetch from "node-fetch";
 
-fetch("<GTFS-realtime source URL>", {
-  headers: {
-    "x-api-key": "<redacted>",
-    // replace with your GTFS-realtime source's auth token
-    // e.g. x-api-key is the header value used for NY's MTA GTFS APIs
-  },
-})
-  .then((response) => {
+(async () => {
+  try {
+    const response = await fetch("<GTFS-realtime source URL>", {
+      headers: {
+        "x-api-key": "<redacted>",
+        // replace with your GTFS-realtime source's auth token
+        // e.g. x-api-key is the header value used for NY's MTA GTFS APIs
+      },
+    });
     if (!res.ok) {
       const error = new Error(`${res.url}: ${res.status} ${res.statusText}`);
       error.response = res;
       throw error;
       process.exit(1);
     }
-    return response.arrayBuffer();
-  })
-  .then((buffer) => {
+    const buffer = await response.arrayBuffer();
     const feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(
       new Uint8Array(buffer)
     );
@@ -64,12 +63,12 @@ fetch("<GTFS-realtime source URL>", {
         console.log(entity.tripUpdate);
       }
     });
-  })
-  .catch((error) => {
+  }
+  catch (error) {
     console.log(error);
     process.exit(1);
-  });
-```
+  }
+})();
 
 For more details on the naming conventions for the JavaScript classes generated
 from the
