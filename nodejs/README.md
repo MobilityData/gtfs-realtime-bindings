@@ -48,7 +48,9 @@ fetch("<GTFS-realtime source URL>", {
 })
   .then((response) => {
     if (!res.ok) {
-      console.log("Error: " + res.status);
+      const error = new Error(`${res.url}: ${res.status} ${res.statusText}`);
+      error.response = res;
+      throw error;
       process.exit(1);
     }
     return response.arrayBuffer();
