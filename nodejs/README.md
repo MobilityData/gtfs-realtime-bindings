@@ -66,7 +66,7 @@ fetch("<GTFS-realtime source URL>", {
     });
   })
   .catch((error) => {
-    console.log("Error: " + err.message);
+    console.log(error);
     process.exit(1);
   });
 ```
