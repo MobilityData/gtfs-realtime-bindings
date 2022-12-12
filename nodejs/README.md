@@ -69,6 +69,7 @@ import fetch from "node-fetch";
     process.exit(1);
   }
 })();
+```
 
 For more details on the naming conventions for the JavaScript classes generated
 from the
