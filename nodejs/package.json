@@ -5,7 +5,7 @@
     "tags": [
         "gtfs-realtime"
     ],
-    "version": "1.0.0",
+    "version": "1.1.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/MobilityData/gtfs-realtime-bindings.git"
@@ -14,9 +14,10 @@
         "url": "https://github.com/MobilityData/gtfs-realtime-bindings/issues"
     },
     "main": "gtfs-realtime.js",
+    "types": "gtfs-realtime.d.ts",
     "scripts": {
         "test": "mocha test/*.js",
-        "buildProto": "pbjs -t static-module -w commonjs -o gtfs-realtime.js ../gtfs-realtime.proto"
+        "buildProto": "pbjs -t static-module -w commonjs -o gtfs-realtime.js ../gtfs-realtime.proto && pbts -o gtfs-realtime.d.ts gtfs-realtime.js"
     },
     "engines": {
         "node": "18.12.1"
