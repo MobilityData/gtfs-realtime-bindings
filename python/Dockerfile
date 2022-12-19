@@ -1,7 +1,6 @@
 FROM python:3.11.1
 
 WORKDIR /lib
-COPY python/setup.py /lib/setup.py
 COPY gtfs-realtime.proto /gtfs-realtime.proto
 RUN mkdir -p google/transit
 
