@@ -19,12 +19,6 @@
 
 1. Add the license header back to the generated source file.
 
-1. Test the generated code from the `golang/gtfs` directory:
-
-    ```
-    go test
-    ````
-
 ## Publishing a new release
 
 Ask someone with write permission for the repo to follow the [instructions for publishing Go modules](https://go.dev/blog/publishing-go-modules).
