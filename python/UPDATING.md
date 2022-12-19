@@ -4,17 +4,17 @@
 
 #### One-Time Setup
 
-1. Download and setup Protocol Buffer release from https://github.com/protocolbuffers/protobuf/releases (if you haven't already done this for another language).  As of February 2019 we're using v3.7 release, which is compatible with proto2 .proto files.
-1. Install [Python](https://www.python.org/downloads/). Release 3.7.2 was most recently used.
-1. Install [nose](https://nose.readthedocs.io/en/latest/) for unit tests by running `easy_install nose`
-1. Install the Python protobuf library via `easy_install protobuf`
+1. Download and install [Docker](https://docs.docker.com/get-docker/)
 
 #### Every time `gtfs-realtime.proto` changes
 
-1. Regenerate the language binding source from gtfs-realtime.proto by running the following from the `python` folder:
+1. Run the following from the project root folder:
 
     ```
-    protoc --python_out=google/transit --proto_path=.. ../gtfs-realtime.proto
+    docker build -t gtfs-python -f python/Dockerfile .
+    # -it to make sure docker run can be killed with ctrl-c
+    # -t uses TTY, which causes linux to include carriage returns, which are stripped using tr
+    docker run -it --rm gtfs-python cat /lib/google/transit/gtfs_realtime_pb2.py | tr -d '\r' > python/google/transit/gtfs_realtime_pb2.py
     ```
 
 1. Add the license header back to the generated source file.
