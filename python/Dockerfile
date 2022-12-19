@@ -14,4 +14,3 @@ RUN curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v21.1
 
 RUN pip install -I protobuf==4.21.12
 RUN protoc --python_out=google/transit --proto_path=.. gtfs-realtime.proto
-# RUN protoc --go_out=./ --go_opt=Mgtfs-realtime.proto=./gtfs --proto_path=.. gtfs-realtime.proto
