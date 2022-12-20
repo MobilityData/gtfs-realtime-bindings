@@ -12,11 +12,13 @@
 
     ```
     # docker rmi to clean up past image tags
-    # docker build to build the docker image
-    # docker run to copy a (slightly processed) version of the generated code to the host machine
+    # docker build to build the docker image and tag as gtfs-golang
+    # docker run as unnamed container to ensure proto compiles and unit tests pass
     #   -it to make sure docker run can be killed with ctrl-c
-    #   -t uses TTY, which causes linux to include carriage returns, which are stripped using tr
-    docker rmi gtfs-golang; docker build -t gtfs-golang -f golang/Dockerfile . && docker run -it --rm gtfs-golang cat /lib/gtfs/gtfs-realtime.pb.go | tr -d '\r' > golang/gtfs/gtfs-realtime.pb.go
+    # docker run as named daemon container so we can copy the file to the host machine
+    # docker cp to copy the file from the daemon container to the host machine
+    # docker rm to clean up by deleting the named daemon container
+    docker rmi gtfs-golang; docker build -t gtfs-golang -f golang/Dockerfile . && docker run -it gtfs-golang && docker run --name gtfs-golang-container -it -d gtfs-golang && docker cp gtfs-golang-container:/lib/gtfs/gtfs-realtime.pb.go golang/gtfs/gtfs-realtime.pb.go && docker rm -f gtfs-golang-container
     ```
 
 1. Add the license header back to the generated source file.

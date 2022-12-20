@@ -17,5 +17,4 @@ RUN curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v21.9
     && rm -f $PROTOC_ZIP
 
 RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1
-RUN protoc --go_out=./ --go_opt=Mgtfs-realtime.proto=./gtfs --proto_path=.. gtfs-realtime.proto
-RUN go test ./...
+CMD protoc --go_out=./ --go_opt=Mgtfs-realtime.proto=./gtfs --proto_path=.. gtfs-realtime.proto && go test ./...
