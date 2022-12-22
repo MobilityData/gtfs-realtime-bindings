@@ -18,7 +18,9 @@ RUN mkdir -p google/transit
 RUN mkdir tests
 COPY python/tests/test_gtfs_realtime_pb2.py /lib/tests/test_gtfs_realtime_pb2.py
 COPY python/tests/vehicle_position.pb /lib/tests/vehicle_position.pb
-COPY python/google/__init__.py /lib/google/__init__.py
+# NOTE: we do not use the __init__.py for the google namespace to avoid creating namespace conflicts
+# as long as paths are configured correctly, the namespace will be automatically handled
+# https://setuptools.pypa.io/en/latest/userguide/package_discovery.html#finding-namespace-packages
 COPY python/google/transit/__init__.py /lib/google/transit/__init__.py
 
 CMD protoc --python_out=google/transit --proto_path=.. gtfs-realtime.proto && nose2
