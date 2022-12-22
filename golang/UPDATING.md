@@ -11,7 +11,7 @@
 1. Run the following from the project root folder:
 
     ```
-    make go-proto  # you can also just run `make` or `make protos` to re-generate all protos
+    ./golang/update_protos.sh
     ```
 
 1. Add the license header back to the generated source file.
