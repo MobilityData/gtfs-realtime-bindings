@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -e -x
 
 # store the directory information to allow the script to be executed from anywhere
 GOLANG_DIR=$(cd `dirname $0` && pwd)
