@@ -11,7 +11,7 @@
 1. Run the update script:
 
     ```
-    ./update_protos.sh
+    ./update_generated_code.sh
     ```
 
 1. Add the license header back to the generated source file.
