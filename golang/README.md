@@ -63,10 +63,10 @@ func main() {
     }
 
     for _, entity := range feed.Entity {
-        tripUpdate := entity.TripUpdate
-        trip := tripUpdate.Trip
-        tripId := trip.TripId
-        fmt.Printf("Trip ID: %s\n", *tripId)
+        tripUpdate := entity.GetTripUpdate()
+        trip := tripUpdate.GetTrip()
+        tripId := trip.GetTripId()
+        fmt.Printf("Trip ID: %s\n", tripId)
     }
 }
 ```
