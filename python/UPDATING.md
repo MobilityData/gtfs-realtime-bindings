@@ -8,10 +8,10 @@
 
 #### Every time `gtfs-realtime.proto` changes
 
-1. Run the following from the project root folder:
+1. Run the update script:
 
     ```
-    ./python/update_protos.sh
+    ./update_generated_code.sh
     ```
 
 1. Add the license header back to the generated source file.
