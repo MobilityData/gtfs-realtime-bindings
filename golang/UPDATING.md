@@ -20,7 +20,7 @@
 
 Publishing can only be performed by someone with commit privileges to the repo.
 
-1. Ensure you are the in branch (likely `master`) and at the commit you'd like to tag as a release version.
+1. Ensure you are in the branch (likely `master`) and at the commit you'd like to tag as a release version.
 
 1. Decide on the new [semantic version](https://semver.org/spec/v2.0.0.html) of the form `vX.Y.Z`.  Use it in the commands below.
 
