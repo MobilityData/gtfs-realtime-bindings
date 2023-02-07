@@ -40,3 +40,5 @@ Publishing can only be performed by someone with commit privileges to the repo.
    ```
 
 For more information about Go module publishing, see the [official documentation](https://go.dev/blog/publishing-go-modules).
+
+See indexed releases at https://pkg.go.dev/github.com/MobilityData/gtfs-realtime-bindings/golang/gtfs.
