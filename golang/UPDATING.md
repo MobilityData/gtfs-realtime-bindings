@@ -20,7 +20,7 @@
 
 Publishing can only be performed by someone with commit privileges to the repo.
 
-1. Ensure you are the branch (likely `master`) and at the commit you'd like to tag as a release version.
+1. Ensure you are the in branch (likely `master`) and at the commit you'd like to tag as a release version.
 
 1. Decide on the new [semantic version](https://semver.org/spec/v2.0.0.html) of the form `vX.Y.Z`.  Use it in the commands below.
 
@@ -31,7 +31,7 @@ Publishing can only be performed by someone with commit privileges to the repo.
    git push origin golang/gtfs/vX.Y.Z
    ```
 
-   Note the prefix of golang/gtfs/ per the golang reference documentation about packages that belong to a subdirectory within a larger repo, where our repo root path is `github.com/MobilityData/gtfs-realtime-bindings` and our subdirectory is `golang/gtfs`.  See https://go.dev/ref/mod#vcs-version for more info.
+   Note the prefix of `golang/gtfs/` per the golang reference documentation about packages that belong to a subdirectory within a larger repo, where our repo root path is `github.com/MobilityData/gtfs-realtime-bindings` and our subdirectory is `golang/gtfs`.  See https://go.dev/ref/mod#vcs-version for more info.
 
 1. Verify that the publish was successful with the following command:
 
