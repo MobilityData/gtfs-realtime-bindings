@@ -48,9 +48,9 @@ import fetch from "node-fetch";
         // e.g. x-api-key is the header value used for NY's MTA GTFS APIs
       },
     });
-    if (!res.ok) {
-      const error = new Error(`${res.url}: ${res.status} ${res.statusText}`);
-      error.response = res;
+    if (!response.ok) {
+      const error = new Error(`${response.url}: ${response.status} ${response.statusText}`);
+      error.response = response;
       throw error;
       process.exit(1);
     }
