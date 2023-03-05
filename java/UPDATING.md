@@ -4,27 +4,17 @@
 
 #### One-Time Setup
 
-1. Download and setup Protocol Buffer release from https://github.com/protocolbuffers/protobuf/releases (if you haven't already done this for another language).  As of February 2019 we're using v3.7 release, which is compatible with proto2 .proto files.
-1. Download [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-1. Download and install [Maven](https://maven.apache.org/download.cgi)
+1. Download and install [Docker](https://docs.docker.com/get-docker/)
 
 #### Every time `gtfs-realtime.proto` changes
 
-Regenerate the language binding source from gtfs-realtime.proto.
+1. Run the update script:
 
-From the project `/java` folder, run:
+    ```
+    ./update_generated_code.sh
+    ```
 
-```
-protoc --java_out=src/main/java --proto_path=.. ../gtfs-realtime.proto
-```
-
-Add the license header back to the generated source file.
-
-Test the generated code:
-
-```
-mvn verify
-````
+1. Add the license header back to the generated source file.
 
 ## Publishing a new release.
 
