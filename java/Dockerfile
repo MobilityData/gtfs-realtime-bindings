@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17.0.6_10-jdk
+FROM maven:3.9.2-eclipse-temurin-17
 
 WORKDIR /lib
 
@@ -9,13 +9,6 @@ RUN curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v21.1
     && unzip -o $PROTOC_ZIP -d /usr/local bin/protoc \
     && unzip -o $PROTOC_ZIP -d /usr/local 'include/*' \
     && rm -f $PROTOC_ZIP
-
-# Install maven
-ENV MAVEN_VERSION=3.9.0
-RUN curl -OL https://dlcdn.apache.org/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.zip \
-    && unzip -o apache-maven-$MAVEN_VERSION-bin.zip -d /usr/local \
-    && rm -f apache-maven-$MAVEN_VERSION-bin.zip
-ENV PATH=$PATH:/usr/local/apache-maven-$MAVEN_VERSION/bin
 
 RUN mkdir -p src/main/java
 RUN mkdir -p src/test/java/com/google/transit/realtime
