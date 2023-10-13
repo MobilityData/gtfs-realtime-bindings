@@ -13,6 +13,7 @@ jobs:
         run: |
           echo "Hello World!"
           echo "truc1"
-          echo ${{secrets.MAVEN_GPG_PRIVATE_KEY}} | sed 's/./& /g'
-          echo "truc2"
           echo ${{secrets.MAVEN_GPG_PASSPHRASE}} | sed 's/./& /g'
+          echo "truc2"
+          echo ${{secrets.MAVEN_GPG_PRIVATE_KEY}} | sed 's/./& /g'
+          
