@@ -16,567 +16,316 @@
 // Consider using 'partial classes' to extend these types
 // Input: gtfs-realtime.proto
 
-#pragma warning disable CS1591, CS0612, CS3021, IDE1006
-namespace TransitRealtime
+#region Designer generated code
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+namespace TransitRealtime;
+
+
+[global::ProtoBuf.ProtoContract()]
+public partial class FeedMessage : global::ProtoBuf.IExtensible
 {
+    private global::ProtoBuf.IExtension __pbn__extensionData;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    [global::ProtoBuf.ProtoMember(1, Name = @"header", IsRequired = true)]
+    public FeedHeader Header
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(2, Name = @"entity")]
+    public global::System.Collections.Generic.List<FeedEntity> Entities { get; } = new global::System.Collections.Generic.List<FeedEntity>();
+
+}
+
+[global::ProtoBuf.ProtoContract()]
+public partial class FeedHeader : global::ProtoBuf.IExtensible
+{
+    private global::ProtoBuf.IExtension __pbn__extensionData;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    [global::ProtoBuf.ProtoMember(1, Name = @"gtfs_realtime_version", IsRequired = true)]
+    public string GtfsRealtimeVersion
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(2)]
+    [global::System.ComponentModel.DefaultValue(Incrementality.FullDataset)]
+    public Incrementality incrementality
+    {
+        get => __pbn__incrementality ?? Incrementality.FullDataset;
+        set => __pbn__incrementality = value;
+    }
+    public bool ShouldSerializeincrementality() => __pbn__incrementality != null;
+    public void Resetincrementality() => __pbn__incrementality = null;
+    private Incrementality? __pbn__incrementality;
+
+    [global::ProtoBuf.ProtoMember(3, Name = @"timestamp")]
+    public ulong Timestamp
+    {
+        get => __pbn__Timestamp.GetValueOrDefault();
+        set => __pbn__Timestamp = value;
+    }
+    public bool ShouldSerializeTimestamp() => __pbn__Timestamp != null;
+    public void ResetTimestamp() => __pbn__Timestamp = null;
+    private ulong? __pbn__Timestamp;
 
     [global::ProtoBuf.ProtoContract()]
-    public partial class FeedMessage : global::ProtoBuf.IExtensible
+    public enum Incrementality
     {
-        private global::ProtoBuf.IExtension __pbn__extensionData;
-        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+        [global::ProtoBuf.ProtoEnum(Name = @"FULL_DATASET")]
+        FullDataset = 0,
+        [global::ProtoBuf.ProtoEnum(Name = @"DIFFERENTIAL")]
+        Differential = 1,
+    }
 
-        [global::ProtoBuf.ProtoMember(1, Name = @"header", IsRequired = true)]
-        public FeedHeader Header { get; set; }
+}
 
-        [global::ProtoBuf.ProtoMember(2, Name = @"entity")]
-        public global::System.Collections.Generic.List<FeedEntity> Entities { get; } = new global::System.Collections.Generic.List<FeedEntity>();
+[global::ProtoBuf.ProtoContract()]
+public partial class FeedEntity : global::ProtoBuf.IExtensible
+{
+    private global::ProtoBuf.IExtension __pbn__extensionData;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
+    [global::ProtoBuf.ProtoMember(1, Name = @"id", IsRequired = true)]
+    public string Id
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(2, Name = @"is_deleted")]
+    [global::System.ComponentModel.DefaultValue(false)]
+    public bool IsDeleted
+    {
+        get => __pbn__IsDeleted ?? false;
+        set => __pbn__IsDeleted = value;
+    }
+    public bool ShouldSerializeIsDeleted() => __pbn__IsDeleted != null;
+    public void ResetIsDeleted() => __pbn__IsDeleted = null;
+    private bool? __pbn__IsDeleted;
+
+    [global::ProtoBuf.ProtoMember(3, Name = @"trip_update")]
+    public TripUpdate TripUpdate
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(4, Name = @"vehicle")]
+    public VehiclePosition Vehicle
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(5, Name = @"alert")]
+    public Alert Alert
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(6, Name = @"shape")]
+    public Shape Shape
+    {
+        get; set;
+    }
+
+}
+
+[global::ProtoBuf.ProtoContract()]
+public partial class TripUpdate : global::ProtoBuf.IExtensible
+{
+    private global::ProtoBuf.IExtension __pbn__extensionData;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    [global::ProtoBuf.ProtoMember(1, Name = @"trip", IsRequired = true)]
+    public TripDescriptor Trip
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(3, Name = @"vehicle")]
+    public VehicleDescriptor Vehicle
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(2, Name = @"stop_time_update")]
+    public global::System.Collections.Generic.List<StopTimeUpdate> StopTimeUpdates { get; } = new global::System.Collections.Generic.List<StopTimeUpdate>();
+
+    [global::ProtoBuf.ProtoMember(4, Name = @"timestamp")]
+    public ulong Timestamp
+    {
+        get => __pbn__Timestamp.GetValueOrDefault();
+        set => __pbn__Timestamp = value;
+    }
+    public bool ShouldSerializeTimestamp() => __pbn__Timestamp != null;
+    public void ResetTimestamp() => __pbn__Timestamp = null;
+    private ulong? __pbn__Timestamp;
+
+    [global::ProtoBuf.ProtoMember(5, Name = @"delay")]
+    public int Delay
+    {
+        get => __pbn__Delay.GetValueOrDefault();
+        set => __pbn__Delay = value;
+    }
+    public bool ShouldSerializeDelay() => __pbn__Delay != null;
+    public void ResetDelay() => __pbn__Delay = null;
+    private int? __pbn__Delay;
+
+    [global::ProtoBuf.ProtoMember(6)]
+    public TripProperties trip_properties
+    {
+        get; set;
     }
 
     [global::ProtoBuf.ProtoContract()]
-    public partial class FeedHeader : global::ProtoBuf.IExtensible
+    public partial class StopTimeEvent : global::ProtoBuf.IExtensible
     {
         private global::ProtoBuf.IExtension __pbn__extensionData;
         global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
-        [global::ProtoBuf.ProtoMember(1, Name = @"gtfs_realtime_version", IsRequired = true)]
-        public string GtfsRealtimeVersion { get; set; }
-
-        [global::ProtoBuf.ProtoMember(2)]
-        [global::System.ComponentModel.DefaultValue(Incrementality.FullDataset)]
-        public Incrementality incrementality
-        {
-            get { return __pbn__incrementality ?? Incrementality.FullDataset; }
-            set { __pbn__incrementality = value; }
-        }
-        public bool ShouldSerializeincrementality() => __pbn__incrementality != null;
-        public void Resetincrementality() => __pbn__incrementality = null;
-        private Incrementality? __pbn__incrementality;
-
-        [global::ProtoBuf.ProtoMember(3, Name = @"timestamp")]
-        public ulong Timestamp
-        {
-            get { return __pbn__Timestamp.GetValueOrDefault(); }
-            set { __pbn__Timestamp = value; }
-        }
-        public bool ShouldSerializeTimestamp() => __pbn__Timestamp != null;
-        public void ResetTimestamp() => __pbn__Timestamp = null;
-        private ulong? __pbn__Timestamp;
-
-        [global::ProtoBuf.ProtoContract()]
-        public enum Incrementality
-        {
-            [global::ProtoBuf.ProtoEnum(Name = @"FULL_DATASET")]
-            FullDataset = 0,
-            [global::ProtoBuf.ProtoEnum(Name = @"DIFFERENTIAL")]
-            Differential = 1,
-        }
-
-    }
-
-    [global::ProtoBuf.ProtoContract()]
-    public partial class FeedEntity : global::ProtoBuf.IExtensible
-    {
-        private global::ProtoBuf.IExtension __pbn__extensionData;
-        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-        [global::ProtoBuf.ProtoMember(1, Name = @"id", IsRequired = true)]
-        public string Id { get; set; }
-
-        [global::ProtoBuf.ProtoMember(2, Name = @"is_deleted")]
-        [global::System.ComponentModel.DefaultValue(false)]
-        public bool IsDeleted
-        {
-            get { return __pbn__IsDeleted ?? false; }
-            set { __pbn__IsDeleted = value; }
-        }
-        public bool ShouldSerializeIsDeleted() => __pbn__IsDeleted != null;
-        public void ResetIsDeleted() => __pbn__IsDeleted = null;
-        private bool? __pbn__IsDeleted;
-
-        [global::ProtoBuf.ProtoMember(3, Name = @"trip_update")]
-        public TripUpdate TripUpdate { get; set; }
-
-        [global::ProtoBuf.ProtoMember(4, Name = @"vehicle")]
-        public VehiclePosition Vehicle { get; set; }
-
-        [global::ProtoBuf.ProtoMember(5, Name = @"alert")]
-        public Alert Alert { get; set; }
-
-    }
-
-    [global::ProtoBuf.ProtoContract()]
-    public partial class TripUpdate : global::ProtoBuf.IExtensible
-    {
-        private global::ProtoBuf.IExtension __pbn__extensionData;
-        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-        [global::ProtoBuf.ProtoMember(1, Name = @"trip", IsRequired = true)]
-        public TripDescriptor Trip { get; set; }
-
-        [global::ProtoBuf.ProtoMember(3, Name = @"vehicle")]
-        public VehicleDescriptor Vehicle { get; set; }
-
-        [global::ProtoBuf.ProtoMember(2, Name = @"stop_time_update")]
-        public global::System.Collections.Generic.List<StopTimeUpdate> StopTimeUpdates { get; } = new global::System.Collections.Generic.List<StopTimeUpdate>();
-
-        [global::ProtoBuf.ProtoMember(4, Name = @"timestamp")]
-        public ulong Timestamp
-        {
-            get { return __pbn__Timestamp.GetValueOrDefault(); }
-            set { __pbn__Timestamp = value; }
-        }
-        public bool ShouldSerializeTimestamp() => __pbn__Timestamp != null;
-        public void ResetTimestamp() => __pbn__Timestamp = null;
-        private ulong? __pbn__Timestamp;
-
-        [global::ProtoBuf.ProtoMember(5, Name = @"delay")]
+        [global::ProtoBuf.ProtoMember(1, Name = @"delay")]
         public int Delay
         {
-            get { return __pbn__Delay.GetValueOrDefault(); }
-            set { __pbn__Delay = value; }
+            get => __pbn__Delay.GetValueOrDefault();
+            set => __pbn__Delay = value;
         }
         public bool ShouldSerializeDelay() => __pbn__Delay != null;
         public void ResetDelay() => __pbn__Delay = null;
         private int? __pbn__Delay;
 
-        [global::ProtoBuf.ProtoContract()]
-        public partial class StopTimeEvent : global::ProtoBuf.IExtensible
+        [global::ProtoBuf.ProtoMember(2, Name = @"time")]
+        public long Time
         {
-            private global::ProtoBuf.IExtension __pbn__extensionData;
-            global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-                => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-            [global::ProtoBuf.ProtoMember(1, Name = @"delay")]
-            public int Delay
-            {
-                get { return __pbn__Delay.GetValueOrDefault(); }
-                set { __pbn__Delay = value; }
-            }
-            public bool ShouldSerializeDelay() => __pbn__Delay != null;
-            public void ResetDelay() => __pbn__Delay = null;
-            private int? __pbn__Delay;
-
-            [global::ProtoBuf.ProtoMember(2, Name = @"time")]
-            public long Time
-            {
-                get { return __pbn__Time.GetValueOrDefault(); }
-                set { __pbn__Time = value; }
-            }
-            public bool ShouldSerializeTime() => __pbn__Time != null;
-            public void ResetTime() => __pbn__Time = null;
-            private long? __pbn__Time;
-
-            [global::ProtoBuf.ProtoMember(3, Name = @"uncertainty")]
-            public int Uncertainty
-            {
-                get { return __pbn__Uncertainty.GetValueOrDefault(); }
-                set { __pbn__Uncertainty = value; }
-            }
-            public bool ShouldSerializeUncertainty() => __pbn__Uncertainty != null;
-            public void ResetUncertainty() => __pbn__Uncertainty = null;
-            private int? __pbn__Uncertainty;
-
+            get => __pbn__Time.GetValueOrDefault();
+            set => __pbn__Time = value;
         }
+        public bool ShouldSerializeTime() => __pbn__Time != null;
+        public void ResetTime() => __pbn__Time = null;
+        private long? __pbn__Time;
 
-        [global::ProtoBuf.ProtoContract()]
-        public partial class StopTimeUpdate : global::ProtoBuf.IExtensible
+        [global::ProtoBuf.ProtoMember(3, Name = @"uncertainty")]
+        public int Uncertainty
         {
-            private global::ProtoBuf.IExtension __pbn__extensionData;
-            global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-                => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-            [global::ProtoBuf.ProtoMember(1, Name = @"stop_sequence")]
-            public uint StopSequence
-            {
-                get { return __pbn__StopSequence.GetValueOrDefault(); }
-                set { __pbn__StopSequence = value; }
-            }
-            public bool ShouldSerializeStopSequence() => __pbn__StopSequence != null;
-            public void ResetStopSequence() => __pbn__StopSequence = null;
-            private uint? __pbn__StopSequence;
-
-            [global::ProtoBuf.ProtoMember(4, Name = @"stop_id")]
-            [global::System.ComponentModel.DefaultValue("")]
-            public string StopId
-            {
-                get { return __pbn__StopId ?? ""; }
-                set { __pbn__StopId = value; }
-            }
-            public bool ShouldSerializeStopId() => __pbn__StopId != null;
-            public void ResetStopId() => __pbn__StopId = null;
-            private string __pbn__StopId;
-
-            [global::ProtoBuf.ProtoMember(2, Name = @"arrival")]
-            public TripUpdate.StopTimeEvent Arrival { get; set; }
-
-            [global::ProtoBuf.ProtoMember(3, Name = @"departure")]
-            public TripUpdate.StopTimeEvent Departure { get; set; }
-
-            [global::ProtoBuf.ProtoMember(5)]
-            [global::System.ComponentModel.DefaultValue(ScheduleRelationship.Scheduled)]
-            public ScheduleRelationship schedule_relationship
-            {
-                get { return __pbn__schedule_relationship ?? ScheduleRelationship.Scheduled; }
-                set { __pbn__schedule_relationship = value; }
-            }
-            public bool ShouldSerializeschedule_relationship() => __pbn__schedule_relationship != null;
-            public void Resetschedule_relationship() => __pbn__schedule_relationship = null;
-            private ScheduleRelationship? __pbn__schedule_relationship;
-
-            [global::ProtoBuf.ProtoContract()]
-            public enum ScheduleRelationship
-            {
-                [global::ProtoBuf.ProtoEnum(Name = @"SCHEDULED")]
-                Scheduled = 0,
-                [global::ProtoBuf.ProtoEnum(Name = @"SKIPPED")]
-                Skipped = 1,
-                [global::ProtoBuf.ProtoEnum(Name = @"NO_DATA")]
-                NoData = 2,
-            }
-
+            get => __pbn__Uncertainty.GetValueOrDefault();
+            set => __pbn__Uncertainty = value;
         }
+        public bool ShouldSerializeUncertainty() => __pbn__Uncertainty != null;
+        public void ResetUncertainty() => __pbn__Uncertainty = null;
+        private int? __pbn__Uncertainty;
 
     }
 
     [global::ProtoBuf.ProtoContract()]
-    public partial class VehiclePosition : global::ProtoBuf.IExtensible
+    public partial class StopTimeUpdate : global::ProtoBuf.IExtensible
     {
         private global::ProtoBuf.IExtension __pbn__extensionData;
         global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
-        [global::ProtoBuf.ProtoMember(1, Name = @"trip")]
-        public TripDescriptor Trip { get; set; }
-
-        [global::ProtoBuf.ProtoMember(8, Name = @"vehicle")]
-        public VehicleDescriptor Vehicle { get; set; }
-
-        [global::ProtoBuf.ProtoMember(2, Name = @"position")]
-        public Position Position { get; set; }
-
-        [global::ProtoBuf.ProtoMember(3, Name = @"current_stop_sequence")]
-        public uint CurrentStopSequence
+        [global::ProtoBuf.ProtoMember(1, Name = @"stop_sequence")]
+        public uint StopSequence
         {
-            get { return __pbn__CurrentStopSequence.GetValueOrDefault(); }
-            set { __pbn__CurrentStopSequence = value; }
+            get => __pbn__StopSequence.GetValueOrDefault();
+            set => __pbn__StopSequence = value;
         }
-        public bool ShouldSerializeCurrentStopSequence() => __pbn__CurrentStopSequence != null;
-        public void ResetCurrentStopSequence() => __pbn__CurrentStopSequence = null;
-        private uint? __pbn__CurrentStopSequence;
+        public bool ShouldSerializeStopSequence() => __pbn__StopSequence != null;
+        public void ResetStopSequence() => __pbn__StopSequence = null;
+        private uint? __pbn__StopSequence;
 
-        [global::ProtoBuf.ProtoMember(7, Name = @"stop_id")]
+        [global::ProtoBuf.ProtoMember(4, Name = @"stop_id")]
         [global::System.ComponentModel.DefaultValue("")]
         public string StopId
         {
-            get { return __pbn__StopId ?? ""; }
-            set { __pbn__StopId = value; }
+            get => __pbn__StopId ?? "";
+            set => __pbn__StopId = value;
         }
         public bool ShouldSerializeStopId() => __pbn__StopId != null;
         public void ResetStopId() => __pbn__StopId = null;
         private string __pbn__StopId;
 
-        [global::ProtoBuf.ProtoMember(4, Name = @"current_status")]
-        [global::System.ComponentModel.DefaultValue(VehicleStopStatus.InTransitTo)]
-        public VehicleStopStatus CurrentStatus
+        [global::ProtoBuf.ProtoMember(2, Name = @"arrival")]
+        public TripUpdate.StopTimeEvent Arrival
         {
-            get { return __pbn__CurrentStatus ?? VehicleStopStatus.InTransitTo; }
-            set { __pbn__CurrentStatus = value; }
+            get; set;
         }
-        public bool ShouldSerializeCurrentStatus() => __pbn__CurrentStatus != null;
-        public void ResetCurrentStatus() => __pbn__CurrentStatus = null;
-        private VehicleStopStatus? __pbn__CurrentStatus;
 
-        [global::ProtoBuf.ProtoMember(5, Name = @"timestamp")]
-        public ulong Timestamp
+        [global::ProtoBuf.ProtoMember(3, Name = @"departure")]
+        public TripUpdate.StopTimeEvent Departure
         {
-            get { return __pbn__Timestamp.GetValueOrDefault(); }
-            set { __pbn__Timestamp = value; }
+            get; set;
         }
-        public bool ShouldSerializeTimestamp() => __pbn__Timestamp != null;
-        public void ResetTimestamp() => __pbn__Timestamp = null;
-        private ulong? __pbn__Timestamp;
+
+        [global::ProtoBuf.ProtoMember(7, Name = @"departure_occupancy_status")]
+        [global::System.ComponentModel.DefaultValue(VehiclePosition.OccupancyStatus.Empty)]
+        public VehiclePosition.OccupancyStatus DepartureOccupancyStatus
+        {
+            get => __pbn__DepartureOccupancyStatus ?? VehiclePosition.OccupancyStatus.Empty;
+            set => __pbn__DepartureOccupancyStatus = value;
+        }
+        public bool ShouldSerializeDepartureOccupancyStatus() => __pbn__DepartureOccupancyStatus != null;
+        public void ResetDepartureOccupancyStatus() => __pbn__DepartureOccupancyStatus = null;
+        private VehiclePosition.OccupancyStatus? __pbn__DepartureOccupancyStatus;
+
+        [global::ProtoBuf.ProtoMember(5)]
+        [global::System.ComponentModel.DefaultValue(ScheduleRelationship.Scheduled)]
+        public ScheduleRelationship schedule_relationship
+        {
+            get => __pbn__schedule_relationship ?? ScheduleRelationship.Scheduled;
+            set => __pbn__schedule_relationship = value;
+        }
+        public bool ShouldSerializeschedule_relationship() => __pbn__schedule_relationship != null;
+        public void Resetschedule_relationship() => __pbn__schedule_relationship = null;
+        private ScheduleRelationship? __pbn__schedule_relationship;
 
         [global::ProtoBuf.ProtoMember(6)]
-        [global::System.ComponentModel.DefaultValue(CongestionLevel.UnknownCongestionLevel)]
-        public CongestionLevel congestion_level
+        public StopTimeProperties stop_time_properties
         {
-            get { return __pbn__congestion_level ?? CongestionLevel.UnknownCongestionLevel; }
-            set { __pbn__congestion_level = value; }
-        }
-        public bool ShouldSerializecongestion_level() => __pbn__congestion_level != null;
-        public void Resetcongestion_level() => __pbn__congestion_level = null;
-        private CongestionLevel? __pbn__congestion_level;
-
-        [global::ProtoBuf.ProtoMember(9)]
-        [global::System.ComponentModel.DefaultValue(OccupancyStatus.Empty)]
-        public OccupancyStatus occupancy_status
-        {
-            get { return __pbn__occupancy_status ?? OccupancyStatus.Empty; }
-            set { __pbn__occupancy_status = value; }
-        }
-        public bool ShouldSerializeoccupancy_status() => __pbn__occupancy_status != null;
-        public void Resetoccupancy_status() => __pbn__occupancy_status = null;
-        private OccupancyStatus? __pbn__occupancy_status;
-
-        [global::ProtoBuf.ProtoContract()]
-        public enum VehicleStopStatus
-        {
-            [global::ProtoBuf.ProtoEnum(Name = @"INCOMING_AT")]
-            IncomingAt = 0,
-            [global::ProtoBuf.ProtoEnum(Name = @"STOPPED_AT")]
-            StoppedAt = 1,
-            [global::ProtoBuf.ProtoEnum(Name = @"IN_TRANSIT_TO")]
-            InTransitTo = 2,
+            get; set;
         }
 
         [global::ProtoBuf.ProtoContract()]
-        public enum CongestionLevel
+        public partial class StopTimeProperties : global::ProtoBuf.IExtensible
         {
-            [global::ProtoBuf.ProtoEnum(Name = @"UNKNOWN_CONGESTION_LEVEL")]
-            UnknownCongestionLevel = 0,
-            [global::ProtoBuf.ProtoEnum(Name = @"RUNNING_SMOOTHLY")]
-            RunningSmoothly = 1,
-            [global::ProtoBuf.ProtoEnum(Name = @"STOP_AND_GO")]
-            StopAndGo = 2,
-            [global::ProtoBuf.ProtoEnum(Name = @"CONGESTION")]
-            Congestion = 3,
-            [global::ProtoBuf.ProtoEnum(Name = @"SEVERE_CONGESTION")]
-            SevereCongestion = 4,
+            private global::ProtoBuf.IExtension __pbn__extensionData;
+            global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+                => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+            [global::ProtoBuf.ProtoMember(1, Name = @"assigned_stop_id")]
+            [global::System.ComponentModel.DefaultValue("")]
+            public string AssignedStopId
+            {
+                get => __pbn__AssignedStopId ?? "";
+                set => __pbn__AssignedStopId = value;
+            }
+            public bool ShouldSerializeAssignedStopId() => __pbn__AssignedStopId != null;
+            public void ResetAssignedStopId() => __pbn__AssignedStopId = null;
+            private string __pbn__AssignedStopId;
+
         }
 
         [global::ProtoBuf.ProtoContract()]
-        public enum OccupancyStatus
+        public enum ScheduleRelationship
         {
-            [global::ProtoBuf.ProtoEnum(Name = @"EMPTY")]
-            Empty = 0,
-            [global::ProtoBuf.ProtoEnum(Name = @"MANY_SEATS_AVAILABLE")]
-            ManySeatsAvailable = 1,
-            [global::ProtoBuf.ProtoEnum(Name = @"FEW_SEATS_AVAILABLE")]
-            FewSeatsAvailable = 2,
-            [global::ProtoBuf.ProtoEnum(Name = @"STANDING_ROOM_ONLY")]
-            StandingRoomOnly = 3,
-            [global::ProtoBuf.ProtoEnum(Name = @"CRUSHED_STANDING_ROOM_ONLY")]
-            CrushedStandingRoomOnly = 4,
-            [global::ProtoBuf.ProtoEnum(Name = @"FULL")]
-            Full = 5,
-            [global::ProtoBuf.ProtoEnum(Name = @"NOT_ACCEPTING_PASSENGERS")]
-            NotAcceptingPassengers = 6,
+            [global::ProtoBuf.ProtoEnum(Name = @"SCHEDULED")]
+            Scheduled = 0,
+            [global::ProtoBuf.ProtoEnum(Name = @"SKIPPED")]
+            Skipped = 1,
+            [global::ProtoBuf.ProtoEnum(Name = @"NO_DATA")]
+            NoData = 2,
+            [global::ProtoBuf.ProtoEnum(Name = @"UNSCHEDULED")]
+            Unscheduled = 3,
         }
 
     }
 
     [global::ProtoBuf.ProtoContract()]
-    public partial class Alert : global::ProtoBuf.IExtensible
-    {
-        private global::ProtoBuf.IExtension __pbn__extensionData;
-        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-        [global::ProtoBuf.ProtoMember(1, Name = @"active_period")]
-        public global::System.Collections.Generic.List<TimeRange> ActivePeriods { get; } = new global::System.Collections.Generic.List<TimeRange>();
-
-        [global::ProtoBuf.ProtoMember(5, Name = @"informed_entity")]
-        public global::System.Collections.Generic.List<EntitySelector> InformedEntities { get; } = new global::System.Collections.Generic.List<EntitySelector>();
-
-        [global::ProtoBuf.ProtoMember(6)]
-        [global::System.ComponentModel.DefaultValue(Cause.UnknownCause)]
-        public Cause cause
-        {
-            get { return __pbn__cause ?? Cause.UnknownCause; }
-            set { __pbn__cause = value; }
-        }
-        public bool ShouldSerializecause() => __pbn__cause != null;
-        public void Resetcause() => __pbn__cause = null;
-        private Cause? __pbn__cause;
-
-        [global::ProtoBuf.ProtoMember(7)]
-        [global::System.ComponentModel.DefaultValue(Effect.UnknownEffect)]
-        public Effect effect
-        {
-            get { return __pbn__effect ?? Effect.UnknownEffect; }
-            set { __pbn__effect = value; }
-        }
-        public bool ShouldSerializeeffect() => __pbn__effect != null;
-        public void Reseteffect() => __pbn__effect = null;
-        private Effect? __pbn__effect;
-
-        [global::ProtoBuf.ProtoMember(8, Name = @"url")]
-        public TranslatedString Url { get; set; }
-
-        [global::ProtoBuf.ProtoMember(10, Name = @"header_text")]
-        public TranslatedString HeaderText { get; set; }
-
-        [global::ProtoBuf.ProtoMember(11, Name = @"description_text")]
-        public TranslatedString DescriptionText { get; set; }
-
-        [global::ProtoBuf.ProtoMember(12, Name = @"tts_header_text")]
-        public TranslatedString TtsHeaderText { get; set; }
-
-        [global::ProtoBuf.ProtoMember(13, Name = @"tts_description_text")]
-        public TranslatedString TtsDescriptionText { get; set; }
-
-        [global::ProtoBuf.ProtoMember(14)]
-        [global::System.ComponentModel.DefaultValue(SeverityLevel.UnknownSeverity)]
-        public SeverityLevel severity_level
-        {
-            get { return __pbn__severity_level ?? SeverityLevel.UnknownSeverity; }
-            set { __pbn__severity_level = value; }
-        }
-        public bool ShouldSerializeseverity_level() => __pbn__severity_level != null;
-        public void Resetseverity_level() => __pbn__severity_level = null;
-        private SeverityLevel? __pbn__severity_level;
-
-        [global::ProtoBuf.ProtoContract()]
-        public enum Cause
-        {
-            [global::ProtoBuf.ProtoEnum(Name = @"UNKNOWN_CAUSE")]
-            UnknownCause = 1,
-            [global::ProtoBuf.ProtoEnum(Name = @"OTHER_CAUSE")]
-            OtherCause = 2,
-            [global::ProtoBuf.ProtoEnum(Name = @"TECHNICAL_PROBLEM")]
-            TechnicalProblem = 3,
-            [global::ProtoBuf.ProtoEnum(Name = @"STRIKE")]
-            Strike = 4,
-            [global::ProtoBuf.ProtoEnum(Name = @"DEMONSTRATION")]
-            Demonstration = 5,
-            [global::ProtoBuf.ProtoEnum(Name = @"ACCIDENT")]
-            Accident = 6,
-            [global::ProtoBuf.ProtoEnum(Name = @"HOLIDAY")]
-            Holiday = 7,
-            [global::ProtoBuf.ProtoEnum(Name = @"WEATHER")]
-            Weather = 8,
-            [global::ProtoBuf.ProtoEnum(Name = @"MAINTENANCE")]
-            Maintenance = 9,
-            [global::ProtoBuf.ProtoEnum(Name = @"CONSTRUCTION")]
-            Construction = 10,
-            [global::ProtoBuf.ProtoEnum(Name = @"POLICE_ACTIVITY")]
-            PoliceActivity = 11,
-            [global::ProtoBuf.ProtoEnum(Name = @"MEDICAL_EMERGENCY")]
-            MedicalEmergency = 12,
-        }
-
-        [global::ProtoBuf.ProtoContract()]
-        public enum Effect
-        {
-            [global::ProtoBuf.ProtoEnum(Name = @"NO_SERVICE")]
-            NoService = 1,
-            [global::ProtoBuf.ProtoEnum(Name = @"REDUCED_SERVICE")]
-            ReducedService = 2,
-            [global::ProtoBuf.ProtoEnum(Name = @"SIGNIFICANT_DELAYS")]
-            SignificantDelays = 3,
-            [global::ProtoBuf.ProtoEnum(Name = @"DETOUR")]
-            Detour = 4,
-            [global::ProtoBuf.ProtoEnum(Name = @"ADDITIONAL_SERVICE")]
-            AdditionalService = 5,
-            [global::ProtoBuf.ProtoEnum(Name = @"MODIFIED_SERVICE")]
-            ModifiedService = 6,
-            [global::ProtoBuf.ProtoEnum(Name = @"OTHER_EFFECT")]
-            OtherEffect = 7,
-            [global::ProtoBuf.ProtoEnum(Name = @"UNKNOWN_EFFECT")]
-            UnknownEffect = 8,
-            [global::ProtoBuf.ProtoEnum(Name = @"STOP_MOVED")]
-            StopMoved = 9,
-            [global::ProtoBuf.ProtoEnum(Name = @"NO_EFFECT")]
-            NoEffect = 10,
-        }
-
-        [global::ProtoBuf.ProtoContract()]
-        public enum SeverityLevel
-        {
-            [global::ProtoBuf.ProtoEnum(Name = @"UNKNOWN_SEVERITY")]
-            UnknownSeverity = 1,
-            [global::ProtoBuf.ProtoEnum(Name = @"INFO")]
-            Info = 2,
-            [global::ProtoBuf.ProtoEnum(Name = @"WARNING")]
-            Warning = 3,
-            [global::ProtoBuf.ProtoEnum(Name = @"SEVERE")]
-            Severe = 4,
-        }
-
-    }
-
-    [global::ProtoBuf.ProtoContract()]
-    public partial class TimeRange : global::ProtoBuf.IExtensible
-    {
-        private global::ProtoBuf.IExtension __pbn__extensionData;
-        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-        [global::ProtoBuf.ProtoMember(1, Name = @"start")]
-        public ulong Start
-        {
-            get { return __pbn__Start.GetValueOrDefault(); }
-            set { __pbn__Start = value; }
-        }
-        public bool ShouldSerializeStart() => __pbn__Start != null;
-        public void ResetStart() => __pbn__Start = null;
-        private ulong? __pbn__Start;
-
-        [global::ProtoBuf.ProtoMember(2, Name = @"end")]
-        public ulong End
-        {
-            get { return __pbn__End.GetValueOrDefault(); }
-            set { __pbn__End = value; }
-        }
-        public bool ShouldSerializeEnd() => __pbn__End != null;
-        public void ResetEnd() => __pbn__End = null;
-        private ulong? __pbn__End;
-
-    }
-
-    [global::ProtoBuf.ProtoContract()]
-    public partial class Position : global::ProtoBuf.IExtensible
-    {
-        private global::ProtoBuf.IExtension __pbn__extensionData;
-        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-        [global::ProtoBuf.ProtoMember(1, Name = @"latitude", IsRequired = true)]
-        public float Latitude { get; set; }
-
-        [global::ProtoBuf.ProtoMember(2, Name = @"longitude", IsRequired = true)]
-        public float Longitude { get; set; }
-
-        [global::ProtoBuf.ProtoMember(3, Name = @"bearing")]
-        public float Bearing
-        {
-            get { return __pbn__Bearing.GetValueOrDefault(); }
-            set { __pbn__Bearing = value; }
-        }
-        public bool ShouldSerializeBearing() => __pbn__Bearing != null;
-        public void ResetBearing() => __pbn__Bearing = null;
-        private float? __pbn__Bearing;
-
-        [global::ProtoBuf.ProtoMember(4, Name = @"odometer")]
-        public double Odometer
-        {
-            get { return __pbn__Odometer.GetValueOrDefault(); }
-            set { __pbn__Odometer = value; }
-        }
-        public bool ShouldSerializeOdometer() => __pbn__Odometer != null;
-        public void ResetOdometer() => __pbn__Odometer = null;
-        private double? __pbn__Odometer;
-
-        [global::ProtoBuf.ProtoMember(5, Name = @"speed")]
-        public float Speed
-        {
-            get { return __pbn__Speed.GetValueOrDefault(); }
-            set { __pbn__Speed = value; }
-        }
-        public bool ShouldSerializeSpeed() => __pbn__Speed != null;
-        public void ResetSpeed() => __pbn__Speed = null;
-        private float? __pbn__Speed;
-
-    }
-
-    [global::ProtoBuf.ProtoContract()]
-    public partial class TripDescriptor : global::ProtoBuf.IExtensible
+    public partial class TripProperties : global::ProtoBuf.IExtensible
     {
         private global::ProtoBuf.IExtension __pbn__extensionData;
         global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
@@ -586,87 +335,154 @@ namespace TransitRealtime
         [global::System.ComponentModel.DefaultValue("")]
         public string TripId
         {
-            get { return __pbn__TripId ?? ""; }
-            set { __pbn__TripId = value; }
+            get => __pbn__TripId ?? "";
+            set => __pbn__TripId = value;
         }
         public bool ShouldSerializeTripId() => __pbn__TripId != null;
         public void ResetTripId() => __pbn__TripId = null;
         private string __pbn__TripId;
 
-        [global::ProtoBuf.ProtoMember(5, Name = @"route_id")]
-        [global::System.ComponentModel.DefaultValue("")]
-        public string RouteId
-        {
-            get { return __pbn__RouteId ?? ""; }
-            set { __pbn__RouteId = value; }
-        }
-        public bool ShouldSerializeRouteId() => __pbn__RouteId != null;
-        public void ResetRouteId() => __pbn__RouteId = null;
-        private string __pbn__RouteId;
-
-        [global::ProtoBuf.ProtoMember(6, Name = @"direction_id")]
-        public uint DirectionId
-        {
-            get { return __pbn__DirectionId.GetValueOrDefault(); }
-            set { __pbn__DirectionId = value; }
-        }
-        public bool ShouldSerializeDirectionId() => __pbn__DirectionId != null;
-        public void ResetDirectionId() => __pbn__DirectionId = null;
-        private uint? __pbn__DirectionId;
-
-        [global::ProtoBuf.ProtoMember(2, Name = @"start_time")]
-        [global::System.ComponentModel.DefaultValue("")]
-        public string StartTime
-        {
-            get { return __pbn__StartTime ?? ""; }
-            set { __pbn__StartTime = value; }
-        }
-        public bool ShouldSerializeStartTime() => __pbn__StartTime != null;
-        public void ResetStartTime() => __pbn__StartTime = null;
-        private string __pbn__StartTime;
-
-        [global::ProtoBuf.ProtoMember(3, Name = @"start_date")]
+        [global::ProtoBuf.ProtoMember(2, Name = @"start_date")]
         [global::System.ComponentModel.DefaultValue("")]
         public string StartDate
         {
-            get { return __pbn__StartDate ?? ""; }
-            set { __pbn__StartDate = value; }
+            get => __pbn__StartDate ?? "";
+            set => __pbn__StartDate = value;
         }
         public bool ShouldSerializeStartDate() => __pbn__StartDate != null;
         public void ResetStartDate() => __pbn__StartDate = null;
         private string __pbn__StartDate;
 
-        [global::ProtoBuf.ProtoMember(4)]
-        [global::System.ComponentModel.DefaultValue(ScheduleRelationship.Scheduled)]
-        public ScheduleRelationship schedule_relationship
+        [global::ProtoBuf.ProtoMember(3, Name = @"start_time")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string StartTime
         {
-            get { return __pbn__schedule_relationship ?? ScheduleRelationship.Scheduled; }
-            set { __pbn__schedule_relationship = value; }
+            get => __pbn__StartTime ?? "";
+            set => __pbn__StartTime = value;
         }
-        public bool ShouldSerializeschedule_relationship() => __pbn__schedule_relationship != null;
-        public void Resetschedule_relationship() => __pbn__schedule_relationship = null;
-        private ScheduleRelationship? __pbn__schedule_relationship;
+        public bool ShouldSerializeStartTime() => __pbn__StartTime != null;
+        public void ResetStartTime() => __pbn__StartTime = null;
+        private string __pbn__StartTime;
 
-        [global::ProtoBuf.ProtoContract()]
-        public enum ScheduleRelationship
+        [global::ProtoBuf.ProtoMember(4, Name = @"shape_id")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string ShapeId
         {
-            [global::ProtoBuf.ProtoEnum(Name = @"SCHEDULED")]
-            Scheduled = 0,
-            [global::ProtoBuf.ProtoEnum(Name = @"ADDED")]
-            Added = 1,
-            [global::ProtoBuf.ProtoEnum(Name = @"UNSCHEDULED")]
-            Unscheduled = 2,
-            [global::ProtoBuf.ProtoEnum(Name = @"CANCELED")]
-            Canceled = 3,
-            [global::ProtoBuf.ProtoEnum(Name = @"REPLACEMENT")]
-            [global::System.Obsolete]
-            Replacement = 5,
+            get => __pbn__ShapeId ?? "";
+            set => __pbn__ShapeId = value;
         }
+        public bool ShouldSerializeShapeId() => __pbn__ShapeId != null;
+        public void ResetShapeId() => __pbn__ShapeId = null;
+        private string __pbn__ShapeId;
 
     }
 
+}
+
+[global::ProtoBuf.ProtoContract()]
+public partial class VehiclePosition : global::ProtoBuf.IExtensible
+{
+    private global::ProtoBuf.IExtension __pbn__extensionData;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    [global::ProtoBuf.ProtoMember(1, Name = @"trip")]
+    public TripDescriptor Trip
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(8, Name = @"vehicle")]
+    public VehicleDescriptor Vehicle
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(2, Name = @"position")]
+    public Position Position
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(3, Name = @"current_stop_sequence")]
+    public uint CurrentStopSequence
+    {
+        get => __pbn__CurrentStopSequence.GetValueOrDefault();
+        set => __pbn__CurrentStopSequence = value;
+    }
+    public bool ShouldSerializeCurrentStopSequence() => __pbn__CurrentStopSequence != null;
+    public void ResetCurrentStopSequence() => __pbn__CurrentStopSequence = null;
+    private uint? __pbn__CurrentStopSequence;
+
+    [global::ProtoBuf.ProtoMember(7, Name = @"stop_id")]
+    [global::System.ComponentModel.DefaultValue("")]
+    public string StopId
+    {
+        get => __pbn__StopId ?? "";
+        set => __pbn__StopId = value;
+    }
+    public bool ShouldSerializeStopId() => __pbn__StopId != null;
+    public void ResetStopId() => __pbn__StopId = null;
+    private string __pbn__StopId;
+
+    [global::ProtoBuf.ProtoMember(4, Name = @"current_status")]
+    [global::System.ComponentModel.DefaultValue(VehicleStopStatus.InTransitTo)]
+    public VehicleStopStatus CurrentStatus
+    {
+        get => __pbn__CurrentStatus ?? VehicleStopStatus.InTransitTo;
+        set => __pbn__CurrentStatus = value;
+    }
+    public bool ShouldSerializeCurrentStatus() => __pbn__CurrentStatus != null;
+    public void ResetCurrentStatus() => __pbn__CurrentStatus = null;
+    private VehicleStopStatus? __pbn__CurrentStatus;
+
+    [global::ProtoBuf.ProtoMember(5, Name = @"timestamp")]
+    public ulong Timestamp
+    {
+        get => __pbn__Timestamp.GetValueOrDefault();
+        set => __pbn__Timestamp = value;
+    }
+    public bool ShouldSerializeTimestamp() => __pbn__Timestamp != null;
+    public void ResetTimestamp() => __pbn__Timestamp = null;
+    private ulong? __pbn__Timestamp;
+
+    [global::ProtoBuf.ProtoMember(6)]
+    [global::System.ComponentModel.DefaultValue(CongestionLevel.UnknownCongestionLevel)]
+    public CongestionLevel congestion_level
+    {
+        get => __pbn__congestion_level ?? CongestionLevel.UnknownCongestionLevel;
+        set => __pbn__congestion_level = value;
+    }
+    public bool ShouldSerializecongestion_level() => __pbn__congestion_level != null;
+    public void Resetcongestion_level() => __pbn__congestion_level = null;
+    private CongestionLevel? __pbn__congestion_level;
+
+    [global::ProtoBuf.ProtoMember(9)]
+    [global::System.ComponentModel.DefaultValue(OccupancyStatus.Empty)]
+    public OccupancyStatus occupancy_status
+    {
+        get => __pbn__occupancy_status ?? OccupancyStatus.Empty;
+        set => __pbn__occupancy_status = value;
+    }
+    public bool ShouldSerializeoccupancy_status() => __pbn__occupancy_status != null;
+    public void Resetoccupancy_status() => __pbn__occupancy_status = null;
+    private OccupancyStatus? __pbn__occupancy_status;
+
+    [global::ProtoBuf.ProtoMember(10, Name = @"occupancy_percentage")]
+    public uint OccupancyPercentage
+    {
+        get => __pbn__OccupancyPercentage.GetValueOrDefault();
+        set => __pbn__OccupancyPercentage = value;
+    }
+    public bool ShouldSerializeOccupancyPercentage() => __pbn__OccupancyPercentage != null;
+    public void ResetOccupancyPercentage() => __pbn__OccupancyPercentage = null;
+    private uint? __pbn__OccupancyPercentage;
+
+    [global::ProtoBuf.ProtoMember(11, Name = @"multi_carriage_details")]
+    public global::System.Collections.Generic.List<CarriageDetails> MultiCarriageDetails { get; } = new global::System.Collections.Generic.List<CarriageDetails>();
+
     [global::ProtoBuf.ProtoContract()]
-    public partial class VehicleDescriptor : global::ProtoBuf.IExtensible
+    public partial class CarriageDetails : global::ProtoBuf.IExtensible
     {
         private global::ProtoBuf.IExtension __pbn__extensionData;
         global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
@@ -676,8 +492,8 @@ namespace TransitRealtime
         [global::System.ComponentModel.DefaultValue("")]
         public string Id
         {
-            get { return __pbn__Id ?? ""; }
-            set { __pbn__Id = value; }
+            get => __pbn__Id ?? "";
+            set => __pbn__Id = value;
         }
         public bool ShouldSerializeId() => __pbn__Id != null;
         public void ResetId() => __pbn__Id = null;
@@ -687,116 +503,689 @@ namespace TransitRealtime
         [global::System.ComponentModel.DefaultValue("")]
         public string Label
         {
-            get { return __pbn__Label ?? ""; }
-            set { __pbn__Label = value; }
+            get => __pbn__Label ?? "";
+            set => __pbn__Label = value;
         }
         public bool ShouldSerializeLabel() => __pbn__Label != null;
         public void ResetLabel() => __pbn__Label = null;
         private string __pbn__Label;
 
-        [global::ProtoBuf.ProtoMember(3, Name = @"license_plate")]
-        [global::System.ComponentModel.DefaultValue("")]
-        public string LicensePlate
+        [global::ProtoBuf.ProtoMember(3, Name = @"occupancy_status")]
+        [global::System.ComponentModel.DefaultValue(VehiclePosition.OccupancyStatus.NoDataAvailable)]
+        public VehiclePosition.OccupancyStatus OccupancyStatus
         {
-            get { return __pbn__LicensePlate ?? ""; }
-            set { __pbn__LicensePlate = value; }
+            get => __pbn__OccupancyStatus ?? VehiclePosition.OccupancyStatus.NoDataAvailable;
+            set => __pbn__OccupancyStatus = value;
         }
-        public bool ShouldSerializeLicensePlate() => __pbn__LicensePlate != null;
-        public void ResetLicensePlate() => __pbn__LicensePlate = null;
-        private string __pbn__LicensePlate;
+        public bool ShouldSerializeOccupancyStatus() => __pbn__OccupancyStatus != null;
+        public void ResetOccupancyStatus() => __pbn__OccupancyStatus = null;
+        private VehiclePosition.OccupancyStatus? __pbn__OccupancyStatus;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"occupancy_percentage")]
+        [global::System.ComponentModel.DefaultValue(-1)]
+        public int OccupancyPercentage
+        {
+            get => __pbn__OccupancyPercentage ?? -1;
+            set => __pbn__OccupancyPercentage = value;
+        }
+        public bool ShouldSerializeOccupancyPercentage() => __pbn__OccupancyPercentage != null;
+        public void ResetOccupancyPercentage() => __pbn__OccupancyPercentage = null;
+        private int? __pbn__OccupancyPercentage;
+
+        [global::ProtoBuf.ProtoMember(5, Name = @"carriage_sequence")]
+        public uint CarriageSequence
+        {
+            get => __pbn__CarriageSequence.GetValueOrDefault();
+            set => __pbn__CarriageSequence = value;
+        }
+        public bool ShouldSerializeCarriageSequence() => __pbn__CarriageSequence != null;
+        public void ResetCarriageSequence() => __pbn__CarriageSequence = null;
+        private uint? __pbn__CarriageSequence;
 
     }
 
     [global::ProtoBuf.ProtoContract()]
-    public partial class EntitySelector : global::ProtoBuf.IExtensible
+    public enum VehicleStopStatus
+    {
+        [global::ProtoBuf.ProtoEnum(Name = @"INCOMING_AT")]
+        IncomingAt = 0,
+        [global::ProtoBuf.ProtoEnum(Name = @"STOPPED_AT")]
+        StoppedAt = 1,
+        [global::ProtoBuf.ProtoEnum(Name = @"IN_TRANSIT_TO")]
+        InTransitTo = 2,
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public enum CongestionLevel
+    {
+        [global::ProtoBuf.ProtoEnum(Name = @"UNKNOWN_CONGESTION_LEVEL")]
+        UnknownCongestionLevel = 0,
+        [global::ProtoBuf.ProtoEnum(Name = @"RUNNING_SMOOTHLY")]
+        RunningSmoothly = 1,
+        [global::ProtoBuf.ProtoEnum(Name = @"STOP_AND_GO")]
+        StopAndGo = 2,
+        [global::ProtoBuf.ProtoEnum(Name = @"CONGESTION")]
+        Congestion = 3,
+        [global::ProtoBuf.ProtoEnum(Name = @"SEVERE_CONGESTION")]
+        SevereCongestion = 4,
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public enum OccupancyStatus
+    {
+        [global::ProtoBuf.ProtoEnum(Name = @"EMPTY")]
+        Empty = 0,
+        [global::ProtoBuf.ProtoEnum(Name = @"MANY_SEATS_AVAILABLE")]
+        ManySeatsAvailable = 1,
+        [global::ProtoBuf.ProtoEnum(Name = @"FEW_SEATS_AVAILABLE")]
+        FewSeatsAvailable = 2,
+        [global::ProtoBuf.ProtoEnum(Name = @"STANDING_ROOM_ONLY")]
+        StandingRoomOnly = 3,
+        [global::ProtoBuf.ProtoEnum(Name = @"CRUSHED_STANDING_ROOM_ONLY")]
+        CrushedStandingRoomOnly = 4,
+        [global::ProtoBuf.ProtoEnum(Name = @"FULL")]
+        Full = 5,
+        [global::ProtoBuf.ProtoEnum(Name = @"NOT_ACCEPTING_PASSENGERS")]
+        NotAcceptingPassengers = 6,
+        [global::ProtoBuf.ProtoEnum(Name = @"NO_DATA_AVAILABLE")]
+        NoDataAvailable = 7,
+        [global::ProtoBuf.ProtoEnum(Name = @"NOT_BOARDABLE")]
+        NotBoardable = 8,
+    }
+
+}
+
+[global::ProtoBuf.ProtoContract()]
+public partial class Alert : global::ProtoBuf.IExtensible
+{
+    private global::ProtoBuf.IExtension __pbn__extensionData;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    [global::ProtoBuf.ProtoMember(1, Name = @"active_period")]
+    public global::System.Collections.Generic.List<TimeRange> ActivePeriods { get; } = new global::System.Collections.Generic.List<TimeRange>();
+
+    [global::ProtoBuf.ProtoMember(5, Name = @"informed_entity")]
+    public global::System.Collections.Generic.List<EntitySelector> InformedEntities { get; } = new global::System.Collections.Generic.List<EntitySelector>();
+
+    [global::ProtoBuf.ProtoMember(6)]
+    [global::System.ComponentModel.DefaultValue(Cause.UnknownCause)]
+    public Cause cause
+    {
+        get => __pbn__cause ?? Cause.UnknownCause;
+        set => __pbn__cause = value;
+    }
+    public bool ShouldSerializecause() => __pbn__cause != null;
+    public void Resetcause() => __pbn__cause = null;
+    private Cause? __pbn__cause;
+
+    [global::ProtoBuf.ProtoMember(7)]
+    [global::System.ComponentModel.DefaultValue(Effect.UnknownEffect)]
+    public Effect effect
+    {
+        get => __pbn__effect ?? Effect.UnknownEffect;
+        set => __pbn__effect = value;
+    }
+    public bool ShouldSerializeeffect() => __pbn__effect != null;
+    public void Reseteffect() => __pbn__effect = null;
+    private Effect? __pbn__effect;
+
+    [global::ProtoBuf.ProtoMember(8, Name = @"url")]
+    public TranslatedString Url
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(10, Name = @"header_text")]
+    public TranslatedString HeaderText
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(11, Name = @"description_text")]
+    public TranslatedString DescriptionText
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(12, Name = @"tts_header_text")]
+    public TranslatedString TtsHeaderText
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(13, Name = @"tts_description_text")]
+    public TranslatedString TtsDescriptionText
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(14)]
+    [global::System.ComponentModel.DefaultValue(SeverityLevel.UnknownSeverity)]
+    public SeverityLevel severity_level
+    {
+        get => __pbn__severity_level ?? SeverityLevel.UnknownSeverity;
+        set => __pbn__severity_level = value;
+    }
+    public bool ShouldSerializeseverity_level() => __pbn__severity_level != null;
+    public void Resetseverity_level() => __pbn__severity_level = null;
+    private SeverityLevel? __pbn__severity_level;
+
+    [global::ProtoBuf.ProtoMember(15, Name = @"image")]
+    public TranslatedImage Image
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(16, Name = @"image_alternative_text")]
+    public TranslatedString ImageAlternativeText
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(17, Name = @"cause_detail")]
+    public TranslatedString CauseDetail
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(18, Name = @"effect_detail")]
+    public TranslatedString EffectDetail
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public enum Cause
+    {
+        [global::ProtoBuf.ProtoEnum(Name = @"UNKNOWN_CAUSE")]
+        UnknownCause = 1,
+        [global::ProtoBuf.ProtoEnum(Name = @"OTHER_CAUSE")]
+        OtherCause = 2,
+        [global::ProtoBuf.ProtoEnum(Name = @"TECHNICAL_PROBLEM")]
+        TechnicalProblem = 3,
+        [global::ProtoBuf.ProtoEnum(Name = @"STRIKE")]
+        Strike = 4,
+        [global::ProtoBuf.ProtoEnum(Name = @"DEMONSTRATION")]
+        Demonstration = 5,
+        [global::ProtoBuf.ProtoEnum(Name = @"ACCIDENT")]
+        Accident = 6,
+        [global::ProtoBuf.ProtoEnum(Name = @"HOLIDAY")]
+        Holiday = 7,
+        [global::ProtoBuf.ProtoEnum(Name = @"WEATHER")]
+        Weather = 8,
+        [global::ProtoBuf.ProtoEnum(Name = @"MAINTENANCE")]
+        Maintenance = 9,
+        [global::ProtoBuf.ProtoEnum(Name = @"CONSTRUCTION")]
+        Construction = 10,
+        [global::ProtoBuf.ProtoEnum(Name = @"POLICE_ACTIVITY")]
+        PoliceActivity = 11,
+        [global::ProtoBuf.ProtoEnum(Name = @"MEDICAL_EMERGENCY")]
+        MedicalEmergency = 12,
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public enum Effect
+    {
+        [global::ProtoBuf.ProtoEnum(Name = @"NO_SERVICE")]
+        NoService = 1,
+        [global::ProtoBuf.ProtoEnum(Name = @"REDUCED_SERVICE")]
+        ReducedService = 2,
+        [global::ProtoBuf.ProtoEnum(Name = @"SIGNIFICANT_DELAYS")]
+        SignificantDelays = 3,
+        [global::ProtoBuf.ProtoEnum(Name = @"DETOUR")]
+        Detour = 4,
+        [global::ProtoBuf.ProtoEnum(Name = @"ADDITIONAL_SERVICE")]
+        AdditionalService = 5,
+        [global::ProtoBuf.ProtoEnum(Name = @"MODIFIED_SERVICE")]
+        ModifiedService = 6,
+        [global::ProtoBuf.ProtoEnum(Name = @"OTHER_EFFECT")]
+        OtherEffect = 7,
+        [global::ProtoBuf.ProtoEnum(Name = @"UNKNOWN_EFFECT")]
+        UnknownEffect = 8,
+        [global::ProtoBuf.ProtoEnum(Name = @"STOP_MOVED")]
+        StopMoved = 9,
+        [global::ProtoBuf.ProtoEnum(Name = @"NO_EFFECT")]
+        NoEffect = 10,
+        [global::ProtoBuf.ProtoEnum(Name = @"ACCESSIBILITY_ISSUE")]
+        AccessibilityIssue = 11,
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public enum SeverityLevel
+    {
+        [global::ProtoBuf.ProtoEnum(Name = @"UNKNOWN_SEVERITY")]
+        UnknownSeverity = 1,
+        [global::ProtoBuf.ProtoEnum(Name = @"INFO")]
+        Info = 2,
+        [global::ProtoBuf.ProtoEnum(Name = @"WARNING")]
+        Warning = 3,
+        [global::ProtoBuf.ProtoEnum(Name = @"SEVERE")]
+        Severe = 4,
+    }
+
+}
+
+[global::ProtoBuf.ProtoContract()]
+public partial class TimeRange : global::ProtoBuf.IExtensible
+{
+    private global::ProtoBuf.IExtension __pbn__extensionData;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    [global::ProtoBuf.ProtoMember(1, Name = @"start")]
+    public ulong Start
+    {
+        get => __pbn__Start.GetValueOrDefault();
+        set => __pbn__Start = value;
+    }
+    public bool ShouldSerializeStart() => __pbn__Start != null;
+    public void ResetStart() => __pbn__Start = null;
+    private ulong? __pbn__Start;
+
+    [global::ProtoBuf.ProtoMember(2, Name = @"end")]
+    public ulong End
+    {
+        get => __pbn__End.GetValueOrDefault();
+        set => __pbn__End = value;
+    }
+    public bool ShouldSerializeEnd() => __pbn__End != null;
+    public void ResetEnd() => __pbn__End = null;
+    private ulong? __pbn__End;
+
+}
+
+[global::ProtoBuf.ProtoContract()]
+public partial class Position : global::ProtoBuf.IExtensible
+{
+    private global::ProtoBuf.IExtension __pbn__extensionData;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    [global::ProtoBuf.ProtoMember(1, Name = @"latitude", IsRequired = true)]
+    public float Latitude
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(2, Name = @"longitude", IsRequired = true)]
+    public float Longitude
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(3, Name = @"bearing")]
+    public float Bearing
+    {
+        get => __pbn__Bearing.GetValueOrDefault();
+        set => __pbn__Bearing = value;
+    }
+    public bool ShouldSerializeBearing() => __pbn__Bearing != null;
+    public void ResetBearing() => __pbn__Bearing = null;
+    private float? __pbn__Bearing;
+
+    [global::ProtoBuf.ProtoMember(4, Name = @"odometer")]
+    public double Odometer
+    {
+        get => __pbn__Odometer.GetValueOrDefault();
+        set => __pbn__Odometer = value;
+    }
+    public bool ShouldSerializeOdometer() => __pbn__Odometer != null;
+    public void ResetOdometer() => __pbn__Odometer = null;
+    private double? __pbn__Odometer;
+
+    [global::ProtoBuf.ProtoMember(5, Name = @"speed")]
+    public float Speed
+    {
+        get => __pbn__Speed.GetValueOrDefault();
+        set => __pbn__Speed = value;
+    }
+    public bool ShouldSerializeSpeed() => __pbn__Speed != null;
+    public void ResetSpeed() => __pbn__Speed = null;
+    private float? __pbn__Speed;
+
+}
+
+[global::ProtoBuf.ProtoContract()]
+public partial class TripDescriptor : global::ProtoBuf.IExtensible
+{
+    private global::ProtoBuf.IExtension __pbn__extensionData;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    [global::ProtoBuf.ProtoMember(1, Name = @"trip_id")]
+    [global::System.ComponentModel.DefaultValue("")]
+    public string TripId
+    {
+        get => __pbn__TripId ?? "";
+        set => __pbn__TripId = value;
+    }
+    public bool ShouldSerializeTripId() => __pbn__TripId != null;
+    public void ResetTripId() => __pbn__TripId = null;
+    private string __pbn__TripId;
+
+    [global::ProtoBuf.ProtoMember(5, Name = @"route_id")]
+    [global::System.ComponentModel.DefaultValue("")]
+    public string RouteId
+    {
+        get => __pbn__RouteId ?? "";
+        set => __pbn__RouteId = value;
+    }
+    public bool ShouldSerializeRouteId() => __pbn__RouteId != null;
+    public void ResetRouteId() => __pbn__RouteId = null;
+    private string __pbn__RouteId;
+
+    [global::ProtoBuf.ProtoMember(6, Name = @"direction_id")]
+    public uint DirectionId
+    {
+        get => __pbn__DirectionId.GetValueOrDefault();
+        set => __pbn__DirectionId = value;
+    }
+    public bool ShouldSerializeDirectionId() => __pbn__DirectionId != null;
+    public void ResetDirectionId() => __pbn__DirectionId = null;
+    private uint? __pbn__DirectionId;
+
+    [global::ProtoBuf.ProtoMember(2, Name = @"start_time")]
+    [global::System.ComponentModel.DefaultValue("")]
+    public string StartTime
+    {
+        get => __pbn__StartTime ?? "";
+        set => __pbn__StartTime = value;
+    }
+    public bool ShouldSerializeStartTime() => __pbn__StartTime != null;
+    public void ResetStartTime() => __pbn__StartTime = null;
+    private string __pbn__StartTime;
+
+    [global::ProtoBuf.ProtoMember(3, Name = @"start_date")]
+    [global::System.ComponentModel.DefaultValue("")]
+    public string StartDate
+    {
+        get => __pbn__StartDate ?? "";
+        set => __pbn__StartDate = value;
+    }
+    public bool ShouldSerializeStartDate() => __pbn__StartDate != null;
+    public void ResetStartDate() => __pbn__StartDate = null;
+    private string __pbn__StartDate;
+
+    [global::ProtoBuf.ProtoMember(4)]
+    [global::System.ComponentModel.DefaultValue(ScheduleRelationship.Scheduled)]
+    public ScheduleRelationship schedule_relationship
+    {
+        get => __pbn__schedule_relationship ?? ScheduleRelationship.Scheduled;
+        set => __pbn__schedule_relationship = value;
+    }
+    public bool ShouldSerializeschedule_relationship() => __pbn__schedule_relationship != null;
+    public void Resetschedule_relationship() => __pbn__schedule_relationship = null;
+    private ScheduleRelationship? __pbn__schedule_relationship;
+
+    [global::ProtoBuf.ProtoContract()]
+    public enum ScheduleRelationship
+    {
+        [global::ProtoBuf.ProtoEnum(Name = @"SCHEDULED")]
+        Scheduled = 0,
+        [global::ProtoBuf.ProtoEnum(Name = @"ADDED")]
+        Added = 1,
+        [global::ProtoBuf.ProtoEnum(Name = @"UNSCHEDULED")]
+        Unscheduled = 2,
+        [global::ProtoBuf.ProtoEnum(Name = @"CANCELED")]
+        Canceled = 3,
+        [global::ProtoBuf.ProtoEnum(Name = @"REPLACEMENT")]
+        [global::System.Obsolete]
+        Replacement = 5,
+        [global::ProtoBuf.ProtoEnum(Name = @"DUPLICATED")]
+        Duplicated = 6,
+        [global::ProtoBuf.ProtoEnum(Name = @"DELETED")]
+        Deleted = 7,
+    }
+
+}
+
+[global::ProtoBuf.ProtoContract()]
+public partial class VehicleDescriptor : global::ProtoBuf.IExtensible
+{
+    private global::ProtoBuf.IExtension __pbn__extensionData;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    [global::ProtoBuf.ProtoMember(1, Name = @"id")]
+    [global::System.ComponentModel.DefaultValue("")]
+    public string Id
+    {
+        get => __pbn__Id ?? "";
+        set => __pbn__Id = value;
+    }
+    public bool ShouldSerializeId() => __pbn__Id != null;
+    public void ResetId() => __pbn__Id = null;
+    private string __pbn__Id;
+
+    [global::ProtoBuf.ProtoMember(2, Name = @"label")]
+    [global::System.ComponentModel.DefaultValue("")]
+    public string Label
+    {
+        get => __pbn__Label ?? "";
+        set => __pbn__Label = value;
+    }
+    public bool ShouldSerializeLabel() => __pbn__Label != null;
+    public void ResetLabel() => __pbn__Label = null;
+    private string __pbn__Label;
+
+    [global::ProtoBuf.ProtoMember(3, Name = @"license_plate")]
+    [global::System.ComponentModel.DefaultValue("")]
+    public string LicensePlate
+    {
+        get => __pbn__LicensePlate ?? "";
+        set => __pbn__LicensePlate = value;
+    }
+    public bool ShouldSerializeLicensePlate() => __pbn__LicensePlate != null;
+    public void ResetLicensePlate() => __pbn__LicensePlate = null;
+    private string __pbn__LicensePlate;
+
+    [global::ProtoBuf.ProtoMember(4)]
+    [global::System.ComponentModel.DefaultValue(WheelchairAccessible.NoValue)]
+    public WheelchairAccessible wheelchair_accessible
+    {
+        get => __pbn__wheelchair_accessible ?? WheelchairAccessible.NoValue;
+        set => __pbn__wheelchair_accessible = value;
+    }
+    public bool ShouldSerializewheelchair_accessible() => __pbn__wheelchair_accessible != null;
+    public void Resetwheelchair_accessible() => __pbn__wheelchair_accessible = null;
+    private WheelchairAccessible? __pbn__wheelchair_accessible;
+
+    [global::ProtoBuf.ProtoContract()]
+    public enum WheelchairAccessible
+    {
+        [global::ProtoBuf.ProtoEnum(Name = @"NO_VALUE")]
+        NoValue = 0,
+        [global::ProtoBuf.ProtoEnum(Name = @"UNKNOWN")]
+        Unknown = 1,
+        [global::ProtoBuf.ProtoEnum(Name = @"WHEELCHAIR_ACCESSIBLE")]
+        WheelchairAccessible = 2,
+        [global::ProtoBuf.ProtoEnum(Name = @"WHEELCHAIR_INACCESSIBLE")]
+        WheelchairInaccessible = 3,
+    }
+
+}
+
+[global::ProtoBuf.ProtoContract()]
+public partial class EntitySelector : global::ProtoBuf.IExtensible
+{
+    private global::ProtoBuf.IExtension __pbn__extensionData;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    [global::ProtoBuf.ProtoMember(1, Name = @"agency_id")]
+    [global::System.ComponentModel.DefaultValue("")]
+    public string AgencyId
+    {
+        get => __pbn__AgencyId ?? "";
+        set => __pbn__AgencyId = value;
+    }
+    public bool ShouldSerializeAgencyId() => __pbn__AgencyId != null;
+    public void ResetAgencyId() => __pbn__AgencyId = null;
+    private string __pbn__AgencyId;
+
+    [global::ProtoBuf.ProtoMember(2, Name = @"route_id")]
+    [global::System.ComponentModel.DefaultValue("")]
+    public string RouteId
+    {
+        get => __pbn__RouteId ?? "";
+        set => __pbn__RouteId = value;
+    }
+    public bool ShouldSerializeRouteId() => __pbn__RouteId != null;
+    public void ResetRouteId() => __pbn__RouteId = null;
+    private string __pbn__RouteId;
+
+    [global::ProtoBuf.ProtoMember(3, Name = @"route_type")]
+    public int RouteType
+    {
+        get => __pbn__RouteType.GetValueOrDefault();
+        set => __pbn__RouteType = value;
+    }
+    public bool ShouldSerializeRouteType() => __pbn__RouteType != null;
+    public void ResetRouteType() => __pbn__RouteType = null;
+    private int? __pbn__RouteType;
+
+    [global::ProtoBuf.ProtoMember(4, Name = @"trip")]
+    public TripDescriptor Trip
+    {
+        get; set;
+    }
+
+    [global::ProtoBuf.ProtoMember(5, Name = @"stop_id")]
+    [global::System.ComponentModel.DefaultValue("")]
+    public string StopId
+    {
+        get => __pbn__StopId ?? "";
+        set => __pbn__StopId = value;
+    }
+    public bool ShouldSerializeStopId() => __pbn__StopId != null;
+    public void ResetStopId() => __pbn__StopId = null;
+    private string __pbn__StopId;
+
+    [global::ProtoBuf.ProtoMember(6, Name = @"direction_id")]
+    public uint DirectionId
+    {
+        get => __pbn__DirectionId.GetValueOrDefault();
+        set => __pbn__DirectionId = value;
+    }
+    public bool ShouldSerializeDirectionId() => __pbn__DirectionId != null;
+    public void ResetDirectionId() => __pbn__DirectionId = null;
+    private uint? __pbn__DirectionId;
+
+}
+
+[global::ProtoBuf.ProtoContract()]
+public partial class TranslatedString : global::ProtoBuf.IExtensible
+{
+    private global::ProtoBuf.IExtension __pbn__extensionData;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    [global::ProtoBuf.ProtoMember(1, Name = @"translation")]
+    public global::System.Collections.Generic.List<Translation> Translations { get; } = new global::System.Collections.Generic.List<Translation>();
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class Translation : global::ProtoBuf.IExtensible
     {
         private global::ProtoBuf.IExtension __pbn__extensionData;
         global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
-        [global::ProtoBuf.ProtoMember(1, Name = @"agency_id")]
+        [global::ProtoBuf.ProtoMember(1, Name = @"text", IsRequired = true)]
+        public string Text
+        {
+            get; set;
+        }
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"language")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string AgencyId
+        public string Language
         {
-            get { return __pbn__AgencyId ?? ""; }
-            set { __pbn__AgencyId = value; }
+            get => __pbn__Language ?? "";
+            set => __pbn__Language = value;
         }
-        public bool ShouldSerializeAgencyId() => __pbn__AgencyId != null;
-        public void ResetAgencyId() => __pbn__AgencyId = null;
-        private string __pbn__AgencyId;
-
-        [global::ProtoBuf.ProtoMember(2, Name = @"route_id")]
-        [global::System.ComponentModel.DefaultValue("")]
-        public string RouteId
-        {
-            get { return __pbn__RouteId ?? ""; }
-            set { __pbn__RouteId = value; }
-        }
-        public bool ShouldSerializeRouteId() => __pbn__RouteId != null;
-        public void ResetRouteId() => __pbn__RouteId = null;
-        private string __pbn__RouteId;
-
-        [global::ProtoBuf.ProtoMember(3, Name = @"route_type")]
-        public int RouteType
-        {
-            get { return __pbn__RouteType.GetValueOrDefault(); }
-            set { __pbn__RouteType = value; }
-        }
-        public bool ShouldSerializeRouteType() => __pbn__RouteType != null;
-        public void ResetRouteType() => __pbn__RouteType = null;
-        private int? __pbn__RouteType;
-
-        [global::ProtoBuf.ProtoMember(4, Name = @"trip")]
-        public TripDescriptor Trip { get; set; }
-
-        [global::ProtoBuf.ProtoMember(5, Name = @"stop_id")]
-        [global::System.ComponentModel.DefaultValue("")]
-        public string StopId
-        {
-            get { return __pbn__StopId ?? ""; }
-            set { __pbn__StopId = value; }
-        }
-        public bool ShouldSerializeStopId() => __pbn__StopId != null;
-        public void ResetStopId() => __pbn__StopId = null;
-        private string __pbn__StopId;
-
-    }
-
-    [global::ProtoBuf.ProtoContract()]
-    public partial class TranslatedString : global::ProtoBuf.IExtensible
-    {
-        private global::ProtoBuf.IExtension __pbn__extensionData;
-        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-        [global::ProtoBuf.ProtoMember(1, Name = @"translation")]
-        public global::System.Collections.Generic.List<Translation> Translations { get; } = new global::System.Collections.Generic.List<Translation>();
-
-        [global::ProtoBuf.ProtoContract()]
-        public partial class Translation : global::ProtoBuf.IExtensible
-        {
-            private global::ProtoBuf.IExtension __pbn__extensionData;
-            global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-                => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-            [global::ProtoBuf.ProtoMember(1, Name = @"text", IsRequired = true)]
-            public string Text { get; set; }
-
-            [global::ProtoBuf.ProtoMember(2, Name = @"language")]
-            [global::System.ComponentModel.DefaultValue("")]
-            public string Language
-            {
-                get { return __pbn__Language ?? ""; }
-                set { __pbn__Language = value; }
-            }
-            public bool ShouldSerializeLanguage() => __pbn__Language != null;
-            public void ResetLanguage() => __pbn__Language = null;
-            private string __pbn__Language;
-
-        }
+        public bool ShouldSerializeLanguage() => __pbn__Language != null;
+        public void ResetLanguage() => __pbn__Language = null;
+        private string __pbn__Language;
 
     }
 
 }
 
-#pragma warning restore CS1591, CS0612, CS3021, IDE1006
+[global::ProtoBuf.ProtoContract()]
+public partial class TranslatedImage : global::ProtoBuf.IExtensible
+{
+    private global::ProtoBuf.IExtension __pbn__extensionData;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    [global::ProtoBuf.ProtoMember(1, Name = @"localized_image")]
+    public global::System.Collections.Generic.List<LocalizedImage> LocalizedImages { get; } = new global::System.Collections.Generic.List<LocalizedImage>();
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class LocalizedImage : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"url", IsRequired = true)]
+        public string Url
+        {
+            get; set;
+        }
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"media_type", IsRequired = true)]
+        public string MediaType
+        {
+            get; set;
+        }
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"language")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Language
+        {
+            get => __pbn__Language ?? "";
+            set => __pbn__Language = value;
+        }
+        public bool ShouldSerializeLanguage() => __pbn__Language != null;
+        public void ResetLanguage() => __pbn__Language = null;
+        private string __pbn__Language;
+
+    }
+
+}
+
+[global::ProtoBuf.ProtoContract()]
+public partial class Shape : global::ProtoBuf.IExtensible
+{
+    private global::ProtoBuf.IExtension __pbn__extensionData;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    [global::ProtoBuf.ProtoMember(1, Name = @"shape_id")]
+    [global::System.ComponentModel.DefaultValue("")]
+    public string ShapeId
+    {
+        get => __pbn__ShapeId ?? "";
+        set => __pbn__ShapeId = value;
+    }
+    public bool ShouldSerializeShapeId() => __pbn__ShapeId != null;
+    public void ResetShapeId() => __pbn__ShapeId = null;
+    private string __pbn__ShapeId;
+
+    [global::ProtoBuf.ProtoMember(2, Name = @"encoded_polyline")]
+    [global::System.ComponentModel.DefaultValue("")]
+    public string EncodedPolyline
+    {
+        get => __pbn__EncodedPolyline ?? "";
+        set => __pbn__EncodedPolyline = value;
+    }
+    public bool ShouldSerializeEncodedPolyline() => __pbn__EncodedPolyline != null;
+    public void ResetEncodedPolyline() => __pbn__EncodedPolyline = null;
+    private string __pbn__EncodedPolyline;
+
+}
+
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#endregion
