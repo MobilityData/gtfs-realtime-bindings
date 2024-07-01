@@ -5,15 +5,15 @@
     <Company>MobilityData</Company>
     <Title>GtfsRealtimeBindings</Title>
     <Copyright>Copyright © 2015-2024</Copyright>
-    <AssemblyVersion>0.0.8.0</AssemblyVersion>
-    <FileVersion>0.0.8.0</FileVersion>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
     <PackageProjectUrl>https://github.com/MobilityData/gtfs-realtime-bindings</PackageProjectUrl>
     <Description>Provides .NET classes generated from the GTFS Realtime Protocol Buffer specification.</Description>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <Authors>MobilityData</Authors>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageReleaseNotes>Update to .NET Standard 2.0 and latest proto definition</PackageReleaseNotes>
-    <Version>0.0.8</Version>
+    <Version>2.0.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
