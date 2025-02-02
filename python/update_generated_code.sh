@@ -14,8 +14,11 @@ docker run -it gtfs-python
 # run the docker image as a named container running as a daemon (-d) that runs forever until killed
 docker run --name gtfs-python-container -it -d gtfs-python tail -f > /dev/null
 # execute the code gen in the foreground so there is no race condition
-docker exec gtfs-python-container protoc --python_out=google/transit --proto_path=.. gtfs-realtime.proto
-# copy the file from the named container running as a daemon onto the host machine
+docker exec gtfs-python-container protoc --python_out=google/transit --pyi_out=google/transit --proto_path=.. gtfs-realtime.proto
+# copy the generated files from the named container running as a daemon onto the host machine
 docker cp gtfs-python-container:/lib/google/transit/gtfs_realtime_pb2.py $PYTHON_DIR/google/transit/gtfs_realtime_pb2.py
+docker cp gtfs-python-container:/lib/google/transit/gtfs_realtime_pb2.pyi $PYTHON_DIR/google/transit/gtfs_realtime_pb2.pyi
+# create py.typed file in the host machine's package directory
+touch $PYTHON_DIR/google/transit/py.typed
 # delete the named container
 docker rm -f gtfs-python-container
