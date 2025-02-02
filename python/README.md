@@ -14,10 +14,6 @@ first install the module from the
 [PyPI repository](https://pypi.python.org/pypi/gtfs-realtime-bindings).
 
 ```
-# Using easy_install
-easy_install --upgrade gtfs-realtime-bindings
-
-# Using pip
 pip install --upgrade gtfs-realtime-bindings
 ```
 
@@ -35,8 +31,8 @@ feed = gtfs_realtime_pb2.FeedMessage()
 response = requests.get('URL OF YOUR GTFS-REALTIME SOURCE GOES HERE')
 feed.ParseFromString(response.content)
 for entity in feed.entity:
-  if entity.HasField('trip_update'):
-    print(entity.trip_update)
+    if entity.HasField('trip_update'):
+        print(entity.trip_update)
 ```
 
 For more details on the naming conventions for the Python classes generated
