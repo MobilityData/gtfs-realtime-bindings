@@ -22,5 +22,6 @@ COPY python/tests/vehicle_position.pb /lib/tests/vehicle_position.pb
 # as long as paths are configured correctly, the namespace will be automatically handled
 # https://setuptools.pypa.io/en/latest/userguide/package_discovery.html#finding-namespace-packages
 COPY python/google/transit/__init__.py /lib/google/transit/__init__.py
+RUN touch google/transit/py.typed
 
-CMD protoc --python_out=google/transit --proto_path=.. gtfs-realtime.proto && nose2
+CMD protoc --python_out=google/transit --pyi_out=google/transit --proto_path=.. gtfs-realtime.proto && nose2
