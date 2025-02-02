@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gtfs-realtime-bindings"
+version = "1.0.0"
+description = "Python classes generated from the GTFS-realtime protocol buffer specification."
+license = { text = "Apache License, Version 2.0" }
+requires-python = ">=3.8"
+dependencies = ["protobuf"]
+maintainers = [
+  { name = "MobilityData", email = "gtfs-realtime@googlegroups.com" },
+]
+classifiers = [
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+Homepage = "https://github.com/MobilityData/gtfs-realtime-bindings"
+
+[tool.setuptools]
+packages = ["google", "google.transit"]

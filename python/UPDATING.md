@@ -16,7 +16,7 @@
 
 1. Add the license header back to the generated source file.
 
-1. Bump the version number in `setup.py`.
+1. Bump the version number in `pyproject.toml`.
 
 ## Publishing a new release
 
@@ -25,13 +25,13 @@
 1. Create an account on PyPI that has permissions to publish to the [gtfs-realtime-bindings](https://pypi.org/manage/project/gtfs-realtime-bindings/releases/) project.
 1. Install twine:
    
-   `pip install -U pip setuptools twine`
+   `pip install -U pip build twine`
 
 #### Every release
 
 1. Build and deploy the package to PyPI - you'll be prompted for your login info from the command-line:
 
   ```
-  python setup.py sdist
+  python -m build
   twine upload dist/*
   ```
