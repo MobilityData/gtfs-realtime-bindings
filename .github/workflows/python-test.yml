@@ -21,6 +21,9 @@ on:
         required: false
         type: boolean
         default: false
+    secrets:
+      GITHUB_TOKEN:
+        required: false
 
 jobs:
   test:
