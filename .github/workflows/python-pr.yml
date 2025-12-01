@@ -10,16 +10,15 @@ on:
 jobs:
   test:
     name: Run python tests matrix
-    runs-on: ubuntu-latest
     needs: check_version_bump
-    steps:
-      - name: Call python test (matrix)
-        uses: ./.github/workflows/python-test.yml
-        with:
-          python-versions: '["3.8", "3.11"]'
-          package-path: 'python'
-          test-path: 'tests'
-          debug: false
+    uses: ./.github/workflows/python-test.yml
+    with:
+      python-versions: '["3.8", "3.11"]'
+      package-path: 'python'
+      test-path: 'tests'
+      debug: false
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   check_version_bump:
     name: Check version bump in pyproject.toml
