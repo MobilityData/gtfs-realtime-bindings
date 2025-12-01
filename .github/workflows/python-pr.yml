@@ -19,19 +19,39 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Show workspace (debug)
+        run: |
+          echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE"
+          pwd
+          ls -la
+          echo '--- python dir ---'
+          ls -la python || true
+
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install runtime/test deps
+      - name: Install package (make google.transit importable)
         run: |
           python -m pip install -U pip
+          python -m pip install -e .
+        working-directory: python
+
+      - name: Verify package install (debug)
+        run: |
+          python -c "import sys; print('sys.executable:', sys.executable); import pkgutil; print('pkgutil.find_loader(\"google.transit\")=', pkgutil.find_loader('google.transit'))"
+        working-directory: python
+
+      - name: Install runtime/test deps
+        run: |
           python -m pip install protobuf pytest
+        working-directory: python
 
       - name: Run tests
         run: |
-          pytest -q
+          pytest -q tests
+        working-directory: python
 
   check_version_bump:
     name: Check version bump in pyproject.toml
