@@ -17,8 +17,6 @@ jobs:
       package-path: 'python'
       test-path: 'tests'
       debug: false
-    secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   check_version_bump:
     name: Check version bump in pyproject.toml

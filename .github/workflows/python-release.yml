@@ -12,8 +12,6 @@ jobs:
       package-path: 'python'
       test-path: 'tests'
       debug: false
-    secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build_and_publish:
     name: Build & Publish
