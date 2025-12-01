@@ -1,5 +1,7 @@
 # Reusable Python test workflow
 # Called with: uses: ./.github/workflows/python-test.yml
+name: Python Test Workflow
+
 on:
   workflow_call:
     inputs:
