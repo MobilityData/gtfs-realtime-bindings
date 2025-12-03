@@ -17,6 +17,9 @@ jobs:
     name: Build & Publish
     needs: test
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write    # <-- REQUIRED for OIDC / Trusted Publisher
+      contents: read      
     steps:
       - name: Checkout
         uses: actions/checkout@v4
