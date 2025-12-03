@@ -42,5 +42,5 @@ jobs:
         # the action can publish using the GITHUB_TOKEN (no PYPI API token required).
         uses: pypa/gh-action-pypi-publish@v1.5.1
         with:
-          packages-dir: python/dist
+          packages_dir: python/dist
 
