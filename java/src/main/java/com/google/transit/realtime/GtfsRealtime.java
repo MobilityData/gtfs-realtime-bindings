@@ -221,7 +221,7 @@ public final class GtfsRealtime {
      * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.FeedEntityOrBuilder> 
+    public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.FeedEntityOrBuilder>
         getEntityOrBuilderList() {
       return entity_;
     }
@@ -635,12 +635,7 @@ public final class GtfsRealtime {
           Type value) {
         return super.addExtension(extension, value);
       }
-      @java.lang.Override
-      public <Type> Builder clearExtension(
-          com.google.protobuf.GeneratedMessage.GeneratedExtension<
-              com.google.transit.realtime.GtfsRealtime.FeedMessage, ?> extension) {
-        return super.clearExtension(extension);
-      }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtime.FeedMessage) {
@@ -674,7 +669,7 @@ public final class GtfsRealtime {
               entityBuilder_ = null;
               entity_ = other.entity_;
               bitField0_ = (bitField0_ & ~0x00000002);
-              entityBuilder_ = 
+              entityBuilder_ =
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getEntityFieldBuilder() : null;
             } else {
@@ -902,7 +897,7 @@ public final class GtfsRealtime {
        * <code>required .transit_realtime.FeedHeader header = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.FeedHeader, com.google.transit.realtime.GtfsRealtime.FeedHeader.Builder, com.google.transit.realtime.GtfsRealtime.FeedHeaderOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.FeedHeader, com.google.transit.realtime.GtfsRealtime.FeedHeader.Builder, com.google.transit.realtime.GtfsRealtime.FeedHeaderOrBuilder>
           getHeaderFieldBuilder() {
         if (headerBuilder_ == null) {
           headerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -1170,7 +1165,7 @@ public final class GtfsRealtime {
        *
        * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
        */
-      public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.FeedEntityOrBuilder> 
+      public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.FeedEntityOrBuilder>
            getEntityOrBuilderList() {
         if (entityBuilder_ != null) {
           return entityBuilder_.getMessageOrBuilderList();
@@ -1208,12 +1203,12 @@ public final class GtfsRealtime {
        *
        * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
        */
-      public java.util.List<com.google.transit.realtime.GtfsRealtime.FeedEntity.Builder> 
+      public java.util.List<com.google.transit.realtime.GtfsRealtime.FeedEntity.Builder>
            getEntityBuilderList() {
         return getEntityFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.FeedEntity, com.google.transit.realtime.GtfsRealtime.FeedEntity.Builder, com.google.transit.realtime.GtfsRealtime.FeedEntityOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.FeedEntity, com.google.transit.realtime.GtfsRealtime.FeedEntity.Builder, com.google.transit.realtime.GtfsRealtime.FeedEntityOrBuilder>
           getEntityFieldBuilder() {
         if (entityBuilder_ == null) {
           entityBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
@@ -1544,7 +1539,7 @@ public final class GtfsRealtime {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
+        com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -1567,7 +1562,7 @@ public final class GtfsRealtime {
         getGtfsRealtimeVersionBytes() {
       java.lang.Object ref = gtfsRealtimeVersion_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         gtfsRealtimeVersion_ = b;
@@ -1978,12 +1973,7 @@ public final class GtfsRealtime {
           Type value) {
         return super.addExtension(extension, value);
       }
-      @java.lang.Override
-      public <Type> Builder clearExtension(
-          com.google.protobuf.GeneratedMessage.GeneratedExtension<
-              com.google.transit.realtime.GtfsRealtime.FeedHeader, ?> extension) {
-        return super.clearExtension(extension);
-      }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtime.FeedHeader) {
@@ -2128,7 +2118,7 @@ public final class GtfsRealtime {
           getGtfsRealtimeVersionBytes() {
         java.lang.Object ref = gtfsRealtimeVersion_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           gtfsRealtimeVersion_ = b;
@@ -2272,7 +2262,7 @@ public final class GtfsRealtime {
        * @return This builder for chaining.
        */
       public Builder setTimestamp(long value) {
-        
+
         timestamp_ = value;
         bitField0_ |= 0x00000004;
         onChanged();
@@ -2584,7 +2574,7 @@ public final class GtfsRealtime {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
+        com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -2613,7 +2603,7 @@ public final class GtfsRealtime {
         getIdBytes() {
       java.lang.Object ref = id_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         id_ = b;
@@ -3184,12 +3174,7 @@ public final class GtfsRealtime {
           Type value) {
         return super.addExtension(extension, value);
       }
-      @java.lang.Override
-      public <Type> Builder clearExtension(
-          com.google.protobuf.GeneratedMessage.GeneratedExtension<
-              com.google.transit.realtime.GtfsRealtime.FeedEntity, ?> extension) {
-        return super.clearExtension(extension);
-      }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtime.FeedEntity) {
@@ -3382,7 +3367,7 @@ public final class GtfsRealtime {
           getIdBytes() {
         java.lang.Object ref = id_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           id_ = b;
@@ -3499,7 +3484,7 @@ public final class GtfsRealtime {
        * @return This builder for chaining.
        */
       public Builder setIsDeleted(boolean value) {
-        
+
         isDeleted_ = value;
         bitField0_ |= 0x00000002;
         onChanged();
@@ -3672,7 +3657,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TripUpdate trip_update = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.TripUpdate, com.google.transit.realtime.GtfsRealtime.TripUpdate.Builder, com.google.transit.realtime.GtfsRealtime.TripUpdateOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.TripUpdate, com.google.transit.realtime.GtfsRealtime.TripUpdate.Builder, com.google.transit.realtime.GtfsRealtime.TripUpdateOrBuilder>
           getTripUpdateFieldBuilder() {
         if (tripUpdateBuilder_ == null) {
           tripUpdateBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -3791,7 +3776,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.VehiclePosition vehicle = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.VehiclePosition, com.google.transit.realtime.GtfsRealtime.VehiclePosition.Builder, com.google.transit.realtime.GtfsRealtime.VehiclePositionOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.VehiclePosition, com.google.transit.realtime.GtfsRealtime.VehiclePosition.Builder, com.google.transit.realtime.GtfsRealtime.VehiclePositionOrBuilder>
           getVehicleFieldBuilder() {
         if (vehicleBuilder_ == null) {
           vehicleBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -3910,7 +3895,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.Alert alert = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.Alert, com.google.transit.realtime.GtfsRealtime.Alert.Builder, com.google.transit.realtime.GtfsRealtime.AlertOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.Alert, com.google.transit.realtime.GtfsRealtime.Alert.Builder, com.google.transit.realtime.GtfsRealtime.AlertOrBuilder>
           getAlertFieldBuilder() {
         if (alertBuilder_ == null) {
           alertBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -4077,7 +4062,7 @@ public final class GtfsRealtime {
      *
      * <code>repeated .transit_realtime.TripUpdate.StopTimeUpdate stop_time_update = 2;</code>
      */
-    java.util.List<com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate> 
+    java.util.List<com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate>
         getStopTimeUpdateList();
     /**
      * <pre>
@@ -4150,7 +4135,7 @@ public final class GtfsRealtime {
      *
      * <code>repeated .transit_realtime.TripUpdate.StopTimeUpdate stop_time_update = 2;</code>
      */
-    java.util.List<? extends com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdateOrBuilder> 
+    java.util.List<? extends com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdateOrBuilder>
         getStopTimeUpdateOrBuilderList();
     /**
      * <pre>
@@ -4921,12 +4906,7 @@ public final class GtfsRealtime {
             Type value) {
           return super.addExtension(extension, value);
         }
-        @java.lang.Override
-        public <Type> Builder clearExtension(
-            com.google.protobuf.GeneratedMessage.GeneratedExtension<
-                com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent, ?> extension) {
-          return super.clearExtension(extension);
-        }
+
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
           if (other instanceof com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent) {
@@ -5051,7 +5031,7 @@ public final class GtfsRealtime {
          * @return This builder for chaining.
          */
         public Builder setDelay(int value) {
-          
+
           delay_ = value;
           bitField0_ |= 0x00000001;
           onChanged();
@@ -5115,7 +5095,7 @@ public final class GtfsRealtime {
          * @return This builder for chaining.
          */
         public Builder setTime(long value) {
-          
+
           time_ = value;
           bitField0_ |= 0x00000002;
           onChanged();
@@ -5182,7 +5162,7 @@ public final class GtfsRealtime {
          * @return This builder for chaining.
          */
         public Builder setUncertainty(int value) {
-          
+
           uncertainty_ = value;
           bitField0_ |= 0x00000004;
           onChanged();
@@ -5793,7 +5773,7 @@ public final class GtfsRealtime {
           if (ref instanceof java.lang.String) {
             return (java.lang.String) ref;
           } else {
-            com.google.protobuf.ByteString bs = 
+            com.google.protobuf.ByteString bs =
                 (com.google.protobuf.ByteString) ref;
             java.lang.String s = bs.toStringUtf8();
             if (bs.isValidUtf8()) {
@@ -5827,7 +5807,7 @@ public final class GtfsRealtime {
             getAssignedStopIdBytes() {
           java.lang.Object ref = assignedStopId_;
           if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString b =
                 com.google.protobuf.ByteString.copyFromUtf8(
                     (java.lang.String) ref);
             assignedStopId_ = b;
@@ -6145,12 +6125,6 @@ public final class GtfsRealtime {
             return super.addExtension(extension, value);
           }
           @java.lang.Override
-          public <Type> Builder clearExtension(
-              com.google.protobuf.GeneratedMessage.GeneratedExtension<
-                  com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate.StopTimeProperties, ?> extension) {
-            return super.clearExtension(extension);
-          }
-          @java.lang.Override
           public Builder mergeFrom(com.google.protobuf.Message other) {
             if (other instanceof com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate.StopTimeProperties) {
               return mergeFrom((com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate.StopTimeProperties)other);
@@ -6301,7 +6275,7 @@ public final class GtfsRealtime {
               getAssignedStopIdBytes() {
             java.lang.Object ref = assignedStopId_;
             if (ref instanceof String) {
-              com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString b =
                   com.google.protobuf.ByteString.copyFromUtf8(
                       (java.lang.String) ref);
               assignedStopId_ = b;
@@ -6515,7 +6489,7 @@ public final class GtfsRealtime {
         if (ref instanceof java.lang.String) {
           return (java.lang.String) ref;
         } else {
-          com.google.protobuf.ByteString bs = 
+          com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
@@ -6537,7 +6511,7 @@ public final class GtfsRealtime {
           getStopIdBytes() {
         java.lang.Object ref = stopId_;
         if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           stopId_ = b;
@@ -7114,12 +7088,7 @@ public final class GtfsRealtime {
             Type value) {
           return super.addExtension(extension, value);
         }
-        @java.lang.Override
-        public <Type> Builder clearExtension(
-            com.google.protobuf.GeneratedMessage.GeneratedExtension<
-                com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate, ?> extension) {
-          return super.clearExtension(extension);
-        }
+
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
           if (other instanceof com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate) {
@@ -7292,7 +7261,7 @@ public final class GtfsRealtime {
          * @return This builder for chaining.
          */
         public Builder setStopSequence(int value) {
-          
+
           stopSequence_ = value;
           bitField0_ |= 0x00000001;
           onChanged();
@@ -7359,7 +7328,7 @@ public final class GtfsRealtime {
             getStopIdBytes() {
           java.lang.Object ref = stopId_;
           if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString b =
                 com.google.protobuf.ByteString.copyFromUtf8(
                     (java.lang.String) ref);
             stopId_ = b;
@@ -7523,7 +7492,7 @@ public final class GtfsRealtime {
          * <code>optional .transit_realtime.TripUpdate.StopTimeEvent arrival = 2;</code>
          */
         private com.google.protobuf.SingleFieldBuilderV3<
-            com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent.Builder, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEventOrBuilder> 
+            com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent.Builder, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEventOrBuilder>
             getArrivalFieldBuilder() {
           if (arrivalBuilder_ == null) {
             arrivalBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -7642,7 +7611,7 @@ public final class GtfsRealtime {
          * <code>optional .transit_realtime.TripUpdate.StopTimeEvent departure = 3;</code>
          */
         private com.google.protobuf.SingleFieldBuilderV3<
-            com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent.Builder, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEventOrBuilder> 
+            com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent.Builder, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEventOrBuilder>
             getDepartureFieldBuilder() {
           if (departureBuilder_ == null) {
             departureBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -7848,7 +7817,7 @@ public final class GtfsRealtime {
          * <code>optional .transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties stop_time_properties = 6;</code>
          */
         private com.google.protobuf.SingleFieldBuilderV3<
-            com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate.StopTimeProperties, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate.StopTimeProperties.Builder, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate.StopTimePropertiesOrBuilder> 
+            com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate.StopTimeProperties, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate.StopTimeProperties.Builder, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate.StopTimePropertiesOrBuilder>
             getStopTimePropertiesFieldBuilder() {
           if (stopTimePropertiesBuilder_ == null) {
             stopTimePropertiesBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -8159,7 +8128,7 @@ public final class GtfsRealtime {
         if (ref instanceof java.lang.String) {
           return (java.lang.String) ref;
         } else {
-          com.google.protobuf.ByteString bs = 
+          com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
@@ -8186,7 +8155,7 @@ public final class GtfsRealtime {
           getTripIdBytes() {
         java.lang.Object ref = tripId_;
         if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           tripId_ = b;
@@ -8229,7 +8198,7 @@ public final class GtfsRealtime {
         if (ref instanceof java.lang.String) {
           return (java.lang.String) ref;
         } else {
-          com.google.protobuf.ByteString bs = 
+          com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
@@ -8253,7 +8222,7 @@ public final class GtfsRealtime {
           getStartDateBytes() {
         java.lang.Object ref = startDate_;
         if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           startDate_ = b;
@@ -8314,7 +8283,7 @@ public final class GtfsRealtime {
         if (ref instanceof java.lang.String) {
           return (java.lang.String) ref;
         } else {
-          com.google.protobuf.ByteString bs = 
+          com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
@@ -8347,7 +8316,7 @@ public final class GtfsRealtime {
           getStartTimeBytes() {
         java.lang.Object ref = startTime_;
         if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           startTime_ = b;
@@ -8704,12 +8673,7 @@ public final class GtfsRealtime {
             Type value) {
           return super.addExtension(extension, value);
         }
-        @java.lang.Override
-        public <Type> Builder clearExtension(
-            com.google.protobuf.GeneratedMessage.GeneratedExtension<
-                com.google.transit.realtime.GtfsRealtime.TripUpdate.TripProperties, ?> extension) {
-          return super.clearExtension(extension);
-        }
+
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
           if (other instanceof com.google.transit.realtime.GtfsRealtime.TripUpdate.TripProperties) {
@@ -8860,7 +8824,7 @@ public final class GtfsRealtime {
             getTripIdBytes() {
           java.lang.Object ref = tripId_;
           if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString b =
                 com.google.protobuf.ByteString.copyFromUtf8(
                     (java.lang.String) ref);
             tripId_ = b;
@@ -8985,7 +8949,7 @@ public final class GtfsRealtime {
             getStartDateBytes() {
           java.lang.Object ref = startDate_;
           if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString b =
                 com.google.protobuf.ByteString.copyFromUtf8(
                     (java.lang.String) ref);
             startDate_ = b;
@@ -9128,7 +9092,7 @@ public final class GtfsRealtime {
             getStartTimeBytes() {
           java.lang.Object ref = startTime_;
           if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString b =
                 com.google.protobuf.ByteString.copyFromUtf8(
                     (java.lang.String) ref);
             startTime_ = b;
@@ -9422,7 +9386,7 @@ public final class GtfsRealtime {
      * <code>repeated .transit_realtime.TripUpdate.StopTimeUpdate stop_time_update = 2;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdateOrBuilder> 
+    public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdateOrBuilder>
         getStopTimeUpdateOrBuilderList() {
       return stopTimeUpdate_;
     }
@@ -10118,12 +10082,7 @@ public final class GtfsRealtime {
           Type value) {
         return super.addExtension(extension, value);
       }
-      @java.lang.Override
-      public <Type> Builder clearExtension(
-          com.google.protobuf.GeneratedMessage.GeneratedExtension<
-              com.google.transit.realtime.GtfsRealtime.TripUpdate, ?> extension) {
-        return super.clearExtension(extension);
-      }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtime.TripUpdate) {
@@ -10160,7 +10119,7 @@ public final class GtfsRealtime {
               stopTimeUpdateBuilder_ = null;
               stopTimeUpdate_ = other.stopTimeUpdate_;
               bitField0_ = (bitField0_ & ~0x00000004);
-              stopTimeUpdateBuilder_ = 
+              stopTimeUpdateBuilder_ =
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getStopTimeUpdateFieldBuilder() : null;
             } else {
@@ -10458,7 +10417,7 @@ public final class GtfsRealtime {
        * <code>required .transit_realtime.TripDescriptor trip = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.TripDescriptor, com.google.transit.realtime.GtfsRealtime.TripDescriptor.Builder, com.google.transit.realtime.GtfsRealtime.TripDescriptorOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.TripDescriptor, com.google.transit.realtime.GtfsRealtime.TripDescriptor.Builder, com.google.transit.realtime.GtfsRealtime.TripDescriptorOrBuilder>
           getTripFieldBuilder() {
         if (tripBuilder_ == null) {
           tripBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -10613,7 +10572,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.VehicleDescriptor vehicle = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.VehicleDescriptor, com.google.transit.realtime.GtfsRealtime.VehicleDescriptor.Builder, com.google.transit.realtime.GtfsRealtime.VehicleDescriptorOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.VehicleDescriptor, com.google.transit.realtime.GtfsRealtime.VehicleDescriptor.Builder, com.google.transit.realtime.GtfsRealtime.VehicleDescriptorOrBuilder>
           getVehicleFieldBuilder() {
         if (vehicleBuilder_ == null) {
           vehicleBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -11121,7 +11080,7 @@ public final class GtfsRealtime {
        *
        * <code>repeated .transit_realtime.TripUpdate.StopTimeUpdate stop_time_update = 2;</code>
        */
-      public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdateOrBuilder> 
+      public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdateOrBuilder>
            getStopTimeUpdateOrBuilderList() {
         if (stopTimeUpdateBuilder_ != null) {
           return stopTimeUpdateBuilder_.getMessageOrBuilderList();
@@ -11207,12 +11166,12 @@ public final class GtfsRealtime {
        *
        * <code>repeated .transit_realtime.TripUpdate.StopTimeUpdate stop_time_update = 2;</code>
        */
-      public java.util.List<com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate.Builder> 
+      public java.util.List<com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate.Builder>
            getStopTimeUpdateBuilderList() {
         return getStopTimeUpdateFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate.Builder, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdateOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate.Builder, com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdateOrBuilder>
           getStopTimeUpdateFieldBuilder() {
         if (stopTimeUpdateBuilder_ == null) {
           stopTimeUpdateBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
@@ -11264,7 +11223,7 @@ public final class GtfsRealtime {
        * @return This builder for chaining.
        */
       public Builder setTimestamp(long value) {
-        
+
         timestamp_ = value;
         bitField0_ |= 0x00000008;
         onChanged();
@@ -11360,7 +11319,7 @@ public final class GtfsRealtime {
        * @return This builder for chaining.
        */
       public Builder setDelay(int value) {
-        
+
         delay_ = value;
         bitField0_ |= 0x00000010;
         onChanged();
@@ -11500,7 +11459,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TripUpdate.TripProperties trip_properties = 6;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.TripUpdate.TripProperties, com.google.transit.realtime.GtfsRealtime.TripUpdate.TripProperties.Builder, com.google.transit.realtime.GtfsRealtime.TripUpdate.TripPropertiesOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.TripUpdate.TripProperties, com.google.transit.realtime.GtfsRealtime.TripUpdate.TripProperties.Builder, com.google.transit.realtime.GtfsRealtime.TripUpdate.TripPropertiesOrBuilder>
           getTripPropertiesFieldBuilder() {
         if (tripPropertiesBuilder_ == null) {
           tripPropertiesBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -11807,7 +11766,7 @@ public final class GtfsRealtime {
      * including both seated and standing capacity, and current operating regulations allow.
      * It is possible that the value goes over 100 if there are currently more passengers than what the vehicle was designed for.
      * The precision of occupancy_percentage should be low enough that you can't track a single person boarding and alighting for privacy reasons.
-     * If multi_carriage_status is populated with per-carriage occupancy_percentage, 
+     * If multi_carriage_status is populated with per-carriage occupancy_percentage,
      * then this field should describe the entire vehicle with all carriages accepting passengers considered.
      * This field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
@@ -11824,7 +11783,7 @@ public final class GtfsRealtime {
      * including both seated and standing capacity, and current operating regulations allow.
      * It is possible that the value goes over 100 if there are currently more passengers than what the vehicle was designed for.
      * The precision of occupancy_percentage should be low enough that you can't track a single person boarding and alighting for privacy reasons.
-     * If multi_carriage_status is populated with per-carriage occupancy_percentage, 
+     * If multi_carriage_status is populated with per-carriage occupancy_percentage,
      * then this field should describe the entire vehicle with all carriages accepting passengers considered.
      * This field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
@@ -11837,29 +11796,29 @@ public final class GtfsRealtime {
     /**
      * <pre>
      * Details of the multiple carriages of this given vehicle.
-     * The first occurrence represents the first carriage of the vehicle, 
-     * given the current direction of travel. 
-     * The number of occurrences of the multi_carriage_details 
+     * The first occurrence represents the first carriage of the vehicle,
+     * given the current direction of travel.
+     * The number of occurrences of the multi_carriage_details
      * field represents the number of carriages of the vehicle.
-     * It also includes non boardable carriages, 
-     * like engines, maintenance carriages, etc… as they provide valuable 
+     * It also includes non boardable carriages,
+     * like engines, maintenance carriages, etc… as they provide valuable
      * information to passengers about where to stand on a platform.
      * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
      *
      * <code>repeated .transit_realtime.VehiclePosition.CarriageDetails multi_carriage_details = 11;</code>
      */
-    java.util.List<com.google.transit.realtime.GtfsRealtime.VehiclePosition.CarriageDetails> 
+    java.util.List<com.google.transit.realtime.GtfsRealtime.VehiclePosition.CarriageDetails>
         getMultiCarriageDetailsList();
     /**
      * <pre>
      * Details of the multiple carriages of this given vehicle.
-     * The first occurrence represents the first carriage of the vehicle, 
-     * given the current direction of travel. 
-     * The number of occurrences of the multi_carriage_details 
+     * The first occurrence represents the first carriage of the vehicle,
+     * given the current direction of travel.
+     * The number of occurrences of the multi_carriage_details
      * field represents the number of carriages of the vehicle.
-     * It also includes non boardable carriages, 
-     * like engines, maintenance carriages, etc… as they provide valuable 
+     * It also includes non boardable carriages,
+     * like engines, maintenance carriages, etc… as they provide valuable
      * information to passengers about where to stand on a platform.
      * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
@@ -11870,12 +11829,12 @@ public final class GtfsRealtime {
     /**
      * <pre>
      * Details of the multiple carriages of this given vehicle.
-     * The first occurrence represents the first carriage of the vehicle, 
-     * given the current direction of travel. 
-     * The number of occurrences of the multi_carriage_details 
+     * The first occurrence represents the first carriage of the vehicle,
+     * given the current direction of travel.
+     * The number of occurrences of the multi_carriage_details
      * field represents the number of carriages of the vehicle.
-     * It also includes non boardable carriages, 
-     * like engines, maintenance carriages, etc… as they provide valuable 
+     * It also includes non boardable carriages,
+     * like engines, maintenance carriages, etc… as they provide valuable
      * information to passengers about where to stand on a platform.
      * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
@@ -11886,29 +11845,29 @@ public final class GtfsRealtime {
     /**
      * <pre>
      * Details of the multiple carriages of this given vehicle.
-     * The first occurrence represents the first carriage of the vehicle, 
-     * given the current direction of travel. 
-     * The number of occurrences of the multi_carriage_details 
+     * The first occurrence represents the first carriage of the vehicle,
+     * given the current direction of travel.
+     * The number of occurrences of the multi_carriage_details
      * field represents the number of carriages of the vehicle.
-     * It also includes non boardable carriages, 
-     * like engines, maintenance carriages, etc… as they provide valuable 
+     * It also includes non boardable carriages,
+     * like engines, maintenance carriages, etc… as they provide valuable
      * information to passengers about where to stand on a platform.
      * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
      *
      * <code>repeated .transit_realtime.VehiclePosition.CarriageDetails multi_carriage_details = 11;</code>
      */
-    java.util.List<? extends com.google.transit.realtime.GtfsRealtime.VehiclePosition.CarriageDetailsOrBuilder> 
+    java.util.List<? extends com.google.transit.realtime.GtfsRealtime.VehiclePosition.CarriageDetailsOrBuilder>
         getMultiCarriageDetailsOrBuilderList();
     /**
      * <pre>
      * Details of the multiple carriages of this given vehicle.
-     * The first occurrence represents the first carriage of the vehicle, 
-     * given the current direction of travel. 
-     * The number of occurrences of the multi_carriage_details 
+     * The first occurrence represents the first carriage of the vehicle,
+     * given the current direction of travel.
+     * The number of occurrences of the multi_carriage_details
      * field represents the number of carriages of the vehicle.
-     * It also includes non boardable carriages, 
-     * like engines, maintenance carriages, etc… as they provide valuable 
+     * It also includes non boardable carriages,
+     * like engines, maintenance carriages, etc… as they provide valuable
      * information to passengers about where to stand on a platform.
      * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
@@ -12615,7 +12574,7 @@ public final class GtfsRealtime {
        * For example, the first carriage in the direction of travel has a value of 1.
        * If the second carriage in the direction of travel has a value of 3,
        * consumers will discard data for all carriages (i.e., the multi_carriage_details field).
-       * Carriages without data must be represented with a valid carriage_sequence number and the fields 
+       * Carriages without data must be represented with a valid carriage_sequence number and the fields
        * without data should be omitted (alternately, those fields could also be included and set to the "no data" values).
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -12634,7 +12593,7 @@ public final class GtfsRealtime {
        * For example, the first carriage in the direction of travel has a value of 1.
        * If the second carriage in the direction of travel has a value of 3,
        * consumers will discard data for all carriages (i.e., the multi_carriage_details field).
-       * Carriages without data must be represented with a valid carriage_sequence number and the fields 
+       * Carriages without data must be represented with a valid carriage_sequence number and the fields
        * without data should be omitted (alternately, those fields could also be included and set to the "no data" values).
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -12724,7 +12683,7 @@ public final class GtfsRealtime {
         if (ref instanceof java.lang.String) {
           return (java.lang.String) ref;
         } else {
-          com.google.protobuf.ByteString bs = 
+          com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
@@ -12746,7 +12705,7 @@ public final class GtfsRealtime {
           getIdBytes() {
         java.lang.Object ref = id_;
         if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           id_ = b;
@@ -12789,7 +12748,7 @@ public final class GtfsRealtime {
         if (ref instanceof java.lang.String) {
           return (java.lang.String) ref;
         } else {
-          com.google.protobuf.ByteString bs = 
+          com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
@@ -12813,7 +12772,7 @@ public final class GtfsRealtime {
           getLabelBytes() {
         java.lang.Object ref = label_;
         if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           label_ = b;
@@ -12896,7 +12855,7 @@ public final class GtfsRealtime {
        * For example, the first carriage in the direction of travel has a value of 1.
        * If the second carriage in the direction of travel has a value of 3,
        * consumers will discard data for all carriages (i.e., the multi_carriage_details field).
-       * Carriages without data must be represented with a valid carriage_sequence number and the fields 
+       * Carriages without data must be represented with a valid carriage_sequence number and the fields
        * without data should be omitted (alternately, those fields could also be included and set to the "no data" values).
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -12918,7 +12877,7 @@ public final class GtfsRealtime {
        * For example, the first carriage in the direction of travel has a value of 1.
        * If the second carriage in the direction of travel has a value of 3,
        * consumers will discard data for all carriages (i.e., the multi_carriage_details field).
-       * Carriages without data must be represented with a valid carriage_sequence number and the fields 
+       * Carriages without data must be represented with a valid carriage_sequence number and the fields
        * without data should be omitted (alternately, those fields could also be included and set to the "no data" values).
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -13320,12 +13279,7 @@ public final class GtfsRealtime {
             Type value) {
           return super.addExtension(extension, value);
         }
-        @java.lang.Override
-        public <Type> Builder clearExtension(
-            com.google.protobuf.GeneratedMessage.GeneratedExtension<
-                com.google.transit.realtime.GtfsRealtime.VehiclePosition.CarriageDetails, ?> extension) {
-          return super.clearExtension(extension);
-        }
+
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
           if (other instanceof com.google.transit.realtime.GtfsRealtime.VehiclePosition.CarriageDetails) {
@@ -13482,7 +13436,7 @@ public final class GtfsRealtime {
             getIdBytes() {
           java.lang.Object ref = id_;
           if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString b =
                 com.google.protobuf.ByteString.copyFromUtf8(
                     (java.lang.String) ref);
             id_ = b;
@@ -13592,7 +13546,7 @@ public final class GtfsRealtime {
             getLabelBytes() {
           java.lang.Object ref = label_;
           if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString b =
                 com.google.protobuf.ByteString.copyFromUtf8(
                     (java.lang.String) ref);
             label_ = b;
@@ -13762,7 +13716,7 @@ public final class GtfsRealtime {
          * @return This builder for chaining.
          */
         public Builder setOccupancyPercentage(int value) {
-          
+
           occupancyPercentage_ = value;
           bitField0_ |= 0x00000008;
           onChanged();
@@ -13797,7 +13751,7 @@ public final class GtfsRealtime {
          * For example, the first carriage in the direction of travel has a value of 1.
          * If the second carriage in the direction of travel has a value of 3,
          * consumers will discard data for all carriages (i.e., the multi_carriage_details field).
-         * Carriages without data must be represented with a valid carriage_sequence number and the fields 
+         * Carriages without data must be represented with a valid carriage_sequence number and the fields
          * without data should be omitted (alternately, those fields could also be included and set to the "no data" values).
          * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
          * </pre>
@@ -13819,7 +13773,7 @@ public final class GtfsRealtime {
          * For example, the first carriage in the direction of travel has a value of 1.
          * If the second carriage in the direction of travel has a value of 3,
          * consumers will discard data for all carriages (i.e., the multi_carriage_details field).
-         * Carriages without data must be represented with a valid carriage_sequence number and the fields 
+         * Carriages without data must be represented with a valid carriage_sequence number and the fields
          * without data should be omitted (alternately, those fields could also be included and set to the "no data" values).
          * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
          * </pre>
@@ -13841,7 +13795,7 @@ public final class GtfsRealtime {
          * For example, the first carriage in the direction of travel has a value of 1.
          * If the second carriage in the direction of travel has a value of 3,
          * consumers will discard data for all carriages (i.e., the multi_carriage_details field).
-         * Carriages without data must be represented with a valid carriage_sequence number and the fields 
+         * Carriages without data must be represented with a valid carriage_sequence number and the fields
          * without data should be omitted (alternately, those fields could also be included and set to the "no data" values).
          * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
          * </pre>
@@ -13851,7 +13805,7 @@ public final class GtfsRealtime {
          * @return This builder for chaining.
          */
         public Builder setCarriageSequence(int value) {
-          
+
           carriageSequence_ = value;
           bitField0_ |= 0x00000010;
           onChanged();
@@ -13867,7 +13821,7 @@ public final class GtfsRealtime {
          * For example, the first carriage in the direction of travel has a value of 1.
          * If the second carriage in the direction of travel has a value of 3,
          * consumers will discard data for all carriages (i.e., the multi_carriage_details field).
-         * Carriages without data must be represented with a valid carriage_sequence number and the fields 
+         * Carriages without data must be represented with a valid carriage_sequence number and the fields
          * without data should be omitted (alternately, those fields could also be included and set to the "no data" values).
          * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
          * </pre>
@@ -14130,7 +14084,7 @@ public final class GtfsRealtime {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
+        com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -14153,7 +14107,7 @@ public final class GtfsRealtime {
         getStopIdBytes() {
       java.lang.Object ref = stopId_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         stopId_ = b;
@@ -14276,7 +14230,7 @@ public final class GtfsRealtime {
      * including both seated and standing capacity, and current operating regulations allow.
      * It is possible that the value goes over 100 if there are currently more passengers than what the vehicle was designed for.
      * The precision of occupancy_percentage should be low enough that you can't track a single person boarding and alighting for privacy reasons.
-     * If multi_carriage_status is populated with per-carriage occupancy_percentage, 
+     * If multi_carriage_status is populated with per-carriage occupancy_percentage,
      * then this field should describe the entire vehicle with all carriages accepting passengers considered.
      * This field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
@@ -14296,7 +14250,7 @@ public final class GtfsRealtime {
      * including both seated and standing capacity, and current operating regulations allow.
      * It is possible that the value goes over 100 if there are currently more passengers than what the vehicle was designed for.
      * The precision of occupancy_percentage should be low enough that you can't track a single person boarding and alighting for privacy reasons.
-     * If multi_carriage_status is populated with per-carriage occupancy_percentage, 
+     * If multi_carriage_status is populated with per-carriage occupancy_percentage,
      * then this field should describe the entire vehicle with all carriages accepting passengers considered.
      * This field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
@@ -14315,12 +14269,12 @@ public final class GtfsRealtime {
     /**
      * <pre>
      * Details of the multiple carriages of this given vehicle.
-     * The first occurrence represents the first carriage of the vehicle, 
-     * given the current direction of travel. 
-     * The number of occurrences of the multi_carriage_details 
+     * The first occurrence represents the first carriage of the vehicle,
+     * given the current direction of travel.
+     * The number of occurrences of the multi_carriage_details
      * field represents the number of carriages of the vehicle.
-     * It also includes non boardable carriages, 
-     * like engines, maintenance carriages, etc… as they provide valuable 
+     * It also includes non boardable carriages,
+     * like engines, maintenance carriages, etc… as they provide valuable
      * information to passengers about where to stand on a platform.
      * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
@@ -14334,12 +14288,12 @@ public final class GtfsRealtime {
     /**
      * <pre>
      * Details of the multiple carriages of this given vehicle.
-     * The first occurrence represents the first carriage of the vehicle, 
-     * given the current direction of travel. 
-     * The number of occurrences of the multi_carriage_details 
+     * The first occurrence represents the first carriage of the vehicle,
+     * given the current direction of travel.
+     * The number of occurrences of the multi_carriage_details
      * field represents the number of carriages of the vehicle.
-     * It also includes non boardable carriages, 
-     * like engines, maintenance carriages, etc… as they provide valuable 
+     * It also includes non boardable carriages,
+     * like engines, maintenance carriages, etc… as they provide valuable
      * information to passengers about where to stand on a platform.
      * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
@@ -14347,19 +14301,19 @@ public final class GtfsRealtime {
      * <code>repeated .transit_realtime.VehiclePosition.CarriageDetails multi_carriage_details = 11;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.VehiclePosition.CarriageDetailsOrBuilder> 
+    public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.VehiclePosition.CarriageDetailsOrBuilder>
         getMultiCarriageDetailsOrBuilderList() {
       return multiCarriageDetails_;
     }
     /**
      * <pre>
      * Details of the multiple carriages of this given vehicle.
-     * The first occurrence represents the first carriage of the vehicle, 
-     * given the current direction of travel. 
-     * The number of occurrences of the multi_carriage_details 
+     * The first occurrence represents the first carriage of the vehicle,
+     * given the current direction of travel.
+     * The number of occurrences of the multi_carriage_details
      * field represents the number of carriages of the vehicle.
-     * It also includes non boardable carriages, 
-     * like engines, maintenance carriages, etc… as they provide valuable 
+     * It also includes non boardable carriages,
+     * like engines, maintenance carriages, etc… as they provide valuable
      * information to passengers about where to stand on a platform.
      * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
@@ -14373,12 +14327,12 @@ public final class GtfsRealtime {
     /**
      * <pre>
      * Details of the multiple carriages of this given vehicle.
-     * The first occurrence represents the first carriage of the vehicle, 
-     * given the current direction of travel. 
-     * The number of occurrences of the multi_carriage_details 
+     * The first occurrence represents the first carriage of the vehicle,
+     * given the current direction of travel.
+     * The number of occurrences of the multi_carriage_details
      * field represents the number of carriages of the vehicle.
-     * It also includes non boardable carriages, 
-     * like engines, maintenance carriages, etc… as they provide valuable 
+     * It also includes non boardable carriages,
+     * like engines, maintenance carriages, etc… as they provide valuable
      * information to passengers about where to stand on a platform.
      * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
@@ -14392,12 +14346,12 @@ public final class GtfsRealtime {
     /**
      * <pre>
      * Details of the multiple carriages of this given vehicle.
-     * The first occurrence represents the first carriage of the vehicle, 
-     * given the current direction of travel. 
-     * The number of occurrences of the multi_carriage_details 
+     * The first occurrence represents the first carriage of the vehicle,
+     * given the current direction of travel.
+     * The number of occurrences of the multi_carriage_details
      * field represents the number of carriages of the vehicle.
-     * It also includes non boardable carriages, 
-     * like engines, maintenance carriages, etc… as they provide valuable 
+     * It also includes non boardable carriages,
+     * like engines, maintenance carriages, etc… as they provide valuable
      * information to passengers about where to stand on a platform.
      * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
@@ -14987,12 +14941,7 @@ public final class GtfsRealtime {
           Type value) {
         return super.addExtension(extension, value);
       }
-      @java.lang.Override
-      public <Type> Builder clearExtension(
-          com.google.protobuf.GeneratedMessage.GeneratedExtension<
-              com.google.transit.realtime.GtfsRealtime.VehiclePosition, ?> extension) {
-        return super.clearExtension(extension);
-      }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtime.VehiclePosition) {
@@ -15055,7 +15004,7 @@ public final class GtfsRealtime {
               multiCarriageDetailsBuilder_ = null;
               multiCarriageDetails_ = other.multiCarriageDetails_;
               bitField0_ = (bitField0_ & ~0x00000400);
-              multiCarriageDetailsBuilder_ = 
+              multiCarriageDetailsBuilder_ =
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getMultiCarriageDetailsFieldBuilder() : null;
             } else {
@@ -15380,7 +15329,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TripDescriptor trip = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.TripDescriptor, com.google.transit.realtime.GtfsRealtime.TripDescriptor.Builder, com.google.transit.realtime.GtfsRealtime.TripDescriptorOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.TripDescriptor, com.google.transit.realtime.GtfsRealtime.TripDescriptor.Builder, com.google.transit.realtime.GtfsRealtime.TripDescriptorOrBuilder>
           getTripFieldBuilder() {
         if (tripBuilder_ == null) {
           tripBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -15535,7 +15484,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.VehicleDescriptor vehicle = 8;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.VehicleDescriptor, com.google.transit.realtime.GtfsRealtime.VehicleDescriptor.Builder, com.google.transit.realtime.GtfsRealtime.VehicleDescriptorOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.VehicleDescriptor, com.google.transit.realtime.GtfsRealtime.VehicleDescriptor.Builder, com.google.transit.realtime.GtfsRealtime.VehicleDescriptorOrBuilder>
           getVehicleFieldBuilder() {
         if (vehicleBuilder_ == null) {
           vehicleBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -15690,7 +15639,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.Position position = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.Position, com.google.transit.realtime.GtfsRealtime.Position.Builder, com.google.transit.realtime.GtfsRealtime.PositionOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.Position, com.google.transit.realtime.GtfsRealtime.Position.Builder, com.google.transit.realtime.GtfsRealtime.PositionOrBuilder>
           getPositionFieldBuilder() {
         if (positionBuilder_ == null) {
           positionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -15747,7 +15696,7 @@ public final class GtfsRealtime {
        * @return This builder for chaining.
        */
       public Builder setCurrentStopSequence(int value) {
-        
+
         currentStopSequence_ = value;
         bitField0_ |= 0x00000008;
         onChanged();
@@ -15820,7 +15769,7 @@ public final class GtfsRealtime {
           getStopIdBytes() {
         java.lang.Object ref = stopId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           stopId_ = b;
@@ -15981,7 +15930,7 @@ public final class GtfsRealtime {
        * @return This builder for chaining.
        */
       public Builder setTimestamp(long value) {
-        
+
         timestamp_ = value;
         bitField0_ |= 0x00000040;
         onChanged();
@@ -16116,7 +16065,7 @@ public final class GtfsRealtime {
        * including both seated and standing capacity, and current operating regulations allow.
        * It is possible that the value goes over 100 if there are currently more passengers than what the vehicle was designed for.
        * The precision of occupancy_percentage should be low enough that you can't track a single person boarding and alighting for privacy reasons.
-       * If multi_carriage_status is populated with per-carriage occupancy_percentage, 
+       * If multi_carriage_status is populated with per-carriage occupancy_percentage,
        * then this field should describe the entire vehicle with all carriages accepting passengers considered.
        * This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -16136,7 +16085,7 @@ public final class GtfsRealtime {
        * including both seated and standing capacity, and current operating regulations allow.
        * It is possible that the value goes over 100 if there are currently more passengers than what the vehicle was designed for.
        * The precision of occupancy_percentage should be low enough that you can't track a single person boarding and alighting for privacy reasons.
-       * If multi_carriage_status is populated with per-carriage occupancy_percentage, 
+       * If multi_carriage_status is populated with per-carriage occupancy_percentage,
        * then this field should describe the entire vehicle with all carriages accepting passengers considered.
        * This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -16156,7 +16105,7 @@ public final class GtfsRealtime {
        * including both seated and standing capacity, and current operating regulations allow.
        * It is possible that the value goes over 100 if there are currently more passengers than what the vehicle was designed for.
        * The precision of occupancy_percentage should be low enough that you can't track a single person boarding and alighting for privacy reasons.
-       * If multi_carriage_status is populated with per-carriage occupancy_percentage, 
+       * If multi_carriage_status is populated with per-carriage occupancy_percentage,
        * then this field should describe the entire vehicle with all carriages accepting passengers considered.
        * This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -16166,7 +16115,7 @@ public final class GtfsRealtime {
        * @return This builder for chaining.
        */
       public Builder setOccupancyPercentage(int value) {
-        
+
         occupancyPercentage_ = value;
         bitField0_ |= 0x00000200;
         onChanged();
@@ -16180,7 +16129,7 @@ public final class GtfsRealtime {
        * including both seated and standing capacity, and current operating regulations allow.
        * It is possible that the value goes over 100 if there are currently more passengers than what the vehicle was designed for.
        * The precision of occupancy_percentage should be low enough that you can't track a single person boarding and alighting for privacy reasons.
-       * If multi_carriage_status is populated with per-carriage occupancy_percentage, 
+       * If multi_carriage_status is populated with per-carriage occupancy_percentage,
        * then this field should describe the entire vehicle with all carriages accepting passengers considered.
        * This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -16210,12 +16159,12 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Details of the multiple carriages of this given vehicle.
-       * The first occurrence represents the first carriage of the vehicle, 
-       * given the current direction of travel. 
-       * The number of occurrences of the multi_carriage_details 
+       * The first occurrence represents the first carriage of the vehicle,
+       * given the current direction of travel.
+       * The number of occurrences of the multi_carriage_details
        * field represents the number of carriages of the vehicle.
-       * It also includes non boardable carriages, 
-       * like engines, maintenance carriages, etc… as they provide valuable 
+       * It also includes non boardable carriages,
+       * like engines, maintenance carriages, etc… as they provide valuable
        * information to passengers about where to stand on a platform.
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -16232,12 +16181,12 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Details of the multiple carriages of this given vehicle.
-       * The first occurrence represents the first carriage of the vehicle, 
-       * given the current direction of travel. 
-       * The number of occurrences of the multi_carriage_details 
+       * The first occurrence represents the first carriage of the vehicle,
+       * given the current direction of travel.
+       * The number of occurrences of the multi_carriage_details
        * field represents the number of carriages of the vehicle.
-       * It also includes non boardable carriages, 
-       * like engines, maintenance carriages, etc… as they provide valuable 
+       * It also includes non boardable carriages,
+       * like engines, maintenance carriages, etc… as they provide valuable
        * information to passengers about where to stand on a platform.
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -16254,12 +16203,12 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Details of the multiple carriages of this given vehicle.
-       * The first occurrence represents the first carriage of the vehicle, 
-       * given the current direction of travel. 
-       * The number of occurrences of the multi_carriage_details 
+       * The first occurrence represents the first carriage of the vehicle,
+       * given the current direction of travel.
+       * The number of occurrences of the multi_carriage_details
        * field represents the number of carriages of the vehicle.
-       * It also includes non boardable carriages, 
-       * like engines, maintenance carriages, etc… as they provide valuable 
+       * It also includes non boardable carriages,
+       * like engines, maintenance carriages, etc… as they provide valuable
        * information to passengers about where to stand on a platform.
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -16276,12 +16225,12 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Details of the multiple carriages of this given vehicle.
-       * The first occurrence represents the first carriage of the vehicle, 
-       * given the current direction of travel. 
-       * The number of occurrences of the multi_carriage_details 
+       * The first occurrence represents the first carriage of the vehicle,
+       * given the current direction of travel.
+       * The number of occurrences of the multi_carriage_details
        * field represents the number of carriages of the vehicle.
-       * It also includes non boardable carriages, 
-       * like engines, maintenance carriages, etc… as they provide valuable 
+       * It also includes non boardable carriages,
+       * like engines, maintenance carriages, etc… as they provide valuable
        * information to passengers about where to stand on a platform.
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -16305,12 +16254,12 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Details of the multiple carriages of this given vehicle.
-       * The first occurrence represents the first carriage of the vehicle, 
-       * given the current direction of travel. 
-       * The number of occurrences of the multi_carriage_details 
+       * The first occurrence represents the first carriage of the vehicle,
+       * given the current direction of travel.
+       * The number of occurrences of the multi_carriage_details
        * field represents the number of carriages of the vehicle.
-       * It also includes non boardable carriages, 
-       * like engines, maintenance carriages, etc… as they provide valuable 
+       * It also includes non boardable carriages,
+       * like engines, maintenance carriages, etc… as they provide valuable
        * information to passengers about where to stand on a platform.
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -16331,12 +16280,12 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Details of the multiple carriages of this given vehicle.
-       * The first occurrence represents the first carriage of the vehicle, 
-       * given the current direction of travel. 
-       * The number of occurrences of the multi_carriage_details 
+       * The first occurrence represents the first carriage of the vehicle,
+       * given the current direction of travel.
+       * The number of occurrences of the multi_carriage_details
        * field represents the number of carriages of the vehicle.
-       * It also includes non boardable carriages, 
-       * like engines, maintenance carriages, etc… as they provide valuable 
+       * It also includes non boardable carriages,
+       * like engines, maintenance carriages, etc… as they provide valuable
        * information to passengers about where to stand on a platform.
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -16359,12 +16308,12 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Details of the multiple carriages of this given vehicle.
-       * The first occurrence represents the first carriage of the vehicle, 
-       * given the current direction of travel. 
-       * The number of occurrences of the multi_carriage_details 
+       * The first occurrence represents the first carriage of the vehicle,
+       * given the current direction of travel.
+       * The number of occurrences of the multi_carriage_details
        * field represents the number of carriages of the vehicle.
-       * It also includes non boardable carriages, 
-       * like engines, maintenance carriages, etc… as they provide valuable 
+       * It also includes non boardable carriages,
+       * like engines, maintenance carriages, etc… as they provide valuable
        * information to passengers about where to stand on a platform.
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -16388,12 +16337,12 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Details of the multiple carriages of this given vehicle.
-       * The first occurrence represents the first carriage of the vehicle, 
-       * given the current direction of travel. 
-       * The number of occurrences of the multi_carriage_details 
+       * The first occurrence represents the first carriage of the vehicle,
+       * given the current direction of travel.
+       * The number of occurrences of the multi_carriage_details
        * field represents the number of carriages of the vehicle.
-       * It also includes non boardable carriages, 
-       * like engines, maintenance carriages, etc… as they provide valuable 
+       * It also includes non boardable carriages,
+       * like engines, maintenance carriages, etc… as they provide valuable
        * information to passengers about where to stand on a platform.
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -16414,12 +16363,12 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Details of the multiple carriages of this given vehicle.
-       * The first occurrence represents the first carriage of the vehicle, 
-       * given the current direction of travel. 
-       * The number of occurrences of the multi_carriage_details 
+       * The first occurrence represents the first carriage of the vehicle,
+       * given the current direction of travel.
+       * The number of occurrences of the multi_carriage_details
        * field represents the number of carriages of the vehicle.
-       * It also includes non boardable carriages, 
-       * like engines, maintenance carriages, etc… as they provide valuable 
+       * It also includes non boardable carriages,
+       * like engines, maintenance carriages, etc… as they provide valuable
        * information to passengers about where to stand on a platform.
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -16440,12 +16389,12 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Details of the multiple carriages of this given vehicle.
-       * The first occurrence represents the first carriage of the vehicle, 
-       * given the current direction of travel. 
-       * The number of occurrences of the multi_carriage_details 
+       * The first occurrence represents the first carriage of the vehicle,
+       * given the current direction of travel.
+       * The number of occurrences of the multi_carriage_details
        * field represents the number of carriages of the vehicle.
-       * It also includes non boardable carriages, 
-       * like engines, maintenance carriages, etc… as they provide valuable 
+       * It also includes non boardable carriages,
+       * like engines, maintenance carriages, etc… as they provide valuable
        * information to passengers about where to stand on a platform.
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -16467,12 +16416,12 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Details of the multiple carriages of this given vehicle.
-       * The first occurrence represents the first carriage of the vehicle, 
-       * given the current direction of travel. 
-       * The number of occurrences of the multi_carriage_details 
+       * The first occurrence represents the first carriage of the vehicle,
+       * given the current direction of travel.
+       * The number of occurrences of the multi_carriage_details
        * field represents the number of carriages of the vehicle.
-       * It also includes non boardable carriages, 
-       * like engines, maintenance carriages, etc… as they provide valuable 
+       * It also includes non boardable carriages,
+       * like engines, maintenance carriages, etc… as they provide valuable
        * information to passengers about where to stand on a platform.
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -16492,12 +16441,12 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Details of the multiple carriages of this given vehicle.
-       * The first occurrence represents the first carriage of the vehicle, 
-       * given the current direction of travel. 
-       * The number of occurrences of the multi_carriage_details 
+       * The first occurrence represents the first carriage of the vehicle,
+       * given the current direction of travel.
+       * The number of occurrences of the multi_carriage_details
        * field represents the number of carriages of the vehicle.
-       * It also includes non boardable carriages, 
-       * like engines, maintenance carriages, etc… as they provide valuable 
+       * It also includes non boardable carriages,
+       * like engines, maintenance carriages, etc… as they provide valuable
        * information to passengers about where to stand on a platform.
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -16517,12 +16466,12 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Details of the multiple carriages of this given vehicle.
-       * The first occurrence represents the first carriage of the vehicle, 
-       * given the current direction of travel. 
-       * The number of occurrences of the multi_carriage_details 
+       * The first occurrence represents the first carriage of the vehicle,
+       * given the current direction of travel.
+       * The number of occurrences of the multi_carriage_details
        * field represents the number of carriages of the vehicle.
-       * It also includes non boardable carriages, 
-       * like engines, maintenance carriages, etc… as they provide valuable 
+       * It also includes non boardable carriages,
+       * like engines, maintenance carriages, etc… as they provide valuable
        * information to passengers about where to stand on a platform.
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -16536,12 +16485,12 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Details of the multiple carriages of this given vehicle.
-       * The first occurrence represents the first carriage of the vehicle, 
-       * given the current direction of travel. 
-       * The number of occurrences of the multi_carriage_details 
+       * The first occurrence represents the first carriage of the vehicle,
+       * given the current direction of travel.
+       * The number of occurrences of the multi_carriage_details
        * field represents the number of carriages of the vehicle.
-       * It also includes non boardable carriages, 
-       * like engines, maintenance carriages, etc… as they provide valuable 
+       * It also includes non boardable carriages,
+       * like engines, maintenance carriages, etc… as they provide valuable
        * information to passengers about where to stand on a platform.
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -16558,19 +16507,19 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Details of the multiple carriages of this given vehicle.
-       * The first occurrence represents the first carriage of the vehicle, 
-       * given the current direction of travel. 
-       * The number of occurrences of the multi_carriage_details 
+       * The first occurrence represents the first carriage of the vehicle,
+       * given the current direction of travel.
+       * The number of occurrences of the multi_carriage_details
        * field represents the number of carriages of the vehicle.
-       * It also includes non boardable carriages, 
-       * like engines, maintenance carriages, etc… as they provide valuable 
+       * It also includes non boardable carriages,
+       * like engines, maintenance carriages, etc… as they provide valuable
        * information to passengers about where to stand on a platform.
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
        *
        * <code>repeated .transit_realtime.VehiclePosition.CarriageDetails multi_carriage_details = 11;</code>
        */
-      public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.VehiclePosition.CarriageDetailsOrBuilder> 
+      public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.VehiclePosition.CarriageDetailsOrBuilder>
            getMultiCarriageDetailsOrBuilderList() {
         if (multiCarriageDetailsBuilder_ != null) {
           return multiCarriageDetailsBuilder_.getMessageOrBuilderList();
@@ -16581,12 +16530,12 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Details of the multiple carriages of this given vehicle.
-       * The first occurrence represents the first carriage of the vehicle, 
-       * given the current direction of travel. 
-       * The number of occurrences of the multi_carriage_details 
+       * The first occurrence represents the first carriage of the vehicle,
+       * given the current direction of travel.
+       * The number of occurrences of the multi_carriage_details
        * field represents the number of carriages of the vehicle.
-       * It also includes non boardable carriages, 
-       * like engines, maintenance carriages, etc… as they provide valuable 
+       * It also includes non boardable carriages,
+       * like engines, maintenance carriages, etc… as they provide valuable
        * information to passengers about where to stand on a platform.
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -16600,12 +16549,12 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Details of the multiple carriages of this given vehicle.
-       * The first occurrence represents the first carriage of the vehicle, 
-       * given the current direction of travel. 
-       * The number of occurrences of the multi_carriage_details 
+       * The first occurrence represents the first carriage of the vehicle,
+       * given the current direction of travel.
+       * The number of occurrences of the multi_carriage_details
        * field represents the number of carriages of the vehicle.
-       * It also includes non boardable carriages, 
-       * like engines, maintenance carriages, etc… as they provide valuable 
+       * It also includes non boardable carriages,
+       * like engines, maintenance carriages, etc… as they provide valuable
        * information to passengers about where to stand on a platform.
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
@@ -16620,24 +16569,24 @@ public final class GtfsRealtime {
       /**
        * <pre>
        * Details of the multiple carriages of this given vehicle.
-       * The first occurrence represents the first carriage of the vehicle, 
-       * given the current direction of travel. 
-       * The number of occurrences of the multi_carriage_details 
+       * The first occurrence represents the first carriage of the vehicle,
+       * given the current direction of travel.
+       * The number of occurrences of the multi_carriage_details
        * field represents the number of carriages of the vehicle.
-       * It also includes non boardable carriages, 
-       * like engines, maintenance carriages, etc… as they provide valuable 
+       * It also includes non boardable carriages,
+       * like engines, maintenance carriages, etc… as they provide valuable
        * information to passengers about where to stand on a platform.
        * This message/field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
        *
        * <code>repeated .transit_realtime.VehiclePosition.CarriageDetails multi_carriage_details = 11;</code>
        */
-      public java.util.List<com.google.transit.realtime.GtfsRealtime.VehiclePosition.CarriageDetails.Builder> 
+      public java.util.List<com.google.transit.realtime.GtfsRealtime.VehiclePosition.CarriageDetails.Builder>
            getMultiCarriageDetailsBuilderList() {
         return getMultiCarriageDetailsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.VehiclePosition.CarriageDetails, com.google.transit.realtime.GtfsRealtime.VehiclePosition.CarriageDetails.Builder, com.google.transit.realtime.GtfsRealtime.VehiclePosition.CarriageDetailsOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.VehiclePosition.CarriageDetails, com.google.transit.realtime.GtfsRealtime.VehiclePosition.CarriageDetails.Builder, com.google.transit.realtime.GtfsRealtime.VehiclePosition.CarriageDetailsOrBuilder>
           getMultiCarriageDetailsFieldBuilder() {
         if (multiCarriageDetailsBuilder_ == null) {
           multiCarriageDetailsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
@@ -16728,7 +16677,7 @@ public final class GtfsRealtime {
      *
      * <code>repeated .transit_realtime.TimeRange active_period = 1;</code>
      */
-    java.util.List<com.google.transit.realtime.GtfsRealtime.TimeRange> 
+    java.util.List<com.google.transit.realtime.GtfsRealtime.TimeRange>
         getActivePeriodList();
     /**
      * <pre>
@@ -16759,7 +16708,7 @@ public final class GtfsRealtime {
      *
      * <code>repeated .transit_realtime.TimeRange active_period = 1;</code>
      */
-    java.util.List<? extends com.google.transit.realtime.GtfsRealtime.TimeRangeOrBuilder> 
+    java.util.List<? extends com.google.transit.realtime.GtfsRealtime.TimeRangeOrBuilder>
         getActivePeriodOrBuilderList();
     /**
      * <pre>
@@ -16780,7 +16729,7 @@ public final class GtfsRealtime {
      *
      * <code>repeated .transit_realtime.EntitySelector informed_entity = 5;</code>
      */
-    java.util.List<com.google.transit.realtime.GtfsRealtime.EntitySelector> 
+    java.util.List<com.google.transit.realtime.GtfsRealtime.EntitySelector>
         getInformedEntityList();
     /**
      * <pre>
@@ -16805,7 +16754,7 @@ public final class GtfsRealtime {
      *
      * <code>repeated .transit_realtime.EntitySelector informed_entity = 5;</code>
      */
-    java.util.List<? extends com.google.transit.realtime.GtfsRealtime.EntitySelectorOrBuilder> 
+    java.util.List<? extends com.google.transit.realtime.GtfsRealtime.EntitySelectorOrBuilder>
         getInformedEntityOrBuilderList();
     /**
      * <pre>
@@ -17590,7 +17539,7 @@ public final class GtfsRealtime {
      * <code>repeated .transit_realtime.TimeRange active_period = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.TimeRangeOrBuilder> 
+    public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.TimeRangeOrBuilder>
         getActivePeriodOrBuilderList() {
       return activePeriod_;
     }
@@ -17657,7 +17606,7 @@ public final class GtfsRealtime {
      * <code>repeated .transit_realtime.EntitySelector informed_entity = 5;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.EntitySelectorOrBuilder> 
+    public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.EntitySelectorOrBuilder>
         getInformedEntityOrBuilderList() {
       return informedEntity_;
     }
@@ -18540,12 +18489,7 @@ public final class GtfsRealtime {
           Type value) {
         return super.addExtension(extension, value);
       }
-      @java.lang.Override
-      public <Type> Builder clearExtension(
-          com.google.protobuf.GeneratedMessage.GeneratedExtension<
-              com.google.transit.realtime.GtfsRealtime.Alert, ?> extension) {
-        return super.clearExtension(extension);
-      }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtime.Alert) {
@@ -18576,7 +18520,7 @@ public final class GtfsRealtime {
               activePeriodBuilder_ = null;
               activePeriod_ = other.activePeriod_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              activePeriodBuilder_ = 
+              activePeriodBuilder_ =
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getActivePeriodFieldBuilder() : null;
             } else {
@@ -18602,7 +18546,7 @@ public final class GtfsRealtime {
               informedEntityBuilder_ = null;
               informedEntity_ = other.informedEntity_;
               bitField0_ = (bitField0_ & ~0x00000002);
-              informedEntityBuilder_ = 
+              informedEntityBuilder_ =
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getInformedEntityFieldBuilder() : null;
             } else {
@@ -19098,7 +19042,7 @@ public final class GtfsRealtime {
        *
        * <code>repeated .transit_realtime.TimeRange active_period = 1;</code>
        */
-      public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.TimeRangeOrBuilder> 
+      public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.TimeRangeOrBuilder>
            getActivePeriodOrBuilderList() {
         if (activePeriodBuilder_ != null) {
           return activePeriodBuilder_.getMessageOrBuilderList();
@@ -19142,12 +19086,12 @@ public final class GtfsRealtime {
        *
        * <code>repeated .transit_realtime.TimeRange active_period = 1;</code>
        */
-      public java.util.List<com.google.transit.realtime.GtfsRealtime.TimeRange.Builder> 
+      public java.util.List<com.google.transit.realtime.GtfsRealtime.TimeRange.Builder>
            getActivePeriodBuilderList() {
         return getActivePeriodFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.TimeRange, com.google.transit.realtime.GtfsRealtime.TimeRange.Builder, com.google.transit.realtime.GtfsRealtime.TimeRangeOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.TimeRange, com.google.transit.realtime.GtfsRealtime.TimeRange.Builder, com.google.transit.realtime.GtfsRealtime.TimeRangeOrBuilder>
           getActivePeriodFieldBuilder() {
         if (activePeriodBuilder_ == null) {
           activePeriodBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
@@ -19416,7 +19360,7 @@ public final class GtfsRealtime {
        *
        * <code>repeated .transit_realtime.EntitySelector informed_entity = 5;</code>
        */
-      public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.EntitySelectorOrBuilder> 
+      public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.EntitySelectorOrBuilder>
            getInformedEntityOrBuilderList() {
         if (informedEntityBuilder_ != null) {
           return informedEntityBuilder_.getMessageOrBuilderList();
@@ -19454,12 +19398,12 @@ public final class GtfsRealtime {
        *
        * <code>repeated .transit_realtime.EntitySelector informed_entity = 5;</code>
        */
-      public java.util.List<com.google.transit.realtime.GtfsRealtime.EntitySelector.Builder> 
+      public java.util.List<com.google.transit.realtime.GtfsRealtime.EntitySelector.Builder>
            getInformedEntityBuilderList() {
         return getInformedEntityFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.EntitySelector, com.google.transit.realtime.GtfsRealtime.EntitySelector.Builder, com.google.transit.realtime.GtfsRealtime.EntitySelectorOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.EntitySelector, com.google.transit.realtime.GtfsRealtime.EntitySelector.Builder, com.google.transit.realtime.GtfsRealtime.EntitySelectorOrBuilder>
           getInformedEntityFieldBuilder() {
         if (informedEntityBuilder_ == null) {
           informedEntityBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
@@ -19699,7 +19643,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TranslatedString url = 8;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.TranslatedString, com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedStringOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.TranslatedString, com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedStringOrBuilder>
           getUrlFieldBuilder() {
         if (urlBuilder_ == null) {
           urlBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -19854,7 +19798,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TranslatedString header_text = 10;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.TranslatedString, com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedStringOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.TranslatedString, com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedStringOrBuilder>
           getHeaderTextFieldBuilder() {
         if (headerTextBuilder_ == null) {
           headerTextBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -20018,7 +19962,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TranslatedString description_text = 11;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.TranslatedString, com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedStringOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.TranslatedString, com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedStringOrBuilder>
           getDescriptionTextFieldBuilder() {
         if (descriptionTextBuilder_ == null) {
           descriptionTextBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -20173,7 +20117,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TranslatedString tts_header_text = 12;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.TranslatedString, com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedStringOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.TranslatedString, com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedStringOrBuilder>
           getTtsHeaderTextFieldBuilder() {
         if (ttsHeaderTextBuilder_ == null) {
           ttsHeaderTextBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -20328,7 +20272,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TranslatedString tts_description_text = 13;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.TranslatedString, com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedStringOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.TranslatedString, com.google.transit.realtime.GtfsRealtime.TranslatedString.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedStringOrBuilder>
           getTtsDescriptionTextFieldBuilder() {
         if (ttsDescriptionTextBuilder_ == null) {
           ttsDescriptionTextBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -20937,12 +20881,7 @@ public final class GtfsRealtime {
           Type value) {
         return super.addExtension(extension, value);
       }
-      @java.lang.Override
-      public <Type> Builder clearExtension(
-          com.google.protobuf.GeneratedMessage.GeneratedExtension<
-              com.google.transit.realtime.GtfsRealtime.TimeRange, ?> extension) {
-        return super.clearExtension(extension);
-      }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtime.TimeRange) {
@@ -21059,7 +20998,7 @@ public final class GtfsRealtime {
        * @return This builder for chaining.
        */
       public Builder setStart(long value) {
-        
+
         start_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
@@ -21123,7 +21062,7 @@ public final class GtfsRealtime {
        * @return This builder for chaining.
        */
       public Builder setEnd(long value) {
-        
+
         end_ = value;
         bitField0_ |= 0x00000002;
         onChanged();
@@ -21915,12 +21854,7 @@ public final class GtfsRealtime {
           Type value) {
         return super.addExtension(extension, value);
       }
-      @java.lang.Override
-      public <Type> Builder clearExtension(
-          com.google.protobuf.GeneratedMessage.GeneratedExtension<
-              com.google.transit.realtime.GtfsRealtime.Position, ?> extension) {
-        return super.clearExtension(extension);
-      }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtime.Position) {
@@ -22061,7 +21995,7 @@ public final class GtfsRealtime {
        * @return This builder for chaining.
        */
       public Builder setLatitude(float value) {
-        
+
         latitude_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
@@ -22117,7 +22051,7 @@ public final class GtfsRealtime {
        * @return This builder for chaining.
        */
       public Builder setLongitude(float value) {
-        
+
         longitude_ = value;
         bitField0_ |= 0x00000002;
         onChanged();
@@ -22185,7 +22119,7 @@ public final class GtfsRealtime {
        * @return This builder for chaining.
        */
       public Builder setBearing(float value) {
-        
+
         bearing_ = value;
         bitField0_ |= 0x00000004;
         onChanged();
@@ -22245,7 +22179,7 @@ public final class GtfsRealtime {
        * @return This builder for chaining.
        */
       public Builder setOdometer(double value) {
-        
+
         odometer_ = value;
         bitField0_ |= 0x00000008;
         onChanged();
@@ -22301,7 +22235,7 @@ public final class GtfsRealtime {
        * @return This builder for chaining.
        */
       public Builder setSpeed(float value) {
-        
+
         speed_ = value;
         bitField0_ |= 0x00000010;
         onChanged();
@@ -22951,7 +22885,7 @@ public final class GtfsRealtime {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
+        com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -22978,7 +22912,7 @@ public final class GtfsRealtime {
         getTripIdBytes() {
       java.lang.Object ref = tripId_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         tripId_ = b;
@@ -23017,7 +22951,7 @@ public final class GtfsRealtime {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
+        com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -23039,7 +22973,7 @@ public final class GtfsRealtime {
         getRouteIdBytes() {
       java.lang.Object ref = routeId_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         routeId_ = b;
@@ -23135,7 +23069,7 @@ public final class GtfsRealtime {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
+        com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -23171,7 +23105,7 @@ public final class GtfsRealtime {
         getStartTimeBytes() {
       java.lang.Object ref = startTime_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         startTime_ = b;
@@ -23228,7 +23162,7 @@ public final class GtfsRealtime {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
+        com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -23259,7 +23193,7 @@ public final class GtfsRealtime {
         getStartDateBytes() {
       java.lang.Object ref = startDate_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         startDate_ = b;
@@ -23702,12 +23636,7 @@ public final class GtfsRealtime {
           Type value) {
         return super.addExtension(extension, value);
       }
-      @java.lang.Override
-      public <Type> Builder clearExtension(
-          com.google.protobuf.GeneratedMessage.GeneratedExtension<
-              com.google.transit.realtime.GtfsRealtime.TripDescriptor, ?> extension) {
-        return super.clearExtension(extension);
-      }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtime.TripDescriptor) {
@@ -23891,7 +23820,7 @@ public final class GtfsRealtime {
           getTripIdBytes() {
         java.lang.Object ref = tripId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           tripId_ = b;
@@ -24010,7 +23939,7 @@ public final class GtfsRealtime {
           getRouteIdBytes() {
         java.lang.Object ref = routeId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           routeId_ = b;
@@ -24106,7 +24035,7 @@ public final class GtfsRealtime {
        * @return This builder for chaining.
        */
       public Builder setDirectionId(int value) {
-        
+
         directionId_ = value;
         bitField0_ |= 0x00000004;
         onChanged();
@@ -24216,7 +24145,7 @@ public final class GtfsRealtime {
           getStartTimeBytes() {
         java.lang.Object ref = startTime_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           startTime_ = b;
@@ -24389,7 +24318,7 @@ public final class GtfsRealtime {
           getStartDateBytes() {
         java.lang.Object ref = startDate_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           startDate_ = b;
@@ -24762,7 +24691,7 @@ public final class GtfsRealtime {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
+        com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -24786,7 +24715,7 @@ public final class GtfsRealtime {
         getIdBytes() {
       java.lang.Object ref = id_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         id_ = b;
@@ -24827,7 +24756,7 @@ public final class GtfsRealtime {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
+        com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -24850,7 +24779,7 @@ public final class GtfsRealtime {
         getLabelBytes() {
       java.lang.Object ref = label_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         label_ = b;
@@ -24889,7 +24818,7 @@ public final class GtfsRealtime {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
+        com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -24911,7 +24840,7 @@ public final class GtfsRealtime {
         getLicensePlateBytes() {
       java.lang.Object ref = licensePlate_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         licensePlate_ = b;
@@ -25267,12 +25196,7 @@ public final class GtfsRealtime {
           Type value) {
         return super.addExtension(extension, value);
       }
-      @java.lang.Override
-      public <Type> Builder clearExtension(
-          com.google.protobuf.GeneratedMessage.GeneratedExtension<
-              com.google.transit.realtime.GtfsRealtime.VehicleDescriptor, ?> extension) {
-        return super.clearExtension(extension);
-      }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtime.VehicleDescriptor) {
@@ -25414,7 +25338,7 @@ public final class GtfsRealtime {
           getIdBytes() {
         java.lang.Object ref = id_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           id_ = b;
@@ -25527,7 +25451,7 @@ public final class GtfsRealtime {
           getLabelBytes() {
         java.lang.Object ref = label_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           label_ = b;
@@ -25634,7 +25558,7 @@ public final class GtfsRealtime {
           getLicensePlateBytes() {
         java.lang.Object ref = licensePlate_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           licensePlate_ = b;
@@ -25971,7 +25895,7 @@ public final class GtfsRealtime {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
+        com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -25996,7 +25920,7 @@ public final class GtfsRealtime {
         getAgencyIdBytes() {
       java.lang.Object ref = agencyId_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         agencyId_ = b;
@@ -26027,7 +25951,7 @@ public final class GtfsRealtime {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
+        com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -26045,7 +25969,7 @@ public final class GtfsRealtime {
         getRouteIdBytes() {
       java.lang.Object ref = routeId_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         routeId_ = b;
@@ -26129,7 +26053,7 @@ public final class GtfsRealtime {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
+        com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -26147,7 +26071,7 @@ public final class GtfsRealtime {
         getStopIdBytes() {
       java.lang.Object ref = stopId_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         stopId_ = b;
@@ -26613,12 +26537,7 @@ public final class GtfsRealtime {
           Type value) {
         return super.addExtension(extension, value);
       }
-      @java.lang.Override
-      public <Type> Builder clearExtension(
-          com.google.protobuf.GeneratedMessage.GeneratedExtension<
-              com.google.transit.realtime.GtfsRealtime.EntitySelector, ?> extension) {
-        return super.clearExtension(extension);
-      }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtime.EntitySelector) {
@@ -26794,7 +26713,7 @@ public final class GtfsRealtime {
           getAgencyIdBytes() {
         java.lang.Object ref = agencyId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           agencyId_ = b;
@@ -26895,7 +26814,7 @@ public final class GtfsRealtime {
           getRouteIdBytes() {
         java.lang.Object ref = routeId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           routeId_ = b;
@@ -26976,7 +26895,7 @@ public final class GtfsRealtime {
        * @return This builder for chaining.
        */
       public Builder setRouteType(int value) {
-        
+
         routeType_ = value;
         bitField0_ |= 0x00000004;
         onChanged();
@@ -27103,7 +27022,7 @@ public final class GtfsRealtime {
        * <code>optional .transit_realtime.TripDescriptor trip = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.TripDescriptor, com.google.transit.realtime.GtfsRealtime.TripDescriptor.Builder, com.google.transit.realtime.GtfsRealtime.TripDescriptorOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.TripDescriptor, com.google.transit.realtime.GtfsRealtime.TripDescriptor.Builder, com.google.transit.realtime.GtfsRealtime.TripDescriptorOrBuilder>
           getTripFieldBuilder() {
         if (tripBuilder_ == null) {
           tripBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -27150,7 +27069,7 @@ public final class GtfsRealtime {
           getStopIdBytes() {
         java.lang.Object ref = stopId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           stopId_ = b;
@@ -27234,7 +27153,7 @@ public final class GtfsRealtime {
        * @return This builder for chaining.
        */
       public Builder setDirectionId(int value) {
-        
+
         directionId_ = value;
         bitField0_ |= 0x00000020;
         onChanged();
@@ -27331,7 +27250,7 @@ public final class GtfsRealtime {
      *
      * <code>repeated .transit_realtime.TranslatedString.Translation translation = 1;</code>
      */
-    java.util.List<com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation> 
+    java.util.List<com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation>
         getTranslationList();
     /**
      * <pre>
@@ -27356,7 +27275,7 @@ public final class GtfsRealtime {
      *
      * <code>repeated .transit_realtime.TranslatedString.Translation translation = 1;</code>
      */
-    java.util.List<? extends com.google.transit.realtime.GtfsRealtime.TranslatedString.TranslationOrBuilder> 
+    java.util.List<? extends com.google.transit.realtime.GtfsRealtime.TranslatedString.TranslationOrBuilder>
         getTranslationOrBuilderList();
     /**
      * <pre>
@@ -27565,7 +27484,7 @@ public final class GtfsRealtime {
         if (ref instanceof java.lang.String) {
           return (java.lang.String) ref;
         } else {
-          com.google.protobuf.ByteString bs = 
+          com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
@@ -27587,7 +27506,7 @@ public final class GtfsRealtime {
           getTextBytes() {
         java.lang.Object ref = text_;
         if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           text_ = b;
@@ -27630,7 +27549,7 @@ public final class GtfsRealtime {
         if (ref instanceof java.lang.String) {
           return (java.lang.String) ref;
         } else {
-          com.google.protobuf.ByteString bs = 
+          com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
@@ -27654,7 +27573,7 @@ public final class GtfsRealtime {
           getLanguageBytes() {
         java.lang.Object ref = language_;
         if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           language_ = b;
@@ -27990,12 +27909,7 @@ public final class GtfsRealtime {
             Type value) {
           return super.addExtension(extension, value);
         }
-        @java.lang.Override
-        public <Type> Builder clearExtension(
-            com.google.protobuf.GeneratedMessage.GeneratedExtension<
-                com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation, ?> extension) {
-          return super.clearExtension(extension);
-        }
+
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
           if (other instanceof com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation) {
@@ -28124,7 +28038,7 @@ public final class GtfsRealtime {
             getTextBytes() {
           java.lang.Object ref = text_;
           if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString b =
                 com.google.protobuf.ByteString.copyFromUtf8(
                     (java.lang.String) ref);
             text_ = b;
@@ -28234,7 +28148,7 @@ public final class GtfsRealtime {
             getLanguageBytes() {
           java.lang.Object ref = language_;
           if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString b =
                 com.google.protobuf.ByteString.copyFromUtf8(
                     (java.lang.String) ref);
             language_ = b;
@@ -28383,7 +28297,7 @@ public final class GtfsRealtime {
      * <code>repeated .transit_realtime.TranslatedString.Translation translation = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.TranslatedString.TranslationOrBuilder> 
+    public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.TranslatedString.TranslationOrBuilder>
         getTranslationOrBuilderList() {
       return translation_;
     }
@@ -28754,12 +28668,7 @@ public final class GtfsRealtime {
           Type value) {
         return super.addExtension(extension, value);
       }
-      @java.lang.Override
-      public <Type> Builder clearExtension(
-          com.google.protobuf.GeneratedMessage.GeneratedExtension<
-              com.google.transit.realtime.GtfsRealtime.TranslatedString, ?> extension) {
-        return super.clearExtension(extension);
-      }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtime.TranslatedString) {
@@ -28790,7 +28699,7 @@ public final class GtfsRealtime {
               translationBuilder_ = null;
               translation_ = other.translation_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              translationBuilder_ = 
+              translationBuilder_ =
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getTranslationFieldBuilder() : null;
             } else {
@@ -29118,7 +29027,7 @@ public final class GtfsRealtime {
        *
        * <code>repeated .transit_realtime.TranslatedString.Translation translation = 1;</code>
        */
-      public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.TranslatedString.TranslationOrBuilder> 
+      public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.TranslatedString.TranslationOrBuilder>
            getTranslationOrBuilderList() {
         if (translationBuilder_ != null) {
           return translationBuilder_.getMessageOrBuilderList();
@@ -29156,12 +29065,12 @@ public final class GtfsRealtime {
        *
        * <code>repeated .transit_realtime.TranslatedString.Translation translation = 1;</code>
        */
-      public java.util.List<com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation.Builder> 
+      public java.util.List<com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation.Builder>
            getTranslationBuilderList() {
         return getTranslationFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation, com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedString.TranslationOrBuilder> 
+          com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation, com.google.transit.realtime.GtfsRealtime.TranslatedString.Translation.Builder, com.google.transit.realtime.GtfsRealtime.TranslatedString.TranslationOrBuilder>
           getTranslationFieldBuilder() {
         if (translationBuilder_ == null) {
           translationBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
@@ -29240,92 +29149,92 @@ public final class GtfsRealtime {
 
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_FeedMessage_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_FeedMessage_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_FeedHeader_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_FeedHeader_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_FeedEntity_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_FeedEntity_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_TripUpdate_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_TripUpdate_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_TripUpdate_StopTimeEvent_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_TripUpdate_StopTimeEvent_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_TripUpdate_StopTimeUpdate_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_TripUpdate_StopTimeUpdate_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_TripUpdate_StopTimeUpdate_StopTimeProperties_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_TripUpdate_StopTimeUpdate_StopTimeProperties_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_TripUpdate_TripProperties_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_TripUpdate_TripProperties_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_VehiclePosition_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_VehiclePosition_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_VehiclePosition_CarriageDetails_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_VehiclePosition_CarriageDetails_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_Alert_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_Alert_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_TimeRange_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_TimeRange_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_Position_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_Position_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_TripDescriptor_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_TripDescriptor_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_VehicleDescriptor_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_VehicleDescriptor_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_EntitySelector_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_EntitySelector_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_TranslatedString_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_TranslatedString_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_TranslatedString_Translation_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_TranslatedString_Translation_fieldAccessorTable;
 
