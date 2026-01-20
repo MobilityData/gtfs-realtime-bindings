@@ -16,23 +16,13 @@
 
 #### Re-generating the code
 
-1. Run the following from the project root folder:
+1. Run the update script:
 
     ```
-    docker build -t gtfs-nodejs -f nodejs/Dockerfile .
-    # -it to make sure docker run can be killed with ctrl-c
-    # -t uses TTY, which causes linux to include carriage returns, which are stripped using tr
-    docker run -it --rm gtfs-nodejs cat /lib/gtfs-realtime.js | tr -d '\r' > nodejs/gtfs-realtime.js
-    docker run -it --rm gtfs-nodejs cat /lib/gtfs-realtime.d.ts | tr -d '\r' > nodejs/gtfs-realtime.d.ts
+    ./update_generated_code.sh
     ```
 
 1. Add the license header back to the generated source file.
-
-1. Test the generated code:
-
-    ```
-    npm run test
-    ```
 
 1. Update the version number in `package.json`.
 
