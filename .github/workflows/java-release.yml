@@ -20,6 +20,7 @@ jobs:
           server-password: MAVEN_PASSWORD
 
       - name: Import GPG key
+        id: import_gpg
         uses: crazy-max/ghaction-import-gpg@v6
         with:
           gpg_private_key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
@@ -27,7 +28,7 @@ jobs:
 
       - name: Publish to Maven Central
         working-directory: java
-        run: mvn --no-transfer-progress --batch-mode deploy -P ci-cd
+        run: mvn --no-transfer-progress --batch-mode deploy -P ci-cd -Dgpg.keyname=${{ steps.import_gpg.outputs.fingerprint }}
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
