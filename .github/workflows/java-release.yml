@@ -1,20 +1,16 @@
-# This workflow will build a Java project with Maven
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
-
-name: Java CI with Maven
+name: Release Java bindings
 
 on:
-  push:
-    branches: [ master ]
-    paths:
-      - 'java/**'
+  workflow_dispatch:
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Maven Central Repository
+
+      - name: Set up Java
         uses: actions/setup-java@v4
         with:
           java-version: '17'
@@ -22,14 +18,16 @@ jobs:
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
+
       - name: Import GPG key
         uses: crazy-max/ghaction-import-gpg@v6
         with:
           gpg_private_key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-      - name: Deploy with Maven
-        working-directory: ./java
-        run: mvn -B clean deploy -Pci-cd
+
+      - name: Publish to Maven Central
+        working-directory: java
+        run: mvn --no-transfer-progress --batch-mode deploy -P ci-cd
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
