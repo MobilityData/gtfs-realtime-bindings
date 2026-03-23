@@ -22,15 +22,16 @@ jobs:
           server-password: MAVEN_PASSWORD
 
       - name: Import GPG key
-        run: |
-          echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --import --batch
-        env:
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+        uses: crazy-max/ghaction-import-gpg@v6
+        with:
+          gpg_private_key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
       - name: Publish to Maven Central
         working-directory: java
-        run: mvn --no-transfer-progress --batch-mode deploy -P ci-cd -Dgpg.passphrase=${{ secrets.GPG_PASSPHRASE }}
+        run: mvn --no-transfer-progress --batch-mode deploy -P ci-cd
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
