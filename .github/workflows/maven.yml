@@ -22,19 +22,18 @@ jobs:
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
-      - name: Import GPG key
-        id: import_gpg
-        uses: crazy-max/ghaction-import-gpg@v6
-        with:
-          gpg_private_key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
       - name: Deploy with Maven
         working-directory: ./java
         run: |
+          # Import the private key directly in this step so it is guaranteed to be in the keyring
+          echo "$MAVEN_GPG_PRIVATE_KEY" | gpg --batch --import
           GPG_KEYNAME=$(gpg --list-secret-keys --with-colons | grep '^fpr' | head -1 | cut -d: -f10)
-          echo "Signing with GPG key: ${GPG_KEYNAME}"
-          mvn -B clean deploy -Pci-cd -Dgpg.keyname="${GPG_KEYNAME}"
+          echo "Signing with GPG key: $GPG_KEYNAME"
+          mvn -B clean deploy -Pci-cd \
+            -Dgpg.keyname="$GPG_KEYNAME" \
+            -Dgpg.passphrase="$MAVEN_GPG_PASSPHRASE"
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+          MAVEN_GPG_PRIVATE_KEY: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
