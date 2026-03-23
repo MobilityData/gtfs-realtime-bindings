@@ -30,7 +30,10 @@ jobs:
           passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
       - name: Deploy with Maven
         working-directory: ./java
-        run: mvn -B clean deploy -Pci-cd -Dgpg.keyname=${{ steps.import_gpg.outputs.fingerprint }}
+        run: |
+          GPG_KEYNAME=$(gpg --list-secret-keys --with-colons | grep '^fpr' | head -1 | cut -d: -f10)
+          echo "Signing with GPG key: ${GPG_KEYNAME}"
+          mvn -B clean deploy -Pci-cd -Dgpg.keyname="${GPG_KEYNAME}"
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
