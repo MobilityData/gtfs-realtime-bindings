@@ -26,9 +26,21 @@ jobs:
           gpg_private_key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
+      - name: Select signing key
+        id: select_signing_key
+        run: |
+          set -euo pipefail
+          SIGNING_FPR=$(gpg --list-secret-keys --with-colons \
+            | awk -F: '($1=="sec" || $1=="ssb") && $12 ~ /[sS]/ { getline; if ($1=="fpr") { print $10; exit } }')
+          if [ -z "$SIGNING_FPR" ]; then
+            echo "No signing-capable secret key found in the keyring." >&2
+            exit 1
+          fi
+          echo "signing_fpr=$SIGNING_FPR" >> "$GITHUB_OUTPUT"
+
       - name: Publish to Maven Central
         working-directory: java
-        run: mvn --no-transfer-progress --batch-mode deploy -P ci-cd -Dgpg.keyname=${{ steps.import_gpg.outputs.fingerprint }}
+        run: mvn --no-transfer-progress --batch-mode deploy -P ci-cd -Dgpg.keyname=${{ steps.select_signing_key.outputs.signing_fpr }}
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
