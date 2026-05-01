@@ -17,7 +17,7 @@
     "types": "gtfs-realtime.d.ts",
     "scripts": {
         "test": "mocha test/*.js",
-        "buildProto": "pbjs -t static-module -w commonjs -o gtfs-realtime.js ../gtfs-realtime.proto && pbts -o gtfs-realtime.d.ts gtfs-realtime.js"
+        "codeGen": "pbjs -t static-module -w commonjs -o gtfs-realtime.js ../gtfs-realtime.proto && pbts -o gtfs-realtime.d.ts gtfs-realtime.js"
     },
     "dependencies": {
         "protobufjs": "^7.1.2",
