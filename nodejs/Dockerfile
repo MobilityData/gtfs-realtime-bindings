@@ -1,4 +1,4 @@
-FROM node:18.12.1-alpine
+FROM node:22-alpine
 
 WORKDIR /lib
 COPY nodejs/package.json /lib/package.json

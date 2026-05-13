@@ -11,7 +11,7 @@ These bindings are designed to be used in the [Node.js](http://nodejs.org/)
 environment, but with some effort, they can probably be used in other
 JavaScript environments as well.
 
-We use the [ProtoBuf.js](https://github.com/dcodeIO/ProtoBuf.js) library for
+We use the [ProtoBuf.js](https://github.com/protobufjs/protobuf.js) library for
 JavaScript Protocol Buffer support.
 
 ## Add the Dependency
@@ -74,5 +74,5 @@ import fetch from "node-fetch";
 For more details on the naming conventions for the JavaScript classes generated
 from the
 [gtfs-realtime.proto](https://github.com/google/transit/blob/master/gtfs-realtime/proto/gtfs-realtime.proto),
-check out the [ProtoBuf.js project](https://github.com/dcodeIO/ProtoBuf.js/wiki)
+check out the [ProtoBuf.js project](https://github.com/protobufjs/protobuf.js)
 which we use to handle our Protocol Buffer serialization.

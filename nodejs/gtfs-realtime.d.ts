@@ -25,6 +25,9 @@ export namespace transit_realtime {
 
         /** FeedMessage entity */
         entity?: (transit_realtime.IFeedEntity[]|null);
+
+        /** Unknown fields preserved while decoding */
+        $unknowns?: Uint8Array[];
     }
 
     /** Represents a FeedMessage. */
@@ -35,6 +38,9 @@ export namespace transit_realtime {
          * @param [properties] Properties to set
          */
         constructor(properties?: transit_realtime.IFeedMessage);
+
+        /** Unknown fields preserved while decoding */
+        public $unknowns?: Uint8Array[];
 
         /** FeedMessage header. */
         public header: transit_realtime.IFeedHeader;
@@ -113,11 +119,11 @@ export namespace transit_realtime {
         public toJSON(): { [k: string]: any };
 
         /**
-         * Gets the default type url for FeedMessage
-         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns The default type url
+         * Gets the type url for FeedMessage
+         * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns The type url
          */
-        public static getTypeUrl(typeUrlPrefix?: string): string;
+        public static getTypeUrl(prefix?: string): string;
     }
 
     /** Properties of a FeedHeader. */
@@ -131,6 +137,12 @@ export namespace transit_realtime {
 
         /** FeedHeader timestamp */
         timestamp?: (number|Long|null);
+
+        /** FeedHeader feedVersion */
+        feedVersion?: (string|null);
+
+        /** Unknown fields preserved while decoding */
+        $unknowns?: Uint8Array[];
     }
 
     /** Represents a FeedHeader. */
@@ -142,6 +154,9 @@ export namespace transit_realtime {
          */
         constructor(properties?: transit_realtime.IFeedHeader);
 
+        /** Unknown fields preserved while decoding */
+        public $unknowns?: Uint8Array[];
+
         /** FeedHeader gtfsRealtimeVersion. */
         public gtfsRealtimeVersion: string;
 
@@ -150,6 +165,9 @@ export namespace transit_realtime {
 
         /** FeedHeader timestamp. */
         public timestamp: (number|Long);
+
+        /** FeedHeader feedVersion. */
+        public feedVersion: string;
 
         /**
          * Creates a new FeedHeader instance using the specified properties.
@@ -222,11 +240,11 @@ export namespace transit_realtime {
         public toJSON(): { [k: string]: any };
 
         /**
-         * Gets the default type url for FeedHeader
-         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns The default type url
+         * Gets the type url for FeedHeader
+         * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns The type url
          */
-        public static getTypeUrl(typeUrlPrefix?: string): string;
+        public static getTypeUrl(prefix?: string): string;
     }
 
     namespace FeedHeader {
@@ -255,6 +273,18 @@ export namespace transit_realtime {
 
         /** FeedEntity alert */
         alert?: (transit_realtime.IAlert|null);
+
+        /** FeedEntity shape */
+        shape?: (transit_realtime.IShape|null);
+
+        /** FeedEntity stop */
+        stop?: (transit_realtime.IStop|null);
+
+        /** FeedEntity tripModifications */
+        tripModifications?: (transit_realtime.ITripModifications|null);
+
+        /** Unknown fields preserved while decoding */
+        $unknowns?: Uint8Array[];
     }
 
     /** Represents a FeedEntity. */
@@ -265,6 +295,9 @@ export namespace transit_realtime {
          * @param [properties] Properties to set
          */
         constructor(properties?: transit_realtime.IFeedEntity);
+
+        /** Unknown fields preserved while decoding */
+        public $unknowns?: Uint8Array[];
 
         /** FeedEntity id. */
         public id: string;
@@ -280,6 +313,15 @@ export namespace transit_realtime {
 
         /** FeedEntity alert. */
         public alert?: (transit_realtime.IAlert|null);
+
+        /** FeedEntity shape. */
+        public shape?: (transit_realtime.IShape|null);
+
+        /** FeedEntity stop. */
+        public stop?: (transit_realtime.IStop|null);
+
+        /** FeedEntity tripModifications. */
+        public tripModifications?: (transit_realtime.ITripModifications|null);
 
         /**
          * Creates a new FeedEntity instance using the specified properties.
@@ -352,11 +394,11 @@ export namespace transit_realtime {
         public toJSON(): { [k: string]: any };
 
         /**
-         * Gets the default type url for FeedEntity
-         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns The default type url
+         * Gets the type url for FeedEntity
+         * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns The type url
          */
-        public static getTypeUrl(typeUrlPrefix?: string): string;
+        public static getTypeUrl(prefix?: string): string;
     }
 
     /** Properties of a TripUpdate. */
@@ -379,6 +421,9 @@ export namespace transit_realtime {
 
         /** TripUpdate tripProperties */
         tripProperties?: (transit_realtime.TripUpdate.ITripProperties|null);
+
+        /** Unknown fields preserved while decoding */
+        $unknowns?: Uint8Array[];
     }
 
     /** Represents a TripUpdate. */
@@ -389,6 +434,9 @@ export namespace transit_realtime {
          * @param [properties] Properties to set
          */
         constructor(properties?: transit_realtime.ITripUpdate);
+
+        /** Unknown fields preserved while decoding */
+        public $unknowns?: Uint8Array[];
 
         /** TripUpdate trip. */
         public trip: transit_realtime.ITripDescriptor;
@@ -479,11 +527,11 @@ export namespace transit_realtime {
         public toJSON(): { [k: string]: any };
 
         /**
-         * Gets the default type url for TripUpdate
-         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns The default type url
+         * Gets the type url for TripUpdate
+         * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns The type url
          */
-        public static getTypeUrl(typeUrlPrefix?: string): string;
+        public static getTypeUrl(prefix?: string): string;
     }
 
     namespace TripUpdate {
@@ -499,6 +547,12 @@ export namespace transit_realtime {
 
             /** StopTimeEvent uncertainty */
             uncertainty?: (number|null);
+
+            /** StopTimeEvent scheduledTime */
+            scheduledTime?: (number|Long|null);
+
+            /** Unknown fields preserved while decoding */
+            $unknowns?: Uint8Array[];
         }
 
         /** Represents a StopTimeEvent. */
@@ -510,6 +564,9 @@ export namespace transit_realtime {
              */
             constructor(properties?: transit_realtime.TripUpdate.IStopTimeEvent);
 
+            /** Unknown fields preserved while decoding */
+            public $unknowns?: Uint8Array[];
+
             /** StopTimeEvent delay. */
             public delay: number;
 
@@ -518,6 +575,9 @@ export namespace transit_realtime {
 
             /** StopTimeEvent uncertainty. */
             public uncertainty: number;
+
+            /** StopTimeEvent scheduledTime. */
+            public scheduledTime: (number|Long);
 
             /**
              * Creates a new StopTimeEvent instance using the specified properties.
@@ -590,11 +650,11 @@ export namespace transit_realtime {
             public toJSON(): { [k: string]: any };
 
             /**
-             * Gets the default type url for StopTimeEvent
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
+             * Gets the type url for StopTimeEvent
+             * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns The type url
              */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
+            public static getTypeUrl(prefix?: string): string;
         }
 
         /** Properties of a StopTimeUpdate. */
@@ -612,11 +672,17 @@ export namespace transit_realtime {
             /** StopTimeUpdate departure */
             departure?: (transit_realtime.TripUpdate.IStopTimeEvent|null);
 
+            /** StopTimeUpdate departureOccupancyStatus */
+            departureOccupancyStatus?: (transit_realtime.VehiclePosition.OccupancyStatus|null);
+
             /** StopTimeUpdate scheduleRelationship */
             scheduleRelationship?: (transit_realtime.TripUpdate.StopTimeUpdate.ScheduleRelationship|null);
 
             /** StopTimeUpdate stopTimeProperties */
             stopTimeProperties?: (transit_realtime.TripUpdate.StopTimeUpdate.IStopTimeProperties|null);
+
+            /** Unknown fields preserved while decoding */
+            $unknowns?: Uint8Array[];
         }
 
         /** Represents a StopTimeUpdate. */
@@ -627,6 +693,9 @@ export namespace transit_realtime {
              * @param [properties] Properties to set
              */
             constructor(properties?: transit_realtime.TripUpdate.IStopTimeUpdate);
+
+            /** Unknown fields preserved while decoding */
+            public $unknowns?: Uint8Array[];
 
             /** StopTimeUpdate stopSequence. */
             public stopSequence: number;
@@ -639,6 +708,9 @@ export namespace transit_realtime {
 
             /** StopTimeUpdate departure. */
             public departure?: (transit_realtime.TripUpdate.IStopTimeEvent|null);
+
+            /** StopTimeUpdate departureOccupancyStatus. */
+            public departureOccupancyStatus: transit_realtime.VehiclePosition.OccupancyStatus;
 
             /** StopTimeUpdate scheduleRelationship. */
             public scheduleRelationship: transit_realtime.TripUpdate.StopTimeUpdate.ScheduleRelationship;
@@ -717,11 +789,11 @@ export namespace transit_realtime {
             public toJSON(): { [k: string]: any };
 
             /**
-             * Gets the default type url for StopTimeUpdate
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
+             * Gets the type url for StopTimeUpdate
+             * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns The type url
              */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
+            public static getTypeUrl(prefix?: string): string;
         }
 
         namespace StopTimeUpdate {
@@ -739,6 +811,18 @@ export namespace transit_realtime {
 
                 /** StopTimeProperties assignedStopId */
                 assignedStopId?: (string|null);
+
+                /** StopTimeProperties stopHeadsign */
+                stopHeadsign?: (string|null);
+
+                /** StopTimeProperties pickupType */
+                pickupType?: (transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties.DropOffPickupType|null);
+
+                /** StopTimeProperties dropOffType */
+                dropOffType?: (transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties.DropOffPickupType|null);
+
+                /** Unknown fields preserved while decoding */
+                $unknowns?: Uint8Array[];
             }
 
             /** Represents a StopTimeProperties. */
@@ -750,8 +834,20 @@ export namespace transit_realtime {
                  */
                 constructor(properties?: transit_realtime.TripUpdate.StopTimeUpdate.IStopTimeProperties);
 
+                /** Unknown fields preserved while decoding */
+                public $unknowns?: Uint8Array[];
+
                 /** StopTimeProperties assignedStopId. */
                 public assignedStopId: string;
+
+                /** StopTimeProperties stopHeadsign. */
+                public stopHeadsign: string;
+
+                /** StopTimeProperties pickupType. */
+                public pickupType: transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties.DropOffPickupType;
+
+                /** StopTimeProperties dropOffType. */
+                public dropOffType: transit_realtime.TripUpdate.StopTimeUpdate.StopTimeProperties.DropOffPickupType;
 
                 /**
                  * Creates a new StopTimeProperties instance using the specified properties.
@@ -824,11 +920,22 @@ export namespace transit_realtime {
                 public toJSON(): { [k: string]: any };
 
                 /**
-                 * Gets the default type url for StopTimeProperties
-                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                 * @returns The default type url
+                 * Gets the type url for StopTimeProperties
+                 * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                 * @returns The type url
                  */
-                public static getTypeUrl(typeUrlPrefix?: string): string;
+                public static getTypeUrl(prefix?: string): string;
+            }
+
+            namespace StopTimeProperties {
+
+                /** DropOffPickupType enum. */
+                enum DropOffPickupType {
+                    REGULAR = 0,
+                    NONE = 1,
+                    PHONE_AGENCY = 2,
+                    COORDINATE_WITH_DRIVER = 3
+                }
             }
         }
 
@@ -843,6 +950,18 @@ export namespace transit_realtime {
 
             /** TripProperties startTime */
             startTime?: (string|null);
+
+            /** TripProperties shapeId */
+            shapeId?: (string|null);
+
+            /** TripProperties tripHeadsign */
+            tripHeadsign?: (string|null);
+
+            /** TripProperties tripShortName */
+            tripShortName?: (string|null);
+
+            /** Unknown fields preserved while decoding */
+            $unknowns?: Uint8Array[];
         }
 
         /** Represents a TripProperties. */
@@ -854,6 +973,9 @@ export namespace transit_realtime {
              */
             constructor(properties?: transit_realtime.TripUpdate.ITripProperties);
 
+            /** Unknown fields preserved while decoding */
+            public $unknowns?: Uint8Array[];
+
             /** TripProperties tripId. */
             public tripId: string;
 
@@ -862,6 +984,15 @@ export namespace transit_realtime {
 
             /** TripProperties startTime. */
             public startTime: string;
+
+            /** TripProperties shapeId. */
+            public shapeId: string;
+
+            /** TripProperties tripHeadsign. */
+            public tripHeadsign: string;
+
+            /** TripProperties tripShortName. */
+            public tripShortName: string;
 
             /**
              * Creates a new TripProperties instance using the specified properties.
@@ -934,11 +1065,11 @@ export namespace transit_realtime {
             public toJSON(): { [k: string]: any };
 
             /**
-             * Gets the default type url for TripProperties
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
+             * Gets the type url for TripProperties
+             * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns The type url
              */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
+            public static getTypeUrl(prefix?: string): string;
         }
     }
 
@@ -977,6 +1108,9 @@ export namespace transit_realtime {
 
         /** VehiclePosition multiCarriageDetails */
         multiCarriageDetails?: (transit_realtime.VehiclePosition.ICarriageDetails[]|null);
+
+        /** Unknown fields preserved while decoding */
+        $unknowns?: Uint8Array[];
     }
 
     /** Represents a VehiclePosition. */
@@ -987,6 +1121,9 @@ export namespace transit_realtime {
          * @param [properties] Properties to set
          */
         constructor(properties?: transit_realtime.IVehiclePosition);
+
+        /** Unknown fields preserved while decoding */
+        public $unknowns?: Uint8Array[];
 
         /** VehiclePosition trip. */
         public trip?: (transit_realtime.ITripDescriptor|null);
@@ -1092,11 +1229,11 @@ export namespace transit_realtime {
         public toJSON(): { [k: string]: any };
 
         /**
-         * Gets the default type url for VehiclePosition
-         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns The default type url
+         * Gets the type url for VehiclePosition
+         * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns The type url
          */
-        public static getTypeUrl(typeUrlPrefix?: string): string;
+        public static getTypeUrl(prefix?: string): string;
     }
 
     namespace VehiclePosition {
@@ -1147,6 +1284,9 @@ export namespace transit_realtime {
 
             /** CarriageDetails carriageSequence */
             carriageSequence?: (number|null);
+
+            /** Unknown fields preserved while decoding */
+            $unknowns?: Uint8Array[];
         }
 
         /** Represents a CarriageDetails. */
@@ -1157,6 +1297,9 @@ export namespace transit_realtime {
              * @param [properties] Properties to set
              */
             constructor(properties?: transit_realtime.VehiclePosition.ICarriageDetails);
+
+            /** Unknown fields preserved while decoding */
+            public $unknowns?: Uint8Array[];
 
             /** CarriageDetails id. */
             public id: string;
@@ -1244,11 +1387,11 @@ export namespace transit_realtime {
             public toJSON(): { [k: string]: any };
 
             /**
-             * Gets the default type url for CarriageDetails
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
+             * Gets the type url for CarriageDetails
+             * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns The type url
              */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
+            public static getTypeUrl(prefix?: string): string;
         }
     }
 
@@ -1284,6 +1427,21 @@ export namespace transit_realtime {
 
         /** Alert severityLevel */
         severityLevel?: (transit_realtime.Alert.SeverityLevel|null);
+
+        /** Alert image */
+        image?: (transit_realtime.ITranslatedImage|null);
+
+        /** Alert imageAlternativeText */
+        imageAlternativeText?: (transit_realtime.ITranslatedString|null);
+
+        /** Alert causeDetail */
+        causeDetail?: (transit_realtime.ITranslatedString|null);
+
+        /** Alert effectDetail */
+        effectDetail?: (transit_realtime.ITranslatedString|null);
+
+        /** Unknown fields preserved while decoding */
+        $unknowns?: Uint8Array[];
     }
 
     /** Represents an Alert. */
@@ -1294,6 +1452,9 @@ export namespace transit_realtime {
          * @param [properties] Properties to set
          */
         constructor(properties?: transit_realtime.IAlert);
+
+        /** Unknown fields preserved while decoding */
+        public $unknowns?: Uint8Array[];
 
         /** Alert activePeriod. */
         public activePeriod: transit_realtime.ITimeRange[];
@@ -1324,6 +1485,18 @@ export namespace transit_realtime {
 
         /** Alert severityLevel. */
         public severityLevel: transit_realtime.Alert.SeverityLevel;
+
+        /** Alert image. */
+        public image?: (transit_realtime.ITranslatedImage|null);
+
+        /** Alert imageAlternativeText. */
+        public imageAlternativeText?: (transit_realtime.ITranslatedString|null);
+
+        /** Alert causeDetail. */
+        public causeDetail?: (transit_realtime.ITranslatedString|null);
+
+        /** Alert effectDetail. */
+        public effectDetail?: (transit_realtime.ITranslatedString|null);
 
         /**
          * Creates a new Alert instance using the specified properties.
@@ -1396,11 +1569,11 @@ export namespace transit_realtime {
         public toJSON(): { [k: string]: any };
 
         /**
-         * Gets the default type url for Alert
-         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns The default type url
+         * Gets the type url for Alert
+         * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns The type url
          */
-        public static getTypeUrl(typeUrlPrefix?: string): string;
+        public static getTypeUrl(prefix?: string): string;
     }
 
     namespace Alert {
@@ -1453,6 +1626,9 @@ export namespace transit_realtime {
 
         /** TimeRange end */
         end?: (number|Long|null);
+
+        /** Unknown fields preserved while decoding */
+        $unknowns?: Uint8Array[];
     }
 
     /** Represents a TimeRange. */
@@ -1463,6 +1639,9 @@ export namespace transit_realtime {
          * @param [properties] Properties to set
          */
         constructor(properties?: transit_realtime.ITimeRange);
+
+        /** Unknown fields preserved while decoding */
+        public $unknowns?: Uint8Array[];
 
         /** TimeRange start. */
         public start: (number|Long);
@@ -1541,11 +1720,11 @@ export namespace transit_realtime {
         public toJSON(): { [k: string]: any };
 
         /**
-         * Gets the default type url for TimeRange
-         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns The default type url
+         * Gets the type url for TimeRange
+         * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns The type url
          */
-        public static getTypeUrl(typeUrlPrefix?: string): string;
+        public static getTypeUrl(prefix?: string): string;
     }
 
     /** Properties of a Position. */
@@ -1565,6 +1744,9 @@ export namespace transit_realtime {
 
         /** Position speed */
         speed?: (number|null);
+
+        /** Unknown fields preserved while decoding */
+        $unknowns?: Uint8Array[];
     }
 
     /** Represents a Position. */
@@ -1575,6 +1757,9 @@ export namespace transit_realtime {
          * @param [properties] Properties to set
          */
         constructor(properties?: transit_realtime.IPosition);
+
+        /** Unknown fields preserved while decoding */
+        public $unknowns?: Uint8Array[];
 
         /** Position latitude. */
         public latitude: number;
@@ -1662,11 +1847,11 @@ export namespace transit_realtime {
         public toJSON(): { [k: string]: any };
 
         /**
-         * Gets the default type url for Position
-         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns The default type url
+         * Gets the type url for Position
+         * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns The type url
          */
-        public static getTypeUrl(typeUrlPrefix?: string): string;
+        public static getTypeUrl(prefix?: string): string;
     }
 
     /** Properties of a TripDescriptor. */
@@ -1689,6 +1874,12 @@ export namespace transit_realtime {
 
         /** TripDescriptor scheduleRelationship */
         scheduleRelationship?: (transit_realtime.TripDescriptor.ScheduleRelationship|null);
+
+        /** TripDescriptor modifiedTrip */
+        modifiedTrip?: (transit_realtime.TripDescriptor.IModifiedTripSelector|null);
+
+        /** Unknown fields preserved while decoding */
+        $unknowns?: Uint8Array[];
     }
 
     /** Represents a TripDescriptor. */
@@ -1699,6 +1890,9 @@ export namespace transit_realtime {
          * @param [properties] Properties to set
          */
         constructor(properties?: transit_realtime.ITripDescriptor);
+
+        /** Unknown fields preserved while decoding */
+        public $unknowns?: Uint8Array[];
 
         /** TripDescriptor tripId. */
         public tripId: string;
@@ -1717,6 +1911,9 @@ export namespace transit_realtime {
 
         /** TripDescriptor scheduleRelationship. */
         public scheduleRelationship: transit_realtime.TripDescriptor.ScheduleRelationship;
+
+        /** TripDescriptor modifiedTrip. */
+        public modifiedTrip?: (transit_realtime.TripDescriptor.IModifiedTripSelector|null);
 
         /**
          * Creates a new TripDescriptor instance using the specified properties.
@@ -1789,11 +1986,11 @@ export namespace transit_realtime {
         public toJSON(): { [k: string]: any };
 
         /**
-         * Gets the default type url for TripDescriptor
-         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns The default type url
+         * Gets the type url for TripDescriptor
+         * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns The type url
          */
-        public static getTypeUrl(typeUrlPrefix?: string): string;
+        public static getTypeUrl(prefix?: string): string;
     }
 
     namespace TripDescriptor {
@@ -1805,7 +2002,130 @@ export namespace transit_realtime {
             UNSCHEDULED = 2,
             CANCELED = 3,
             REPLACEMENT = 5,
-            DUPLICATED = 6
+            DUPLICATED = 6,
+            DELETED = 7,
+            NEW = 8
+        }
+
+        /** Properties of a ModifiedTripSelector. */
+        interface IModifiedTripSelector {
+
+            /** ModifiedTripSelector modificationsId */
+            modificationsId?: (string|null);
+
+            /** ModifiedTripSelector affectedTripId */
+            affectedTripId?: (string|null);
+
+            /** ModifiedTripSelector startTime */
+            startTime?: (string|null);
+
+            /** ModifiedTripSelector startDate */
+            startDate?: (string|null);
+
+            /** Unknown fields preserved while decoding */
+            $unknowns?: Uint8Array[];
+        }
+
+        /** Represents a ModifiedTripSelector. */
+        class ModifiedTripSelector implements IModifiedTripSelector {
+
+            /**
+             * Constructs a new ModifiedTripSelector.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: transit_realtime.TripDescriptor.IModifiedTripSelector);
+
+            /** Unknown fields preserved while decoding */
+            public $unknowns?: Uint8Array[];
+
+            /** ModifiedTripSelector modificationsId. */
+            public modificationsId: string;
+
+            /** ModifiedTripSelector affectedTripId. */
+            public affectedTripId: string;
+
+            /** ModifiedTripSelector startTime. */
+            public startTime: string;
+
+            /** ModifiedTripSelector startDate. */
+            public startDate: string;
+
+            /**
+             * Creates a new ModifiedTripSelector instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ModifiedTripSelector instance
+             */
+            public static create(properties?: transit_realtime.TripDescriptor.IModifiedTripSelector): transit_realtime.TripDescriptor.ModifiedTripSelector;
+
+            /**
+             * Encodes the specified ModifiedTripSelector message. Does not implicitly {@link transit_realtime.TripDescriptor.ModifiedTripSelector.verify|verify} messages.
+             * @param message ModifiedTripSelector message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: transit_realtime.TripDescriptor.IModifiedTripSelector, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ModifiedTripSelector message, length delimited. Does not implicitly {@link transit_realtime.TripDescriptor.ModifiedTripSelector.verify|verify} messages.
+             * @param message ModifiedTripSelector message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: transit_realtime.TripDescriptor.IModifiedTripSelector, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ModifiedTripSelector message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ModifiedTripSelector
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): transit_realtime.TripDescriptor.ModifiedTripSelector;
+
+            /**
+             * Decodes a ModifiedTripSelector message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ModifiedTripSelector
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): transit_realtime.TripDescriptor.ModifiedTripSelector;
+
+            /**
+             * Verifies a ModifiedTripSelector message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ModifiedTripSelector message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ModifiedTripSelector
+             */
+            public static fromObject(object: { [k: string]: any }): transit_realtime.TripDescriptor.ModifiedTripSelector;
+
+            /**
+             * Creates a plain object from a ModifiedTripSelector message. Also converts values to other types if specified.
+             * @param message ModifiedTripSelector
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: transit_realtime.TripDescriptor.ModifiedTripSelector, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ModifiedTripSelector to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the type url for ModifiedTripSelector
+             * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns The type url
+             */
+            public static getTypeUrl(prefix?: string): string;
         }
     }
 
@@ -1820,6 +2140,12 @@ export namespace transit_realtime {
 
         /** VehicleDescriptor licensePlate */
         licensePlate?: (string|null);
+
+        /** VehicleDescriptor wheelchairAccessible */
+        wheelchairAccessible?: (transit_realtime.VehicleDescriptor.WheelchairAccessible|null);
+
+        /** Unknown fields preserved while decoding */
+        $unknowns?: Uint8Array[];
     }
 
     /** Represents a VehicleDescriptor. */
@@ -1831,6 +2157,9 @@ export namespace transit_realtime {
          */
         constructor(properties?: transit_realtime.IVehicleDescriptor);
 
+        /** Unknown fields preserved while decoding */
+        public $unknowns?: Uint8Array[];
+
         /** VehicleDescriptor id. */
         public id: string;
 
@@ -1839,6 +2168,9 @@ export namespace transit_realtime {
 
         /** VehicleDescriptor licensePlate. */
         public licensePlate: string;
+
+        /** VehicleDescriptor wheelchairAccessible. */
+        public wheelchairAccessible: transit_realtime.VehicleDescriptor.WheelchairAccessible;
 
         /**
          * Creates a new VehicleDescriptor instance using the specified properties.
@@ -1911,11 +2243,22 @@ export namespace transit_realtime {
         public toJSON(): { [k: string]: any };
 
         /**
-         * Gets the default type url for VehicleDescriptor
-         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns The default type url
+         * Gets the type url for VehicleDescriptor
+         * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns The type url
          */
-        public static getTypeUrl(typeUrlPrefix?: string): string;
+        public static getTypeUrl(prefix?: string): string;
+    }
+
+    namespace VehicleDescriptor {
+
+        /** WheelchairAccessible enum. */
+        enum WheelchairAccessible {
+            NO_VALUE = 0,
+            UNKNOWN = 1,
+            WHEELCHAIR_ACCESSIBLE = 2,
+            WHEELCHAIR_INACCESSIBLE = 3
+        }
     }
 
     /** Properties of an EntitySelector. */
@@ -1938,6 +2281,9 @@ export namespace transit_realtime {
 
         /** EntitySelector directionId */
         directionId?: (number|null);
+
+        /** Unknown fields preserved while decoding */
+        $unknowns?: Uint8Array[];
     }
 
     /** Represents an EntitySelector. */
@@ -1948,6 +2294,9 @@ export namespace transit_realtime {
          * @param [properties] Properties to set
          */
         constructor(properties?: transit_realtime.IEntitySelector);
+
+        /** Unknown fields preserved while decoding */
+        public $unknowns?: Uint8Array[];
 
         /** EntitySelector agencyId. */
         public agencyId: string;
@@ -2038,11 +2387,11 @@ export namespace transit_realtime {
         public toJSON(): { [k: string]: any };
 
         /**
-         * Gets the default type url for EntitySelector
-         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns The default type url
+         * Gets the type url for EntitySelector
+         * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns The type url
          */
-        public static getTypeUrl(typeUrlPrefix?: string): string;
+        public static getTypeUrl(prefix?: string): string;
     }
 
     /** Properties of a TranslatedString. */
@@ -2050,6 +2399,9 @@ export namespace transit_realtime {
 
         /** TranslatedString translation */
         translation?: (transit_realtime.TranslatedString.ITranslation[]|null);
+
+        /** Unknown fields preserved while decoding */
+        $unknowns?: Uint8Array[];
     }
 
     /** Represents a TranslatedString. */
@@ -2060,6 +2412,9 @@ export namespace transit_realtime {
          * @param [properties] Properties to set
          */
         constructor(properties?: transit_realtime.ITranslatedString);
+
+        /** Unknown fields preserved while decoding */
+        public $unknowns?: Uint8Array[];
 
         /** TranslatedString translation. */
         public translation: transit_realtime.TranslatedString.ITranslation[];
@@ -2135,11 +2490,11 @@ export namespace transit_realtime {
         public toJSON(): { [k: string]: any };
 
         /**
-         * Gets the default type url for TranslatedString
-         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns The default type url
+         * Gets the type url for TranslatedString
+         * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns The type url
          */
-        public static getTypeUrl(typeUrlPrefix?: string): string;
+        public static getTypeUrl(prefix?: string): string;
     }
 
     namespace TranslatedString {
@@ -2152,6 +2507,9 @@ export namespace transit_realtime {
 
             /** Translation language */
             language?: (string|null);
+
+            /** Unknown fields preserved while decoding */
+            $unknowns?: Uint8Array[];
         }
 
         /** Represents a Translation. */
@@ -2162,6 +2520,9 @@ export namespace transit_realtime {
              * @param [properties] Properties to set
              */
             constructor(properties?: transit_realtime.TranslatedString.ITranslation);
+
+            /** Unknown fields preserved while decoding */
+            public $unknowns?: Uint8Array[];
 
             /** Translation text. */
             public text: string;
@@ -2240,11 +2601,1116 @@ export namespace transit_realtime {
             public toJSON(): { [k: string]: any };
 
             /**
-             * Gets the default type url for Translation
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
+             * Gets the type url for Translation
+             * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns The type url
              */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
+            public static getTypeUrl(prefix?: string): string;
         }
+    }
+
+    /** Properties of a TranslatedImage. */
+    interface ITranslatedImage {
+
+        /** TranslatedImage localizedImage */
+        localizedImage?: (transit_realtime.TranslatedImage.ILocalizedImage[]|null);
+
+        /** Unknown fields preserved while decoding */
+        $unknowns?: Uint8Array[];
+    }
+
+    /** Represents a TranslatedImage. */
+    class TranslatedImage implements ITranslatedImage {
+
+        /**
+         * Constructs a new TranslatedImage.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: transit_realtime.ITranslatedImage);
+
+        /** Unknown fields preserved while decoding */
+        public $unknowns?: Uint8Array[];
+
+        /** TranslatedImage localizedImage. */
+        public localizedImage: transit_realtime.TranslatedImage.ILocalizedImage[];
+
+        /**
+         * Creates a new TranslatedImage instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns TranslatedImage instance
+         */
+        public static create(properties?: transit_realtime.ITranslatedImage): transit_realtime.TranslatedImage;
+
+        /**
+         * Encodes the specified TranslatedImage message. Does not implicitly {@link transit_realtime.TranslatedImage.verify|verify} messages.
+         * @param message TranslatedImage message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: transit_realtime.ITranslatedImage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified TranslatedImage message, length delimited. Does not implicitly {@link transit_realtime.TranslatedImage.verify|verify} messages.
+         * @param message TranslatedImage message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: transit_realtime.ITranslatedImage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a TranslatedImage message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns TranslatedImage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): transit_realtime.TranslatedImage;
+
+        /**
+         * Decodes a TranslatedImage message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns TranslatedImage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): transit_realtime.TranslatedImage;
+
+        /**
+         * Verifies a TranslatedImage message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a TranslatedImage message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns TranslatedImage
+         */
+        public static fromObject(object: { [k: string]: any }): transit_realtime.TranslatedImage;
+
+        /**
+         * Creates a plain object from a TranslatedImage message. Also converts values to other types if specified.
+         * @param message TranslatedImage
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: transit_realtime.TranslatedImage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this TranslatedImage to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the type url for TranslatedImage
+         * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns The type url
+         */
+        public static getTypeUrl(prefix?: string): string;
+    }
+
+    namespace TranslatedImage {
+
+        /** Properties of a LocalizedImage. */
+        interface ILocalizedImage {
+
+            /** LocalizedImage url */
+            url: string;
+
+            /** LocalizedImage mediaType */
+            mediaType: string;
+
+            /** LocalizedImage language */
+            language?: (string|null);
+
+            /** Unknown fields preserved while decoding */
+            $unknowns?: Uint8Array[];
+        }
+
+        /** Represents a LocalizedImage. */
+        class LocalizedImage implements ILocalizedImage {
+
+            /**
+             * Constructs a new LocalizedImage.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: transit_realtime.TranslatedImage.ILocalizedImage);
+
+            /** Unknown fields preserved while decoding */
+            public $unknowns?: Uint8Array[];
+
+            /** LocalizedImage url. */
+            public url: string;
+
+            /** LocalizedImage mediaType. */
+            public mediaType: string;
+
+            /** LocalizedImage language. */
+            public language: string;
+
+            /**
+             * Creates a new LocalizedImage instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LocalizedImage instance
+             */
+            public static create(properties?: transit_realtime.TranslatedImage.ILocalizedImage): transit_realtime.TranslatedImage.LocalizedImage;
+
+            /**
+             * Encodes the specified LocalizedImage message. Does not implicitly {@link transit_realtime.TranslatedImage.LocalizedImage.verify|verify} messages.
+             * @param message LocalizedImage message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: transit_realtime.TranslatedImage.ILocalizedImage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LocalizedImage message, length delimited. Does not implicitly {@link transit_realtime.TranslatedImage.LocalizedImage.verify|verify} messages.
+             * @param message LocalizedImage message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: transit_realtime.TranslatedImage.ILocalizedImage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LocalizedImage message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LocalizedImage
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): transit_realtime.TranslatedImage.LocalizedImage;
+
+            /**
+             * Decodes a LocalizedImage message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LocalizedImage
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): transit_realtime.TranslatedImage.LocalizedImage;
+
+            /**
+             * Verifies a LocalizedImage message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LocalizedImage message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LocalizedImage
+             */
+            public static fromObject(object: { [k: string]: any }): transit_realtime.TranslatedImage.LocalizedImage;
+
+            /**
+             * Creates a plain object from a LocalizedImage message. Also converts values to other types if specified.
+             * @param message LocalizedImage
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: transit_realtime.TranslatedImage.LocalizedImage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LocalizedImage to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the type url for LocalizedImage
+             * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns The type url
+             */
+            public static getTypeUrl(prefix?: string): string;
+        }
+    }
+
+    /** Properties of a Shape. */
+    interface IShape {
+
+        /** Shape shapeId */
+        shapeId?: (string|null);
+
+        /** Shape encodedPolyline */
+        encodedPolyline?: (string|null);
+
+        /** Unknown fields preserved while decoding */
+        $unknowns?: Uint8Array[];
+    }
+
+    /** Represents a Shape. */
+    class Shape implements IShape {
+
+        /**
+         * Constructs a new Shape.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: transit_realtime.IShape);
+
+        /** Unknown fields preserved while decoding */
+        public $unknowns?: Uint8Array[];
+
+        /** Shape shapeId. */
+        public shapeId: string;
+
+        /** Shape encodedPolyline. */
+        public encodedPolyline: string;
+
+        /**
+         * Creates a new Shape instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns Shape instance
+         */
+        public static create(properties?: transit_realtime.IShape): transit_realtime.Shape;
+
+        /**
+         * Encodes the specified Shape message. Does not implicitly {@link transit_realtime.Shape.verify|verify} messages.
+         * @param message Shape message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: transit_realtime.IShape, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified Shape message, length delimited. Does not implicitly {@link transit_realtime.Shape.verify|verify} messages.
+         * @param message Shape message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: transit_realtime.IShape, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a Shape message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns Shape
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): transit_realtime.Shape;
+
+        /**
+         * Decodes a Shape message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns Shape
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): transit_realtime.Shape;
+
+        /**
+         * Verifies a Shape message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a Shape message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns Shape
+         */
+        public static fromObject(object: { [k: string]: any }): transit_realtime.Shape;
+
+        /**
+         * Creates a plain object from a Shape message. Also converts values to other types if specified.
+         * @param message Shape
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: transit_realtime.Shape, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this Shape to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the type url for Shape
+         * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns The type url
+         */
+        public static getTypeUrl(prefix?: string): string;
+    }
+
+    /** Properties of a Stop. */
+    interface IStop {
+
+        /** Stop stopId */
+        stopId?: (string|null);
+
+        /** Stop stopCode */
+        stopCode?: (transit_realtime.ITranslatedString|null);
+
+        /** Stop stopName */
+        stopName?: (transit_realtime.ITranslatedString|null);
+
+        /** Stop ttsStopName */
+        ttsStopName?: (transit_realtime.ITranslatedString|null);
+
+        /** Stop stopDesc */
+        stopDesc?: (transit_realtime.ITranslatedString|null);
+
+        /** Stop stopLat */
+        stopLat?: (number|null);
+
+        /** Stop stopLon */
+        stopLon?: (number|null);
+
+        /** Stop zoneId */
+        zoneId?: (string|null);
+
+        /** Stop stopUrl */
+        stopUrl?: (transit_realtime.ITranslatedString|null);
+
+        /** Stop parentStation */
+        parentStation?: (string|null);
+
+        /** Stop stopTimezone */
+        stopTimezone?: (string|null);
+
+        /** Stop wheelchairBoarding */
+        wheelchairBoarding?: (transit_realtime.Stop.WheelchairBoarding|null);
+
+        /** Stop levelId */
+        levelId?: (string|null);
+
+        /** Stop platformCode */
+        platformCode?: (transit_realtime.ITranslatedString|null);
+
+        /** Unknown fields preserved while decoding */
+        $unknowns?: Uint8Array[];
+    }
+
+    /** Represents a Stop. */
+    class Stop implements IStop {
+
+        /**
+         * Constructs a new Stop.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: transit_realtime.IStop);
+
+        /** Unknown fields preserved while decoding */
+        public $unknowns?: Uint8Array[];
+
+        /** Stop stopId. */
+        public stopId: string;
+
+        /** Stop stopCode. */
+        public stopCode?: (transit_realtime.ITranslatedString|null);
+
+        /** Stop stopName. */
+        public stopName?: (transit_realtime.ITranslatedString|null);
+
+        /** Stop ttsStopName. */
+        public ttsStopName?: (transit_realtime.ITranslatedString|null);
+
+        /** Stop stopDesc. */
+        public stopDesc?: (transit_realtime.ITranslatedString|null);
+
+        /** Stop stopLat. */
+        public stopLat: number;
+
+        /** Stop stopLon. */
+        public stopLon: number;
+
+        /** Stop zoneId. */
+        public zoneId: string;
+
+        /** Stop stopUrl. */
+        public stopUrl?: (transit_realtime.ITranslatedString|null);
+
+        /** Stop parentStation. */
+        public parentStation: string;
+
+        /** Stop stopTimezone. */
+        public stopTimezone: string;
+
+        /** Stop wheelchairBoarding. */
+        public wheelchairBoarding: transit_realtime.Stop.WheelchairBoarding;
+
+        /** Stop levelId. */
+        public levelId: string;
+
+        /** Stop platformCode. */
+        public platformCode?: (transit_realtime.ITranslatedString|null);
+
+        /**
+         * Creates a new Stop instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns Stop instance
+         */
+        public static create(properties?: transit_realtime.IStop): transit_realtime.Stop;
+
+        /**
+         * Encodes the specified Stop message. Does not implicitly {@link transit_realtime.Stop.verify|verify} messages.
+         * @param message Stop message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: transit_realtime.IStop, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified Stop message, length delimited. Does not implicitly {@link transit_realtime.Stop.verify|verify} messages.
+         * @param message Stop message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: transit_realtime.IStop, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a Stop message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns Stop
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): transit_realtime.Stop;
+
+        /**
+         * Decodes a Stop message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns Stop
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): transit_realtime.Stop;
+
+        /**
+         * Verifies a Stop message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a Stop message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns Stop
+         */
+        public static fromObject(object: { [k: string]: any }): transit_realtime.Stop;
+
+        /**
+         * Creates a plain object from a Stop message. Also converts values to other types if specified.
+         * @param message Stop
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: transit_realtime.Stop, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this Stop to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the type url for Stop
+         * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns The type url
+         */
+        public static getTypeUrl(prefix?: string): string;
+    }
+
+    namespace Stop {
+
+        /** WheelchairBoarding enum. */
+        enum WheelchairBoarding {
+            UNKNOWN = 0,
+            AVAILABLE = 1,
+            NOT_AVAILABLE = 2
+        }
+    }
+
+    /** Properties of a TripModifications. */
+    interface ITripModifications {
+
+        /** TripModifications selectedTrips */
+        selectedTrips?: (transit_realtime.TripModifications.ISelectedTrips[]|null);
+
+        /** TripModifications startTimes */
+        startTimes?: (string[]|null);
+
+        /** TripModifications serviceDates */
+        serviceDates?: (string[]|null);
+
+        /** TripModifications modifications */
+        modifications?: (transit_realtime.TripModifications.IModification[]|null);
+
+        /** Unknown fields preserved while decoding */
+        $unknowns?: Uint8Array[];
+    }
+
+    /** Represents a TripModifications. */
+    class TripModifications implements ITripModifications {
+
+        /**
+         * Constructs a new TripModifications.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: transit_realtime.ITripModifications);
+
+        /** Unknown fields preserved while decoding */
+        public $unknowns?: Uint8Array[];
+
+        /** TripModifications selectedTrips. */
+        public selectedTrips: transit_realtime.TripModifications.ISelectedTrips[];
+
+        /** TripModifications startTimes. */
+        public startTimes: string[];
+
+        /** TripModifications serviceDates. */
+        public serviceDates: string[];
+
+        /** TripModifications modifications. */
+        public modifications: transit_realtime.TripModifications.IModification[];
+
+        /**
+         * Creates a new TripModifications instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns TripModifications instance
+         */
+        public static create(properties?: transit_realtime.ITripModifications): transit_realtime.TripModifications;
+
+        /**
+         * Encodes the specified TripModifications message. Does not implicitly {@link transit_realtime.TripModifications.verify|verify} messages.
+         * @param message TripModifications message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: transit_realtime.ITripModifications, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified TripModifications message, length delimited. Does not implicitly {@link transit_realtime.TripModifications.verify|verify} messages.
+         * @param message TripModifications message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: transit_realtime.ITripModifications, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a TripModifications message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns TripModifications
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): transit_realtime.TripModifications;
+
+        /**
+         * Decodes a TripModifications message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns TripModifications
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): transit_realtime.TripModifications;
+
+        /**
+         * Verifies a TripModifications message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a TripModifications message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns TripModifications
+         */
+        public static fromObject(object: { [k: string]: any }): transit_realtime.TripModifications;
+
+        /**
+         * Creates a plain object from a TripModifications message. Also converts values to other types if specified.
+         * @param message TripModifications
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: transit_realtime.TripModifications, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this TripModifications to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the type url for TripModifications
+         * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns The type url
+         */
+        public static getTypeUrl(prefix?: string): string;
+    }
+
+    namespace TripModifications {
+
+        /** Properties of a Modification. */
+        interface IModification {
+
+            /** Modification startStopSelector */
+            startStopSelector?: (transit_realtime.IStopSelector|null);
+
+            /** Modification endStopSelector */
+            endStopSelector?: (transit_realtime.IStopSelector|null);
+
+            /** Modification propagatedModificationDelay */
+            propagatedModificationDelay?: (number|null);
+
+            /** Modification replacementStops */
+            replacementStops?: (transit_realtime.IReplacementStop[]|null);
+
+            /** Modification serviceAlertId */
+            serviceAlertId?: (string|null);
+
+            /** Modification lastModifiedTime */
+            lastModifiedTime?: (number|Long|null);
+
+            /** Unknown fields preserved while decoding */
+            $unknowns?: Uint8Array[];
+        }
+
+        /** Represents a Modification. */
+        class Modification implements IModification {
+
+            /**
+             * Constructs a new Modification.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: transit_realtime.TripModifications.IModification);
+
+            /** Unknown fields preserved while decoding */
+            public $unknowns?: Uint8Array[];
+
+            /** Modification startStopSelector. */
+            public startStopSelector?: (transit_realtime.IStopSelector|null);
+
+            /** Modification endStopSelector. */
+            public endStopSelector?: (transit_realtime.IStopSelector|null);
+
+            /** Modification propagatedModificationDelay. */
+            public propagatedModificationDelay: number;
+
+            /** Modification replacementStops. */
+            public replacementStops: transit_realtime.IReplacementStop[];
+
+            /** Modification serviceAlertId. */
+            public serviceAlertId: string;
+
+            /** Modification lastModifiedTime. */
+            public lastModifiedTime: (number|Long);
+
+            /**
+             * Creates a new Modification instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Modification instance
+             */
+            public static create(properties?: transit_realtime.TripModifications.IModification): transit_realtime.TripModifications.Modification;
+
+            /**
+             * Encodes the specified Modification message. Does not implicitly {@link transit_realtime.TripModifications.Modification.verify|verify} messages.
+             * @param message Modification message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: transit_realtime.TripModifications.IModification, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Modification message, length delimited. Does not implicitly {@link transit_realtime.TripModifications.Modification.verify|verify} messages.
+             * @param message Modification message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: transit_realtime.TripModifications.IModification, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Modification message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Modification
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): transit_realtime.TripModifications.Modification;
+
+            /**
+             * Decodes a Modification message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Modification
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): transit_realtime.TripModifications.Modification;
+
+            /**
+             * Verifies a Modification message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Modification message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Modification
+             */
+            public static fromObject(object: { [k: string]: any }): transit_realtime.TripModifications.Modification;
+
+            /**
+             * Creates a plain object from a Modification message. Also converts values to other types if specified.
+             * @param message Modification
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: transit_realtime.TripModifications.Modification, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Modification to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the type url for Modification
+             * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns The type url
+             */
+            public static getTypeUrl(prefix?: string): string;
+        }
+
+        /** Properties of a SelectedTrips. */
+        interface ISelectedTrips {
+
+            /** SelectedTrips tripIds */
+            tripIds?: (string[]|null);
+
+            /** SelectedTrips shapeId */
+            shapeId?: (string|null);
+
+            /** Unknown fields preserved while decoding */
+            $unknowns?: Uint8Array[];
+        }
+
+        /** Represents a SelectedTrips. */
+        class SelectedTrips implements ISelectedTrips {
+
+            /**
+             * Constructs a new SelectedTrips.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: transit_realtime.TripModifications.ISelectedTrips);
+
+            /** Unknown fields preserved while decoding */
+            public $unknowns?: Uint8Array[];
+
+            /** SelectedTrips tripIds. */
+            public tripIds: string[];
+
+            /** SelectedTrips shapeId. */
+            public shapeId: string;
+
+            /**
+             * Creates a new SelectedTrips instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns SelectedTrips instance
+             */
+            public static create(properties?: transit_realtime.TripModifications.ISelectedTrips): transit_realtime.TripModifications.SelectedTrips;
+
+            /**
+             * Encodes the specified SelectedTrips message. Does not implicitly {@link transit_realtime.TripModifications.SelectedTrips.verify|verify} messages.
+             * @param message SelectedTrips message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: transit_realtime.TripModifications.ISelectedTrips, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified SelectedTrips message, length delimited. Does not implicitly {@link transit_realtime.TripModifications.SelectedTrips.verify|verify} messages.
+             * @param message SelectedTrips message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: transit_realtime.TripModifications.ISelectedTrips, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a SelectedTrips message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns SelectedTrips
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): transit_realtime.TripModifications.SelectedTrips;
+
+            /**
+             * Decodes a SelectedTrips message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns SelectedTrips
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): transit_realtime.TripModifications.SelectedTrips;
+
+            /**
+             * Verifies a SelectedTrips message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a SelectedTrips message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns SelectedTrips
+             */
+            public static fromObject(object: { [k: string]: any }): transit_realtime.TripModifications.SelectedTrips;
+
+            /**
+             * Creates a plain object from a SelectedTrips message. Also converts values to other types if specified.
+             * @param message SelectedTrips
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: transit_realtime.TripModifications.SelectedTrips, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this SelectedTrips to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the type url for SelectedTrips
+             * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns The type url
+             */
+            public static getTypeUrl(prefix?: string): string;
+        }
+    }
+
+    /** Properties of a StopSelector. */
+    interface IStopSelector {
+
+        /** StopSelector stopSequence */
+        stopSequence?: (number|null);
+
+        /** StopSelector stopId */
+        stopId?: (string|null);
+
+        /** Unknown fields preserved while decoding */
+        $unknowns?: Uint8Array[];
+    }
+
+    /** Represents a StopSelector. */
+    class StopSelector implements IStopSelector {
+
+        /**
+         * Constructs a new StopSelector.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: transit_realtime.IStopSelector);
+
+        /** Unknown fields preserved while decoding */
+        public $unknowns?: Uint8Array[];
+
+        /** StopSelector stopSequence. */
+        public stopSequence: number;
+
+        /** StopSelector stopId. */
+        public stopId: string;
+
+        /**
+         * Creates a new StopSelector instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns StopSelector instance
+         */
+        public static create(properties?: transit_realtime.IStopSelector): transit_realtime.StopSelector;
+
+        /**
+         * Encodes the specified StopSelector message. Does not implicitly {@link transit_realtime.StopSelector.verify|verify} messages.
+         * @param message StopSelector message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: transit_realtime.IStopSelector, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified StopSelector message, length delimited. Does not implicitly {@link transit_realtime.StopSelector.verify|verify} messages.
+         * @param message StopSelector message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: transit_realtime.IStopSelector, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a StopSelector message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns StopSelector
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): transit_realtime.StopSelector;
+
+        /**
+         * Decodes a StopSelector message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns StopSelector
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): transit_realtime.StopSelector;
+
+        /**
+         * Verifies a StopSelector message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a StopSelector message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns StopSelector
+         */
+        public static fromObject(object: { [k: string]: any }): transit_realtime.StopSelector;
+
+        /**
+         * Creates a plain object from a StopSelector message. Also converts values to other types if specified.
+         * @param message StopSelector
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: transit_realtime.StopSelector, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this StopSelector to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the type url for StopSelector
+         * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns The type url
+         */
+        public static getTypeUrl(prefix?: string): string;
+    }
+
+    /** Properties of a ReplacementStop. */
+    interface IReplacementStop {
+
+        /** ReplacementStop travelTimeToStop */
+        travelTimeToStop?: (number|null);
+
+        /** ReplacementStop stopId */
+        stopId?: (string|null);
+
+        /** Unknown fields preserved while decoding */
+        $unknowns?: Uint8Array[];
+    }
+
+    /** Represents a ReplacementStop. */
+    class ReplacementStop implements IReplacementStop {
+
+        /**
+         * Constructs a new ReplacementStop.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: transit_realtime.IReplacementStop);
+
+        /** Unknown fields preserved while decoding */
+        public $unknowns?: Uint8Array[];
+
+        /** ReplacementStop travelTimeToStop. */
+        public travelTimeToStop: number;
+
+        /** ReplacementStop stopId. */
+        public stopId: string;
+
+        /**
+         * Creates a new ReplacementStop instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ReplacementStop instance
+         */
+        public static create(properties?: transit_realtime.IReplacementStop): transit_realtime.ReplacementStop;
+
+        /**
+         * Encodes the specified ReplacementStop message. Does not implicitly {@link transit_realtime.ReplacementStop.verify|verify} messages.
+         * @param message ReplacementStop message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: transit_realtime.IReplacementStop, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ReplacementStop message, length delimited. Does not implicitly {@link transit_realtime.ReplacementStop.verify|verify} messages.
+         * @param message ReplacementStop message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: transit_realtime.IReplacementStop, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a ReplacementStop message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ReplacementStop
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): transit_realtime.ReplacementStop;
+
+        /**
+         * Decodes a ReplacementStop message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ReplacementStop
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): transit_realtime.ReplacementStop;
+
+        /**
+         * Verifies a ReplacementStop message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a ReplacementStop message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ReplacementStop
+         */
+        public static fromObject(object: { [k: string]: any }): transit_realtime.ReplacementStop;
+
+        /**
+         * Creates a plain object from a ReplacementStop message. Also converts values to other types if specified.
+         * @param message ReplacementStop
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: transit_realtime.ReplacementStop, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ReplacementStop to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the type url for ReplacementStop
+         * @param [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns The type url
+         */
+        public static getTypeUrl(prefix?: string): string;
     }
 }
