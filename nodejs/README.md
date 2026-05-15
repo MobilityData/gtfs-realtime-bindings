@@ -14,6 +14,12 @@ JavaScript environments as well.
 We use the [ProtoBuf.js](https://github.com/protobufjs/protobuf.js) library for
 JavaScript Protocol Buffer support.
 
+## Breaking Changes
+
+### Version 2.0.0
+
+Version 2.0.0 requires **Node.js 22 or later**. If you are using an older version of Node.js, please continue using version `1.x`.
+
 ## Add the Dependency
 
 To use the `gtfs-realtime-bindings` classes in your own project, you need to

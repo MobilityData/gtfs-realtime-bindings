@@ -2,13 +2,13 @@
     "author": "MobilityData",
     "name": "gtfs-realtime-bindings",
     "engines": {
-        "node": ">=18"
+        "node": ">=22"
     },
     "description": "Javascript classes generated from the GTFS-realtime protocol buffer specification.",
     "tags": [
         "gtfs-realtime"
     ],
-    "version": "1.2.0",
+    "version": "2.0.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/MobilityData/gtfs-realtime-bindings.git"
@@ -35,5 +35,8 @@
             "type": "Apache 2.0",
             "url": "http://www.apache.org/licenses/LICENSE-2.0"
         }
-    ]
+    ],
+    "publishConfig": {
+        "provenance": true
+    }
 }

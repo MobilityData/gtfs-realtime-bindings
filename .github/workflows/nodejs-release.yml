@@ -5,13 +5,17 @@ on:
     branches: [master]
     paths:
       - 'nodejs/**'
-      - 'gtfs-realtime.proto'
   workflow_dispatch:
+
+env:
+  node_version: '22'
 
 jobs:
   release:
     name: Publish to npm
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -21,7 +25,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: ${{ env.node_version }}
           registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
           cache-dependency-path: nodejs/package-lock.json
@@ -52,6 +56,4 @@ jobs:
       - name: Publish to npm
         if: steps.version_check.outputs.skip == 'false'
         working-directory: nodejs
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public --provenance

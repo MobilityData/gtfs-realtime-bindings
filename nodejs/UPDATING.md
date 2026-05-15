@@ -4,7 +4,7 @@
 
 #### One-Time Setup
 
-1. Download and install [Node.js](https://nodejs.org/) >= 18 (see `engines` in `package.json`).
+1. Download and install [Node.js](https://nodejs.org/) >= 22 (see `engines` in `package.json`).
 
 #### Every time node package dependencies change
 
