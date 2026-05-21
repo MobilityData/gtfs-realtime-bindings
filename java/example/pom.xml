@@ -28,7 +28,7 @@
     <properties>
         <!-- Change this to the desired release version, e.g. 0.1.0, to use a release build.
              Keep the -SNAPSHOT suffix to use the latest snapshot. -->
-        <gtfs-realtime-bindings.version>0.0.9-SNAPSHOT</gtfs-realtime-bindings.version>
+        <gtfs-realtime-bindings.version>0.1.0</gtfs-realtime-bindings.version>
     </properties>
 
     <dependencies>
