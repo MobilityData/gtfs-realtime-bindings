@@ -30,6 +30,9 @@ jobs:
           cache: 'npm'
           cache-dependency-path: nodejs/package-lock.json
 
+      - name: Update npm
+        run: npm install -g npm@latest
+
       - name: Install dependencies
         working-directory: nodejs
         run: npm ci
@@ -52,4 +55,4 @@ jobs:
 
       - name: Publish to npm
         working-directory: nodejs
-        run: npm publish --access public --provenance
+        run: npm publish --access public
