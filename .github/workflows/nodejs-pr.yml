@@ -5,7 +5,6 @@ on:
     paths:
       - 'nodejs/**'
       - '.github/workflows/nodejs-pr.yml'
-      - '.github/workflows/nodejs-release.yml'
 
 env:
   node_version: '22'

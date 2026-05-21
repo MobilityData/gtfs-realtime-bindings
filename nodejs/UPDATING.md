@@ -38,7 +38,7 @@
 ## Publishing a new release
 
 Releases are published to npm automatically via GitHub Actions when a change to the `nodejs/` folder
-or `gtfs-realtime.proto` is merged into `master`, provided the version in `package.json` has been bumped.
+is merged into `master`, provided the version in `package.json` has been bumped.
 
 To publish manually (e.g. for testing), log in with an npm account that has permissions for
 https://www.npmjs.com/package/gtfs-realtime-bindings and run from the `nodejs/` folder:
