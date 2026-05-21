@@ -49,16 +49,7 @@ jobs:
 
       - name: Deploy with Maven
         working-directory: ./java
-        run: |
-          if [ "${{ github.event_name }}" = "push" ]; then
-            # Merge to master: auto-publish and block until the artifact is live on Maven Central.
-            mvn -B clean deploy -Pci-cd
-          else
-            # Manual dispatch: upload to staging only — do not auto-publish.
-            # Review at https://central.sonatype.com/publishing/deployments then click Publish or Drop.
-            # waitUntil=uploaded prevents the build from hanging waiting for a manual action.
-            mvn -B clean deploy -Pci-cd -Dcentral.autoPublish=false -Dcentral.waitUntil=uploaded
-          fi
+        run: mvn -B clean deploy -Pci-cd
         env:
           MAVEN_USERNAME: ${{ env.MAVEN_USERNAME }}
           MAVEN_PASSWORD: ${{ env.MAVEN_PASSWORD }}

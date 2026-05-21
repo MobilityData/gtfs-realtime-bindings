@@ -122,25 +122,7 @@
     </build>
 
 
-    <properties>
-        <!-- Publishing behaviour — overridable from the command line.
-             Defaults suit automated releases (merge to master).
-             For manual staging via workflow_dispatch, the CI workflow overrides these
-             with -Dcentral.autoPublish=false -Dcentral.waitUntil=uploaded so the build
-             returns immediately after upload and the artifact can be reviewed at
-             https://central.sonatype.com/publishing/deployments before going live. -->
-        <central.autoPublish>true</central.autoPublish>
-        <central.waitUntil>published</central.waitUntil>
-    </properties>
-
     <profiles>
-
-        <!--
-            ci-cd: activated by CI for all releases (both push and workflow_dispatch).
-            Signs artifacts with GPG and publishes to Maven Central.
-            Publishing behaviour is controlled by the central.autoPublish and
-            central.waitUntil properties above.
-        -->
         <profile>
             <id>ci-cd</id>
             <build>
@@ -175,14 +157,13 @@
                         <extensions>true</extensions>
                         <configuration>
                             <publishingServerId>central</publishingServerId>
-                            <autoPublish>${central.autoPublish}</autoPublish>
-                            <waitUntil>${central.waitUntil}</waitUntil>
+                            <autoPublish>true</autoPublish>
+                            <waitUntil>published</waitUntil>
                         </configuration>
                     </plugin>
                 </plugins>
             </build>
         </profile>
-
     </profiles>
 
 </project>
