@@ -1,0 +1,55 @@
+name: Node.js Release to npm
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'nodejs/**'
+  workflow_dispatch:
+
+env:
+  node_version: '22'
+
+jobs:
+  release:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.node_version }}
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+          cache-dependency-path: nodejs/package-lock.json
+
+      - name: Install dependencies
+        working-directory: nodejs
+        run: npm ci
+
+      - name: Run tests
+        working-directory: nodejs
+        run: npm test
+
+      - name: Check if version changed
+        id: version_check
+        run: |
+          CURRENT_VERSION=$(python3 -c "import json; print(json.load(open('nodejs/package.json'))['version'])")
+          PUBLISHED_VERSION=$(npm view gtfs-realtime-bindings version 2>/dev/null || echo "0.0.0")
+          echo "Current version:   $CURRENT_VERSION"
+          echo "Published version: $PUBLISHED_VERSION"
+          if [ "$CURRENT_VERSION" = "$PUBLISHED_VERSION" ]; then
+            echo "::error::Version in nodejs/package.json was not bumped (still $PR_VERSION). Please bump the version."
+            exit 1
+          fi
+
+      - name: Publish to npm
+        working-directory: nodejs
+        run: npm publish --access public --provenance
