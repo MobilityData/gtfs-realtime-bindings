@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.mobilitydata</groupId>
+    <artifactId>gtfs-realtime-bindings-example</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>gtfs-realtime-bindings-example</name>
+    <description>Example showing how to use the gtfs-realtime-bindings Java library.</description>
+
+    <properties>
+        <!-- Change this to the desired release version, e.g. 0.1.0, to use a release build.
+             Keep the -SNAPSHOT suffix to use the latest snapshot. -->
+        <gtfs-realtime-bindings.version>0.1.0</gtfs-realtime-bindings.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.mobilitydata</groupId>
+            <artifactId>gtfs-realtime-bindings</artifactId>
+            <version>${gtfs-realtime-bindings.version}</version>
+        </dependency>
+    </dependencies>
+
+    <!-- Snapshot repository — only needed when using a -SNAPSHOT version above.
+         Safe to remove when pointing to a release. -->
+    <repositories>
+        <repository>
+            <id>central-snapshots</id>
+            <url>https://central.sonatype.com/repository/maven-snapshots</url>
+            <snapshots><enabled>true</enabled></snapshots>
+            <releases><enabled>false</enabled></releases>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <!-- Run with: mvn exec:java -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <mainClass>org.mobilitydata.example.GtfsRealtimeExample</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
