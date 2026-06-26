@@ -1,0 +1,63 @@
+name: Bindings CI
+
+# Guards against the bindings drifting from gtfs-realtime.proto, and runs each
+# language's test suite. Triggered when the proto, the codegen, or any binding
+# changes. (Addresses #110.)
+
+on:
+  pull_request:
+    paths:
+      - 'gtfs-realtime.proto'
+      - 'codegen/**'
+      - 'python/**'
+      - 'golang/**'
+      - 'java/**'
+      - 'nodejs/**'
+      - 'ruby/**'
+      - '.github/workflows/bindings-ci.yml'
+  push:
+    branches: [master]
+    paths:
+      - 'gtfs-realtime.proto'
+      - 'codegen/**'
+  workflow_dispatch:
+
+jobs:
+  drift-check:
+    name: Bindings match proto
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Regenerate all bindings
+        run: ./codegen/generate.sh
+
+      - name: Fail if committed bindings are stale
+        run: |
+          if ! git diff --quiet; then
+            echo "::error::Generated bindings are out of date with gtfs-realtime.proto. Run 'codegen/generate.sh' and commit the result."
+            git --no-pager diff --stat
+            exit 1
+          fi
+          echo "All bindings are up to date with gtfs-realtime.proto."
+
+  test:
+    name: Test ${{ matrix.language }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # Each language's Dockerfile CMD regenerates and runs that language's
+        # tests. python and nodejs also have dedicated native workflows
+        # (python-pr.yml / nodejs-pr.yml); golang and java are covered here.
+        language: [python, golang, java]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build ${{ matrix.language }} image
+        run: docker build -t gtfs-${{ matrix.language }} -f ${{ matrix.language }}/Dockerfile .
+
+      - name: Generate and test ${{ matrix.language }}
+        run: docker run --rm gtfs-${{ matrix.language }}
