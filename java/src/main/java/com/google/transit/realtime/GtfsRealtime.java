@@ -19695,6 +19695,14 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
        * <code>MEDICAL_EMERGENCY = 12;</code>
        */
       MEDICAL_EMERGENCY(12),
+      /**
+       * <pre>
+       * A special one-time or recurring event such as a parade, festival, performance, farmers market, or sporting event.
+       * </pre>
+       *
+       * <code>SPECIAL_EVENT = 13;</code>
+       */
+      SPECIAL_EVENT(13),
       ;
 
       static {
@@ -19766,6 +19774,14 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
        * <code>MEDICAL_EMERGENCY = 12;</code>
        */
       public static final int MEDICAL_EMERGENCY_VALUE = 12;
+      /**
+       * <pre>
+       * A special one-time or recurring event such as a parade, festival, performance, farmers market, or sporting event.
+       * </pre>
+       *
+       * <code>SPECIAL_EVENT = 13;</code>
+       */
+      public static final int SPECIAL_EVENT_VALUE = 13;
 
 
       public final int getNumber() {
@@ -19800,6 +19816,7 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
           case 10: return CONSTRUCTION;
           case 11: return POLICE_ACTIVITY;
           case 12: return MEDICAL_EMERGENCY;
+          case 13: return SPECIAL_EVENT;
           default: return null;
         }
       }
@@ -47409,7 +47426,7 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
       "_ONLY\020\003\022\036\n\032CRUSHED_STANDING_ROOM_ONLY\020\004\022" +
       "\010\n\004FULL\020\005\022\034\n\030NOT_ACCEPTING_PASSENGERS\020\006\022" +
       "\025\n\021NO_DATA_AVAILABLE\020\007\022\021\n\rNOT_BOARDABLE\020" +
-      "\010*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\353\n\n\005Alert\0222\n\ractive_pe" +
+      "\010*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\376\n\n\005Alert\0222\n\ractive_pe" +
       "riod\030\001 \003(\0132\033.transit_realtime.TimeRange\022" +
       "9\n\017informed_entity\030\005 \003(\0132 .transit_realt" +
       "ime.EntitySelector\022;\n\005cause\030\006 \001(\0162\035.tran" +
@@ -47430,98 +47447,98 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
       "\0132\".transit_realtime.TranslatedString\0228\n" +
       "\014cause_detail\030\021 \001(\0132\".transit_realtime.T" +
       "ranslatedString\0229\n\reffect_detail\030\022 \001(\0132\"" +
-      ".transit_realtime.TranslatedString\"\330\001\n\005C" +
+      ".transit_realtime.TranslatedString\"\353\001\n\005C" +
       "ause\022\021\n\rUNKNOWN_CAUSE\020\001\022\017\n\013OTHER_CAUSE\020\002" +
       "\022\025\n\021TECHNICAL_PROBLEM\020\003\022\n\n\006STRIKE\020\004\022\021\n\rD" +
       "EMONSTRATION\020\005\022\014\n\010ACCIDENT\020\006\022\013\n\007HOLIDAY\020" +
       "\007\022\013\n\007WEATHER\020\010\022\017\n\013MAINTENANCE\020\t\022\020\n\014CONST" +
       "RUCTION\020\n\022\023\n\017POLICE_ACTIVITY\020\013\022\025\n\021MEDICA" +
-      "L_EMERGENCY\020\014\"\335\001\n\006Effect\022\016\n\nNO_SERVICE\020\001" +
-      "\022\023\n\017REDUCED_SERVICE\020\002\022\026\n\022SIGNIFICANT_DEL" +
-      "AYS\020\003\022\n\n\006DETOUR\020\004\022\026\n\022ADDITIONAL_SERVICE\020" +
-      "\005\022\024\n\020MODIFIED_SERVICE\020\006\022\020\n\014OTHER_EFFECT\020" +
-      "\007\022\022\n\016UNKNOWN_EFFECT\020\010\022\016\n\nSTOP_MOVED\020\t\022\r\n" +
-      "\tNO_EFFECT\020\n\022\027\n\023ACCESSIBILITY_ISSUE\020\013\"H\n" +
-      "\rSeverityLevel\022\024\n\020UNKNOWN_SEVERITY\020\001\022\010\n\004" +
-      "INFO\020\002\022\013\n\007WARNING\020\003\022\n\n\006SEVERE\020\004*\006\010\350\007\020\320\017*" +
-      "\006\010\250F\020\220N\"7\n\tTimeRange\022\r\n\005start\030\001 \001(\004\022\013\n\003e" +
-      "nd\030\002 \001(\004*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"q\n\010Position\022\020\n\010" +
-      "latitude\030\001 \002(\002\022\021\n\tlongitude\030\002 \002(\002\022\017\n\007bea" +
-      "ring\030\003 \001(\002\022\020\n\010odometer\030\004 \001(\001\022\r\n\005speed\030\005 " +
-      "\001(\002*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\267\004\n\016TripDescriptor\022\017" +
-      "\n\007trip_id\030\001 \001(\t\022\020\n\010route_id\030\005 \001(\t\022\024\n\014dir" +
-      "ection_id\030\006 \001(\r\022\022\n\nstart_time\030\002 \001(\t\022\022\n\ns" +
-      "tart_date\030\003 \001(\t\022T\n\025schedule_relationship" +
-      "\030\004 \001(\01625.transit_realtime.TripDescriptor" +
-      ".ScheduleRelationship\022L\n\rmodified_trip\030\007" +
-      " \001(\01325.transit_realtime.TripDescriptor.M" +
-      "odifiedTripSelector\032\202\001\n\024ModifiedTripSele" +
-      "ctor\022\030\n\020modifications_id\030\001 \001(\t\022\030\n\020affect" +
-      "ed_trip_id\030\002 \001(\t\022\022\n\nstart_time\030\003 \001(\t\022\022\n\n" +
-      "start_date\030\004 \001(\t*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\212\001\n\024Sch" +
-      "eduleRelationship\022\r\n\tSCHEDULED\020\000\022\r\n\005ADDE" +
-      "D\020\001\032\002\010\001\022\017\n\013UNSCHEDULED\020\002\022\014\n\010CANCELED\020\003\022\017" +
-      "\n\013REPLACEMENT\020\005\022\016\n\nDUPLICATED\020\006\022\013\n\007DELET" +
-      "ED\020\007\022\007\n\003NEW\020\010*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\243\002\n\021Vehicl" +
-      "eDescriptor\022\n\n\002id\030\001 \001(\t\022\r\n\005label\030\002 \001(\t\022\025" +
-      "\n\rlicense_plate\030\003 \001(\t\022a\n\025wheelchair_acce" +
-      "ssible\030\004 \001(\01628.transit_realtime.VehicleD" +
-      "escriptor.WheelchairAccessible:\010NO_VALUE" +
-      "\"i\n\024WheelchairAccessible\022\014\n\010NO_VALUE\020\000\022\013" +
-      "\n\007UNKNOWN\020\001\022\031\n\025WHEELCHAIR_ACCESSIBLE\020\002\022\033" +
-      "\n\027WHEELCHAIR_INACCESSIBLE\020\003*\006\010\350\007\020\320\017*\006\010\250F" +
-      "\020\220N\"\260\001\n\016EntitySelector\022\021\n\tagency_id\030\001 \001(" +
-      "\t\022\020\n\010route_id\030\002 \001(\t\022\022\n\nroute_type\030\003 \001(\005\022" +
-      ".\n\004trip\030\004 \001(\0132 .transit_realtime.TripDes" +
-      "criptor\022\017\n\007stop_id\030\005 \001(\t\022\024\n\014direction_id" +
-      "\030\006 \001(\r*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\246\001\n\020TranslatedStr" +
-      "ing\022C\n\013translation\030\001 \003(\0132..transit_realt" +
-      "ime.TranslatedString.Translation\032=\n\013Tran" +
-      "slation\022\014\n\004text\030\001 \002(\t\022\020\n\010language\030\002 \001(\t*" +
-      "\006\010\350\007\020\320\017*\006\010\250F\020\220N*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\301\001\n\017Tran" +
-      "slatedImage\022I\n\017localized_image\030\001 \003(\01320.t" +
-      "ransit_realtime.TranslatedImage.Localize" +
-      "dImage\032S\n\016LocalizedImage\022\013\n\003url\030\001 \002(\t\022\022\n" +
-      "\nmedia_type\030\002 \002(\t\022\020\n\010language\030\003 \001(\t*\006\010\350\007" +
-      "\020\320\017*\006\010\250F\020\220N*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"C\n\005Shape\022\020\n\010" +
-      "shape_id\030\001 \001(\t\022\030\n\020encoded_polyline\030\002 \001(\t" +
-      "*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\204\005\n\004Stop\022\017\n\007stop_id\030\001 \001" +
-      "(\t\0225\n\tstop_code\030\002 \001(\0132\".transit_realtime" +
-      ".TranslatedString\0225\n\tstop_name\030\003 \001(\0132\".t" +
-      "ransit_realtime.TranslatedString\0229\n\rtts_" +
-      "stop_name\030\004 \001(\0132\".transit_realtime.Trans" +
-      "latedString\0225\n\tstop_desc\030\005 \001(\0132\".transit" +
-      "_realtime.TranslatedString\022\020\n\010stop_lat\030\006" +
-      " \001(\002\022\020\n\010stop_lon\030\007 \001(\002\022\017\n\007zone_id\030\010 \001(\t\022" +
-      "4\n\010stop_url\030\t \001(\0132\".transit_realtime.Tra" +
-      "nslatedString\022\026\n\016parent_station\030\013 \001(\t\022\025\n" +
-      "\rstop_timezone\030\014 \001(\t\022O\n\023wheelchair_board" +
-      "ing\030\r \001(\0162).transit_realtime.Stop.Wheelc" +
-      "hairBoarding:\007UNKNOWN\022\020\n\010level_id\030\016 \001(\t\022" +
-      "9\n\rplatform_code\030\017 \001(\0132\".transit_realtim" +
-      "e.TranslatedString\"C\n\022WheelchairBoarding" +
-      "\022\013\n\007UNKNOWN\020\000\022\r\n\tAVAILABLE\020\001\022\021\n\rNOT_AVAI" +
-      "LABLE\020\002*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\337\004\n\021TripModifica" +
-      "tions\022I\n\016selected_trips\030\001 \003(\01321.transit_" +
-      "realtime.TripModifications.SelectedTrips" +
-      "\022\023\n\013start_times\030\002 \003(\t\022\025\n\rservice_dates\030\003" +
-      " \003(\t\022G\n\rmodifications\030\004 \003(\01320.transit_re" +
-      "altime.TripModifications.Modification\032\264\002" +
-      "\n\014Modification\022;\n\023start_stop_selector\030\001 " +
-      "\001(\0132\036.transit_realtime.StopSelector\0229\n\021e" +
-      "nd_stop_selector\030\002 \001(\0132\036.transit_realtim" +
-      "e.StopSelector\022(\n\035propagated_modificatio" +
-      "n_delay\030\003 \001(\005:\0010\022<\n\021replacement_stops\030\004 " +
-      "\003(\0132!.transit_realtime.ReplacementStop\022\030" +
-      "\n\020service_alert_id\030\005 \001(\t\022\032\n\022last_modifie" +
-      "d_time\030\006 \001(\004*\006\010\350\007\020\320\017*\006\010\250F\020\220N\032C\n\rSelected" +
-      "Trips\022\020\n\010trip_ids\030\001 \003(\t\022\020\n\010shape_id\030\002 \001(" +
-      "\t*\006\010\350\007\020\320\017*\006\010\250F\020\220N*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"F\n\014Sto" +
-      "pSelector\022\025\n\rstop_sequence\030\001 \001(\r\022\017\n\007stop" +
-      "_id\030\002 \001(\t*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"O\n\017Replacement" +
-      "Stop\022\033\n\023travel_time_to_stop\030\001 \001(\005\022\017\n\007sto" +
-      "p_id\030\002 \001(\t*\006\010\350\007\020\320\017*\006\010\250F\020\220NB\035\n\033com.google" +
-      ".transit.realtime"
+      "L_EMERGENCY\020\014\022\021\n\rSPECIAL_EVENT\020\r\"\335\001\n\006Eff" +
+      "ect\022\016\n\nNO_SERVICE\020\001\022\023\n\017REDUCED_SERVICE\020\002" +
+      "\022\026\n\022SIGNIFICANT_DELAYS\020\003\022\n\n\006DETOUR\020\004\022\026\n\022" +
+      "ADDITIONAL_SERVICE\020\005\022\024\n\020MODIFIED_SERVICE" +
+      "\020\006\022\020\n\014OTHER_EFFECT\020\007\022\022\n\016UNKNOWN_EFFECT\020\010" +
+      "\022\016\n\nSTOP_MOVED\020\t\022\r\n\tNO_EFFECT\020\n\022\027\n\023ACCES" +
+      "SIBILITY_ISSUE\020\013\"H\n\rSeverityLevel\022\024\n\020UNK" +
+      "NOWN_SEVERITY\020\001\022\010\n\004INFO\020\002\022\013\n\007WARNING\020\003\022\n" +
+      "\n\006SEVERE\020\004*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"7\n\tTimeRange\022" +
+      "\r\n\005start\030\001 \001(\004\022\013\n\003end\030\002 \001(\004*\006\010\350\007\020\320\017*\006\010\250F" +
+      "\020\220N\"q\n\010Position\022\020\n\010latitude\030\001 \002(\002\022\021\n\tlon" +
+      "gitude\030\002 \002(\002\022\017\n\007bearing\030\003 \001(\002\022\020\n\010odomete" +
+      "r\030\004 \001(\001\022\r\n\005speed\030\005 \001(\002*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\267" +
+      "\004\n\016TripDescriptor\022\017\n\007trip_id\030\001 \001(\t\022\020\n\010ro" +
+      "ute_id\030\005 \001(\t\022\024\n\014direction_id\030\006 \001(\r\022\022\n\nst" +
+      "art_time\030\002 \001(\t\022\022\n\nstart_date\030\003 \001(\t\022T\n\025sc" +
+      "hedule_relationship\030\004 \001(\01625.transit_real" +
+      "time.TripDescriptor.ScheduleRelationship" +
+      "\022L\n\rmodified_trip\030\007 \001(\01325.transit_realti" +
+      "me.TripDescriptor.ModifiedTripSelector\032\202" +
+      "\001\n\024ModifiedTripSelector\022\030\n\020modifications" +
+      "_id\030\001 \001(\t\022\030\n\020affected_trip_id\030\002 \001(\t\022\022\n\ns" +
+      "tart_time\030\003 \001(\t\022\022\n\nstart_date\030\004 \001(\t*\006\010\350\007" +
+      "\020\320\017*\006\010\250F\020\220N\"\212\001\n\024ScheduleRelationship\022\r\n\t" +
+      "SCHEDULED\020\000\022\r\n\005ADDED\020\001\032\002\010\001\022\017\n\013UNSCHEDULE" +
+      "D\020\002\022\014\n\010CANCELED\020\003\022\017\n\013REPLACEMENT\020\005\022\016\n\nDU" +
+      "PLICATED\020\006\022\013\n\007DELETED\020\007\022\007\n\003NEW\020\010*\006\010\350\007\020\320\017" +
+      "*\006\010\250F\020\220N\"\243\002\n\021VehicleDescriptor\022\n\n\002id\030\001 \001" +
+      "(\t\022\r\n\005label\030\002 \001(\t\022\025\n\rlicense_plate\030\003 \001(\t" +
+      "\022a\n\025wheelchair_accessible\030\004 \001(\01628.transi" +
+      "t_realtime.VehicleDescriptor.WheelchairA" +
+      "ccessible:\010NO_VALUE\"i\n\024WheelchairAccessi" +
+      "ble\022\014\n\010NO_VALUE\020\000\022\013\n\007UNKNOWN\020\001\022\031\n\025WHEELC" +
+      "HAIR_ACCESSIBLE\020\002\022\033\n\027WHEELCHAIR_INACCESS" +
+      "IBLE\020\003*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\260\001\n\016EntitySelecto" +
+      "r\022\021\n\tagency_id\030\001 \001(\t\022\020\n\010route_id\030\002 \001(\t\022\022" +
+      "\n\nroute_type\030\003 \001(\005\022.\n\004trip\030\004 \001(\0132 .trans" +
+      "it_realtime.TripDescriptor\022\017\n\007stop_id\030\005 " +
+      "\001(\t\022\024\n\014direction_id\030\006 \001(\r*\006\010\350\007\020\320\017*\006\010\250F\020\220" +
+      "N\"\246\001\n\020TranslatedString\022C\n\013translation\030\001 " +
+      "\003(\0132..transit_realtime.TranslatedString." +
+      "Translation\032=\n\013Translation\022\014\n\004text\030\001 \002(\t" +
+      "\022\020\n\010language\030\002 \001(\t*\006\010\350\007\020\320\017*\006\010\250F\020\220N*\006\010\350\007\020" +
+      "\320\017*\006\010\250F\020\220N\"\301\001\n\017TranslatedImage\022I\n\017locali" +
+      "zed_image\030\001 \003(\01320.transit_realtime.Trans" +
+      "latedImage.LocalizedImage\032S\n\016LocalizedIm" +
+      "age\022\013\n\003url\030\001 \002(\t\022\022\n\nmedia_type\030\002 \002(\t\022\020\n\010" +
+      "language\030\003 \001(\t*\006\010\350\007\020\320\017*\006\010\250F\020\220N*\006\010\350\007\020\320\017*\006" +
+      "\010\250F\020\220N\"C\n\005Shape\022\020\n\010shape_id\030\001 \001(\t\022\030\n\020enc" +
+      "oded_polyline\030\002 \001(\t*\006\010\350\007\020\320\017*\006\010\250F\020\220N\"\204\005\n\004" +
+      "Stop\022\017\n\007stop_id\030\001 \001(\t\0225\n\tstop_code\030\002 \001(\013" +
+      "2\".transit_realtime.TranslatedString\0225\n\t" +
+      "stop_name\030\003 \001(\0132\".transit_realtime.Trans" +
+      "latedString\0229\n\rtts_stop_name\030\004 \001(\0132\".tra" +
+      "nsit_realtime.TranslatedString\0225\n\tstop_d" +
+      "esc\030\005 \001(\0132\".transit_realtime.TranslatedS" +
+      "tring\022\020\n\010stop_lat\030\006 \001(\002\022\020\n\010stop_lon\030\007 \001(" +
+      "\002\022\017\n\007zone_id\030\010 \001(\t\0224\n\010stop_url\030\t \001(\0132\".t" +
+      "ransit_realtime.TranslatedString\022\026\n\016pare" +
+      "nt_station\030\013 \001(\t\022\025\n\rstop_timezone\030\014 \001(\t\022" +
+      "O\n\023wheelchair_boarding\030\r \001(\0162).transit_r" +
+      "ealtime.Stop.WheelchairBoarding:\007UNKNOWN" +
+      "\022\020\n\010level_id\030\016 \001(\t\0229\n\rplatform_code\030\017 \001(" +
+      "\0132\".transit_realtime.TranslatedString\"C\n" +
+      "\022WheelchairBoarding\022\013\n\007UNKNOWN\020\000\022\r\n\tAVAI" +
+      "LABLE\020\001\022\021\n\rNOT_AVAILABLE\020\002*\006\010\350\007\020\320\017*\006\010\250F\020" +
+      "\220N\"\337\004\n\021TripModifications\022I\n\016selected_tri" +
+      "ps\030\001 \003(\01321.transit_realtime.TripModifica" +
+      "tions.SelectedTrips\022\023\n\013start_times\030\002 \003(\t" +
+      "\022\025\n\rservice_dates\030\003 \003(\t\022G\n\rmodifications" +
+      "\030\004 \003(\01320.transit_realtime.TripModificati" +
+      "ons.Modification\032\264\002\n\014Modification\022;\n\023sta" +
+      "rt_stop_selector\030\001 \001(\0132\036.transit_realtim" +
+      "e.StopSelector\0229\n\021end_stop_selector\030\002 \001(" +
+      "\0132\036.transit_realtime.StopSelector\022(\n\035pro" +
+      "pagated_modification_delay\030\003 \001(\005:\0010\022<\n\021r" +
+      "eplacement_stops\030\004 \003(\0132!.transit_realtim" +
+      "e.ReplacementStop\022\030\n\020service_alert_id\030\005 " +
+      "\001(\t\022\032\n\022last_modified_time\030\006 \001(\004*\006\010\350\007\020\320\017*" +
+      "\006\010\250F\020\220N\032C\n\rSelectedTrips\022\020\n\010trip_ids\030\001 \003" +
+      "(\t\022\020\n\010shape_id\030\002 \001(\t*\006\010\350\007\020\320\017*\006\010\250F\020\220N*\006\010\350" +
+      "\007\020\320\017*\006\010\250F\020\220N\"F\n\014StopSelector\022\025\n\rstop_seq" +
+      "uence\030\001 \001(\r\022\017\n\007stop_id\030\002 \001(\t*\006\010\350\007\020\320\017*\006\010\250" +
+      "F\020\220N\"O\n\017ReplacementStop\022\033\n\023travel_time_t" +
+      "o_stop\030\001 \001(\005\022\017\n\007stop_id\030\002 \001(\t*\006\010\350\007\020\320\017*\006\010" +
+      "\250F\020\220NB\035\n\033com.google.transit.realtime"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

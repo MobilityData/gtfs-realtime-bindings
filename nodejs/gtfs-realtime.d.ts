@@ -1,17 +1,3 @@
-// Copyright 2019 Google, MobilityData
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 import * as $protobuf from "protobufjs";
 import Long = require("long");
 /** Namespace transit_realtime. */
@@ -1591,7 +1577,8 @@ export namespace transit_realtime {
             MAINTENANCE = 9,
             CONSTRUCTION = 10,
             POLICE_ACTIVITY = 11,
-            MEDICAL_EMERGENCY = 12
+            MEDICAL_EMERGENCY = 12,
+            SPECIAL_EVENT = 13
         }
 
         /** Effect enum. */
