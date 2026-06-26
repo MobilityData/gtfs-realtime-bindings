@@ -49,9 +49,10 @@ jobs:
       fail-fast: false
       matrix:
         # Each language's Dockerfile CMD regenerates and runs that language's
-        # tests. python and nodejs also have dedicated native workflows
-        # (python-pr.yml / nodejs-pr.yml); golang and java are covered here.
-        language: [python, golang, java]
+        # tests. python and nodejs already have dedicated native PR workflows
+        # (python-pr.yml / nodejs-pr.yml), so this matrix only covers golang and
+        # java, which otherwise had no PR-time test coverage.
+        language: [golang, java]
     steps:
       - name: Checkout
         uses: actions/checkout@v4

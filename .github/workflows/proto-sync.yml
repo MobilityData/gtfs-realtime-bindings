@@ -64,6 +64,9 @@ jobs:
             language binding via `codegen/generate.sh`.
 
             ### Before merging
+            - [ ] **Approve the `Bindings CI` run** on this PR. GitHub does not
+                  auto-run workflows on PRs opened by `GITHUB_TOKEN`, so the
+                  checks start as "action required" until a maintainer approves.
             - [ ] Review the proto diff for breaking vs. additive changes.
             - [ ] Bump the affected per-language package versions.
             - [ ] Confirm the `Bindings CI` checks pass.
