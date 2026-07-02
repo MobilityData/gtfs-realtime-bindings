@@ -1,0 +1,146 @@
+name: Release
+
+# Single entry point for publishing the language packages that have their own
+# registries. One trigger, one job per registry; each job publishes only when
+# its package version is ahead of what's published (via the shared
+# .github/actions/check-version), and skips otherwise.
+#
+# Java/Maven Central is intentionally not here -- its GPG + 1Password + deploy
+# flow is heavier and different; see maven.yml.
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'nodejs/**'
+      - 'python/**'
+      - 'ruby/**'
+  workflow_dispatch:
+
+jobs:
+  npm:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write   # npm provenance / OIDC
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+          cache-dependency-path: nodejs/package-lock.json
+
+      - name: Read version
+        id: v
+        run: |
+          VERSION=$(python3 -c 'import json; print(json.load(open("nodejs/package.json"))["version"])')
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Check published version
+        id: guard
+        uses: ./.github/actions/check-version
+        with:
+          registry: npm
+          package: gtfs-realtime-bindings
+          version: ${{ steps.v.outputs.version }}
+
+      - name: Install, test & publish
+        if: steps.guard.outputs.publish == 'true'
+        working-directory: nodejs
+        run: |
+          npm install -g npm@latest
+          npm ci
+          npm test
+          npm publish --access public
+
+  pypi:
+    name: Publish to PyPI
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write   # PyPI Trusted Publisher / OIDC
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Read version
+        id: v
+        run: |
+          VERSION=$(grep -E '^version' python/pyproject.toml | head -1 | sed -E 's/.*"([^"]+)".*/\1/')
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Check published version
+        id: guard
+        uses: ./.github/actions/check-version
+        with:
+          registry: pypi
+          package: gtfs-realtime-bindings
+          version: ${{ steps.v.outputs.version }}
+
+      - name: Test & build
+        if: steps.guard.outputs.publish == 'true'
+        working-directory: python
+        run: |
+          python -m pip install -U pip
+          python -m pip install build twine wheel pytest protobuf
+          python -m pip install -e .
+          pytest -q tests
+          python -m build
+
+      - name: Publish to PyPI
+        if: steps.guard.outputs.publish == 'true'
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: python/dist
+
+  rubygems:
+    name: Publish to RubyGems
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+          working-directory: ruby
+
+      - name: Read version
+        id: v
+        working-directory: ruby
+        run: |
+          VERSION=$(ruby -e 'puts Gem::Specification.load("gtfs-realtime-bindings.gemspec").version')
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Check published version
+        id: guard
+        uses: ./.github/actions/check-version
+        with:
+          registry: rubygems
+          package: gtfs-realtime-bindings
+          version: ${{ steps.v.outputs.version }}
+
+      - name: Build & push gem
+        if: steps.guard.outputs.publish == 'true'
+        working-directory: ruby
+        env:
+          # RubyGems API key with push scope; the RubyGems-side equivalent of the
+          # PyPI Trusted Publisher / npm OIDC setup used above.
+          GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+        run: |
+          gem build gtfs-realtime-bindings.gemspec
+          gem push gtfs-realtime-bindings-*.gem

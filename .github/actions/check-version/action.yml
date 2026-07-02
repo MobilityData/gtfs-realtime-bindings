@@ -1,0 +1,46 @@
+name: Check published version
+description: >
+  Compare a package's local version against what's published on a registry and
+  decide whether to publish. Shared by the release.yml jobs.
+
+inputs:
+  registry:
+    description: 'One of: npm, pypi, rubygems'
+    required: true
+  package:
+    description: 'Package/gem name on the registry'
+    required: true
+  version:
+    description: 'The local/current version to compare'
+    required: true
+
+outputs:
+  publish:
+    description: "'true' when the local version is ahead of the published one"
+    value: ${{ steps.compare.outputs.publish }}
+
+runs:
+  using: composite
+  steps:
+    - id: compare
+      shell: bash
+      run: |
+        case "${{ inputs.registry }}" in
+          npm)
+            PUBLISHED=$(npm view "${{ inputs.package }}" version 2>/dev/null || echo none) ;;
+          pypi)
+            PUBLISHED=$(curl -fsSL "https://pypi.org/pypi/${{ inputs.package }}/json" \
+              | python3 -c "import sys,json; print(json.load(sys.stdin)['info']['version'])" 2>/dev/null || echo none) ;;
+          rubygems)
+            PUBLISHED=$(curl -fsSL "https://rubygems.org/api/v1/versions/${{ inputs.package }}/latest.json" \
+              | python3 -c "import sys,json; print(json.load(sys.stdin)['version'])" 2>/dev/null || echo none) ;;
+          *)
+            echo "::error::unknown registry '${{ inputs.registry }}'"; exit 1 ;;
+        esac
+        echo "${{ inputs.registry }}: local=${{ inputs.version }}  published=$PUBLISHED"
+        if [ "${{ inputs.version }}" = "$PUBLISHED" ]; then
+          echo "publish=false" >> "$GITHUB_OUTPUT"
+          echo "::notice::${{ inputs.package }} ${{ inputs.version }} is already on ${{ inputs.registry }}; skipping publish."
+        else
+          echo "publish=true" >> "$GITHUB_OUTPUT"
+        fi
