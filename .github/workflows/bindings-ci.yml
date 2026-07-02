@@ -110,8 +110,15 @@ jobs:
       - name: Fetch base branch
         run: git fetch origin "${{ github.base_ref }}"
 
+      # Only require a version bump for a language whose package actually
+      # changed in this PR. A proto/codegen/workflow-only PR (which regenerates
+      # nothing under the language dirs) must not be forced to bump versions.
       - name: Check python version bump
         run: |
+          if git diff --quiet "origin/${{ github.base_ref }}...HEAD" -- python/; then
+            echo "python/ unchanged in this PR; skipping version-bump check"
+            exit 0
+          fi
           PR_VERSION=$(grep '^version' python/pyproject.toml | head -1 || true)
           BASE_VERSION=$(git show origin/${{ github.base_ref }}:python/pyproject.toml | grep '^version' | head -1 || true)
           echo "python -- base: $BASE_VERSION  pr: $PR_VERSION"
@@ -121,6 +128,10 @@ jobs:
 
       - name: Check nodejs version bump
         run: |
+          if git diff --quiet "origin/${{ github.base_ref }}...HEAD" -- nodejs/; then
+            echo "nodejs/ unchanged in this PR; skipping version-bump check"
+            exit 0
+          fi
           BASE_VERSION=$(git show origin/${{ github.base_ref }}:nodejs/package.json | python3 -c "import sys,json; print(json.load(sys.stdin)['version'])")
           PR_VERSION=$(python3 -c "import json; print(json.load(open('nodejs/package.json'))['version'])")
           echo "nodejs -- base: $BASE_VERSION  pr: $PR_VERSION"
