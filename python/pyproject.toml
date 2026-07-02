@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gtfs-realtime-bindings"
-version = "2.0.0"
+version = "2.1.0"
 description = "Python classes generated from the GTFS-realtime protocol buffer specification."
 license = { text = "Apache License, Version 2.0" }
 requires-python = ">=3.8"
@@ -25,3 +25,8 @@ Homepage = "https://github.com/MobilityData/gtfs-realtime-bindings"
 
 [tool.setuptools]
 packages = ["google", "google.transit"]
+
+# Ship PEP 561 type information (generated *_pb2.pyi stubs) so consumers get
+# type checking and IDE autocompletion. See issue #139.
+[tool.setuptools.package-data]
+"google.transit" = ["*.pyi", "py.typed"]
