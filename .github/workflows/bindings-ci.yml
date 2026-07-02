@@ -1,0 +1,141 @@
+name: Bindings CI
+
+# Single entry point for validating the bindings on every change: it owns the
+# common PR/push trigger and orchestrates per-language tests, the cross-language
+# drift check, and the version-bump checks. (Addresses #110.)
+#
+# Each language is tested with the method best suited to it:
+#   - python : native, multi-version, via the reusable python-test.yml workflow
+#   - nodejs : native
+#   - golang : its Docker image (whose CMD regenerates + runs `go test`)
+#   - java   : its Docker image (whose CMD regenerates + runs `mvn verify`)
+
+on:
+  pull_request:
+    paths:
+      - 'gtfs-realtime.proto'
+      - 'codegen/**'
+      - 'python/**'
+      - 'golang/**'
+      - 'java/**'
+      - 'nodejs/**'
+      - 'ruby/**'
+      - '.github/workflows/bindings-ci.yml'
+      - '.github/workflows/python-test.yml'
+  push:
+    branches: [master]
+    paths:
+      - 'gtfs-realtime.proto'
+      - 'codegen/**'
+  workflow_dispatch:
+
+jobs:
+  drift-check:
+    name: Bindings match proto
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Regenerate all bindings
+        run: ./codegen/generate.sh
+
+      - name: Fail if committed bindings are stale
+        run: |
+          if ! git diff --quiet; then
+            echo "::error::Generated bindings are out of date with gtfs-realtime.proto. Run 'codegen/generate.sh' and commit the result."
+            git --no-pager diff --stat
+            exit 1
+          fi
+          echo "All bindings are up to date with gtfs-realtime.proto."
+
+  python:
+    name: Test python
+    uses: ./.github/workflows/python-test.yml
+    with:
+      python-versions: '["3.8", "3.11"]'
+      package-path: 'python'
+      test-path: 'tests'
+      debug: false
+
+  nodejs:
+    name: Test nodejs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: nodejs/package-lock.json
+
+      - name: Install dependencies
+        working-directory: nodejs
+        run: npm ci
+
+      - name: Run tests
+        working-directory: nodejs
+        run: npm test
+
+  docker-tests:
+    name: Test ${{ matrix.language }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [golang, java]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build ${{ matrix.language }} image
+        run: docker build -t gtfs-${{ matrix.language }} -f ${{ matrix.language }}/Dockerfile .
+
+      - name: Generate and test ${{ matrix.language }}
+        run: docker run --rm gtfs-${{ matrix.language }}
+
+  version-bump:
+    name: Check version bumps
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch base branch
+        run: git fetch origin "${{ github.base_ref }}"
+
+      # Only require a version bump for a language whose package actually
+      # changed in this PR. A proto/codegen/workflow-only PR (which regenerates
+      # nothing under the language dirs) must not be forced to bump versions.
+      - name: Check python version bump
+        run: |
+          if git diff --quiet "origin/${{ github.base_ref }}...HEAD" -- python/; then
+            echo "python/ unchanged in this PR; skipping version-bump check"
+            exit 0
+          fi
+          PR_VERSION=$(grep '^version' python/pyproject.toml | head -1 || true)
+          BASE_VERSION=$(git show origin/${{ github.base_ref }}:python/pyproject.toml | grep '^version' | head -1 || true)
+          echo "python -- base: $BASE_VERSION  pr: $PR_VERSION"
+          if [ "$PR_VERSION" = "$BASE_VERSION" ]; then
+            echo "::warning file=python/pyproject.toml,line=1,title=pyproject.toml version::Version in python/pyproject.toml was not bumped"
+          fi
+
+      - name: Check nodejs version bump
+        run: |
+          if git diff --quiet "origin/${{ github.base_ref }}...HEAD" -- nodejs/; then
+            echo "nodejs/ unchanged in this PR; skipping version-bump check"
+            exit 0
+          fi
+          BASE_VERSION=$(git show origin/${{ github.base_ref }}:nodejs/package.json | python3 -c "import sys,json; print(json.load(sys.stdin)['version'])")
+          PR_VERSION=$(python3 -c "import json; print(json.load(open('nodejs/package.json'))['version'])")
+          echo "nodejs -- base: $BASE_VERSION  pr: $PR_VERSION"
+          if [ "$BASE_VERSION" = "$PR_VERSION" ]; then
+            echo "::error::Version in nodejs/package.json was not bumped (still $PR_VERSION). Please bump the version."
+            exit 1
+          fi
