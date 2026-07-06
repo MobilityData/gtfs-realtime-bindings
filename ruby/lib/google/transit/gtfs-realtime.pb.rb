@@ -321,7 +321,9 @@ module Transit_realtime
   end
 
   class Alert
-    repeated ::Transit_realtime::TimeRange, :active_period, 1
+    repeated ::Transit_realtime::TimeRange, :active_period, 1, :deprecated => true
+    repeated ::Transit_realtime::TimeRange, :communication_period, 2
+    repeated ::Transit_realtime::TimeRange, :impact_period, 3
     repeated ::Transit_realtime::EntitySelector, :informed_entity, 5
     optional ::Transit_realtime::Alert::Cause, :cause, 6, :default => ::Transit_realtime::Alert::Cause::UNKNOWN_CAUSE
     optional ::Transit_realtime::Alert::Effect, :effect, 7, :default => ::Transit_realtime::Alert::Effect::UNKNOWN_EFFECT
