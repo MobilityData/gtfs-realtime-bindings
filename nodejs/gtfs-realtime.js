@@ -4157,6 +4157,8 @@ $root.transit_realtime = (function() {
          * @memberof transit_realtime
          * @interface IAlert
          * @property {Array.<transit_realtime.ITimeRange>|null} [activePeriod] Alert activePeriod
+         * @property {Array.<transit_realtime.ITimeRange>|null} [communicationPeriod] Alert communicationPeriod
+         * @property {Array.<transit_realtime.ITimeRange>|null} [impactPeriod] Alert impactPeriod
          * @property {Array.<transit_realtime.IEntitySelector>|null} [informedEntity] Alert informedEntity
          * @property {transit_realtime.Alert.Cause|null} [cause] Alert cause
          * @property {transit_realtime.Alert.Effect|null} [effect] Alert effect
@@ -4184,6 +4186,8 @@ $root.transit_realtime = (function() {
          */
         function Alert(properties) {
             this.activePeriod = [];
+            this.communicationPeriod = [];
+            this.impactPeriod = [];
             this.informedEntity = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
@@ -4198,6 +4202,22 @@ $root.transit_realtime = (function() {
          * @instance
          */
         Alert.prototype.activePeriod = $util.emptyArray;
+
+        /**
+         * Alert communicationPeriod.
+         * @member {Array.<transit_realtime.ITimeRange>} communicationPeriod
+         * @memberof transit_realtime.Alert
+         * @instance
+         */
+        Alert.prototype.communicationPeriod = $util.emptyArray;
+
+        /**
+         * Alert impactPeriod.
+         * @member {Array.<transit_realtime.ITimeRange>} impactPeriod
+         * @memberof transit_realtime.Alert
+         * @instance
+         */
+        Alert.prototype.impactPeriod = $util.emptyArray;
 
         /**
          * Alert informedEntity.
@@ -4330,6 +4350,12 @@ $root.transit_realtime = (function() {
             if (message.activePeriod != null && message.activePeriod.length)
                 for (var i = 0; i < message.activePeriod.length; ++i)
                     $root.transit_realtime.TimeRange.encode(message.activePeriod[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.communicationPeriod != null && message.communicationPeriod.length)
+                for (var i = 0; i < message.communicationPeriod.length; ++i)
+                    $root.transit_realtime.TimeRange.encode(message.communicationPeriod[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            if (message.impactPeriod != null && message.impactPeriod.length)
+                for (var i = 0; i < message.impactPeriod.length; ++i)
+                    $root.transit_realtime.TimeRange.encode(message.impactPeriod[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
             if (message.informedEntity != null && message.informedEntity.length)
                 for (var i = 0; i < message.informedEntity.length; ++i)
                     $root.transit_realtime.EntitySelector.encode(message.informedEntity[i], writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
@@ -4410,6 +4436,22 @@ $root.transit_realtime = (function() {
                         if (!(message.activePeriod && message.activePeriod.length))
                             message.activePeriod = [];
                         message.activePeriod.push($root.transit_realtime.TimeRange.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.communicationPeriod && message.communicationPeriod.length))
+                            message.communicationPeriod = [];
+                        message.communicationPeriod.push($root.transit_realtime.TimeRange.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.impactPeriod && message.impactPeriod.length))
+                            message.impactPeriod = [];
+                        message.impactPeriod.push($root.transit_realtime.TimeRange.decode(reader, reader.uint32(), undefined, _depth + 1));
                         continue;
                     }
                 case 5: {
@@ -4542,6 +4584,24 @@ $root.transit_realtime = (function() {
                         return "activePeriod." + error;
                 }
             }
+            if (message.communicationPeriod != null && message.hasOwnProperty("communicationPeriod")) {
+                if (!Array.isArray(message.communicationPeriod))
+                    return "communicationPeriod: array expected";
+                for (var i = 0; i < message.communicationPeriod.length; ++i) {
+                    var error = $root.transit_realtime.TimeRange.verify(message.communicationPeriod[i], _depth + 1);
+                    if (error)
+                        return "communicationPeriod." + error;
+                }
+            }
+            if (message.impactPeriod != null && message.hasOwnProperty("impactPeriod")) {
+                if (!Array.isArray(message.impactPeriod))
+                    return "impactPeriod: array expected";
+                for (var i = 0; i < message.impactPeriod.length; ++i) {
+                    var error = $root.transit_realtime.TimeRange.verify(message.impactPeriod[i], _depth + 1);
+                    if (error)
+                        return "impactPeriod." + error;
+                }
+            }
             if (message.informedEntity != null && message.hasOwnProperty("informedEntity")) {
                 if (!Array.isArray(message.informedEntity))
                     return "informedEntity: array expected";
@@ -4669,6 +4729,26 @@ $root.transit_realtime = (function() {
                     if (typeof object.activePeriod[i] !== "object")
                         throw TypeError(".transit_realtime.Alert.activePeriod: object expected");
                     message.activePeriod[i] = $root.transit_realtime.TimeRange.fromObject(object.activePeriod[i], _depth + 1);
+                }
+            }
+            if (object.communicationPeriod) {
+                if (!Array.isArray(object.communicationPeriod))
+                    throw TypeError(".transit_realtime.Alert.communicationPeriod: array expected");
+                message.communicationPeriod = Array(object.communicationPeriod.length);
+                for (var i = 0; i < object.communicationPeriod.length; ++i) {
+                    if (typeof object.communicationPeriod[i] !== "object")
+                        throw TypeError(".transit_realtime.Alert.communicationPeriod: object expected");
+                    message.communicationPeriod[i] = $root.transit_realtime.TimeRange.fromObject(object.communicationPeriod[i], _depth + 1);
+                }
+            }
+            if (object.impactPeriod) {
+                if (!Array.isArray(object.impactPeriod))
+                    throw TypeError(".transit_realtime.Alert.impactPeriod: array expected");
+                message.impactPeriod = Array(object.impactPeriod.length);
+                for (var i = 0; i < object.impactPeriod.length; ++i) {
+                    if (typeof object.impactPeriod[i] !== "object")
+                        throw TypeError(".transit_realtime.Alert.impactPeriod: object expected");
+                    message.impactPeriod[i] = $root.transit_realtime.TimeRange.fromObject(object.impactPeriod[i], _depth + 1);
                 }
             }
             if (object.informedEntity) {
@@ -4880,6 +4960,8 @@ $root.transit_realtime = (function() {
             var object = {};
             if (options.arrays || options.defaults) {
                 object.activePeriod = [];
+                object.communicationPeriod = [];
+                object.impactPeriod = [];
                 object.informedEntity = [];
             }
             if (options.defaults) {
@@ -4900,6 +4982,16 @@ $root.transit_realtime = (function() {
                 object.activePeriod = Array(message.activePeriod.length);
                 for (var j = 0; j < message.activePeriod.length; ++j)
                     object.activePeriod[j] = $root.transit_realtime.TimeRange.toObject(message.activePeriod[j], options);
+            }
+            if (message.communicationPeriod && message.communicationPeriod.length) {
+                object.communicationPeriod = Array(message.communicationPeriod.length);
+                for (var j = 0; j < message.communicationPeriod.length; ++j)
+                    object.communicationPeriod[j] = $root.transit_realtime.TimeRange.toObject(message.communicationPeriod[j], options);
+            }
+            if (message.impactPeriod && message.impactPeriod.length) {
+                object.impactPeriod = Array(message.impactPeriod.length);
+                for (var j = 0; j < message.impactPeriod.length; ++j)
+                    object.impactPeriod[j] = $root.transit_realtime.TimeRange.toObject(message.impactPeriod[j], options);
             }
             if (message.informedEntity && message.informedEntity.length) {
                 object.informedEntity = Array(message.informedEntity.length);
