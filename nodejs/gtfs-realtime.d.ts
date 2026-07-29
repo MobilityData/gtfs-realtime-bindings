@@ -1387,6 +1387,12 @@ export namespace transit_realtime {
         /** Alert activePeriod */
         activePeriod?: (transit_realtime.ITimeRange[]|null);
 
+        /** Alert communicationPeriod */
+        communicationPeriod?: (transit_realtime.ITimeRange[]|null);
+
+        /** Alert impactPeriod */
+        impactPeriod?: (transit_realtime.ITimeRange[]|null);
+
         /** Alert informedEntity */
         informedEntity?: (transit_realtime.IEntitySelector[]|null);
 
@@ -1444,6 +1450,12 @@ export namespace transit_realtime {
 
         /** Alert activePeriod. */
         public activePeriod: transit_realtime.ITimeRange[];
+
+        /** Alert communicationPeriod. */
+        public communicationPeriod: transit_realtime.ITimeRange[];
+
+        /** Alert impactPeriod. */
+        public impactPeriod: transit_realtime.ITimeRange[];
 
         /** Alert informedEntity. */
         public informedEntity: transit_realtime.IEntitySelector[];

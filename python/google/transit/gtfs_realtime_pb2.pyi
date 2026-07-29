@@ -8,7 +8,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Alert(_message.Message):
-    __slots__ = ["active_period", "cause", "cause_detail", "description_text", "effect", "effect_detail", "header_text", "image", "image_alternative_text", "informed_entity", "severity_level", "tts_description_text", "tts_header_text", "url"]
+    __slots__ = ["active_period", "cause", "cause_detail", "communication_period", "description_text", "effect", "effect_detail", "header_text", "image", "image_alternative_text", "impact_period", "informed_entity", "severity_level", "tts_description_text", "tts_header_text", "url"]
     class Cause(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
         __slots__ = []
     class Effect(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
@@ -21,6 +21,7 @@ class Alert(_message.Message):
     ADDITIONAL_SERVICE: Alert.Effect
     CAUSE_DETAIL_FIELD_NUMBER: _ClassVar[int]
     CAUSE_FIELD_NUMBER: _ClassVar[int]
+    COMMUNICATION_PERIOD_FIELD_NUMBER: _ClassVar[int]
     CONSTRUCTION: Alert.Cause
     DEMONSTRATION: Alert.Cause
     DESCRIPTION_TEXT_FIELD_NUMBER: _ClassVar[int]
@@ -32,6 +33,7 @@ class Alert(_message.Message):
     HOLIDAY: Alert.Cause
     IMAGE_ALTERNATIVE_TEXT_FIELD_NUMBER: _ClassVar[int]
     IMAGE_FIELD_NUMBER: _ClassVar[int]
+    IMPACT_PERIOD_FIELD_NUMBER: _ClassVar[int]
     INFO: Alert.SeverityLevel
     INFORMED_ENTITY_FIELD_NUMBER: _ClassVar[int]
     MAINTENANCE: Alert.Cause
@@ -61,18 +63,20 @@ class Alert(_message.Message):
     active_period: _containers.RepeatedCompositeFieldContainer[TimeRange]
     cause: Alert.Cause
     cause_detail: TranslatedString
+    communication_period: _containers.RepeatedCompositeFieldContainer[TimeRange]
     description_text: TranslatedString
     effect: Alert.Effect
     effect_detail: TranslatedString
     header_text: TranslatedString
     image: TranslatedImage
     image_alternative_text: TranslatedString
+    impact_period: _containers.RepeatedCompositeFieldContainer[TimeRange]
     informed_entity: _containers.RepeatedCompositeFieldContainer[EntitySelector]
     severity_level: Alert.SeverityLevel
     tts_description_text: TranslatedString
     tts_header_text: TranslatedString
     url: TranslatedString
-    def __init__(self, active_period: _Optional[_Iterable[_Union[TimeRange, _Mapping]]] = ..., informed_entity: _Optional[_Iterable[_Union[EntitySelector, _Mapping]]] = ..., cause: _Optional[_Union[Alert.Cause, str]] = ..., effect: _Optional[_Union[Alert.Effect, str]] = ..., url: _Optional[_Union[TranslatedString, _Mapping]] = ..., header_text: _Optional[_Union[TranslatedString, _Mapping]] = ..., description_text: _Optional[_Union[TranslatedString, _Mapping]] = ..., tts_header_text: _Optional[_Union[TranslatedString, _Mapping]] = ..., tts_description_text: _Optional[_Union[TranslatedString, _Mapping]] = ..., severity_level: _Optional[_Union[Alert.SeverityLevel, str]] = ..., image: _Optional[_Union[TranslatedImage, _Mapping]] = ..., image_alternative_text: _Optional[_Union[TranslatedString, _Mapping]] = ..., cause_detail: _Optional[_Union[TranslatedString, _Mapping]] = ..., effect_detail: _Optional[_Union[TranslatedString, _Mapping]] = ...) -> None: ...
+    def __init__(self, active_period: _Optional[_Iterable[_Union[TimeRange, _Mapping]]] = ..., communication_period: _Optional[_Iterable[_Union[TimeRange, _Mapping]]] = ..., impact_period: _Optional[_Iterable[_Union[TimeRange, _Mapping]]] = ..., informed_entity: _Optional[_Iterable[_Union[EntitySelector, _Mapping]]] = ..., cause: _Optional[_Union[Alert.Cause, str]] = ..., effect: _Optional[_Union[Alert.Effect, str]] = ..., url: _Optional[_Union[TranslatedString, _Mapping]] = ..., header_text: _Optional[_Union[TranslatedString, _Mapping]] = ..., description_text: _Optional[_Union[TranslatedString, _Mapping]] = ..., tts_header_text: _Optional[_Union[TranslatedString, _Mapping]] = ..., tts_description_text: _Optional[_Union[TranslatedString, _Mapping]] = ..., severity_level: _Optional[_Union[Alert.SeverityLevel, str]] = ..., image: _Optional[_Union[TranslatedImage, _Mapping]] = ..., image_alternative_text: _Optional[_Union[TranslatedString, _Mapping]] = ..., cause_detail: _Optional[_Union[TranslatedString, _Mapping]] = ..., effect_detail: _Optional[_Union[TranslatedString, _Mapping]] = ...) -> None: ...
 
 class EntitySelector(_message.Message):
     __slots__ = ["agency_id", "direction_id", "route_id", "route_type", "stop_id", "trip"]

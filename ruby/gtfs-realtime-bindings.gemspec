@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "gtfs-realtime-bindings"
-  spec.version       = "0.1.0"
+  spec.version       = "0.2.0"
   spec.authors       = ["MobilityData"]
   spec.email         = ["gtfs-realtime@googlegroups.com"]
   spec.homepage      = "https://github.com/MobilityData/gtfs-realtime-bindings"
