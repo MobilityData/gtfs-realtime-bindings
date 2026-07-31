@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["gtfs-realtime@googlegroups.com"]
   spec.homepage      = "https://github.com/MobilityData/gtfs-realtime-bindings"
   spec.summary       = %q{Ruby classes generated from the GTFS-realtime protocol buffer specification.}
-  spec.license       = 'Apache License, Version 2.0'
+  spec.license       = 'Apache-2.0'
 
   spec.files         = `git ls-files`.split($/)
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
