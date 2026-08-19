@@ -7,6 +7,12 @@ Provides Python classes generated from the
 Buffer specification.  These classes will allow you to parse a binary Protocol
 Buffer GTFS-realtime data feed into Python objects.
 
+## Breaking Changes
+
+### Version 3.0.0
+
+Version 3.0.0 requires **Python 3.10 or later** and **protobuf 7.34.0 or later**. If you are using an older version of Python or need an older protobuf runtime, please continue using version `2.x`.
+
 ## Add the Dependency
 
 To use the `gtfs-realtime-bindings` classes in your own project, you need to

@@ -53,7 +53,7 @@ jobs:
     name: Test python
     uses: ./.github/workflows/python-test.yml
     with:
-      python-versions: '["3.8", "3.11"]'
+      python-versions: '["3.10", "3.11"]'
       package-path: 'python'
       test-path: 'tests'
       debug: false
