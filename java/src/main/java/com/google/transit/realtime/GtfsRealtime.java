@@ -19565,7 +19565,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
      * <pre>
      * TranslatedImage to be displayed along the alert text. Used to explain visually the alert effect of a detour, station closure, etc. The image must enhance the understanding of the alert. Any essential information communicated within the image must also be contained in the alert text.
      * The following types of images are discouraged : image containing mainly text, marketing or branded images that add no additional information. 
-     * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
      *
      * <code>optional .transit_realtime.TranslatedImage image = 15;</code>
@@ -19576,7 +19575,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
      * <pre>
      * TranslatedImage to be displayed along the alert text. Used to explain visually the alert effect of a detour, station closure, etc. The image must enhance the understanding of the alert. Any essential information communicated within the image must also be contained in the alert text.
      * The following types of images are discouraged : image containing mainly text, marketing or branded images that add no additional information. 
-     * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
      *
      * <code>optional .transit_realtime.TranslatedImage image = 15;</code>
@@ -19587,7 +19585,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
      * <pre>
      * TranslatedImage to be displayed along the alert text. Used to explain visually the alert effect of a detour, station closure, etc. The image must enhance the understanding of the alert. Any essential information communicated within the image must also be contained in the alert text.
      * The following types of images are discouraged : image containing mainly text, marketing or branded images that add no additional information. 
-     * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
      *
      * <code>optional .transit_realtime.TranslatedImage image = 15;</code>
@@ -19598,7 +19595,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
      * <pre>
      * Text describing the appearance of the linked image in the `image` field (e.g., in case the image can't be displayed
      * or the user can't see the image for accessibility reasons). See the HTML spec for alt image text - https://html.spec.whatwg.org/#alt.
-     * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
      *
      * <code>optional .transit_realtime.TranslatedString image_alternative_text = 16;</code>
@@ -19609,7 +19605,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
      * <pre>
      * Text describing the appearance of the linked image in the `image` field (e.g., in case the image can't be displayed
      * or the user can't see the image for accessibility reasons). See the HTML spec for alt image text - https://html.spec.whatwg.org/#alt.
-     * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
      *
      * <code>optional .transit_realtime.TranslatedString image_alternative_text = 16;</code>
@@ -19620,7 +19615,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
      * <pre>
      * Text describing the appearance of the linked image in the `image` field (e.g., in case the image can't be displayed
      * or the user can't see the image for accessibility reasons). See the HTML spec for alt image text - https://html.spec.whatwg.org/#alt.
-     * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
      *
      * <code>optional .transit_realtime.TranslatedString image_alternative_text = 16;</code>
@@ -20843,7 +20837,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
      * <pre>
      * TranslatedImage to be displayed along the alert text. Used to explain visually the alert effect of a detour, station closure, etc. The image must enhance the understanding of the alert. Any essential information communicated within the image must also be contained in the alert text.
      * The following types of images are discouraged : image containing mainly text, marketing or branded images that add no additional information. 
-     * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
      *
      * <code>optional .transit_realtime.TranslatedImage image = 15;</code>
@@ -20857,7 +20850,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
      * <pre>
      * TranslatedImage to be displayed along the alert text. Used to explain visually the alert effect of a detour, station closure, etc. The image must enhance the understanding of the alert. Any essential information communicated within the image must also be contained in the alert text.
      * The following types of images are discouraged : image containing mainly text, marketing or branded images that add no additional information. 
-     * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
      *
      * <code>optional .transit_realtime.TranslatedImage image = 15;</code>
@@ -20871,7 +20863,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
      * <pre>
      * TranslatedImage to be displayed along the alert text. Used to explain visually the alert effect of a detour, station closure, etc. The image must enhance the understanding of the alert. Any essential information communicated within the image must also be contained in the alert text.
      * The following types of images are discouraged : image containing mainly text, marketing or branded images that add no additional information. 
-     * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
      *
      * <code>optional .transit_realtime.TranslatedImage image = 15;</code>
@@ -20887,7 +20878,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
      * <pre>
      * Text describing the appearance of the linked image in the `image` field (e.g., in case the image can't be displayed
      * or the user can't see the image for accessibility reasons). See the HTML spec for alt image text - https://html.spec.whatwg.org/#alt.
-     * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
      *
      * <code>optional .transit_realtime.TranslatedString image_alternative_text = 16;</code>
@@ -20901,7 +20891,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
      * <pre>
      * Text describing the appearance of the linked image in the `image` field (e.g., in case the image can't be displayed
      * or the user can't see the image for accessibility reasons). See the HTML spec for alt image text - https://html.spec.whatwg.org/#alt.
-     * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
      *
      * <code>optional .transit_realtime.TranslatedString image_alternative_text = 16;</code>
@@ -20915,7 +20904,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
      * <pre>
      * Text describing the appearance of the linked image in the `image` field (e.g., in case the image can't be displayed
      * or the user can't see the image for accessibility reasons). See the HTML spec for alt image text - https://html.spec.whatwg.org/#alt.
-     * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
      *
      * <code>optional .transit_realtime.TranslatedString image_alternative_text = 16;</code>
@@ -24513,7 +24501,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
        * <pre>
        * TranslatedImage to be displayed along the alert text. Used to explain visually the alert effect of a detour, station closure, etc. The image must enhance the understanding of the alert. Any essential information communicated within the image must also be contained in the alert text.
        * The following types of images are discouraged : image containing mainly text, marketing or branded images that add no additional information. 
-       * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
        *
        * <code>optional .transit_realtime.TranslatedImage image = 15;</code>
@@ -24526,7 +24513,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
        * <pre>
        * TranslatedImage to be displayed along the alert text. Used to explain visually the alert effect of a detour, station closure, etc. The image must enhance the understanding of the alert. Any essential information communicated within the image must also be contained in the alert text.
        * The following types of images are discouraged : image containing mainly text, marketing or branded images that add no additional information. 
-       * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
        *
        * <code>optional .transit_realtime.TranslatedImage image = 15;</code>
@@ -24543,7 +24529,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
        * <pre>
        * TranslatedImage to be displayed along the alert text. Used to explain visually the alert effect of a detour, station closure, etc. The image must enhance the understanding of the alert. Any essential information communicated within the image must also be contained in the alert text.
        * The following types of images are discouraged : image containing mainly text, marketing or branded images that add no additional information. 
-       * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
        *
        * <code>optional .transit_realtime.TranslatedImage image = 15;</code>
@@ -24565,7 +24550,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
        * <pre>
        * TranslatedImage to be displayed along the alert text. Used to explain visually the alert effect of a detour, station closure, etc. The image must enhance the understanding of the alert. Any essential information communicated within the image must also be contained in the alert text.
        * The following types of images are discouraged : image containing mainly text, marketing or branded images that add no additional information. 
-       * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
        *
        * <code>optional .transit_realtime.TranslatedImage image = 15;</code>
@@ -24585,7 +24569,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
        * <pre>
        * TranslatedImage to be displayed along the alert text. Used to explain visually the alert effect of a detour, station closure, etc. The image must enhance the understanding of the alert. Any essential information communicated within the image must also be contained in the alert text.
        * The following types of images are discouraged : image containing mainly text, marketing or branded images that add no additional information. 
-       * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
        *
        * <code>optional .transit_realtime.TranslatedImage image = 15;</code>
@@ -24612,7 +24595,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
        * <pre>
        * TranslatedImage to be displayed along the alert text. Used to explain visually the alert effect of a detour, station closure, etc. The image must enhance the understanding of the alert. Any essential information communicated within the image must also be contained in the alert text.
        * The following types of images are discouraged : image containing mainly text, marketing or branded images that add no additional information. 
-       * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
        *
        * <code>optional .transit_realtime.TranslatedImage image = 15;</code>
@@ -24631,7 +24613,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
        * <pre>
        * TranslatedImage to be displayed along the alert text. Used to explain visually the alert effect of a detour, station closure, etc. The image must enhance the understanding of the alert. Any essential information communicated within the image must also be contained in the alert text.
        * The following types of images are discouraged : image containing mainly text, marketing or branded images that add no additional information. 
-       * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
        *
        * <code>optional .transit_realtime.TranslatedImage image = 15;</code>
@@ -24645,7 +24626,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
        * <pre>
        * TranslatedImage to be displayed along the alert text. Used to explain visually the alert effect of a detour, station closure, etc. The image must enhance the understanding of the alert. Any essential information communicated within the image must also be contained in the alert text.
        * The following types of images are discouraged : image containing mainly text, marketing or branded images that add no additional information. 
-       * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
        *
        * <code>optional .transit_realtime.TranslatedImage image = 15;</code>
@@ -24662,7 +24642,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
        * <pre>
        * TranslatedImage to be displayed along the alert text. Used to explain visually the alert effect of a detour, station closure, etc. The image must enhance the understanding of the alert. Any essential information communicated within the image must also be contained in the alert text.
        * The following types of images are discouraged : image containing mainly text, marketing or branded images that add no additional information. 
-       * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
        *
        * <code>optional .transit_realtime.TranslatedImage image = 15;</code>
@@ -24688,7 +24667,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
        * <pre>
        * Text describing the appearance of the linked image in the `image` field (e.g., in case the image can't be displayed
        * or the user can't see the image for accessibility reasons). See the HTML spec for alt image text - https://html.spec.whatwg.org/#alt.
-       * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
        *
        * <code>optional .transit_realtime.TranslatedString image_alternative_text = 16;</code>
@@ -24701,7 +24679,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
        * <pre>
        * Text describing the appearance of the linked image in the `image` field (e.g., in case the image can't be displayed
        * or the user can't see the image for accessibility reasons). See the HTML spec for alt image text - https://html.spec.whatwg.org/#alt.
-       * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
        *
        * <code>optional .transit_realtime.TranslatedString image_alternative_text = 16;</code>
@@ -24718,7 +24695,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
        * <pre>
        * Text describing the appearance of the linked image in the `image` field (e.g., in case the image can't be displayed
        * or the user can't see the image for accessibility reasons). See the HTML spec for alt image text - https://html.spec.whatwg.org/#alt.
-       * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
        *
        * <code>optional .transit_realtime.TranslatedString image_alternative_text = 16;</code>
@@ -24740,7 +24716,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
        * <pre>
        * Text describing the appearance of the linked image in the `image` field (e.g., in case the image can't be displayed
        * or the user can't see the image for accessibility reasons). See the HTML spec for alt image text - https://html.spec.whatwg.org/#alt.
-       * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
        *
        * <code>optional .transit_realtime.TranslatedString image_alternative_text = 16;</code>
@@ -24760,7 +24735,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
        * <pre>
        * Text describing the appearance of the linked image in the `image` field (e.g., in case the image can't be displayed
        * or the user can't see the image for accessibility reasons). See the HTML spec for alt image text - https://html.spec.whatwg.org/#alt.
-       * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
        *
        * <code>optional .transit_realtime.TranslatedString image_alternative_text = 16;</code>
@@ -24787,7 +24761,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
        * <pre>
        * Text describing the appearance of the linked image in the `image` field (e.g., in case the image can't be displayed
        * or the user can't see the image for accessibility reasons). See the HTML spec for alt image text - https://html.spec.whatwg.org/#alt.
-       * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
        *
        * <code>optional .transit_realtime.TranslatedString image_alternative_text = 16;</code>
@@ -24806,7 +24779,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
        * <pre>
        * Text describing the appearance of the linked image in the `image` field (e.g., in case the image can't be displayed
        * or the user can't see the image for accessibility reasons). See the HTML spec for alt image text - https://html.spec.whatwg.org/#alt.
-       * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
        *
        * <code>optional .transit_realtime.TranslatedString image_alternative_text = 16;</code>
@@ -24820,7 +24792,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
        * <pre>
        * Text describing the appearance of the linked image in the `image` field (e.g., in case the image can't be displayed
        * or the user can't see the image for accessibility reasons). See the HTML spec for alt image text - https://html.spec.whatwg.org/#alt.
-       * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
        *
        * <code>optional .transit_realtime.TranslatedString image_alternative_text = 16;</code>
@@ -24837,7 +24808,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
        * <pre>
        * Text describing the appearance of the linked image in the `image` field (e.g., in case the image can't be displayed
        * or the user can't see the image for accessibility reasons). See the HTML spec for alt image text - https://html.spec.whatwg.org/#alt.
-       * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
        * </pre>
        *
        * <code>optional .transit_realtime.TranslatedString image_alternative_text = 16;</code>
@@ -35714,7 +35684,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
    * translation, the first matching translation is picked.
    * 3. If some translation has an unspecified language code, that translation is
    * picked.
-   * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
    * </pre>
    *
    * Protobuf type {@code transit_realtime.TranslatedImage}
@@ -37188,7 +37157,6 @@ public final class GtfsRealtime extends com.google.protobuf.GeneratedFile {
      * translation, the first matching translation is picked.
      * 3. If some translation has an unspecified language code, that translation is
      * picked.
-     * NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
      * </pre>
      *
      * Protobuf type {@code transit_realtime.TranslatedImage}

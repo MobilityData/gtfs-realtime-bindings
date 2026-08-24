@@ -1619,11 +1619,9 @@ type Alert struct {
 	SeverityLevel      *Alert_SeverityLevel `protobuf:"varint,14,opt,name=severity_level,json=severityLevel,enum=transit_realtime.Alert_SeverityLevel,def=1" json:"severity_level,omitempty"`
 	// TranslatedImage to be displayed along the alert text. Used to explain visually the alert effect of a detour, station closure, etc. The image must enhance the understanding of the alert. Any essential information communicated within the image must also be contained in the alert text.
 	// The following types of images are discouraged : image containing mainly text, marketing or branded images that add no additional information.
-	// NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
 	Image *TranslatedImage `protobuf:"bytes,15,opt,name=image" json:"image,omitempty"`
 	// Text describing the appearance of the linked image in the `image` field (e.g., in case the image can't be displayed
 	// or the user can't see the image for accessibility reasons). See the HTML spec for alt image text - https://html.spec.whatwg.org/#alt.
-	// NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
 	ImageAlternativeText *TranslatedString `protobuf:"bytes,16,opt,name=image_alternative_text,json=imageAlternativeText" json:"image_alternative_text,omitempty"`
 	// Description of the cause of the alert that allows for agency-specific language; more specific than the Cause. If cause_detail is included, then Cause must also be included.
 	// NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
@@ -2329,8 +2327,6 @@ func (x *TranslatedString) GetTranslation() []*TranslatedString_Translation {
 //     translation, the first matching translation is picked.
 //  3. If some translation has an unspecified language code, that translation is
 //     picked.
-//
-// NOTE: This field is still experimental, and subject to change. It may be formally adopted in the future.
 type TranslatedImage struct {
 	state           protoimpl.MessageState
 	sizeCache       protoimpl.SizeCache
