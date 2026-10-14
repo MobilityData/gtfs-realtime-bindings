@@ -52,14 +52,14 @@ _codegen() {
 
 gen_python() {
   _codegen python python/Dockerfile \
-    'protoc --python_out=google/transit --pyi_out=google/transit --proto_path=.. gtfs-realtime.proto' \
+    'protoc --python_out=google/transit --pyi_out=google/transit --proto_path=/ gtfs-realtime.proto' \
     '/lib/google/transit/gtfs_realtime_pb2.py:python/google/transit/gtfs_realtime_pb2.py' \
     '/lib/google/transit/gtfs_realtime_pb2.pyi:python/google/transit/gtfs_realtime_pb2.pyi'
 }
 
 gen_golang() {
   _codegen golang golang/Dockerfile \
-    'protoc --go_out=./ --go_opt=Mgtfs-realtime.proto=./gtfs --proto_path=.. gtfs-realtime.proto' \
+    'protoc --go_out=./ --go_opt=Mgtfs-realtime.proto=./gtfs --proto_path=/ gtfs-realtime.proto' \
     '/lib/gtfs/gtfs-realtime.pb.go:golang/gtfs/gtfs-realtime.pb.go'
 }
 
