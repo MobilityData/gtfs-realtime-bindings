@@ -47,3 +47,30 @@ from the
 check out the
 [Python Generated Code](https://developers.google.com/protocol-buffers/docs/reference/python-generated)
 section of the Protocol Buffers developer site.
+
+## A Common Gotcha: Optional Fields Agencies Leave Empty
+
+The spec marks several `TripDescriptor` fields optional, and in practice not
+every agency populates all of them. For example, BART's own TripUpdates feed
+leaves `trip.route_id` as an empty string on every entity:
+
+```python
+feed = gtfs_realtime_pb2.FeedMessage()
+feed.ParseFromString(response.content)
+for entity in feed.entity:
+    tu = entity.trip_update
+    print(repr(tu.trip.route_id))  # '' for every entity in BART's feed
+```
+
+If your code needs the route for a realtime trip update, don't assume this
+field is populated -- check `HasField`/truthiness first, and fall back to
+joining `trip.trip_id` against the agency's static `trips.txt` (which always
+has `route_id`) when the realtime field comes back empty:
+
+```python
+route_id = tu.trip.route_id or static_trip_id_to_route.get(tu.trip.trip_id)
+```
+
+This isn't a bug in this library or in BART's feed -- both are spec-compliant,
+since the field is optional. It's just easy to miss until a feed you didn't
+expect to omit it does.
