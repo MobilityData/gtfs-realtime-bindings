@@ -1,4 +1,4 @@
-FROM python:3.11.1
+FROM python:3.11-bookworm
 
 WORKDIR /lib
 
@@ -19,4 +19,4 @@ RUN mkdir tests
 COPY python/tests/test_gtfs_realtime_pb2.py /lib/tests/test_gtfs_realtime_pb2.py
 COPY python/tests/vehicle_position.pb /lib/tests/vehicle_position.pb
 
-CMD protoc --python_out=google/transit --proto_path=.. gtfs-realtime.proto && nose2
+CMD protoc --python_out=google/transit --proto_path=/ gtfs-realtime.proto && nose2
