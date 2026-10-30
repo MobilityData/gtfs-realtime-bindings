@@ -45,13 +45,16 @@ func main() {
 
     client := &http.Client{}
     req, err := http.NewRequest("GET", "URL OF YOUR GTFS-REALTIME SOURCE GOES HERE", nil)
-    req.SetBasicAuth(username, password)
-    resp, err := client.Do(req)
-    defer resp.Body.Close()
     if err != nil {
         log.Fatal(err)
     }
-    body, err := ioutil.ReadAll(resp.Body)
+    req.SetBasicAuth(username, password)
+    resp, err := client.Do(req)
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer resp.Body.Close()
+    body, err := io.ReadAll(resp.Body)
     if err != nil {
         log.Fatal(err)
     }
