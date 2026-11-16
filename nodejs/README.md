@@ -16,6 +16,10 @@ JavaScript Protocol Buffer support.
 
 ## Breaking Changes
 
+### Version 3.0.0
+
+Version 3.0.0 requires **Node.js 24.22.3 or later** (patched for the [November 2026 Node.js security releases](https://nodejs.org/en/blog/vulnerability/november-2026-security-releases)). If you are using Node.js 22, please continue using version `2.x`.
+
 ### Version 2.0.0
 
 Version 2.0.0 requires **Node.js 22 or later**. If you are using an older version of Node.js, please continue using version `1.x`.
