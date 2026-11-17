@@ -35,11 +35,17 @@ published as packages to facilitate their use in other projects.
 * [Python](python/README.md)
 * [Golang](golang/README.md)
 * ~~[Ruby](ruby/README.md)~~ *(Deprecated as of early 2019)*
-* ~~[PHP](https://github.com/google/gtfs-realtime-bindings-php)~~ *(Deprecated as of early 2019)*
+* ~~[PHP](https://github.com/google/gtfs-realtime-bindings-php)~~ *(Deprecated as of early 2019; see [Third-Party Bindings](#third-party-bindings))*
 
 ## Other Languages
 
 We don't provide generated code for C++, use the official protoc compiler for that (from [here](https://developers.google.com/protocol-buffers/docs/downloads) or [here](https://github.com/google/protobuf))
+
+### Third-Party Bindings
+
+These bindings are maintained outside this project:
+
+* PHP: [gtfs-realtime-php](https://github.com/FivePaths/gtfs-realtime-php), published on Packagist as [`gtfs-media/gtfs-realtime-php`](https://packagist.org/packages/gtfs-media/gtfs-realtime-php)
 
 Are we missing your favorite language? Consider contributing:
 
